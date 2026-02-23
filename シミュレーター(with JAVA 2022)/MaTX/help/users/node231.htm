@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>画面表示／コマンド入力ループ関数</TITLE>
+<META NAME="description" CONTENT="画面表示／コマンド入力ループ関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node232.htm">
+<LINK REL="previous" HREF="node230.htm">
+<LINK REL="up" HREF="node228.htm">
+<LINK REL="next" HREF="node232.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3536"
+ HREF="node232.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3532"
+ HREF="node228.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3526"
+ HREF="node230.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3534"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3535"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3537"
+ HREF="node232.htm">実験装置のインターフェース関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3533"
+ HREF="node228.htm">プログラムの動作</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3527"
+ HREF="node230.htm">リアルタイム処理関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002643000000000000000">
+画面表示／コマンド入力ループ関数</A>
+</H2><FONT SIZE="-1">
+画面表示／コマンド入力ループ関数<TT>off_task_loop()</TT>の例を次に示す。
+<A NAME="13377">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void off_task_loop()
+{
+  Integer end_flag;
+
+  end_flag = 0;
+  do {
+    if (rtIsTimeOut()) {  // タイムアウトのチェック
+      warning("Time Out\n");
+      break;
+    }
+
+    gotoxy(5, 11);        // 観測出力の表示
+    printf("y1 = %f[m] y2 = %f[rad]", y(1), y(2));
+
+    if (kbhit()) {        // コマンド入力
+      switch (getch()) {
+        case 0x1b:        // ESCキーが押されると
+          end_flag = 1;   // ループが終了する
+          break;
+        default:
+          break;
+      }
+    }
+  } while (end_flag == 0);
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><UL>
+<LI>関数<TT>rtIsTimeOut()</TT>はサンプリング時間内にリアルタイム処理が
+      終了したかどうかを調べる。処理が終了しなかった場合は，警告を出力
+      して関数を終了する。
+<LI><TT>ESC</TT>キーが押されるとループが終了し，関数も終了する。
+<LI>関数<TT>gotoxy()</TT>はプロンプトを移動する。
+<LI>関数<TT>kbhit()</TT>はキーボードが押されたかどうか調べる。
+<LI>関数<TT>getch()</TT>は押されたキーの値を読み込む
+<LI><TT>gotoxy()</TT>，<TT>kbhit()</TT>，<TT>getch()</TT>はCコンパイラ付属の
+      関数である。
+</UL>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

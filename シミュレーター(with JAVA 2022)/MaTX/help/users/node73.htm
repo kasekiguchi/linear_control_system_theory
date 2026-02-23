@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>1個のウィンドウに複数のグラフ</TITLE>
+<META NAME="description" CONTENT="1個のウィンドウに複数のグラフ">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node74.htm">
+<LINK REL="previous" HREF="node72.htm">
+<LINK REL="up" HREF="node69.htm">
+<LINK REL="next" HREF="node74.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1504"
+ HREF="node74.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1500"
+ HREF="node69.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1494"
+ HREF="node72.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1502"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1503"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1505"
+ HREF="node74.htm">ウィンドウのクリアと消去</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1501"
+ HREF="node69.htm">gnuplot</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1495"
+ HREF="node72.htm">対数プロット</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00914000000000000000">
+1個のウィンドウに複数のグラフ</A>
+</H2><FONT SIZE="-1">
+<A NAME="4247">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1"><TT>mgplot_subplot(win,m,n,p)</TT>は，ウィンドウ<TT>win</TT>を<TT>m</TT>行
+<TT>n</TT>列の長方形に面に分割し，<TT>p</TT>番目の面をカレント面にする。
+これ以後，<TT>mgplot()</TT>関連の全ての操作はこの面に対して行われる。
+面はウィンドウの一番上の行の左から右に，上から下の行に向かって
+数える。<TT>mgplot_subplot(win,m,n,p)</TT>は，指定した位置にすでに
+面が存在していれば，その面をカレント面にする。
+<TT>mgplot(win,1,1)</TT>または<TT>mgplot(win,1,1,1)</TT>は
+ウィンドウに存在している全ての面を消去し，ウィンドウ全体を
+1個の面にする。1個ウィンドウを4分割し，4個の異なるグラフをプロット
+する例を以下に示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  w = linspace(-PI,PI);
+  s = sin(w);
+  c = cos(w);
+  mgplot_subplot(1,2,2,1); mgplot(1,w,s);
+  mgplot_subplot(1,2,2,2); mgplot(1,w,c);
+  mgplot_subplot(1,2,2,3); mgplot(1,w,2*s);
+  mgplot_subplot(1,2,2,4); mgplot(1,w,2*c);
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>この例では，左上に<TT>sin(x)</TT>，右上に<TT>cos(x)</TT>，左下に<TT>sin(2x)</TT>，
+右したに<TT>cos(2x)</TT>が表示される。<TT>gnuplot_subplot()</TT>を使用する
+には，<I>gnuplot 3.5 (pre 3.6)</I><A NAME="tex2html27"
+ HREF="footnode.htm#foot4248"><SUP>6.1</SUP></A>が必要である。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="4249">&#160;</A>
+</FONT>
+<BR>
+<DIV ALIGN="CENTER">
+
+<A NAME="tbl:gnuplot_five">&#160;</A>
+<DIV ALIGN="CENTER">
+<A NAME="4250">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 6.5:</STRONG>
+グラフィック関数5(<I> gnuplot</I>)</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>関数名</TD>
+<TD ALIGN="CENTER" COLSPAN=1>引数</TD>
+<TD ALIGN="CENTER" COLSPAN=1>
+機能</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_subplot(rows,cols,num)</TD>
+<TD ALIGN="LEFT">Integer rows</TD>
+<TD ALIGN="LEFT">ウィンドウを</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">Integer cols</TD>
+<TD ALIGN="LEFT">rows x colsに分割</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">Integer num</TD>
+<TD ALIGN="LEFT">num番目をカレント面</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">に設定。</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_subplot(win,rows,cols,num)</TD>
+<TD ALIGN="LEFT">Integer win</TD>
+<TD ALIGN="LEFT">ウィンドウを</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">Integer rows</TD>
+<TD ALIGN="LEFT">rows x colsに分割</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">Integer cols</TD>
+<TD ALIGN="LEFT">num番目をカレント面</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">Integer num</TD>
+<TD ALIGN="LEFT">に設定。</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

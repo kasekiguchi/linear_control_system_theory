@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>qr_p</TITLE>
+<META NAME="description" CONTENT="qr_p">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node169.htm">
+<LINK REL="previous" HREF="node167.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node169.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2617"
+ HREF="node169.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2614"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2608"
+ HREF="node167.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2616"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2618"
+ HREF="node169.htm">quit</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2615"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2609"
+ HREF="node167.htm">qr</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004164000000000000000">&#160;</A><A NAME="man_qr_p">&#160;</A>
+<BR>
+qr_p
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>qr_p - 並べ替え付きQR分解
+<DT>【形式】
+<DD><PRE>
+{Q,R,P} = qr_p(A)
+   Matrix Q,R,P;
+   Matrix A;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>qr_p()は，行列 A の並べ替え付き</FONT><FONT SIZE="-1">QR分解を求める。この分解は，
+正方行列にも非正方行列にも行える。
+{Q,R,P} = qr_p(A)は，A と同じ大きさの上三角行列 R と直交行列
+(ユニタリ行列) Q，置換行列 P を求める。これらの行列の間には，
+A * P = Q * R，Q# * Q = I の関係がある。上三角行列 R の対角成分
+は，減少する順に並べられる。
+<DT>【算法】
+<DD>文献 1 の算法を使う。
+<DT>【例題】
+<DD>4 * 3 の行列 A の並べ替え付き</FONT><FONT SIZE="-1">QR分解を求める。</FONT><PRE>
+&gt;&gt; A = [[1 2 3][4 5 6][7 8 9][10 11 12]];
+&gt;&gt; {Q,R} = qr_p(A);
+&gt;&gt; print Q,R,P;
+=== [Q] : (  4,  4) ===
+           (  1)         (  2)         (  3)         (  4)     
+(  1) -1.825741E-01 -8.164965E-01  3.471390E-01 -4.236678E-01
+(  2) -3.651483E-01 -4.082482E-01 -1.470686E-01  8.236326E-01
+(  3) -5.477225E-01 -4.996003E-16 -7.472798E-01 -3.762617E-01
+(  4) -7.302967E-01  4.082482E-01  5.472094E-01 -2.370309E-02
+=== [R] : (  4,  3) ===
+           (  1)         (  2)         (  3)     
+(  1) -1.643167E+01 -1.278019E+01 -1.460593E+01
+(  2)  0.000000E+00  1.632993E+00  8.164965E-01
+(  3)  0.000000E+00  0.000000E+00  8.400361E-16
+(  4)  0.000000E+00  0.000000E+00  0.000000E+00
+=== [P] : (  3,  3) ===
+           (  1)         (  2)         (  3)     
+(  1)  0.000000E+00  1.000000E+00  0.000000E+00
+(  2)  0.000000E+00  0.000000E+00  1.000000E+00
+(  3)  1.000000E+00  0.000000E+00  0.000000E+00
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>hess(<A HREF="node90.htm#man_hess">2.91</A>), qr(<A HREF="node167.htm#man_qr">2.168</A>), qz(<A HREF="node170.htm#man_qz">2.171</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参考文献】
+<DD></FONT></FONT></FONT><DL COMPACT>
+<DT>1.
+<DD>Gene H. Golub and Charles F. Van Loan.  Matrix Computations.
+The Johns Hopkins University Press, 1989
+</DL><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

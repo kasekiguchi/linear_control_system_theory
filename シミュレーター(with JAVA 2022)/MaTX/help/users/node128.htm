@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>多項式の係数の参照</TITLE>
+<META NAME="description" CONTENT="多項式の係数の参照">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node129.htm">
+<LINK REL="previous" HREF="node127.htm">
+<LINK REL="up" HREF="node125.htm">
+<LINK REL="next" HREF="node129.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2192"
+ HREF="node129.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2188"
+ HREF="node125.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2182"
+ HREF="node127.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2190"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2191"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2193"
+ HREF="node129.htm">多項式の評価</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2189"
+ HREF="node125.htm">多項式</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2183"
+ HREF="node127.htm">複素多項式</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001630000000000000000">&#160;</A>
+<A NAME="7003">&#160;</A>
+<BR>
+多項式の係数の参照
+</H1><FONT SIZE="-1">
+多項式の名前の次に次数を丸括弧 <TT>(</TT> と <TT>)</TT> で囲むことによって
+多項式の係数を参照することができる。
+ただし，複素多項式の係数には実数と複素数を代入できるが，実多項式の係数には
+実数しか代入できない。
+また，定義されている次数以上の係数を参照することはできない。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  r1 = P1(1);   // 実多項式P1の1次の係数
+  c1 = CP1(2);  // 複素多項式CP1の1次の係数
+  P1(0) = r2;   // 実数r1を多項式P1の0次の係数に代入
+  CP1(3) = c2;  // 複素数c1を多項式CP1の3次の係数に代入
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

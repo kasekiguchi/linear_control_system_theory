@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>状態フィードバック制御のシミュレーション (2)</TITLE>
+<META NAME="description" CONTENT="状態フィードバック制御のシミュレーション (2)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node198.htm">
+<LINK REL="previous" HREF="node196.htm">
+<LINK REL="up" HREF="node195.htm">
+<LINK REL="next" HREF="node198.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3096"
+ HREF="node198.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3092"
+ HREF="node195.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3086"
+ HREF="node196.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3094"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3095"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3097"
+ HREF="node198.htm">動的フィードバック制御のシミュレーション</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3093"
+ HREF="node195.htm">連続系システムのシミュレーション</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3087"
+ HREF="node196.htm">状態フィードバック制御のシミュレーション (1)</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002052000000000000000">&#160;</A>
+<A NAME="10914">&#160;</A>
+<BR>
+状態フィードバック制御のシミュレーション (2)
+</H2><FONT SIZE="-1">
+前と同じ連続システムに対して，4次のルンゲ−クッタの公式を直接使って
+ハイブリッド制御(きざみを小さくすれば，連続時間制御と考えることもできる)
+のシミュレーションを行なう。
+<A NAME="10945">&#160;</A>
+</FONT>
+<P><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void main()
+{
+  Integer i, ii;
+  Real dt, t, t1, t2;
+  Matrix x, u, controller();
+  Array X, U;
+  void plant();
+
+  t1 = 0.0;      // 初期時刻
+  t2 = 5.0;      // 終端時刻
+  dt = 0.01;     // きざみ
+  ii = Integer((t2 - t1) / dt);
+
+  x = [1 1 1]';  // 初期状態
+  u = [0];
+
+  X = Z(1, ii, x);
+  U = Z(1, ii, u);
+
+  t = t1;
+  X(0, 0, x) = x;
+
+  for (i = 1; i &lt; ii; i++) {
+    u = controller(t, x);
+    x = rngkut4(t, x, plant, u, dt);
+
+    U(0, i-1, u) = u;
+    X(0, i, x) = x;
+    t = t + dt;
+  }
+  u = controller(t, x);
+  U(0, ii-1, u) = u;
+
+  print [[X][U]] &gt;&gt; "cont.mat";
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+</FONT>
+<P><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void plant(dx, t, x, u)
+  Real t;
+  Matrix x, dx, u;
+{
+  Matrix A, b;
+
+  A = [[ 0   1   0]   // システム行列
+       [ 0   0   1]
+       [-2, -3, -4]];
+
+  b = [0 0 1]';       // 入力行列
+
+  dx = A*x + b*u;     // 状態方程式
+}
+
+Func Matrix controller(t, x)
+  Real t;
+  Matrix x;
+{
+  Matrix f, u;
+
+  f = [-1, -1, -1];   // 状態フィードバック則
+  u = f*x;
+  return u;
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+List 6:&nbsp;&nbsp;&nbsp;&nbsp;状態フィードバックのシミュレーション (2)
+</FONT></DIV>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

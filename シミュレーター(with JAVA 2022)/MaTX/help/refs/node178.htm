@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>reshape</TITLE>
+<META NAME="description" CONTENT="reshape">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node179.htm">
+<LINK REL="previous" HREF="node177.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node179.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2727"
+ HREF="node179.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2724"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2718"
+ HREF="node177.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2726"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2728"
+ HREF="node179.htm">return</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2725"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2719"
+ HREF="node177.htm">require</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004174000000000000000">&#160;</A><A NAME="man_reshape">&#160;</A>
+<BR>
+reshape
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>reshape - 行列の大きさの変更
+<DT>【形式】
+<DD><PRE>
+Y = reshape(X,m,n)
+   (Matrix|Array) Y;
+   (Matrix|Array) X;
+   Integer m,n;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>reshape(X,m,n)は(行列|配列) X を m 行 n 列に変換する。成分は，
+X の行方向の成分順に並べ替えられる。X が m * n 個の成分を
+もっていないと，エラーになる。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; X = [[1 2 3][4 5 6]];
+&gt;&gt; Y = reshape(X, 3, 2)
+=== [Y] : (  3,  2) ===
+           (  1)           (  2)     
+(  1)  1.00000000E+00  2.00000000E+00
+(  2)  3.00000000E+00  4.00000000E+00
+(  3)  5.00000000E+00  6.00000000E+00
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>fliplr(<A HREF="node72.htm#man_fliplr">2.72</A>), flipud(<A HREF="node73.htm#man_flipud">2.73</A>), rot90(<A HREF="#man_rot90"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="cross_ref_motif.gif"></A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>プログラミング言語 MATX</TITLE>
+<META NAME="description" CONTENT="プログラミング言語 MATX">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node6.htm">
+<LINK REL="previous" HREF="node4.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node6.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html616"
+ HREF="node6.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html612"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html606"
+ HREF="node4.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html614"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html615"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html617"
+ HREF="node6.htm">MATXの構造</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html613"
+ HREF="node4.htm">はじめに</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html607"
+ HREF="node4.htm">はじめに</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00410000000000000000">
+プログラミング言語 MATX</A>
+</H1>
+制御系の設計において外乱やプラントパラメータの変化に対する閉ループ系の
+<B>シミュレーション</B>を行なうことは重要であるので，
+制御系設計に計算機を使用することはシミュレーションから始まった。
+代表的なものに非線形システムのシミュレーションを行なうために開発された
+Simnon[<A
+ HREF="node201.htm#Astrom:83:cam">1</A>]がある。残念ながらSimnonは行列演算を効率良く
+記述することができなかった。
+制御系の解析・設計におけるベクトルや行列演算
+を簡単に行ないたいという要望から行列を基本データ構造とする言語
+Matlab[<A
+ HREF="node201.htm#Moler:80:mug">13</A>]やMatrixx[<A
+ HREF="node201.htm#Walker:82:mad">17</A>]が生まれた。
+MatlabやMatrixxは，LinpackやEispack等の信頼性のある行列計算アルゴリズム
+を元に構築された行列演算言語であり，紙に書いた行列演算をほとんどそのまま
+プログラムとして使用できるという記述性の良さから近年多く使用されるよう
+になった。
+
+<P>
+MATXは行列の演算や成分の操作法について
+Cleve Molerらによって開発されたMatlab言語<A NAME="252">&#160;</A>
+[<A
+ HREF="node201.htm#Moler:87:pmu">12</A>,<A
+ HREF="node201.htm#Moler:80:mug">13</A>]と
+いくつかの特徴的性質を共有している。
+しかしながら，Matlabはデータの型を「区別しない」言語であり，
+唯一のデータ型は行列であり，他の型のデータの演算や操作をするには，
+特別な演算子を使うか関数を呼び出さなければならない。
+一方，MATXはデータの型を「区別した」言語である。
+データ型には，整数，実数，複素数，文字列，多項式，有理多項式，行列，配列，
+リストがあり，行列，配列，多項式，有理多項式，リストは次数指定を必要としない。
+
+<P>
+MATXは数値解析だけでなく数式処理も行なえ，方程式の解を求めたり，
+多項式や有理多項式の導関数や不定積分を計算できる。
+MATXの文法の根幹となる制御の流れや関数やプログラム構造は，C言語
+から受け継がれている。C言語は，PDP-11上でDennis M.Ritchieによって開発された
+プログラミングである<A NAME="257">&#160;</A>
+[<A
+ HREF="node201.htm#Kernighan:78:tcp">7</A>,<A
+ HREF="node201.htm#Ishida:81:pgc">20</A>,<A
+ HREF="node201.htm#Kernighan:88:tcp">8</A>,<A
+ HREF="node201.htm#Ishida:89:pgc">22</A>]。
+MATXはすべてC言語で記述されており，特に，構文解析部は構文解析部生成言語
+として有名な<B>yacc</B>を用いて作成されている
+[<A
+ HREF="node201.htm#Kondo:90:ync">18</A>,<A
+ HREF="node201.htm#Ishida:85:upk">21</A>]。 <A NAME="385">&#160;</A>
+
+<P>
+Matlabは，インタプリタであるためFortranやCで作成されたプログラムに比べて，
+複雑な計算の繰り返しなどに時間がかかる。
+そのため，Matlabは特別なインターフェースをもっていて，
+別にコンパイルしてリンクされたFortranやCのルーチン(mex-files)を
+Matlab環境から普通のm-fileのように呼び出すことができる。
+m-fileによるアルゴリズムの実現の速度が十分でない時に，この機能は有効である。
+しかしながら，mex-fileの作成は簡単な作業ではなく，MatlabとFortranの間で
+関数のパラメータを交換するための特別なgateway functionを書かなけれ
+ばならない。
+
+<P>
+MATXは対話型処理を行なう<B>インタプリタ</B>だけでなく，
+<B>コンパイラ</B>も提供している。インタプリタを<I>matx</I>，
+コンパイラを<I>matc</I>と呼ぶ。パッケージ全体を表す時はMATXと書いて
+インタプリタ(<I>matx</I>)と区別する。
+コンパイラ(<I>matc</I>)は，インタプリタ(<I>matx</I>)と同じプログラムを
+処理することができ，
+与えられたプログラムから移植性の良いC言語のコードを生成する。
+プログラムを拡張するためには，アルゴリズムを<B>mmファイル</B>の中に
+関数として実現する。
+<A NAME="273">&#160;</A><A NAME="274">&#160;</A>
+<A NAME="275">&#160;</A>
+この過程は，<I>matx</I>を使って対話的に途中経過をチェックしながら行なえる。
+関数が完成した後，<I>matc</I>を使ってコンパイルし，実行プログラムを作る
+ことができる。C言語のファイルを<I>matc</I>の出力コードにリンクすることによって，
+C言語の関数をMATXの関数から簡単に呼び出すことができる。
+このおかげで，既存の膨大なC言語のルーティンを利用することができ，
+計算速度が上がり，メモリ効率を良く使用できる。
+<A NAME="386">&#160;</A><A NAME="387">&#160;</A>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

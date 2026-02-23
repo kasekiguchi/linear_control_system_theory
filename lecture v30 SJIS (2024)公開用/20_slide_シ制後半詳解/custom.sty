@@ -1,0 +1,49 @@
+\newcounter{chap}
+\newcounter{sec}
+\newcommand{\chapsec}{\arabic{chap}.\arabic{sec}}
+\renewcommand{\theequation}{\arabic{chap}.\arabic{equation}}
+%
+% 図や表の名前を変える
+%
+\renewcommand{\thefigure}{\arabic{chap}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chap}.\arabic{table}}
+\renewcommand{\figurename}{\bfseries Fig. \arabic{chap}.\arabic{figure}}
+% ここは結構ゴリおし．番号がどうしても出なかった．
+\renewcommand{\tablename}{\bfseries Table}
+
+%
+% 章扉のページ
+%
+\newcommand{\chap}[1]{
+	\setcounter{equation}{0}
+	\setcounter{figure}{0}
+	\setcounter{table}{0}
+	\stepcounter{chap}
+	\vspace{2cm}
+
+	\frame{
+		\begin{center}%\mbox{}\bfseries\large\green
+		{\large \textcolor{blue}{第\arabic{chap}章 #1}}
+		\end{center}
+	}
+}
+%
+% 色をつける
+%
+%\newcommand{\Red}[1]{{\red #1}}
+\newcommand{\Red}[1]{\textcolor{red}{#1}}
+\newcommand{\Blue}[1]{\textcolor{blue}{#1}}
+%
+% Local definition
+%
+\def\defeq{\stackrel{\rm def}{=}}
+\def\rank{\mathop{\rm rank}\nolimits}
+\def\Re{\mathop{\rm Re}\nolimits}
+\def\Im{\mathop{\rm Im}\nolimits}
+\def\det{\mathop{\rm det}\nolimits}
+\def\adj{\mathop{\rm adj}\nolimits}
+\def\Span{\mathop{\rm span}\nolimits}
+\newenvironment{mytheorem}
+{\vspace{1zw}\noindent {\gtfamily 定理} \itshape}
+{\vspace{1zw}}
+

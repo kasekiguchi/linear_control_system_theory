@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>ファイルの読み込み</TITLE>
+<META NAME="description" CONTENT="ファイルの読み込み">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node46.htm">
+<LINK REL="previous" HREF="node44.htm">
+<LINK REL="up" HREF="node44.htm">
+<LINK REL="next" HREF="node46.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1135"
+ HREF="node46.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1131"
+ HREF="node44.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1125"
+ HREF="node44.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1133"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1134"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1136"
+ HREF="node46.htm">マクロ置換</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1132"
+ HREF="node44.htm">プリプロセッサ</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1126"
+ HREF="node44.htm">プリプロセッサ</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION006261000000000000000">
+ファイルの読み込み</A>
+</H2>
+<A NAME="1983">&#160;</A>
+ファイルの読み込み機能は，マクロ定義<TT>#define</TT>の集合や変数の
+宣言などの取り扱いを容易にするためのものである。
+次の形のソ−ス行
+<BR CLEAR="ALL">
+<HR><PRE>
+  #include "filename.mm"
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+は，ファイル<TT>filename.mm</TT>の内容と置き換えられる。
+<TT>filename.mm</TT>に引用符がついているときには，そのファイルの探索は，
+元のソ−スファイルのあるディレクトリから始められる。
+次のように<TT>filename.mm</TT>が<TT>&lt;</TT>と<TT>&gt;</TT>で囲まれている場合には，
+コンパイラ(インタプリタ)の規則に従ってそのファイルの探索が行なわれる。
+<BR CLEAR="ALL">
+<HR><PRE>
+  #include &lt;filename.mm&gt;
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

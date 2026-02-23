@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>MATデータフォーマット</TITLE>
+<META NAME="description" CONTENT="MATデータフォーマット">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node204.htm">
+<LINK REL="previous" HREF="node202.htm">
+<LINK REL="up" HREF="node202.htm">
+<LINK REL="next" HREF="node204.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3168"
+ HREF="node204.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3164"
+ HREF="node202.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3158"
+ HREF="node202.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3166"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3167"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3169"
+ HREF="node204.htm">MXデータフォーマット</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3165"
+ HREF="node202.htm">データフォーマット</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3159"
+ HREF="node202.htm">データフォーマット</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002310000000000000000">&#160;</A>
+<A NAME="11463">&#160;</A>
+<BR>
+MATデータフォーマット
+</H1><DL COMPACT>
+<DT>1.
+<DD>ファイルの第1行目は<TT>#</TT>で始まり，行数(整数)，列数(整数)が続き，
+複素行列のデータの場合には次に大文字の<TT>C</TT>が続く。
+<DT>2.
+<DD>データはスペース，タブ，改行のいずれかで区切られる。
+<DT>3.
+<DD><TT>#</TT>で始まる行はコメントと見なされる。
+<DT>4.
+<DD>行末にある必要以上のデータは無視される。
+</DL><FONT SIZE="-1">実行列
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\left[\begin{array}{rrrr}
+1 &  2 &  3 &  4\\
+5 &  6 &  7 &  8\\
+9 & 10 & 11 & 12
+\end{array}\right]
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="131" HEIGHT="78"
+ SRC="img44.gif"
+ ALT="\begin{displaymath}\left[\begin{array}{rrrr}
+1 & 2 & 3 & 4\\
+5 & 6 & 7 & 8\\
+9 & 10 & 11 & 12
+\end{array}\right]
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+をファイルに保存すると</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+# 3 4
+  1.0000   5.0000   9.0000
+  2.0000   6.0000   10.000
+  3.0000   7.0000   11.000
+  4.0000   8.0000   12.000
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>となり，複素行列
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\left[\begin{array}{rrr}
+1 + 2i & 3 +  4i &  5 +  6i\\
+7 + 8i & 9 + 10i & 11 + 12i
+\end{array}\right]
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="204" HEIGHT="54"
+ SRC="img45.gif"
+ ALT="\begin{displaymath}\left[\begin{array}{rrr}
+1 + 2i & 3 + 4i & 5 + 6i\\
+7 + 8i & 9 + 10i & 11 + 12i
+\end{array}\right]
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+をファイルに保存すると，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+# 2 3 C
+  1.0000   2.0000   7.0000   8.0000
+  3.0000   4.0000   9.0000   10.000
+  5.0000   6.0000   11.000   12.000
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>となる。フォーマット規則の３と４より，次のようなファイルを読み込むことも
+できる。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+# 2 2
+#
+# This file contains data of simulation (1)
+#
+1.00 2.00  # This is the end of first column
+# This line is commented out.
+3.00 4.00  # This is the end of second column
+#
+# End of file
+#
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>require</TITLE>
+<META NAME="description" CONTENT="require">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node178.htm">
+<LINK REL="previous" HREF="node176.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node178.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2716"
+ HREF="node178.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2713"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2707"
+ HREF="node176.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2715"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2717"
+ HREF="node178.htm">reshape</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2714"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2708"
+ HREF="node176.htm">rem</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004173000000000000000">&#160;</A><A NAME="man_require">&#160;</A>
+<BR>
+require
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>require - 関数をファイルに関連づける
+<DT>【形式】
+<DD><PRE>
+type func() require "file";
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>関数宣言を require 修飾子付で行うと，その関数が定義されている
+ファイルを指示できる。例えば，</FONT><PRE>
+    void mg_main(), mg_sub1(), mg_sub2() require "mg.mm";
+</PRE><FONT SIZE="-1"><FONT SIZE="-1">は，関数 mg_main()，mg_sub1()，mg_sub2()がファイル mg.mm で定義
+されていることを宣言する。この宣言により，どの関数が呼ばれても，
+自動的にファイル mg.mm が読み込まれる。ファイルが 1 度読み込まれ
+れば，別の関数が呼ばれても mg.mm が再び読み込まれることはない。
+<DT>【例題】
+<DD></FONT></FONT><PRE>
+Matrix PoleAsignSISO() require "poleasgn.mm";
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT></FONT>
+<DIV><TT>extern(<A HREF="node63.htm#man_extern">2.62</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

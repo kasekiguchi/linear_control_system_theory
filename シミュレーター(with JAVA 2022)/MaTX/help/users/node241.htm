@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>プログラムの解釈，コンパイル時のエラーメッセージ</TITLE>
+<META NAME="description" CONTENT="プログラムの解釈，コンパイル時のエラーメッセージ">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node243.htm">
+<LINK REL="previous" HREF="node240.htm">
+<LINK REL="up" HREF="node240.htm">
+<LINK REL="next" HREF="node242.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3658"
+ HREF="node242.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3654"
+ HREF="node240.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3648"
+ HREF="node240.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3656"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3657"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3659"
+ HREF="node242.htm">コンパイル時のメッセージの説明</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3655"
+ HREF="node240.htm">エラーメッセージ</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3649"
+ HREF="node240.htm">エラーメッセージ</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002710000000000000000">
+プログラムの解釈，コンパイル時のエラーメッセージ</A>
+</H1><FONT SIZE="-1">
+コンパイル時のエラーメッセージは，実際のプログラムのエラーを示す。
+<I>matc</I>によるコンパイル時のメッセージは，次の書式で表示される。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<DIV ALIGN="LEFT"><FONT SIZE="-1">
+"<TT>filename</TT>", in <TT>function</TT>(),
+ for "<TT>variable</TT>(<TT>class</TT>)", <TT>message</TT>
+</FONT>
+<P>
+<FONT SIZE="-1">"<TT>filename</TT>", in <TT>function</TT>(), line <TT>number</TT>,
+ "<TT>sourcecode</TT>", <TT>message</TT>
+</FONT></DIV><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+<I>matx</I>によるプログラム解釈時のメッセージは，次の書式で表示される。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<DIV ALIGN="LEFT"><FONT SIZE="-1">
+"<TT>filename</TT>", at or near line <TT>number</TT>,
+ for "<TT>variable</TT>(<TT>class</TT>)", <TT>message</TT>
+</FONT>
+<P>
+<FONT SIZE="-1">"<TT>filename</TT>", at or near line <TT>number</TT>,
+ "<TT>sourcecode</TT>", <TT>message</TT>
+</FONT></DIV><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+上に示した一般的な名前および値は，エラーメッセージが出力されるときは，
+これらの名前は適切な実際の名前あるいは値に置き換えられる。
+</FONT>
+<P>
+<FONT SIZE="-1">コンパイラ<I>matc</I>は，エラーを検出したソースファイル
+に対しては，Cファイルを生成しない。また，インタプリタ<I>matx</I>は，
+エラーがあるソースファイルに対しては，内部中間コードを生成しない。
+このようなエラーが発生した場合，コンパイラやインタプリタは，エラーからの
+回復を図り，可能であればソースファイルの処理を続け，
+エラーメッセージを表示する。エラーの数が多すぎる場合や
+非常に重大なエラーがある場合は，コンパイラやインタプリタや処理を中止する。
+</FONT>
+<P>
+<FONT SIZE="-1">エラーメッセージの行番号については注意が必要である。
+コンパイラやインタプリタは検出した通りにメッセージを表示するだけである。
+MATXではソースファイルの文の配置については強制の制限がないため，
+実際にエラーの原因は示された行番号より前にあることがある。
+
+</FONT>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html3660"
+ HREF="node242.htm">コンパイル時のメッセージの説明</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

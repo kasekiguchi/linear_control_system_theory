@@ -1,0 +1,16 @@
+\def\chrmaa{1}
+\def\chrmba{1}
+\def\chrmca{1}
+\def\chrkaa{1}
+\def\chrkba{1}
+\def\chrAa{\left(\begin{array}{cccccc} 0 & 0 & 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 & 1\\ -2 & 1 & 1 & 0 & 0 & 0\\ 1 & -1 & 0 & 0 & 0 & 0\\ 1 & 0 & -1 & 0 & 0 & 0 \end{array}\right)}
+\def\chrBa{\left(\begin{array}{c} 0\\ 0\\ 0\\ 1\\ 0\\ 0 \end{array}\right)}
+\def\chrCoa{\left(\begin{array}{cccccc} 0 & 1 & 0 & -2 & 0 & 6\\ 0 & 0 & 0 & 1 & 0 & -3\\ 0 & 0 & 0 & 1 & 0 & -3\\ 1 & 0 & -2 & 0 & 6 & 0\\ 0 & 0 & 1 & 0 & -3 & 0\\ 0 & 0 & 1 & 0 & -3 & 0 \end{array}\right)}
+\def\chrmab{1}
+\def\chrmbb{1}
+\def\chrmcb{1}
+\def\chrkab{3}
+\def\chrkbb{1}
+\def\chrAb{\left(\begin{array}{cccccc} 0 & 0 & 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 & 1\\ -4 & 3 & 1 & 0 & 0 & 0\\ 3 & -3 & 0 & 0 & 0 & 0\\ 1 & 0 & -1 & 0 & 0 & 0 \end{array}\right)}
+\def\chrBb{\left(\begin{array}{c} 0\\ 0\\ 0\\ 1\\ 0\\ 0 \end{array}\right)}
+\def\chrCob{\left(\begin{array}{cccccc} 0 & 1 & 0 & -4 & 0 & 26\\ 0 & 0 & 0 & 3 & 0 & -21\\ 0 & 0 & 0 & 1 & 0 & -5\\ 1 & 0 & -4 & 0 & 26 & 0\\ 0 & 0 & 3 & 0 & -21 & 0\\ 0 & 0 & 1 & 0 & -5 & 0 \end{array}\right)}

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>整数関数</TITLE>
+<META NAME="description" CONTENT="整数関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node112.htm">
+<LINK REL="previous" HREF="node110.htm">
+<LINK REL="up" HREF="node108.htm">
+<LINK REL="next" HREF="node112.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1976"
+ HREF="node112.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1972"
+ HREF="node108.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1966"
+ HREF="node110.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1974"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1975"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1977"
+ HREF="node112.htm">実数関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1973"
+ HREF="node108.htm">整数と実数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1967"
+ HREF="node110.htm">整数と実数の比較</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001330000000000000000">
+整数関数</A>
+</H1><FONT SIZE="-1">
+整数関数の一覧を以下に示す。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="6098">&#160;</A>
+<A NAME="6099">&#160;</A>
+<A NAME="6100">&#160;</A>
+<A NAME="6101">&#160;</A>
+<A NAME="6102">&#160;</A>
+<A NAME="6103">&#160;</A>
+<A NAME="6104">&#160;</A>
+<A NAME="6105">&#160;</A>
+<A NAME="6106">&#160;</A>
+<A NAME="6107">&#160;</A>
+<A NAME="6108">&#160;</A>
+<A NAME="6109">&#160;</A>
+<A NAME="6110">&#160;</A>
+<A NAME="6111">&#160;</A>
+<A NAME="6112">&#160;</A>
+<A NAME="6113">&#160;</A>
+<A NAME="6019">&#160;</A>
+</FONT>
+<P><PRE>
+  Integer i, i2;
+  Real tol;
+
+  Integer bit_and(i1, i2)    ビット毎の AND (i1 &amp; i2)
+  Integer bit_comp(i1)       1の補数 (~i1)
+  Integer bit_or(i1, i2)     ビット毎の OR (i1 | i2)
+  Integer bit_xor(i1, i2)    ビット毎の排他的 OR (i1 ^ i2)
+  Integer bit_lshift(i1, i2) i2 ビット左シフト (i1 &lt;&lt; i2)
+  Integer bit_rshift(i1, i2) i2 ビット右シフト (i1 &gt;&gt; i2)
+  Integer rem(i1, i2)        割算の余り (i1 % i2)
+  Real    rem(i1, r2)        割算の余り (i1 - r2*fix(i1/r2))
+  Real    rem(r1, i2)        割算の余り (r1 - i2*fix(r1/i2))
+  Integer max(i1, i2)        最大値
+  Integer min(i1, i2)        最小値
+  Integer sgn(i1)            符合関数 (i1 &gt; 0, 1;
+                                       i1 = 0, 0;
+                                       i1 &lt; 0, -1)
+  Integer pow(i1, i2)        i1^i2
+  Integer fact(i1)           i1 の階乗
+  Integer trans(i1)          i1'
+  Integer conj(i1)           i1 の共役
+  Integer conjtrans(i1)      i1#
+  Integer inv(i1)            i1~  (いつもゼロ)
+  Integer round2z(i1)        ゼロへの丸め(tol = EPS)
+  Integer round2z(i1, tol)   ゼロへの丸め
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="6114">&#160;</A>
+<A NAME="6115">&#160;</A>
+<A NAME="6116">&#160;</A>
+<A NAME="6117">&#160;</A>
+<A NAME="6118">&#160;</A>
+<A NAME="6027">&#160;</A>
+<A NAME="6119">&#160;</A>
+<A NAME="6120">&#160;</A>
+<A NAME="6121">&#160;</A>
+<A NAME="6122">&#160;</A>
+<A NAME="6123">&#160;</A>
+</FONT><PRE>
+  Integer c, fd;
+  String path, format, mode;
+
+  String int2str(c)            ASCIIコード c の文字を文字列に
+                               変換する。
+  Integer kbhit()              標準入力にデータがあるかどうか
+                               調べる。1: 有, 0: 無
+  Integer getch()              標準入力からエコー無しで１文字取
+                               り込み，その文字コードを返す。
+  Integer fopen(path, mode);    ファイルオープン
+  Integer fclose(fd);                ファイルクローズ
+  Integer printf(format, ...);        画面表示 (matx)
+  Integer fprintf(fd, format, ...)    ファイル出力
+                                      fd はfopen()の返り値
+  Integer fprintf(file, format, ...); 
+                                      ファイル出力
+                                      file に追加される
+  List    scanf(format, ...);         キーボードから入力
+  List    fscanf(fd, format, ...);    ファイル入力
+  String  sprintf(format, ...);       文字列変換
+</PRE>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

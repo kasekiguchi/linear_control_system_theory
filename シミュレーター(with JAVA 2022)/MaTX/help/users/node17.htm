@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>C言語インターフェース</TITLE>
+<META NAME="description" CONTENT="C言語インターフェース">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node16.htm">
+<LINK REL="up" HREF="node9.htm">
+<LINK REL="next" HREF="node18.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html764"
+ HREF="node18.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html760"
+ HREF="node9.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html756"
+ HREF="node16.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html762"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html763"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html765"
+ HREF="node18.htm">コマンドと便利な機能</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html761"
+ HREF="node9.htm">プログラムの作り方とその実行方法</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html757"
+ HREF="node16.htm">matpを用いた行列の表示</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00580000000000000000">
+C言語インターフェース</A>
+</H1>
+C言語で書かれたプログラムを<I>matc</I>が生成した
+コードにリンクすることは，とても簡単である。
+C言語でプログラミングする時に守らなければならない規則を以下に示す。
+ライブラリ関数の詳しい説明は，別冊のライブラリ・リファレンス・
+マニュアルを参照すること。
+<A NAME="937">&#160;</A>
+<A NAME="938">&#160;</A>
+<A NAME="939">&#160;</A>
+<A NAME="940">&#160;</A>
+<A NAME="941">&#160;</A>
+<A NAME="873">&#160;</A>
+
+<P>
+<DL COMPACT>
+<DT>1.
+<DD>ファイルの先頭で，使用するクラスのヘッダーファイルをincludeする。
+関数<TT>main()</TT>の最初で，行列クラス，多項式クラス，有理関数クラス，
+      リストクラスの初期化関数<TT>MatInit()</TT>, <TT>PolyInit()</TT>,
+      <TT>RatInit()</TT>, <TT>ListInit()</TT>を呼び出す。
+      その後，広域変数の行列，多項式，有理関数，リストを初期化する。
+<BR CLEAR="ALL">
+<HR><PRE>
+#include &lt;matrix.h&gt;
+#include &lt;polynomial.h&gt;
+#include &lt;rational.h&gt;
+#include &lt;list.h&gt;
+
+Matrix a, b;    // 広域行列変数
+Polnomial c, d; // 広域多項式変数
+Rational e, f;  // 広域有理関数変数
+List g, h;      // 広域リスト変数
+
+void main(argc, argv)
+  int  argc;
+  char *argv[];
+{
+  // 各クラスの初期化
+  MatInit(); PolyInit();      
+  RatInit(), ListInit();
+                              
+  // 広域変数の初期化
+  a = MAT_DEF,  b = MAT_DEF;
+  c = POLY_DEF, d = POLY_DEF; 
+  e = RAT_DEF,  f = RAT_DEF;
+  g = LIST_DEF, h = LIST_DEF;
+  .....................
+}
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+<P>
+<DT>2.
+<DD>局所変数の占有した領域を関数終了時に解放するために，
+      関数内で使用するクラスに応じて，関数の始めと終りに次の宣言と文を書く。
+      <A NAME="884">&#160;</A>
+<A NAME="942">&#160;</A>
+<A NAME="943">&#160;</A>
+<A NAME="944">&#160;</A>
+<A NAME="945">&#160;</A>
+<BR CLEAR="ALL">
+<HR><PRE>
+void foo()
+{
+  Matrix     mat_last = MAT_DEF;
+  Polynomial poly_last = POLY_DEF;
+  Rational   rat_last  = RAT_DEF;
+  List       list_last = LIST_DEF;
+
+  .....................
+  MatFrees(mat_last);
+  PolyFrees(poly_last);
+  RatFrees(rat_last);
+  ListFrees(list_last);
+}
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+<P>
+<DT>3.
+<DD>局所変数の行列，多項式，有理関数，リストは，宣言と同時に初期化する。
+<BR CLEAR="ALL">
+<HR><PRE>
+void foo()
+{
+  .....................
+  Matrix     aa = MAT_DEF,  bb = MAT_DEF;
+  Polynomial cc = POLY_DEF, dd = POLY_DEF;
+  Rational   ee = RAT_DEF,  ff = RAT_DEF;
+  List       gg = LIST_DEF, hh = LIST_DEF;
+  .....................
+}
+</PRE>
+<BR CLEAR="ALL">
+<HR></DL>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

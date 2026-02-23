@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>switch</TITLE>
+<META NAME="description" CONTENT="switch">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node232.htm">
+<LINK REL="previous" HREF="node230.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node232.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3310"
+ HREF="node232.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3307"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3301"
+ HREF="node230.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3309"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3311"
+ HREF="node232.htm">system</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3308"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3302"
+ HREF="node230.htm">svd</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004227000000000000000">&#160;</A><A NAME="man_switch">&#160;</A>
+<BR>
+switch
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>switch - 選択
+<DT>【形式】
+<DD><PRE>
+switch (expr) {
+  case int_1: statements_1;
+              break;
+  case int_2: statements_2;
+              break;
+  ......................
+  case int_n: statements_n;
+              break;
+  default:    statements_0;
+              break;
+}
+Integer expr;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>switch 文は，ある式が複数の値の 1 つと一致するかテストし，
+それに応じて分岐する特別の多分岐判断機構である。
+switch 文は，括弧内の整数式 expr を計算し，その値を全ての
+ラベル int_1 〜 int_n と比較する。各 case には，整数定数の式
+でラベルをつける。あるラベルが expr と一致すれば，実行はその
+case から始められる。 default のラベルのついた case は，他の
+いずれの case も満足されないときに実行される。
+break 文はスイッチ文から直接抜け出る手段である。</FONT><FONT SIZE="-1">C言語と同様に
+case は単にラベルとして働くから，1 つの case 文が終了したのち，
+抜け出すための明示的な動作がなければ，実行は次の case へ移る。
+<DT>【例題】
+<DD>整数型の変数 num をチェックし，num が -1, 0, 1
+のいずれかのとき，対応する case 文の文字列を表示し，
+これらの値のどれとも一致しないとき，default 文が実行される。</FONT><PRE>
+switch (num) {
+  case -1: print "minus one\n";
+           break;
+  case  0: print "zero\n";
+           break;
+  case  1: print "plus one\n";
+           break;
+  default: print "other value\n";
+           break;
+}
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>if(<A HREF="node93.htm#man_if">2.94</A>), else(<A HREF="node57.htm#man_else">2.56</A>), case(<A HREF="node30.htm#man_case">2.27</A>), break(<A HREF="#man_break">2.26</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>一般データのファイル入出力</TITLE>
+<META NAME="description" CONTENT="一般データのファイル入出力">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node56.htm">
+<LINK REL="previous" HREF="node54.htm">
+<LINK REL="up" HREF="node53.htm">
+<LINK REL="next" HREF="node56.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1266"
+ HREF="node56.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1262"
+ HREF="node53.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1256"
+ HREF="node54.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1264"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1265"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1267"
+ HREF="node56.htm">バイナリデータのファイル入出力</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1263"
+ HREF="node53.htm">データのファイル入出力</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1257"
+ HREF="node54.htm">行列データのファイル入出力</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00722000000000000000">
+一般データのファイル入出力</A>
+</H2><FONT SIZE="-1">
+<A NAME="2973">&#160;</A>
+<A NAME="2974">&#160;</A>
+<A NAME="2975">&#160;</A>
+<A NAME="2976">&#160;</A>
+データをファイルへ書き込むには，<TT>print</TT>コマンドを用いる。
+出力先を記号<TT>-&gt;</TT>によってファイルに<B>リダイレクト</B>する。
+<I>matx</I>の場合，拡張子を省略すると，拡張子は<TT>mx</TT>となる。
+データは，<B>MXデータフォーマット</B>でファイルに書き込まれる。
+<A NAME="2977">&#160;</A>
+<A NAME="2776">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  print a, b, c, d -&gt; "filename.mx";
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>データをファイルからの読み込むには，<TT>read</TT>コマンドを用いる。
+入力先を記号<TT>&lt;-</TT>によってファイルに<B>リダイレクト</B>する。
+<I>matx</I>の場合，拡張子を省略すると，拡張子は<TT>mx</TT>となる。
+<I>matx</I>の場合，ファイル名だけを指定すると，ファイルに保存されている
+全てのデータが読み込まれる。ただし，保存したデータと同じ変数に読み込まれる。
+<A NAME="2978">&#160;</A>
+<A NAME="2788">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  read a, b, c, d &lt;- "filename.mx";
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>この方法はデータをバイナリ形式でファイルに保存するので，
+データの精度が保存される。次に示すように入力先を変更する記号
+<TT>&lt;-</TT>は式の中に現われる可能性がある。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  print 0&lt;-a;
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>この式は<TT>-a</TT>が正である(</FONT>0<FONT SIZE="-1">より大きい)かどうか調べる意図で書かれているが，
+<TT>&lt;</TT> と <TT>-</TT> の間にスペースが無いので，まとめて<TT>&lt;-</TT>として解釈され，
+文法エラーになる。<TT>&lt;</TT> と<TT>-</TT> の間にスペースを入れると
+意図通りに解釈される。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

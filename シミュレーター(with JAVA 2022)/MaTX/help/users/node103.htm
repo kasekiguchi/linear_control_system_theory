@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>If-Else</TITLE>
+<META NAME="description" CONTENT="If-Else">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node104.htm">
+<LINK REL="previous" HREF="node102.htm">
+<LINK REL="up" HREF="node102.htm">
+<LINK REL="next" HREF="node104.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1878"
+ HREF="node104.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1874"
+ HREF="node102.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1868"
+ HREF="node102.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1876"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1877"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1879"
+ HREF="node104.htm">Forループ, Whileループ</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1875"
+ HREF="node102.htm">制御の流れ</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1869"
+ HREF="node102.htm">制御の流れ</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001210000000000000000">
+If-Else</A>
+</H1><FONT SIZE="-1">
+<A NAME="5752">&#160;</A>
+<A NAME="5753">&#160;</A>
+判定を行なう時は，<TT>if-else</TT>文を用いる。
+<TT>if-else</TT>文を用いる場合は，
+<BR>
+<TT>if-else</TT>の<TT>else</TT>部は省略可能である。
+したがって，入れ子(ネスト)になった<TT>if</TT>の連続で<TT>else</TT>が省略された場合，
+構文があいまいになってしまう。<TT>else</TT>を<TT>if</TT>に正しく関係付けるために
+大カッコ``<code>{</code>''と``<code>}</code>''を用い，省略することはできない。
+インタプリタは１行毎に解釈を行なうので，<TT>else</TT>部が存在する時，
+<TT>else</TT>部は<TT>if</TT>部の最終行から始めなければならない。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  if (expr) {
+      statement-1;
+  } else {
+      statement-2;
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+この<TT>if</TT>では，まず<TT>expr</TT>が計算される。
+それが真(すなわち<TT>expr</TT>が0でない)であれば<TT>statement-1</TT>が実行される。
+それが偽(すなわち<TT>expr</TT>が0)であり，かつ<TT>else</TT>部が存在すれば
+<TT>statement-2</TT>が実行される。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

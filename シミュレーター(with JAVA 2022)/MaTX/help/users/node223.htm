@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>リアルタイム処理</TITLE>
+<META NAME="description" CONTENT="リアルタイム処理">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node224.htm">
+<LINK REL="previous" HREF="node222.htm">
+<LINK REL="up" HREF="node222.htm">
+<LINK REL="next" HREF="node224.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3434"
+ HREF="node224.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3430"
+ HREF="node222.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3424"
+ HREF="node222.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3432"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3433"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3435"
+ HREF="node224.htm">リアルタイム処理プログラムの作成</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3431"
+ HREF="node222.htm">リアルタイム処理(RTMATX)</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3425"
+ HREF="node222.htm">リアルタイム処理(RTMATX)</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002610000000000000000">&#160;</A>
+<A NAME="12949">&#160;</A>
+<A NAME="12950">&#160;</A>
+<BR>
+リアルタイム処理
+</H1><FONT SIZE="-1">
+ディジタル制御を行なうには，ある一定の時間(サンプリング時間)毎に
+<A NAME="12951">&#160;</A><A NAME="12952">&#160;</A>
+</FONT><DL COMPACT>
+<DT>1.
+<DD>センサ(ポテンショメータなど)によるプラント出力の取り込み
+<DT>2.
+<DD>制御則の計算
+<DT>3.
+<DD>アクチュエータ(モータなど)によるプラント入力の操作
+</DL><FONT SIZE="-1">の3つのステップを繰り返さなければならない。また，この他にも目標値や
+制御停止命令などを処理するので，多重処理のできるプログラムが必要である。
+<A NAME="12955">&#160;</A>
+<A NAME="12956">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1">RTMATXでは，PC9801やIBM PC互換機のインターバルタイマからの割り込み
+により次の3つの処理を行なう。[<A
+ HREF="node201.htm#Nakajima:92:pdm">23</A>]
+<A NAME="12959">&#160;</A>
+</FONT><DL COMPACT>
+<DT>1.
+<DD>割り込み処理
+<DT>2.
+<DD>制御処理
+<DT>3.
+<DD>画面表示／コマンド入力処理
+</DL>
+<P>
+<FONT SIZE="-1">プログラムは，まず，処理3(変数の表示，キーボードからの入力待ちなど)を
+行なっている。タイマからの割り込みがかかると，処理3を中断して処理1
+(RTMATX内部での割り込み処理)を行ない，処理2(センサ処理，制御則の計算，
+アクチュエータ処理など)が終了しているかどうか調べる。終了していない場合
+には，タイマ割り込みを停止し，タイムアウトエラーを発生する。終了している
+場合には，処理２を行なう。処理2が終わると処理3の続きを行なう。したがっ
+て，処理2はサンプリング時間毎に行なわれる。
+<A NAME="12963">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1"><U><B>注意</B></U>
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="12965">&#160;</A>
+インターバル・タイマによる割り込みは，タイマのカウンタに値を設定することで
+実現しているので，カウント・クロックの整数倍以外のサンプリング時間を用い
+ると</FONT><IMG
+ WIDTH="14" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.gif"
+ ALT="$\mu$"><FONT SIZE="-1">secのオーダで誤差が生じるので，注意する必要がある。
+後述するサンプリング時間を設定する関数<TT>rtSetClock()</TT>は実際に行なわれる
+割り込みのサンプリング時間を返すので，制御器の離散化などには，この値を
+用いる方が良い。<A NAME="13348">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1"><U><B>注意</B></U>
+</FONT>
+<P>
+<FONT SIZE="-1"><I>DJGPP</I>を用いた現在のRTMATXでは，タイムアウトエラーが発生すると
+システムがハングアップすることがある。したがって，短すぎるサンプリング
+時間を設定してはならない。
+</FONT>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

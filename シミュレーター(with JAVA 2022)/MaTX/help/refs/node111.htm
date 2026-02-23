@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>length</TITLE>
+<META NAME="description" CONTENT="length">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node112.htm">
+<LINK REL="previous" HREF="node110.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node112.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1990"
+ HREF="node112.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1987"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1981"
+ HREF="node110.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1989"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1991"
+ HREF="node112.htm">linspace</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1988"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1982"
+ HREF="node110.htm">kernel</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004107000000000000000">&#160;</A><A NAME="man_length">&#160;</A>
+<BR>
+length
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>length - 長さ
+<DT>【形式】
+<DD><PRE>
+m = length(X)                  m = length(str)
+   Integer m;                     Integer m;
+   (Matrix|Array|Index) X;        String str;
+  
+m = length(L,i1,i2,....,in)    m = length(L)
+   Integer m;                     Integer m;
+   List L;                        List L;
+   Integer i1,i2,...,in;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>X が(行列|配列|指数)のとき，length(X)は X の行と列の長い方の数を
+返す。str が文字列のとき，length(str)は文字列の長さを返す。
+L がリストのとき，length(L)はリストの成分の数を返す。
+L が多段リストのとき，length(L,i1,i2,..,in)は，n 段目のリスト
+の成分の数を返す。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; X = [1 2 3];
+&gt;&gt; m = length(X)
+m = 3
+&gt;&gt; X = [[1 2 3][4 5 6]];
+&gt;&gt; m = length(X)
+m = 3
+&gt;&gt; m = length("Hello")
+m = 5
+&gt;&gt; m = length({1, [1], "hello"})
+m = 3
+&gt;&gt; m = length({{1,2,3},{4,5}}, 2)
+m = 2
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>Rows(<A HREF="node189.htm#man_Rows">2.190</A>), size(<A HREF="node215.htm#man_size">2.216</A>), Cols(<A HREF="node35.htm#man_Cols">2.32</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

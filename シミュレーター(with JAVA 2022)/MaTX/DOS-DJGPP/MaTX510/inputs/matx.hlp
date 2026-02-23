@@ -1,0 +1,1412 @@
+*** Size Fucntions:           Rows, Cols, degree, length, size,
+
+*** Matrix Generation:        I, Z, ONE, linspace, logspace, rand, randn
+    Functions:                diag, diag2vec, vec2diag,
+                              reshape, fliplr, flipud,
+
+*** Real-Imaginary-part:      Re, Im, Nu, De
+    Numerator, Denominator:
+
+***                           acos, acosh, asin, asinh, atan, atanh, atan2,
+                              cos, cosh, sin, sinh, tan, tanh,
+
+*** Exponetial, Logarithm     exp, log, log10, sqrt,
+
+*** Bit operation             bit_and, bit_or, bit_comp, bit_xor,
+                              bit_lshift, bit_rshift
+
+*** Matrix Size Functions:    max, max_col, max_row, maximum,
+                              min, min_col, min_row, minimum,
+                              mean, mean_col, mean_row,
+                              sum, sum_col, sum_row,
+                              prod, prod_col, prod_row,
+                              std, std_col, std_row,
+                              cumsum, cumsum_col, cumsum_row
+                              cumprod, cumprod_col, cumprod_row
+                              det, trace, rank, flobnorm, infnorm, norm,
+
+*** Complex Functions:        abs, arg, conj, isreal, iscomplex
+
+*** Polynomial,               derivative, higher, lower, integral,
+    Rational Functions:       poles, roots, zeros, 
+
+*** Eigen Functions:          eig, eigen, eigval, eigvec,
+
+*** Singular Value Functions: svd, sing, singleftvec, singrightvec, 
+                              singval, maxsing, minsing, 
+
+*** Decomposition Functions:  hess, lu, qr, qr_nop, qz, schur, svd
+
+*** String Functions:         printf, sprintf
+                              scanf, sscanf, strchr
+
+*** File Functions:           fopen, feof, fprintf, fscanf, fread, fwrite
+
+*** Simulation Functions:     rkf45, rngkut4, 
+                              Ode, OdeAuto, Ode45, Ode45Auto,
+                              OdeHybrid, OdeHybridAuto,
+                              Ode45Hybrid, Ode45HybridAuto,
+                              OdeStop(), OdeXY()
+
+*** Miscellaneous Functions:  ceil, floor, fix, round, round2z
+                              kernel, pseudoinv, vectorprod, rem, fact, sgn
+                              all, all_col, all_col, any, any_col, any_row,
+                              eval, find, sort, makelist, appendlist,
+                              system, error, warning, isnan, isinf, isfinite
+
+/* Cols */
+          Integer Cols(Matrix M1):    Column number of a matrix
+/* Cols */
+
+/* De */
+          Polynomial De(Rational R1): denominator of a rational function
+          Array      De(Array A1):    denominator of a rational function array
+/* De */
+
+/* I */
+          Matrix I(Integer i1):             identity matrix
+          Matrix I(Integer i1, Integer i2): identity matrix
+          Matrix I(Matrix M1):              identity matrix
+          Array  I(Array A1):               identity matrix
+/* I */
+
+/* Im */
+          Real       Im(Complex c1):      imaginary part of a complex number
+          Array      Im(CoArray A1):      imaginary part of an array
+          Matrix     Im(CoMatrix M1):     imaginary part of a matrix
+          Polynomial Im(CoPolynomial P1): imaginary part of a polynomial
+          Rational   Im(CoRational R1):   imaginary part of a rational function
+/* Im */
+
+/* Nu */
+          Polynomial Nu(Rational R1): numerator of a rational function
+          Array      Nu(Array A1):    numerator of a rational function array
+/* Nu */
+
+/* Ode */
+          {T, X, U} = Ode(t0, t1, x0, diff_eqs, ..., link_eqs, h, dtsav);
+          Array  T, X, U;
+          Real   t0, t1, h(= 4.0E-2), dtsav(= 1.0E-3);
+          Matrix x0;
+          Matrix diff_eqs(), link_eqs();
+
+          To solve ordinary differential equations according to 4th order
+          Runge-Kutta methods with the prespecified step 'h' between [t0 t1].
+/* Ode */
+
+/* OdeAuto */
+          {T, X, U} = OdeAuto(t0, t1, x0, diff_eqs, ..., 
+                                  link_eqs, eps, dtsav, dtmin, dtmax);
+          Array  T, X, U;
+          Real   t0, t1, eps(= 1.0E-6), dtsav(= 1.0E-3);
+          Real   dtmin(= EPS), dtmax(= abs(t1-t0)/5), dtmax = max(dtmax,dtsav);
+          Matrix x0;
+          Matrix diff_eqs(), link_eqs();
+
+          To solve ordinary differential equations according to 4th order
+          Runge-Kutta methods automatically changing the step to guarantee
+          the prespecified error between [t0 t1]
+/* OdeAuto */
+
+/* Ode45 */
+          {T, X, U} = Ode45(t0, t1, x0, diff_eqs, ..., link_eqs, h, dtsav);
+          Array  T, X, U;
+          Real   t0, t1, h(= 4.0E-2), dtsav(= 1.0E-3);
+          Matrix x0;
+          Matrix diff_eqs(), link_eqs();
+
+          To solve ordinary differential equations according to
+          RKF45 methods with the prespecified step 'h' between [t0 t1].
+/* Ode45 */
+
+/* Ode45Auto */
+          {T, X, U} =
+             Ode45Auto(t0, t1, x0, diff_eqs, ..., 
+                                   link_eqs, eps, dtsav, dtmin, dtmax);
+          Array  T, X, U;
+          Real   t0, t1, eps(= 1.0E-6), dtsav(= 1.0E-3);
+          Real   dtmin(= EPS), dtmax(= abs(t1-t0)/5), dtmax = max(dtmax,dtsav);
+          Matrix x0;
+          Matrix diff_eqs(), link_eqs();
+
+          To solve ordinary differential equations according to RKF45 methods
+          automatically changing the step to guarantee the prespecified error
+          between [t0 t1]
+/* Ode45Auto */
+
+/* OdeHybrid */
+          {T, X, U} = OdeHybrid(t0, t1, dt, x0, diff_eqs, ..., 
+                                                link_eqs, h, dtsav);
+          Array  T, X, U;
+          Real   t0, t1, dt, h(= 4.0E-2), dtsav(= max(h, 1.0E-3));
+          Matrix x0;
+          Matrix diff_eqs(), link_eqs();
+
+          To solve ordinary differential equations according to 4th order
+          Runge-Kutta methods with the prespecified step 'h' between [t0 t1],
+          where the external input is constant for the prespecified sampling
+          interval.
+/* OdeHybrid */
+
+/* OdeHybridAuto */
+         {T, X, U} = OdeHybridAuto(t0, t1, dt, x0, diff_eqs, ...,
+                                        link_eqs, eps, dtsav, dtmin, dtmax);
+          Array  T, X, U;
+          Real   t0, t1, dt, eps(= 1.0E-6), dtsav(= 1.0E-3);
+          Real   dtmin(= EPS), dtmax(= abs(t1-t0)/5), dtmax = max(dtmax,dtsav);
+          Matrix x0;
+          Matrix diff_eqs(), link_eqs();
+
+          To solve ordinary differential equations according to 4th order
+          Runge-Kutta methods automatically changing the step to guarantee the
+          prespecified error between [t0 t1], where the external input is
+          constant for the prespecified sampling interval.
+/* OdeHybridAuto */
+
+/* Ode45Hybrid */
+          {T, X, U} = Ode45Hybrid(t0, t1, dt, x0, diff_eqs, ..., 
+                                                       link_eqs, h, dtsav);
+          Array  T, X, U;
+          Real   t0, t1, dt, h(= 4.0E-2), dtsav(= max(h, 1.0E-3));
+          Matrix x0;
+          Matrix diff_eqs(), link_eqs();
+
+          To solve ordinary differential equations according to RKF45 methods
+          with the prespecified step 'h' between [t0 t1], where the external
+          input is constant for the prespecified sampling interval.
+/* Ode45Hybrid */
+
+/* Ode45HybridAuto */
+          {T, X, U} = Ode45HybridAuto(t0, t1, dt, x0, diff_eqs, ...,
+                                         link_eqs, eps, dtsav, dtmin, dtmax);
+          Array  T, X, U;
+          Real   t0, t1, dt, eps(= 1.0E-6), dtsav(= 1.0E-3);
+          Real   dtmin(= EPS), dtmax(= abs(t1-t0)/5), dtmax = max(dtmax,dtsav);
+          Matrix x0;
+          Matrix diff_eqs(), link_eqs();
+
+          To solve ordinary differential equations according to RKF45 methods
+          automatically changing the step to guarantee the prespecified error
+          between [t0 t1], where the external input is constant for the
+          prespecified sampling interval.
+/* Ode45HybridAuto */
+
+/* OdeStop */
+          OdeStop();
+
+          The function stops the execution of Ode(), OdeAuto(),
+          OdeHybrid(), ..., and returns the result.
+/* OdeStop */
+
+/* OdeXY */
+          {X_t, Y_t} = OdeXY(t)
+          Array X_t, Y_t;
+          Real t;
+
+          The function retuns the state X_t and input-output Y_t
+          at time t.  Those vectors are approximated linearly.
+/* OdeXY */
+
+/* ONE */
+          Matrix ONE(Integer i1):             matrix filled with 1
+          Matrix ONE(Integer i1, Integer i2): matrix filled with 1
+          Matrix ONE(Matrix M1):              matrix filled with 1
+          Array  ONE(Array A1):               array filled with 1
+/* ONE */
+
+/* Re */
+          Real       Re(Complex c1):    real part of a complex number
+          Array      Re(Array A1):      real part of an array
+          Matrix     Re(Matrix M1):     real part of a matrix
+          Polynomial Re(Polynomial P1): real part of a polynomial
+          Rational   Re(Rational R1):   real part of a rational function
+/* Re */
+
+/* Rows */
+          Integert Rows(Matrix M1): row number of a matrix
+/* Rows */
+
+/* Z */
+          Matrix Z(Integer i1):             zero matrix
+          Matrix Z(Integer i1, Integer i2): zero matrix
+          Matrix Z(Matrix M1):              zero matrix
+          Array  Z(Array A1):               zero array
+/* Z */
+
+/* abs */
+          Integer abs(Integer i1):  absolute value of an integer
+          Real    abs(Real r1):     absolute value of a real number
+          Real    abs(Complex c1):  absolute value of a complex number
+          Array   abs(Array A1):    absolute value of an array
+          Matrix  abs(Matrix M1):   absolute value of a matrix
+          Matrix  abs(String str):  matrix with character codes
+/* abs */
+
+/* acos */
+          Real    acos(Real r1):    acos of a real number
+          Complex acos(Complex c1): acos of a complex number
+          Array   acos(Array A1):   acos of an array
+/* acos */
+
+/* acosh */
+          Real    acosh(Real r1):    acosh of a real number
+          Complex acosh(Complex c1): acosh of a complex number
+          Array   acosh(Array A1):   acosh of an array
+/* acosh */
+
+/* all */
+          Integer all(Array A1): are all elements nonzero ?
+          Integer all(Matrix M1): are all elements nonzero ?
+/* all */
+
+/* all_col */
+          Array all_col(Array A1): are all elements nonzero for each column ?
+          Array all_col(Matrix M1): are all elements nonzero for each column ?
+/* all_col */
+
+/* all_row */
+          Array all_row(Array A1): are all elements nonzero for each row ?
+          Array all_row(Matrix M1): are all elements nonzero for each row ?
+/* all_row */
+
+/* any */
+          Integer any(Array A1): are there any nonzero elements ?
+          Integer any(Matrix M1): are there any nonzero elements ?
+/* any */
+
+/* any_col */
+          Array any_col(Array A1): any nonzero elements each column ?
+          Array any_col(Matrix M1): any nonzero elements each column ?
+/* any_col */
+
+/* any_row */
+          Array any_row(Array A1): are there any nonzero elements each row ?
+          Array any_row(Matrix M1): are there any nonzero elements each row ?
+/* any_row */
+
+/* appendlist */
+          List appendlist(List L1, Arg1): append a data to a list
+/* appendlist */
+
+/* arg */
+          Real  arg(Complex c1): Argument of a complex number
+          Array arg(Array A1):   Argument of an array
+/* arg */
+
+/* asin */
+          Real    asin(Real r1):    asin of a real number
+          Complex asin(Complex c1): asin of a complex number
+          Array   asin(Array A1):   asin of an array
+/* asin */
+
+/* asinh */
+          Real    asinh(Real r1):    asinh of a real number
+          Complex asinh(Complex c1): asinh of a complex number
+          Array   asinh(Array A1):   asinh of an array
+/* asinh */
+
+/* atan */
+          Real    atan(Real r1):    atan of a real number
+          Complex atan(Complex c1): atan of a complex number
+          Array   atan(Array A1):   atan of an array
+/* atan */
+
+/* atanh */
+          Real    atanh(Real r1):    atanh of a real number
+          Complex atanh(Complex c1): atanh of a complex number
+          Array   atanh(Array A1):   atanh of an array
+/* atanh */
+
+/* atan2 */
+          Real atan2(Real r1, Real r2): arctangent function (2)
+          Array atan2(Array A1, Array A2): arctangent function (2)
+/* atan2 */
+
+/* bit_and */
+          Integer bit_and(Integer i1, Integer i2): Bit-wise AND
+/* bit_and */
+
+/* bit_comp */
+          Integer bit_xor(Integer i1): Bit-wise complement
+/* bit_comp */
+
+/* bit_or */
+          Integer bit_or(Integer i1, Integer i2): Bit-wise OR
+/* bit_or */
+
+/* bit_lshift */
+          Integer bit_lshift(Integer i1, Integer i2): Left-shift
+/* bit_lshift */
+
+/* bit_rshift */
+          Integer bit_rshift(Integer i1, Integer i2): Right-shift
+/* bit_rshift */
+
+/* bit_xor */
+          Integer bit_xor(Integer i1, Integer i2): Bit-wise exclusive OR
+/* bit_xor */
+
+/* ceil */
+          Real ceil(Real r1) :      rounding function
+          Complex ceil(Complex c1): rounding function
+          Polynomial ceil(Polynomial P1): rounding function
+          Rational ceil(Rational R1): rounding function
+          Array ceil(Array A1):     rounding function of an array
+          Matrix ceil(Matrix M1):   rounding function of a matrix
+          Index ceil(Index I1):     rounding function of an index
+/* ceil */
+
+/* clock */
+          Matrix clock(): current date and time
+/* clock */
+
+/* conj */
+      Complex      conj(Complex c1):      complex conjugate of a complex number
+      CoPolynomial conj(CoPolynomial P1): complex conjugate of a polynomial
+      CoRational   conj(CoRational R1):   complex conjugate of a rational func
+      CoArray      conj(CoArray A1):      complex conjugate of an array
+      CoMatrix     conj(CoMatrix M1):     complex conjugate of a matrix
+/* conj */
+
+/* cos */
+          Real    cos(Real r1):    cosine function of a real number
+          Complex cos(Complex c1): cosine function of a complex number
+          Array   cos(Array A1):   cosine function of an array
+/* cos */
+
+/* cosh */
+          Real    cosh(Real r1):    hyperbolic cosine of a real number
+          Complex cosh(Complex c1): hyperbolic cosine of a complex number
+          Array   cosh(Array A1):   hyperbolic cosine of an array
+/* cosh */
+
+/* cumsum */
+          Matrix cumsum(Matrix M1): Cumulative sum of all the elements
+          Array cumsum(Array A1):   Cumulative sum of all the elements
+          Index cumsum(Index X1):   Cumulative sum of all the elements
+/* cumsum */
+
+/* cumsum_col */
+          Matrix cumsum_col(Matrix M1): Cumulative sum of the elements
+                                        of each column
+          Array cumsum_col(Array A1):   Cumulative sum of the elements
+                                        of each column
+          Index cumsum_col(Index X1):   Cumulative sum of the elements
+/* cumsum_col */
+
+/* cumsum_row */
+          Matrix cumsum_row(Matrix M1): Cumulative sum of the elements
+                                        of each row
+          Array cumsum_row(Array A1):   Cumulative sum of the elements
+                                        of each row
+          Index cumsum_row(Index X1):   Cumulative sum of the elements
+/* cumsum_row */
+
+/* cumprod */
+          Matrix cumprod(Matrix M1): Cumulative product of all the elements
+          Array cumprod(Array A1):   Cumulative product of all the elements
+          Index cumprod(Index X1):   Cumulative product of all the elements
+/* cumprod */
+
+/* cumprod_col */
+          Matrix cumprod_col(Matrix M1): Cumulative product of the elements
+                                         of each column   
+          Array cumprod_col(Array A1):   Cumulative product of the elements
+                                         of each column   
+          Index cumprod_col(Index X1):   Cumulative product of the elements
+/* cumprod_col */
+
+/* cumprod_row */
+          Matrix cumprod_row(Matrix M1): Cumulative product of the elements
+                                         of each row   
+          Array cumprod_row(Array A1):   Cumulative product of the elements
+                                         of each row   
+          Index cumprod_row(Index X1):   Cumulative product of the elements
+/* cumprod_row */
+
+/* degree */
+          Integer degree(Polynomial P1): degree of a polynomial
+/* degree */
+
+/* derivative */
+          Polynomial derivative(Polynomial P1): derivative of a polynomial
+          Rational   derivative(Rational R1):   derivative of a rational func
+          Array      derivative(Array A1):      derivative of an array
+          Matrix     derivative(Matrix M1):     derivative of a matrix
+/* derivative */
+
+/* det */
+          Real       det(Matrix M1): determinant of a real matrix
+          Complex    det(Matrix M1): determinant of a complex matrix
+          Polynomial det(Matrix M1): determinant of a polynomial matrix
+          Rational   det(Matrix M1): determinant of a rational function matrix
+/* det */
+
+/* diag */
+          Matrix diag(Matrix M1, Matrix M2, ..., Matrix Mn): diagonal matrix
+          CoMatrix diag(Complex c1, ..., Complex cn):
+          PoMatrix diag(Polynomial P1, ..., Polynomial Pn):
+          RaMatrix diag(Rational R1, ..., Rational Rn):
+          Matrix diag(Matrix M1, Matrix M2, ..., Matrix Mn):
+/* diag */
+
+/* diag2vec */
+          Matrix diag2vec(Matrix M1): transform a diagonal matrix to a vector
+/* diag2vec */
+
+/* eig */
+          List eig(Matrix M1):            eigenvalue and eigenvector
+                                          {val, vec} = eig(A);
+                                          Matrix val: eigenvalues
+                                          Matrix vec: eigenvectors
+                                          A * vec = vec * val
+
+          List eig(Matrix M1, Matrix M2): generalized eigenvalue, eigenvector
+                                          {val, vec} = eig(A, B);
+                                          Matrix val: generalized eigenvalues
+                                          Matrix vec: generalized eigenvectors
+                                          A * vec = B * vec * val
+
+
+          List eig(Matrix M1, "S"):       eigenvalue and eigenvector
+                                          of symmetric matrices
+
+                                          The 2nd argument must be a constant
+                                          string whose first character is
+                                          's' or 'S'. (Ex. "Symmetric")
+
+                                          {val, vec} = eig(A, "S");
+                                          Matrix val: eigenvalues
+                                          Matrix vec: eigenvectors
+                                          A * vec = vec * val
+
+          List eig(Matrix M1, "H"):       eigenvalue and eigenvector
+                                          of hermitian matrices
+                                          {val, vec} = eig(A, "H");
+                                          Matrix val: eigenvalues
+                                          Matrix vec: eigenvectors
+                                          A * vec = vec * val
+
+                                          The 2nd argument must be a constant
+                                          string whose first character is
+                                          'h' or 'H'. (Ex. "Hermit")
+
+/* eig */
+
+/* eigval */
+      Matrix eigval(Matrix M1):            eigenvalue
+      Matrix eigval(Matrix M1, Matrix M2): generalized eigenvalue
+
+      Matrix eigval(Matrix M1, "S"):       eigenvalue of symmetric matrices
+
+                                           The 2nd argument must be a constant
+                                           string whose first character is
+                                           's' or 'S'. (Ex. "Symmetric")
+
+      Matrix eigval(Matrix M1, "H"):       eigenvalue of hermitian matrices
+
+                                           The 2nd argument must be a constant
+                                           string whose first character is
+                                           'h' or 'H'. (Ex. "Hermitian")
+/* eigval */
+
+/* eigvec */
+      Matrix eigvec(Matrix M1):            eigenvector
+      Matrix eigvec(Matrix M1, Matrix M2): generalized eigenvector
+
+      Matrix eigvec(Matrix M1, "S"):       eigenvector of symmetric
+                                           matrices
+
+                                           The 2nd argument must be a constant
+                                           string whose first character is
+                                           's' or 'S'. (Ex. "Symmetric")
+
+      Matrix eigvec(Matrix M1, "H"):       eigenvector of hermitian
+                                           matrices
+
+                                           The 2nd argument must be a constant
+                                           string whose first character is
+                                           'h' or 'H'. (Ex. "Hermitian")
+/* eigvec */
+
+/* error */
+          void error(String s1): error function
+/* error */
+
+/* eval */
+          evaluation of a polynomial, a rational function, a polynomial matrix,
+          and a rational function matrix
+
+          Real       eval((Polynomial| Rational| Matrix| Array),
+                          (Real| Complex| Polynomial| Rational| Matrix)):
+          Complex    eval((Polynomial| Rational| Matrix| Array),
+                          (Real| Complex| Polynomial| Rational| Matrix)):
+          Polynomial eval((Polynomial| Rational| Matrix| Array),
+                          (Real| Complex| Polynomial| Rational| Matrix)):
+          Rational   eval((Polynomial| Rational| Matrix| Array),
+                          (Real| Complex| Polynomial| Rational| Matrix)):
+          Array      eval((Polynomial| Rational| Matrix| Array),
+                          (Real| Complex| Polynomial| Rational| Matrix)):
+          Matrix     eval((Polynomial| Rational| Matrix| Array),
+                          (Real| Complex| Polynomial| Rational| Matrix)):
+/* eval */
+
+/* exp */
+          Real    exp(Real r1):    exponential function of a real number
+          Complex exp(Complex c1): exponential function of a complex number
+          Array   exp(Array A1):   exponential function of an array
+          Matrix  exp(Matrix M1):  exponential function of a matrix
+/* exp */
+
+/* fact */
+          Integer fact(Integer i1): factorial function of an integer
+          Real fact(Real r1):       factorial function of a real number
+          Array fact(Array A1):     factorial function of an array
+/* fact */
+
+/* fclose */
+          Integer fclose(Integer fp): close file
+/* fclose */
+
+/* feof */
+         Integer feof(Integer fd): Check End Of File
+                                   1: Found EOF
+                                   0: Not found EOF
+/* feof */
+
+/* fft */
+          Array fft(Array A1, ..., Integer N):   Fast fourier transfrom
+                                                 (N must be 2^n)
+          Matrix fft(Matrix M1, ..., Integer N): Fast fourier transfrom
+                                                 (N must be 2^n)
+/* fft */
+
+/* fft_col */
+          Array fft_col(Array A1, ..., Integer N):
+                                                 Fast fourier transfrom
+                                                 for each column
+                                                 (N must be 2^n)
+          Matrix fft_col(Matrix M1, ..., Integer N):
+                                                 Fast fourier transfrom
+                                                 for each column
+                                                 (N must be 2^n)
+/* fft_col */
+
+/* fft_row */
+          Array fft_row(Array A1, ..., Integer N):
+                                                 Fast fourier transfrom
+                                                 for each row
+                                                 (N must be 2^n)
+          Matrix fft_row(Matrix M1, ..., Integer N):
+                                                 Fast fourier transfrom
+                                                 for each row
+                                                 (N must be 2^n)
+/* fft_row */
+
+/* fgets */
+          String fgets(Integer fd): get a string from a file
+                                    default string length is 1023
+          String fgets(Integer fd, Integer len): get a string from a file
+                                                 len := string length
+/* fgets */
+
+/* fix */
+          Real fix(Real r1):       rounding function towards zero
+          Complex fix(Complex c1): rounding function towards zero
+          Polynomial fix(Polynomial P1): rounding function towards zero
+          Rational fix(Rational R1): rounding function towards zero
+          Array fix(Array A1):     rounding function of an array
+          Matrix fix(Matrix M1):   rounding function of a matrix
+          Index fix(Index I1):     rounding function of an index
+/* fix */
+
+/* find */
+          Index find(Array A1): find the index of nonzero elements
+          Index find(Matrix M1): find the index of nonzero elements
+/* find */
+
+/* fliplr */
+          Matrix fliplr(Matrix M1): flip a matrix left-right
+          Array  fliplr(Array A1):  flip an array left-right
+/* fliplr */
+
+/* flipud */
+          Matrix flipud(Matrix M1): flip a matrix up-down
+          Array  flipud(Array A1):  flip an array up-down
+/* flipud */
+
+/* floor */
+          Real floor(Real r1):       rounding function
+          Complex floor(Complex c1): rounding function
+          Polynomial floor(Polynomial P1): rounding function
+          Rational floor(Rational R1): rounding function
+          Array floor(Array A1):     rounding function of an array
+          Matrix floor(Matrix M1):   rounding function of a matrix
+          Index floor(Index I1):     rounding function of an index
+/* floor */
+
+/* fopen */
+          Integer fopen(String name, String rw): open file and return
+             rw = "r" to read file               file handler
+             rw = "w" to write file
+/* fopen */
+
+/* fprintf */
+          void fprintf(String s1, String s2, Arg1, Arg2, ..., Argn)
+
+          Conver, format and print out the message into a file
+/* fprintf */
+
+/* fread */
+          Matrix fread(Integer fd, Integer num, String type)
+          Matrix fread(Integer fd, Integer num, String type, Integer flip)
+
+          Read a binary data from file as specified precision
+/* fread */
+
+/* frobnorm */
+          Real frobnorm(Matrix M1): frobenius norm of a matrix
+                                    (euclidean norm of a matrix)
+/* frobnorm */
+
+/* frobnorm_row */
+          frobenius norm for each row
+
+          Matrix frobnorm_row(Matrix M1):
+/* frobnorm_row */
+
+/* frobnorm_col */
+          frobenius norm for each column
+
+          Matrix frobnorm_col(Matrix M1):
+/* frobnorm_row */
+
+/* fscanf */
+          List fscanf(Integer fd, String format)
+
+          Read data from file
+/* fscanf */
+
+/* fwrite */
+          void fwrite(Integer fd, Matrix M, String type)
+
+          Write a matrix to a file as specified precision
+/* fwrite */
+
+/* getch */
+          Integer getch(): read one character from standard input
+/* getch */
+
+/* getenv */
+         String getenv(String name)
+         Return value for environment name
+         Exp. disp = getenv("DISPLAY");
+/* getenv */
+
+/* gets */
+          String gets():            get a string from stdin
+                                    default string length is 1023
+          String gets(Integer len): get a string from stdin
+                                    len := string length
+/* gets */
+
+/* gettimer */
+         Real gettimer(): get the time since settimer() was called last.
+/* gettimer */
+
+/* gotoxy */
+         void gotoxy(Integer x, Integer y) Move the cusor (x,y)
+/* gotoxy */
+
+/* hess */
+          List hess(Matrix M1):  hessenberg decomposition of a matrix
+                                 {Q, H} = hess(A):
+                                 Q# * A * Q = H:
+                                 Matrix Q: Orthogonal or unitary matrix
+                                 Matrix H: Hessenberg matrix
+/* hess */
+
+/* higher */
+          shift coefficients toward the higher order
+
+          Polynomial higher(Polynomial P1):
+          Rational   higher(Rational R1):
+          Array      higher(Array A1):
+          Matrix     higher(Matrix M1):
+/* higher */
+
+/* ifft */
+          Inverse Fast fourier transfrom
+
+          Array ifft(Array A1, ..., Integer N);    (N must be 2^n)
+          Matrix ifft(Matrix M1, ..., Integer N);  (N must be 2^n)
+/* ifft */
+
+/* ifft_col */
+          Inverse Fast fourier transfrom for each column
+
+          Array ifft_col(Array A1, ..., Integer N);    (N must be 2^n)
+          Matrix ifft_col(Matrix M1, ..., Integer N);  (N must be 2^n)
+/* ifft_col */
+
+/* ifft_row */
+          Inverse Fast fourier transfrom for each row
+
+          Array ifft_row(Array A1, ..., Integer N);    (N must be 2^n)
+          Matrix ifft_row(Matrix M1, ..., Integer N);  (N must be 2^n)
+/* ifft_row */
+
+/* integral */
+          Indefinite integral of a polynomial
+
+          Polynomial integral(Polynomial P1):
+          Rational   integral(Rational R1):
+          Array      integral(Array A1):
+          Matrix     integral(Matrix M1):
+/* integral */
+
+/* infnorm */
+          Real infnorm(Matrix M1): infinity norm of a matrix
+/* infnorm */
+
+/* inv */
+          Matrix inv(Matrix A, Real tol): Inverse matrix
+/* inv */
+
+/* isfinite */
+          Integer isfinite(Real r1):
+                  Is it not NaN nor Inf ? (1:true, 0:false)
+          Integer isfinite(Complex c1):
+                  Is it not NaN nor Inf ? (1:true, 0:false)
+          Array isfinite(Matrix A):
+                  Is it Inf ? (1:true, 0:false)
+/* isfinite */
+
+/* isinf */
+          Integer isinf(Real r1):
+                  Is it Inf ? (1:true, 0:false)
+          Integer isinf(Complex c1):
+                  Is it Inf ? (1:true, 0:false)
+          Array isinf(Matrix A):
+                  Is it Inf ? (1:true, 0:false)
+/* isinf */
+
+/* isnan */
+          Integer isnan(Real r1):    Is it a NaN ? (1:true, 0:false)
+          Integer isnan(Complex c1): Is it a NaN ? (1:true, 0:false)
+          Array isnan(Matrix A):
+                  Is it Inf ? (1:true, 0:false)
+/* isnan */
+
+/* isreal */
+          Integer isreal(Polynomial P1): Is it a real polynomial ?
+          Integer isreal(Rational R1): Is it a real rational function ?
+          Integer isreal(Matrix M1): Is it a real matrix ?
+          Integer isreal(Array A1): Is it a real array ?
+/* isreal */
+
+/* iscomplex */
+          Integer iscomplex(Polynomial P1): Is it a complex polynomial ?
+          Integer iscomplex(Rational R1): Is it a complex rational function ?
+          Integer iscomplex(Matrix M1): Is it a complex matrix ?
+          Integer iscomplex(Array A1): Is it a complex array ?
+/* iscomplex */
+
+/* kernel */
+          Matrix kernel(Matrix M1):           kernel (null space) of a matrix
+          Matrix kernel(Matrix M1, Real tol): kernel (null space) of a matrix
+          Default: tol = frobnorm(M1)*EPS                    
+/* kernel */
+
+/* length */
+          Integer length(Matrix M1): length of a row or column vector
+          Integer length(List L1):   number of the elements of a list
+          Integer length(String str): length of a string
+/* length */
+
+/* linspace */
+          Array linspace(Real r1, Real r2):             linearly spaced vector
+          Array linspace(Real r1, Real r2, Integer i1): linearly spaced vector
+          Default: (i1 = 100)
+/* linspace */
+
+/* log */
+          Real    log(Real r1):    natural logarithm of a real number
+          Complex log(Complex c1): natural logarithm of a complex number
+          Array   log(Array A1):   natural logarithm of an array
+/* log */
+
+/* log10 */
+          Real    log10(Real r1):    common logarithm of a real number
+          Complex log10(Complex c1): common logarithm of a complex number
+          Array   log10(Array A1):   common logarithm of an array
+/* log10 */
+
+/* logspace */
+          logarithmically spaced vector
+
+          Array logspace(Real r1, Real r2):
+          Array logspace(Real r1, Real r2, Integer i1):
+          Default: (i3 = 50);
+/* logspace */
+
+/* lower */
+          shift coefficients toward the lower order
+
+          Polynomial lower(Polynomial P1):
+          Rational   lower(Rational R1):
+          Array      lower(Array A1):
+          Matrix     lower(Matrix M1):
+/* lower */
+
+/* lu */
+          List lu(Matrix M1):    LU decomposition
+                                 {L, U} = lu(A):
+                                 L * U = A:
+                                 Matrix L: Permutated triangular matrix
+                                 Matrix U: Upper triangular matrix
+/* lu */
+
+/* lu_p */
+          List lu_p(Matrix M1):  LU decomposition with permutation
+                                 {L, U, P} = lu_p(A):
+                                 L * U = P * A:
+                                 Matrix L: Lower triangular matrix
+                                 Matrix U: Upper triangular matrix
+                                 Matrix P: Permutation matrix
+/* lu_p */
+
+/* makelist */
+          List makelist(Integer i1): make a list of i1 elements
+/* makelist */
+
+/* max */
+          Integer max(Integer i1, Integer i2)  maximum value of two arguments
+          Real max(Real r1, Real r2)           maximum value of two arguments
+          Complex max(Complex c1, Complex c2)  maximum value of two arguments
+          Matrix max(Matrix M1)                maximum element of a vector
+          Matrix max(Matrix M1)                maximum element of elements in
+                                               the same row of a matrix 
+          Matrix max(Matrix M1, Matrix M2)     maximum of element-wise
+          Array max(Array M1, Array M2)        maximum of element-wise
+/* max */
+
+/* max_col */
+          Matrix max_col(Matrix M1)            maximum of a vector
+          Matrix max_col(Matrix M1)            maximum of each column
+/* max_col */
+
+/* max_row */
+          Matrix max_row(Matrix M1)            maximum of a vector
+          Matrix max_row(Matrix M1)            maximum of each row
+/* max_row */
+
+/* maximum */
+          List maximum(Matrix M1): maximum element of a matrix
+          List maximum(Array A1):  maximum element of an array
+
+          {dd, i, j} = maximum(M1): maximum element of a real matrix
+          {dd, i, j} = maximum(A1): maximum element of a real array
+          dd = M1(i,j);  dd = A1(i,j);
+
+          {dd, i} = maximum(M1): maximum element of a real vector
+          dd = M1(i);
+
+          {cc, i, j} = maximum(M1): maximum element of a complex matrix
+          {cc, i, j} = maximum(A1): maximum element of a complex array
+          cc = M1(i,j);  cc = A1(i,j);
+
+          {cc, i} = maximum(A1): maximum element of a complex vector
+          cc = M1(i);
+/* maximum */
+
+/* maxsing */
+          Real maxsing(Matrix M1): maximum singular value of a matrix
+/* maxsing */
+
+/* menu */
+         Generate amenu of choices for user input
+         mode = menu({"TITLE","item1","item2","item3","item4"});
+         mode = menu({"TITLE","item1","item2","item3","item4"}, default_item);
+         Integer default_item;
+/* menu */
+
+/* mean */
+          Real       mean(Matrix M1): mean of all elements
+          Complex    mean(Matrix M1): mean of all elements 
+          Polynomial mean(Matrix M1): mean of all elements
+          Rational   mean(Matrix M1): mean of all elements
+          Real       mean(Array A1):  mean of all elements
+          Complex    mean(Array A1):  mean of all elements
+          Polynomial mean(Array A1):  mean of all elements
+          Rational   mean(Array A1):  mean of all elements
+          Integer    mean(Index X1):  mean of all elements
+/* mean */
+
+/* mean_col */
+          Matrix   mean_col(Matrix M1):  mean of all elements of a vector
+          Matrix   mean_col(Matrix M1):  mean of all elements of each column
+/* mean_col */
+
+/* mean_row */
+          Matrix   mean_row(Matrix M1):  mean of all elements of a vector
+          Matrix   mean_row(Matrix M1):  mean of all elements of each row
+/* mean_row */
+
+/* min */
+          Integer min(Integer i1, Integer i2)  minimum value of two arguments
+          Real min(Real r1, Real r2)           minimum value of two arguments
+          Complex min(Complex c1, Complex c2)  minimum value of two arguments
+          Matrix min(Matrix M1):               minimum element of a vector
+          Matrix min(Matrix M1):               minimum element of elements in
+                                               the same row of a matrix 
+          Matrix min(Matrix M1, Matrix M2)     minimum of element-wise
+          Array min(Array M1, Array M2)        minimum of element-wise
+/* min */
+
+/* min_col */
+          Matrix min_col(Matrix M1)            minimum of a vector
+          Matrix min_col(Matrix M1)            minimum of each column
+/* min_col */
+
+/* min_row */
+          Matrix min_row(Matrix M1)            minimum of a vector
+          Matrix min_row(Matrix M1)            minimum of each row
+/* min_row */
+
+/* minimum */
+          List minimum(Matrix M1): minimum element of a matrix
+          List minimum(Array A1):  minimum element of an array
+
+          {dd, i, j} = minimum(M1): minimum element of a real matrix
+          {dd, i, j} = minimum(A1): minimum element of a real array
+          dd = M1(i,j);  dd = A1(i,j);
+
+          {dd, i} = minimum(M1): minimum element of a real vector
+          dd = M1(i);
+
+          {cc, i, j} = minimum(M1): minimum element of a complex matrix
+          {cc, i, j} = minimum(A1): minimum element of a complex array
+          cc = M1(i,j);  cc = A1(i,j);
+
+          {cc, i} = minimum(M1): minimum element of a complex vector
+          cc = M1(i);
+/* minimum */
+
+/* minsing */
+          Real minsing(Matrix M2): minimum singular value of a matrix
+/* minsing */
+
+
+/* norm */
+          Real norm(Matrix M1, Integer i1): p-norm
+          Default: (i1 = 2)
+/* norm */
+
+/* poles */
+          Matrix poles(Rational R1): poles of a rational function
+/* poles */
+
+/* printf */
+          void printf(String s1, Arg1, Arg2, ..., Argn): 
+          conver, format and print out the message
+/* printf */
+
+/* prod */
+          Real       prod(Matrix M1): product of all elements
+          Complex    prod(Matrix M1): product of all elements
+          Polynomial prod(Matrix M1): product of all elements
+          Rational   prod(Matrix M1): product of all elements
+          Real       prod(Array A1):  product of all elements
+          Complex    prod(Array A1):  product of all elements
+          Polynomial prod(Array A1):  product of all elements
+          Rational   prod(Array A1):  product of all elements
+          Integer    prod(Index X1):  product of all elements
+/* prod */
+
+/* prod_col */
+          Matrix   prod_col(Matrix M1):  product of all elements of a vector
+          Matrix   prod_col(Matrix M1):  product of all elements of each column
+/* prod_col */
+
+/* prod_row */
+          Matrix   prod_row(Matrix M1):  product of all elements of a vector
+          Matrix   prod_row(Matrix M1):  product of all elements of each row
+/* prod_row */
+
+/* pseudoinv */
+          Matrix pseudoinv(Matrix M1):           pseudoinverse of a matrix
+          Matrix pseudoinv(Matrix M1, Real tol): pseudoinverse of a matrix
+          Default: tol = frobnorm(M1)*EPS
+/* pseudoinv */
+
+/* putenv */
+         Change or add value to environment
+         void putenv(string)
+         Exp. disp = putenv("DISPLAY=dazai:0.0");
+/* putenv */
+
+/* qr */
+         List qr(Matrix M1):    QR decomposition
+                                {Q, R} = qr(A):
+                                Q * R = A:
+                                Matrix Q: Orthogonal or unitary matrix
+                                Matrix R: Upper triangular matrix
+/* qr */
+
+/* qr_p */
+          List qr_p(Matrix M1):  QR decomposition with permutation
+                                 {Q, R, P} = qr_p(A):
+                                 Q * R = A * P:
+                                 Matrix Q: Orthogonal or unitary matrix
+                                 Matrix R: Upper triangular matrix
+                                 Matrix P: Permutation matrix
+/* qr_p */
+
+/* qz */             
+          List qz(Matrix M1):    QZ decomposition
+                                 {AA, BB, Q, Z, VEC} = qz(A,B):
+                                 Q# * A * Z = AA:
+                                 Q# * B * Z = BB:
+                                 val = diag2vec(AA) ./ diag2vec(BB):
+                                 A * VEC = B * VEC * vec2diag(val):
+                                Matrix  AA: Upper triangular matrix
+                                Matrix  BB: Upper triangular matrix
+                                Matrix   Q: Orthogonal or unitary matrix
+                                Matrix   Z: Orthogonal or unitary matrix
+                                Matrix VEC: Generalized eigenvectors
+                                Matrix val: Generalized eigenvalues
+/* qz */
+
+/* rand */
+          Real rand():                         Uniformly distributed number
+          Matrix rand(Integer i1):             Uniformly distributed matrix
+          Matrix rand(Integer i1, Integer i2): U-distributed matrix
+          Integer rand("seed"):                Seed of u-distributed numbers
+          Integer rand("seed", Integer i1):    Set the seed of u-dist. numbers
+          Default: (i2 = i1)
+          Matrix rand(Matrix M1);              Uniformly distributed matrix
+          Array rand(Array M1);                Uniformly distributed array
+/* rand */
+
+/* randn */
+          Real randn():                         Normaly distributed number
+          Matrix randn(Integer i1):             Normaly distributed matrix
+          Matrix randn(Integer i1, Integer i2): N-distributed matrix
+          Integer randn("seed"):                Seed of n-distributed numbers
+          Integer randn("seed", Integer i1):    Set the seed of n-dist. numbers
+          Default: (i2 = i1)
+          Matrix randn(Matrix M1);              Normaly distributed matrix
+          Array randn(Array M1);                Normaly distributed array
+/* randn */
+
+/* rank */
+          Integer rank(Matrix M1):           rank of a matrix
+          Integer rank(Matrix M1, Real tol): rank of a matrix
+          Default: tol = frobnorm(M1)*EPS                    
+/* rank */
+
+/* rem */
+          Integer rem(Integer i1, Integer i2): remainder of division
+          Real    rem(Integer i1, Real r2):    remainder of division
+          Matrix  rem(Integer i1, Matrix a):   remainder of division
+          Array   rem(Integer i1, Array a):    remainder of division
+          Index   rem(Integer i1, Index a):    remainder of division
+          Real    rem(Real r1, Integer i2):    remainder of division
+          Real    rem(Real r1, Real r2):       remainder of division
+          Matrix  rem(Real r1, Matrix a):      remainder of division
+          Array   rem(Real r1, Array a):       remainder of division
+          Index   rem(Real r1, Index a):       remainder of division
+          Matrix  rem(Matrix a, Integer i1):   remainder of division
+          Matrix  rem(Matrix a, Real r1):      remainder of division
+          Matrix  rem(Matrix a, Matrix b):     remainder of division
+          Array  rem(Array a, Integer i1):     remainder of division
+          Array  rem(Array a, Real r1):        remainder of division
+          Array  rem(Array a, Array b):        remainder of division
+          Index  rem(Index a, Integer i1):     remainder of division
+          Index  rem(Index a, Real r1):        remainder of division
+          Index  rem(Index a, Index b):        remainder of division
+/* rem */
+
+/* reshape */
+          Matrix reshape(Matrix M1, Integer i1, Integer i2):
+          reshaping of a matrix
+/* reshape */
+
+/* rkf45 */
+          Matrix rkf45(Real t, Matrix x, Matrix diff_eqs(), Real dt)
+          Matrix rkf45(Real t, Matrix x, Matrix diff_eqs(), Matrix u)
+          Matrix rkf45(Real t, Matrix x, Matrix diff_eqs(), Matrix u, Real dt)
+          Matrix rkf45(Real t, Matrix x, Matrix diff_eqs(),
+                                         Matrix link_eqs())
+          Matrix rkf45(Real t, Matrix x, Matrix diff_eqs(),
+                                         Matrix link_eqs(), Real dt)
+          
+          To solve ordinary differential equations according to
+          RKF45 methods.
+/* rkf45 */
+
+/* rngkut4 */
+          Matrix rngkut4(Real t, Matrix x, Matrix diff_eqs(), Real dt)
+          Matrix rngkut4(Real t, Matrix x, Matrix diff_eqs(),
+                                           Matrix u)
+          Matrix rngkut4(Real t, Matrix x, Matrix diff_eqs(),
+                                           Matrix u, Real dt)
+          Matrix rngkut4(Real t, Matrix x, Matrix diff_eqs(),
+                                           Matrix link_eqs())
+          Matrix rngkut4(Real t, Matrix x, Matrix diff_eqs(),
+                                           Matrix link_eqs(), Real dt)
+
+          To solve ordinary differential equations according
+          to 4th order Runge-Kutta methods.
+/* rngkut4 */
+
+/* roots */
+          Matrix roots(Polynomial P1): roots of a polynomial
+/* roots */
+
+/* round */
+          Real round(Real r1):       rounding function to the nearest integer
+          Complex round(Complex c1): rounding function to the nearest integer
+          Polynomail round(Polynomial P1): rounding function to the nearest
+                                           integer
+          Rational round(Rational R1): rounding function to the nearest integer
+          Array round(Array A1):     rounding function of an array
+          Matrix round(Matrix M1):   rounding function of a matrix
+          Index round(Index I1):     rounding function of an index
+/* round */
+
+/* round2z */
+          Rounding function to 0 with tolerance
+          Integer round2z(Integer i1)
+          Integer round2z(Integer i1, Real tol)
+          Real round2z(Real r1)
+          Real round2z(Real r1, Real tol)
+          Complex round2z(Complex c1)
+          Complex round2z(Complex c1, Real tol)
+          Polynomial round2z(Polynomial P1)
+          Polynomial round2z(Polynomial P1, Real tol)
+          Rational round2z(Rational R1)
+          Rational round2z(Rational R1, Real tol)
+          Matrix round2z(Matrix M1)
+          Matrix round2z(Matrix M1, Real tol)
+/* round2z */
+
+/* scanf */
+          List scanf(String format): read data from standard input
+/* scanf */
+
+/* schur */
+          List schur(Matrix M1):  Schur decomposition
+                                 {U, T} = schur(A):
+                                  U# * A * U = T:
+                                  Matrix U: Orthogonal or unitary matrix
+                                  Matrix T: Pseudo-upper triangular or
+                                            upper triangular matrix
+/* schur */
+
+/* settimer */
+          void settimer(): start the timer
+/* settimer */
+
+/* sgn */
+          Real sgn(Real r1):   sign function of a real naumber
+          Array sgn(Array A1): sign function of an array
+/* sgn */
+
+/* sin */
+          Real    sin(Real r1):    sine function of a real number
+          Complex sin(Complex c1): sine function of a complex number
+          Array   sin(Array A1):   sine function of an array
+/* sin */
+
+/* sing */
+          void sing(Matrix M1): singular value decomposition
+/* sing */
+
+/* singleftvec */
+          Matrix singleftvec(Matrix M1): left singular vector
+/* singleftvec */
+
+/* singrightvec */
+          Matrix singrightvec(Matrix M1): right singular vector
+/* singrightvec */
+
+/* singval */
+          Matrix singval(Matrix M1): singular value
+/* singval */
+
+/* sinh */
+          Real    sinh(Real r1):    hyperbolic sine of a real number
+          Complex sinh(Complex c1): hyperbolic sine of a complex number
+          Array   sinh(Array A1):   hyperbolic sine of an array
+/* sinh */
+
+/* size */
+          List size(Matrix M1): size of a matrix
+          List size(Array A1):  size of an array
+                                {m, n} = size(M1);
+                                 Integer m: number of rows
+                                 Integer n: number of columns
+/* size */
+
+/* sort */
+          List sort(Matrix M1): sorting in ascending order
+                                {M2, idx} = sort(M1)
+                                 Matrix M2: Result matrix
+                                 Index idx: Indices used in the sort.
+
+                                {A2, idx} = sort(A1)
+                                 Array A2: Result array
+                                 Index idx: Indices used in the sort.
+/* sort */
+
+/* sort_col */
+          List sort_col(Matrix M1):
+                                sorting in ascending order for each column
+                                {M2, idx} = sort_col(M1)
+                                 Matrix M2: Result matrix
+                                 Index idx: Indices used in the sort.
+
+                                {A2, idx} = sort_col(A1)
+                                 Array A2: Result array
+                                 Index idx: Indices used in the sort.
+/* sort_col */
+
+/* sort_row */
+          List sort_row(Matrix M1):
+                                sorting in ascending order for each row
+                                {M2, idx} = sort_row(M1)
+                                 Matrix M2: Result matrix
+                                 Index idx: Indices used in the sort.
+
+                                {A2, idx} = sort_row(A1)
+                                 Array A2: Result array
+                                 Index idx: Indices used in the sort.
+/* sort_row */
+
+/* sprintf */
+          conver, format the message
+
+          String sprintf(String s1, Arg1, Arg2, ..., Argn):
+/* sprintf */
+
+/* sqrt */
+          Real    sqrt(Real r1):    square root of a positive real number
+          Complex sqrt(Real r1):    square root of a negative real number
+          Complex sqrt(Complex c1): square root of a complex number
+          Array   sqrt(Array A1):   square root of an array
+          Matrix  sqrt(Matrix M1):  square root of a matrix
+/* sqrt */
+
+/* std */
+          Real       std(Matrix M1): standard deviation of all elements
+          Complex    std(Matrix M1): standard deviation of all elements 
+          Polynomial std(Matrix M1): standard deviation of all elements
+          Rational   std(Matrix M1): standard deviation of all elements
+          Real       std(Array A1):  standard deviation of all elements
+          Complex    std(Array A1):  standard deviation of all elements
+          Polynomial std(Array A1):  standard deviation of all elements
+          Rational   std(Array A1):  standard deviation of all elements
+          Integer    std(Index X1):  standard deviation of all elements
+/* std */
+
+/* std_col */
+          Matrix   std_col(Matrix M1):  standard deviation of all elements 
+                                        of a vector
+          Matrix   std_col(Matrix M1):  standard deviation of all elements
+                                        of each column
+/* std_col */
+
+/* std_row */
+          Matrix   std_row(Matrix M1):  standard deviation of all elements 
+                                        of a vector
+          Matrix   std_row(Matrix M1):  standard deviation of all elements
+                                        of each row of a matrix
+/* std_row */
+
+/* strchr */
+          Integer strchr(String str, String c): The position of the first
+                                                character 'c' in a string
+                                                'str'
+/* strchr */
+
+/* svd */
+          List svd(Matrix M1):   singular value decomposition
+                                 {U, D, V} = svd(A):
+                                 U * D * V# = A:
+                                 Matrix U: Left Singular vectors
+                                 Matrix V: Right Singular vectors
+                                 Matrix D: Singular Values
+/* svd */
+
+/* sum */
+          Real       sum(Matrix M1):  sum of all elements
+          Complex    sum(Matrix M1):  sum of all elements
+          Polynomial sum(Matrix M1):  sum of all elements
+          Rational   sum(Matrix M1):  sum of all elements
+          Real       sum(Array A1):   sum of all elements
+          Complex    sum(Array A1):   sum of all elements
+          Polynomial sum(Array A1):   sum of all elements
+          Rational   sum(Array A1):   sum of all elements
+          Integer    sum(Integer X1): sum of all elements
+/* sum */
+
+/* sum_col */
+          Matrix   sum_col(Matrix M1):   sum of all elements of a vector
+          Matrix   sum_col(Matrix M1):   sum of all elements of each column
+/* sum_col */
+
+/* sum_row */
+          Matrix   sum_row(Matrix M1):   sum of all elements of a vector
+          Matrix   sum_row(Matrix M1):   sum of all elements of each row
+/* sum_row */
+
+/* system */
+          void system(String s1): system call
+/* system */
+
+/* tan */
+          Real    tan(Real r1):    tangent function of a real number
+          Complex tan(Complex c1): tangent function of a complex number
+          Array   tan(Array A1):   tangent function of an array
+/* tan */
+
+/* tanh */
+          Real    tanh(Real r1):    hyperbolic tangent of a real number
+          Complex tanh(Complex c1): hyperbolic tangent of a complex number
+          Array   tanh(Array A1):   hyperbolic tangent of an array
+/* tanh */
+
+/* trace */
+          Real       trace(Matrix M1): sum of diagonal elemnts
+          Complex    trace(Matrix M1): sum of diagonal elemnts
+          Polynomial trace(Matrix M1): sum of diagonal elemnts
+          Rational   trace(Matrix M1): sum of diagonal elemnts
+          Real       trace(Array A1):  sum of diagonal elemnts
+          Complex    trace(Array A1):  sum of diagonal elemnts
+          Polynomial trace(Array A1):  sum of diagonal elemnts
+          Rational   trace(Array A1):  sum of diagonal elemnts
+/* trace */
+
+/* trans */
+          Matrix trans(Matrix M1): Transpose of the matrix
+/* trans */
+
+/* vec2diag */
+          Matrix vec2diag(Matrix M1): transform a vector to a diagonal matrix
+/* vec2diag */
+
+/* vectorprod */
+          vector product of two vectors
+
+          Matrix vectorprod(Matrix M1, Matrix M2):
+/* vectorprod */
+
+/* warning */
+          void warning(String s1): warning function
+/* warning */
+
+/* zeros */
+          Matrix zeros(Rational R1): zeros of a rational function
+/* zeros */

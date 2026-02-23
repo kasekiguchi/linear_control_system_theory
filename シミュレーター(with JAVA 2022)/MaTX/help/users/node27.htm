@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>メニューを表示する</TITLE>
+<META NAME="description" CONTENT="メニューを表示する">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node28.htm">
+<LINK REL="previous" HREF="node26.htm">
+<LINK REL="up" HREF="node18.htm">
+<LINK REL="next" HREF="node28.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html916"
+ HREF="node28.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html912"
+ HREF="node18.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html906"
+ HREF="node26.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html914"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html915"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html917"
+ HREF="node28.htm">OSのコマンドを実行する</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html913"
+ HREF="node18.htm">コマンドと便利な機能</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html907"
+ HREF="node26.htm">環境変数の設定と取得</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00690000000000000000">
+メニューを表示する</A>
+</H1>
+<A NAME="1941">&#160;</A>
+<A NAME="1475">&#160;</A><A NAME="1476">&#160;</A>
+メニューを表示するには，関数<TT>menu()</TT>を使用する。
+第2引数にデフォルトのメニュー番号を指定することができる。
+<BR CLEAR="ALL">
+<HR><PRE>
+  mode = menu({"TITLE","item1","item2","item3","item4"});
+
+  menu0 = {"TITLE", "item1", "item2", "item3", "item4"};
+  default_item = 2;
+  mode = menu(menu0, default_item);
+</PRE>
+<BR CLEAR="ALL">
+<HR>メニューのキーバインディングの次の表に示す。
+記号 <code>^</code> は，
+<!-- MATH: $\fbox{\tt Ctrl}$ -->
+<IMG
+ WIDTH="45" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.gif"
+ ALT="\fbox{\tt Ctrl}">キーを押しながら続く文字を
+同時に押すことを表す。
+例えば， <code>^</code>N は，
+<!-- MATH: $\fbox{\tt Ctrl}$ -->
+<IMG
+ WIDTH="45" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.gif"
+ ALT="\fbox{\tt Ctrl}">キーを押したまま
+
+<!-- MATH: $\fbox{\tt N}$ -->
+<IMG
+ WIDTH="20" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.gif"
+ ALT="\fbox{\tt N}">キーを同時に押すことを意味する。
+<BR>
+<DIV ALIGN="CENTER">
+
+<DIV ALIGN="CENTER">
+<A NAME="1486">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 3.1:</STRONG>
+メニューのキーバインディング</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>機能</TD>
+<TD ALIGN="CENTER" COLSPAN=1>キー</TD>
+</TR>
+<TR><TD ALIGN="LEFT">下移動</TD>
+<TD ALIGN="LEFT"><code>^</code>N または j または ↓</TD>
+</TR>
+<TR><TD ALIGN="LEFT">上移動</TD>
+<TD ALIGN="LEFT"><code>^</code>P または k または ↑</TD>
+</TR>
+<TR><TD ALIGN="LEFT">i 番のメニュー</TD>
+<TD ALIGN="LEFT">数字 i (0〜9)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">10以上の番号を選択</TD>
+<TD ALIGN="LEFT"><code>+</code>を1回で10</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT"><code>+</code>を2回で20</TD>
+</TR>
+<TR><TD ALIGN="LEFT">決定</TD>
+<TD ALIGN="LEFT">リターン</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

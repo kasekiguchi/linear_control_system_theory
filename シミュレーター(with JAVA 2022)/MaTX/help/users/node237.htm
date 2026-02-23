@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>シミュレーションからリアルタイム処理へ</TITLE>
+<META NAME="description" CONTENT="シミュレーションからリアルタイム処理へ">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node236.htm">
+<LINK REL="up" HREF="node222.htm">
+<LINK REL="next" HREF="node238.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3604"
+ HREF="node238.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3600"
+ HREF="node222.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3596"
+ HREF="node236.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3602"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3603"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3605"
+ HREF="node238.htm">倒立振子の制御のシミュレーション</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3601"
+ HREF="node222.htm">リアルタイム処理(RTMATX)</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3597"
+ HREF="node236.htm">リアルタイム処理用関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002670000000000000000">
+シミュレーションからリアルタイム処理へ</A>
+</H1><FONT SIZE="-1">
+ここでは，図<A HREF="node237.htm#fig:pendulum">D.1</A>に示す倒立振子のオブザーバ</FONT>+<FONT SIZE="-1">状態フィード
+バックによる制御について，シミュレーションおよびリアルタイム制御の
+プログラムの例を示す。
+<A NAME="13229">&#160;</A>
+<A NAME="13230">&#160;</A>
+<A NAME="13231">&#160;</A>
+<A NAME="13232">&#160;</A>
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:pendulum">&#160;</A><A NAME="13237">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 D.1:</STRONG>
+倒立振子制御系の実験装置</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/pendulum.eps}$ -->
+<IMG
+ WIDTH="270" HEIGHT="322" ALIGN="BOTTOM" BORDER="0"
+ SRC="img64.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/pendulum.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+<FONT SIZE="-1">
+台車についての運動方程式は
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+M \ddot{r} = au - F\dot{r} - H
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="136" HEIGHT="30"
+ SRC="img65.gif"
+ ALT="\begin{displaymath}M \ddot{r} = au - F\dot{r} - H
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+である。ただし
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT"><I>M</I></TD><TD ALIGN="LEFT">[kg]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156>台車・プーリ・モータ系の等価質量</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I>r</I></TD><TD ALIGN="LEFT">[m]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156>台車の変位</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I>u</I></TD><TD ALIGN="LEFT">[V]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156>パワーアンプへの入力電圧</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I>a</I></TD><TD ALIGN="LEFT">[N/V]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156><I>u</I>から台車に働く力までのゲイン</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I>F</I></TD><TD ALIGN="LEFT">[N/(m/s)]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156>台車・ベルト・プーリ・モータ系の等価摩擦係数</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I>H</I></TD><TD ALIGN="LEFT">[N]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=156>振子から台車に働く水平力</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1">である。振子についての運動方程式は
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{rcl}
+J \ddot{\theta} & = & V l \sin\theta - H l \cos\theta - c \dot{\theta}\\
+  && m \frac{d^2}{dt^2} (r + l \sin\theta) = H \\
+  && m \frac{d^2}{dt^2} (l \cos\theta) = V - mg
+\end{array}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="225" HEIGHT="78"
+ SRC="img66.gif"
+ ALT="\begin{displaymath}\begin{array}{rcl}
+J \ddot{\theta} & = & V l \sin\theta - H ...
+... \\
+&& m \frac{d^2}{dt^2} (l \cos\theta) = V - mg
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+である。ただし，
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT"><I>J</I></TD><TD ALIGN="LEFT">[kgm<SUP>2</SUP>]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT">振子の重心回りの慣性モーメント</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img67.gif"
+ ALT="$\theta$"></TD><TD ALIGN="LEFT">[rad]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT">振子の鉛直線下からの角度</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I>V</I></TD><TD ALIGN="LEFT">[N]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT">台車から受ける力の垂直方向成分</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I>l</I></TD><TD ALIGN="LEFT">[m]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT">軸から振子の重心までの距離</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I>H</I></TD><TD ALIGN="LEFT">[N]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT">台車から受ける力の水平方向成分</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I>c</I></TD><TD ALIGN="LEFT">[kgm<SUP>2</SUP>/s]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT">軸の摩擦係数</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I>m</I></TD><TD ALIGN="LEFT">[kg]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT">振子の質量</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><I>g</I></TD><TD ALIGN="LEFT">[m/s<SUP>2</SUP>]</TD>
+<TD ALIGN="LEFT"> : </TD><TD ALIGN="LEFT">重力加速度</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1">である。
+状態変数として，台車の変位</FONT><I>r</I><FONT SIZE="-1">，振子の角度</FONT><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img67.gif"
+ ALT="$\theta$"><FONT SIZE="-1">，台車の速度</FONT><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img68.gif"
+ ALT="$\dot{r}$"><FONT SIZE="-1">，
+振子の角速度</FONT>
+<!-- MATH: $\dot{\theta}$ -->
+<IMG
+ WIDTH="12" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img69.gif"
+ ALT="$\dot{\theta}$"><FONT SIZE="-1">をとり，状態ベクトルを
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+x = \left[\begin{array}{c}
+x_1\\x_2\\x_3\\x_4
+\end{array}\right] = \left[\begin{array}{c}
+r\\\theta\\\dot{r}\\\dot{\theta}
+\end{array}\right]
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="145" HEIGHT="102"
+ SRC="img70.gif"
+ ALT="\begin{displaymath}x = \left[\begin{array}{c}
+x_1\\ x_2\\ x_3\\ x_4
+\end{array}...
+...ray}{c}
+r\\ \theta\\ \dot{r}\\ \dot{\theta}
+\end{array}\right]
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+とすると，倒立振子の状態方程式は次のように書ける。
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{rcl}
+\dot{x} = f(x, u) \df &&
+  \left[
+  \begin{array}{c}
+    x_3\\
+    x_4\\
+    (1+\alpha\sin^2x_2)^{-1}\times\{a_{32}\sin x_2\cos x_2 + a_{33}x_3\\
+    (1+\alpha\sin^2x_2)^{-1}\times\{a_{42}\sin x_2 + a_{43}\cos x_2 x_3
+  \end{array}\right.
+\\
+&&
+\left.\begin{array}{l}
+\\
+\\
++ a_{34}\cos x_2 x_4 + a_{35}\sin x_2 x_4^2 + b_3 u\}\\
++ a_{44}x_4 + a_{45} \sin x_2 \cos x_2 x_4^2 + b_4 \cos x_2 u\}
+\end{array}\right]
+\end{array}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="449" HEIGHT="197"
+ SRC="img71.gif"
+ ALT="\begin{displaymath}\begin{array}{rcl}
+\dot{x} = f(x, u) \df &&
+\left[
+\begin{...
+...cos x_2 x_4^2 + b_4 \cos x_2 u\}
+\end{array}\right]
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+ここで，
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\alpha = m^2 l^2/\alpha_0
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="89" HEIGHT="33"
+ SRC="img72.gif"
+ ALT="\begin{displaymath}\alpha = m^2 l^2/\alpha_0
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\left[
+\begin{array}{ccccc}
+a_{32} & a_{33} & a_{34} & a_{35} & b_3\\
+  a_{42} & a_{43} & a_{44} & a_{45} & b_4
+\end{array}
+\right]\hspace*{4cm}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="191" HEIGHT="54"
+ SRC="img73.gif"
+ ALT="\begin{displaymath}\left[
+\begin{array}{ccccc}
+a_{32} & a_{33} & a_{34} & a_{35...
+...a_{43} & a_{44} & a_{45} & b_4
+\end{array}\right]\hspace*{4cm}
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{l}
+= \frac{1}{\alpha_0}
+  \left[
+  \begin{array}{cc}
+    -(ml)^2g & -F(J + ml^2)\\
+    (M+m)mlg & Fml
+  \end{array}
+  \right.\\
+\left.\hspace*{2cm}\begin{array}{ccc}
+    cml & (J+ml^2)ml & (J+ml^2)a\\
+-(M+m)c &    -(ml)^2 & -(ml)a
+\end{array}\right]\end{array}
+\end{displaymath} -->
+<A NAME="eq:parameters">&#160;</A>
+
+<A NAME="eq:parameters">&#160;</A><IMG
+ WIDTH="391" HEIGHT="102"
+ SRC="img74.gif"
+ ALT="\begin{displaymath}\begin{array}{l}
+= \frac{1}{\alpha_0}
+\left[
+\begin{array}...
+...)a\\
+-(M+m)c & -(ml)^2 & -(ml)a
+\end{array}\right]
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+ただし，</FONT>
+<!-- MATH: $\alpha_0 = (M+m)J+Mml^2$ -->
+<IMG
+ WIDTH="179" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img75.gif"
+ ALT="$\alpha_0 = (M+m)J+Mml^2$"><FONT SIZE="-1">である。
+</FONT>
+<P>
+<FONT SIZE="-1">平衡点近傍で線形近似を行なって得た線形モデルに対して，
+オブザーバと状態フィードバック則を設計して，シミュレーションおよび
+リアルタイム制御(実験)を行なう。
+
+</FONT>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html3606"
+ HREF="node238.htm">倒立振子の制御のシミュレーション</A>
+<LI><A NAME="tex2html3607"
+ HREF="node239.htm">倒立振子のリアルタイム制御</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html3604"
+ HREF="node238.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3600"
+ HREF="node222.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3596"
+ HREF="node236.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3602"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3603"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3605"
+ HREF="node238.htm">倒立振子の制御のシミュレーション</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3601"
+ HREF="node222.htm">リアルタイム処理(RTMATX)</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3597"
+ HREF="node236.htm">リアルタイム処理用関数</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

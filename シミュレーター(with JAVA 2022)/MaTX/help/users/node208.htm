@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>演算</TITLE>
+<META NAME="description" CONTENT="演算">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node222.htm">
+<LINK REL="previous" HREF="node205.htm">
+<LINK REL="up" HREF="MaTX.htm">
+<LINK REL="next" HREF="node209.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3226"
+ HREF="node209.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3222"
+ HREF="MaTX.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3216"
+ HREF="node207.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3224"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3225"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3227"
+ HREF="node209.htm">和 (Addition)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3223"
+ HREF="MaTX.htm">無題</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3217"
+ HREF="node207.htm">メモリの状態遷移</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002500000000000000000">&#160;</A>
+<A NAME="12283">&#160;</A>
+<BR>
+演算
+</H1>
+<P>
+<FONT SIZE="-1">二項算術演算子は<code>+, -, *, .*, /, ./, \, .\, ^, .^</code>である。
+<TT>+</TT>と<TT>-</TT>は同じ優先度を持つが，それは，同じ優先度の
+<code>*, .*, /, ./, \, .\, ^, .^</code>よりも低い。
+さらに，後者の優先度は単項演算子<code>+, -, ~, ', #</code>の優先度より低い。
+算術演算子は左から右へまとめられて評価される。
+表1は，全演算子の優先度と結合規則をまとめたものである。
+<A NAME="12286">&#160;</A><A NAME="12287">&#160;</A>
+</FONT>
+<BR>
+<DIV ALIGN="CENTER">
+
+<DIV ALIGN="CENTER">
+<A NAME="12289">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 C.1:</STRONG>
+演算子の優先度と結合規則</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>演 算 子</TD>
+<TD ALIGN="CENTER">結合規則</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code> ( ) \$ [ ]           </code></TD>
+<TD ALIGN="CENTER">左から右</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code> ++  --              </code></TD>
+<TD ALIGN="CENTER">右から左</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code> ^  ~  '  #  .^  .~  </code></TD>
+<TD ALIGN="CENTER">右から左</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code> @  !  -             </code></TD>
+<TD ALIGN="CENTER">右から左</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code> *  /  \  .*  ./  .\ </code></TD>
+<TD ALIGN="CENTER">左から右</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code> +  -                </code></TD>
+<TD ALIGN="CENTER">左から右</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code> &lt;  &lt;=  &gt;  &gt;=        </code></TD>
+<TD ALIGN="CENTER">左から右</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code> ==  !=              </code></TD>
+<TD ALIGN="CENTER">左から右</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code> &amp;&amp;                  </code></TD>
+<TD ALIGN="CENTER">左から右</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code> ||                  </code></TD>
+<TD ALIGN="CENTER">左から右</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code> =                   </code></TD>
+<TD ALIGN="CENTER">右から左</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR><FONT SIZE="-1">同一行の演算しは同じ優先度をもつものである。
+各行は優先度が減少する順に並べてある。
+例えば，<code>*, /</code>は同じ優先度もち，2項の<code>+</code>と<code>-</code>よりも高い。
+</FONT>
+<P>
+<FONT SIZE="-1">二項演算においてクラスレベルの低い方の値は，下記の規則にしたがって
+クラス変換される。演算結果はクラスレベルの高い方の値のクラスと
+一致する。(ただし，スカラー倍と累乗を除く。)
+配列の演算は，各成分毎に演算が行なわれ，
+演算結果は，各成分の演算結果を成分とする配列になる。
+<A NAME="12299">&#160;</A>
+</FONT>
+<P>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+ 
+<BR>
+<IMG
+ WIDTH="496" HEIGHT="287" ALIGN="BOTTOM" BORDER="0"
+ SRC="img60.gif"
+ ALT="\begin{picture}(150,90)
+\put(0,80){\makebox(20,10){整数}}
+\put(20,85){\vector(1,...
+...\vector(1,0){10}}
+\put(105,0){\makebox(40,10){複素有理多項式行列}}
+\end{picture}">
+<BR></FONT></DIV>
+<P>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html3228"
+ HREF="node209.htm">和 (Addition)</A>
+<LI><A NAME="tex2html3229"
+ HREF="node210.htm">差 (Subtraction)</A>
+<LI><A NAME="tex2html3230"
+ HREF="node211.htm">積 (Multiplication)</A>
+<LI><A NAME="tex2html3231"
+ HREF="node212.htm">スカラ倍 (Scalar Multiplication)</A>
+<LI><A NAME="tex2html3232"
+ HREF="node213.htm">逆 (Inverse)</A>
+<LI><A NAME="tex2html3233"
+ HREF="node214.htm">商 (Division)</A>
+<LI><A NAME="tex2html3234"
+ HREF="node215.htm">累乗 (Power)</A>
+<LI><A NAME="tex2html3235"
+ HREF="node216.htm">転置 (Transpose)</A>
+<LI><A NAME="tex2html3236"
+ HREF="node217.htm">複素共役転置 (Complex Conjugate Transpose)</A>
+<LI><A NAME="tex2html3237"
+ HREF="node218.htm">符合反転 (Negation)</A>
+<LI><A NAME="tex2html3238"
+ HREF="node219.htm">{ポスト,プリ}{インクリメント,デクリメント}</A>
+<LI><A NAME="tex2html3239"
+ HREF="node220.htm">関係演算 (Relational Operation)</A>
+<LI><A NAME="tex2html3240"
+ HREF="node221.htm">論理演算 (Logical Operation)</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>基本的なプロット</TITLE>
+<META NAME="description" CONTENT="基本的なプロット">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node71.htm">
+<LINK REL="previous" HREF="node69.htm">
+<LINK REL="up" HREF="node69.htm">
+<LINK REL="next" HREF="node71.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1468"
+ HREF="node71.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1464"
+ HREF="node69.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1458"
+ HREF="node69.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1466"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1467"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1469"
+ HREF="node71.htm">複数の線</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1465"
+ HREF="node69.htm">gnuplot</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1459"
+ HREF="node69.htm">gnuplot</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00911000000000000000">&#160;</A>
+<A NAME="3660">&#160;</A>
+<BR>
+基本的なプロット
+</H2><FONT SIZE="-1">
+もし<TT>Y</TT>が横ベクトルなら，
+<TT>gplot(Y)</TT>(<TT>mgplot(win, Y)</TT>)によって<TT>Y</TT>の
+成分とその成分の指数を対応させた線形プロットが作成される。
+たとえば，ある実数の集合</FONT><IMG
+ WIDTH="25" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.gif"
+ ALT="$\{0.$"><FONT SIZE="-1">, </FONT>.48<FONT SIZE="-1">, </FONT>.84<FONT SIZE="-1">, </FONT>1.<FONT SIZE="-1">, </FONT>.91<FONT SIZE="-1">, </FONT>.6<FONT SIZE="-1">, </FONT><IMG
+ WIDTH="33" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.gif"
+ ALT="$.14\}$"><FONT SIZE="-1">を
+プロットするには，その実数をベクトルの中に入れて
+<TT>gplot()</TT>(<TT>mgplot()</TT>)関数を次のように実行する。
+</FONT>
+<P><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  Y = [0. .48 .84 1. .91 .6 .14];
+  gplot(Array(Y));
+  mgplot(1, Array(Y));
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1">この結果，<I>gnuplot</I>が起動され，データが自動的にスケールされ
+ウィンドウ上に表示され，X軸とY軸が描かれる。
+</FONT>
+<P>
+<FONT SIZE="-1">データが表示された後で，関数を使って，
+ラベル，タイトル，を変更したり，Postscriptコードに落して
+<A NAME="3672">&#160;</A>
+T<SMALL>E</SMALL>Xの文書に取り込んだりすることができる。
+もし<TT>X</TT>と<TT>Y</TT>が同じ長さのベクトルなら，
+<TT>gplot(X,Y)</TT>(<TT>mgplot(win,X,Y)</TT>)によって<TT>X</TT>の成分と
+<TT>Y</TT>の成分を対応させた線形プロットが作成される。
+</FONT>
+<P>
+<FONT SIZE="-1">例えば，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  t = [0.0:0.05:4*PI];
+  Ys = sin(t);
+  Yc = cos(t);
+  gplot(t, Ys);
+  mgplot(2, t, Yc);
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1">
+によって，時刻<TT>0.0</TT>から<TT>4*PI</TT>までの正弦波と余弦波を描くことができる。
+</FONT>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

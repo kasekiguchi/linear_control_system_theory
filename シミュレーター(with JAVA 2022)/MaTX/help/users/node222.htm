@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>リアルタイム処理(RTMATX)</TITLE>
+<META NAME="description" CONTENT="リアルタイム処理(RTMATX)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node240.htm">
+<LINK REL="previous" HREF="node208.htm">
+<LINK REL="up" HREF="MaTX.htm">
+<LINK REL="next" HREF="node223.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3405"
+ HREF="node223.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3401"
+ HREF="MaTX.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3395"
+ HREF="node221.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3403"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3404"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3406"
+ HREF="node223.htm">リアルタイム処理</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3402"
+ HREF="MaTX.htm">無題</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3396"
+ HREF="node221.htm">論理演算 (Logical Operation)</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002600000000000000000">&#160;</A>
+<A NAME="12930">&#160;</A>
+<BR>
+リアルタイム処理(RTMATX)
+</H1><FONT SIZE="-1">
+<A NAME="13347">&#160;</A>
+<A NAME="12932">&#160;</A>
+MATXにリアルタイム処理機能を付加したRTMATX(リアルタイムMATX)を使えば，
+PC9801シリーズおよびIBM PC互換機のMS-DOS上で動作する
+リアルタイム処理プログラムを作成することができる。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="12936">&#160;</A>
+リアルタイムの割り込みなどのための関数が提供されており，ユーザは
+リアルタイム処理関数，画面表示／コマンド入力関数を記述するだけで
+リアルタイム処理を行なうことができる。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="12937">&#160;</A>
+<A NAME="12938">&#160;</A>
+<A NAME="12939">&#160;</A>
+<A NAME="12940">&#160;</A>
+制御系の解析設計は一般に下図のように行なわれるが，従来の制御系設計CADが
+サポートしているのは，同定・モデリングからシミュレーションまでの範囲
+であり，制御系の実現(実際のプラントを実際に求められた制御器を用いて
+制御すること)は，専用マシン上でアセンブラ，C言語などでプログラム
+を作成し，実行してきた。
+<A NAME="12941">&#160;</A>
+<A NAME="12942">&#160;</A>
+これでは，制御系を実行する前に複雑な専用マシンの使い方や
+アセンブラなどを覚えなければならないため，プログラムの開発，修正に多大な
+時間がかかる例が多くあった。RTMATXは，MATX言語でプログラムを記述
+できるだけでなく，シミュレーション用に作成した関数をほとんどそのまま
+リアルタイム制御に用いることができるので，制御系の実現が非常に容易に
+なる。
+</FONT>
+<DIV ALIGN="CENTER">
+<!-- MATH: $\includegraphics[height=0.5\textheight]{Fig/design.eps}$ -->
+<IMG
+ WIDTH="279" HEIGHT="381" ALIGN="BOTTOM" BORDER="0"
+ SRC="img62.gif"
+ ALT="\includegraphics[height=0.5\textheight]{Fig/design.eps}">
+<P><P>
+<BR>
+<P>
+<FONT SIZE="-1">制御系の解析設計手順
+</FONT></DIV>
+<P>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html3407"
+ HREF="node223.htm">リアルタイム処理</A>
+<LI><A NAME="tex2html3408"
+ HREF="node224.htm">リアルタイム処理プログラムの作成</A>
+<UL>
+<LI><A NAME="tex2html3409"
+ HREF="node225.htm">プロテクトモードRTMATX(DJGPP版)</A>
+<LI><A NAME="tex2html3410"
+ HREF="node226.htm">リアルモードRTMATX(Borland C版)</A>
+</UL>
+<LI><A NAME="tex2html3411"
+ HREF="node227.htm">動作環境</A>
+<LI><A NAME="tex2html3412"
+ HREF="node228.htm">プログラムの動作</A>
+<UL>
+<LI><A NAME="tex2html3413"
+ HREF="node229.htm">メイン関数</A>
+<LI><A NAME="tex2html3414"
+ HREF="node230.htm">リアルタイム処理関数</A>
+<LI><A NAME="tex2html3415"
+ HREF="node231.htm">画面表示／コマンド入力ループ関数</A>
+<LI><A NAME="tex2html3416"
+ HREF="node232.htm">実験装置のインターフェース関数</A>
+<LI><A NAME="tex2html3417"
+ HREF="node233.htm">センサとアクチュエータのインターフェース関数</A>
+<LI><A NAME="tex2html3418"
+ HREF="node234.htm">入出力カード(D/A,カウンタ)のインターフェース関数</A>
+</UL>
+<LI><A NAME="tex2html3419"
+ HREF="node235.htm">メモリ管理</A>
+<LI><A NAME="tex2html3420"
+ HREF="node236.htm">リアルタイム処理用関数</A>
+<LI><A NAME="tex2html3421"
+ HREF="node237.htm">シミュレーションからリアルタイム処理へ</A>
+<UL>
+<LI><A NAME="tex2html3422"
+ HREF="node238.htm">倒立振子の制御のシミュレーション</A>
+<LI><A NAME="tex2html3423"
+ HREF="node239.htm">倒立振子のリアルタイム制御</A>
+</UL></UL>
+<!-- End of Table of Child-Links -->
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

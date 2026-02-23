@@ -1,0 +1,11 @@
+
+redefining command \figurename 
+
+redefining command \tablename 
+
+redefining command \bibname 
+
+redefined environment {thebibliography} 
+
+redefining command \tableofcontents 
+{eqnarray} does not have 3 columns, inserting blank cell

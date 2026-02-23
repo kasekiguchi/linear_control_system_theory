@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>行列の配列(ピース行列の利用)</TITLE>
+<META NAME="description" CONTENT="行列の配列(ピース行列の利用)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node178.htm">
+<LINK REL="up" HREF="node169.htm">
+<LINK REL="next" HREF="node180.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2868"
+ HREF="node180.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2864"
+ HREF="node169.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2860"
+ HREF="node178.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2866"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2867"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2869"
+ HREF="node180.htm">行列の比較と配列の比較</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2865"
+ HREF="node169.htm">行列成分の操作</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2861"
+ HREF="node178.htm">指数を用いた行列成分の操作</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0018510000000000000000">&#160;</A>
+<A NAME="8429">&#160;</A>
+<A NAME="8430">&#160;</A>
+<BR>
+行列の配列(ピース行列の利用)
+</H2><FONT SIZE="-1">
+行列は，実数，複素数，多項式，有理多項式の1次元または2次元の配列として
+考えることができる。
+同じ大きさの行列を成分とする配列は，<B>ピース行列</B>を使って記述する。
+大きさの異なる行列を成分とする配列を記述するためには，リストを利用しなければ
+ならない。
+ピース行列は，行列の配列の大きさの単位を指定するために使われる。たとえば，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+A = [[1 2][3 4]];
+AA = Z(2, 3, A);
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+によって，行列<TT>A</TT>を縦に2個横に3個並べた 4 x 6 の零行列ができ，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+AA(0, 0, A) = [[1 2][3 4]];
+AA(1, 2, A) = [[5 6][7 8]];
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+によって，
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\mbox{\tt AA} = \left[
+\begin{array}{ccc}
+\begin{array}{cc}
+1 & 2\\
+3 & 4
+\end{array} & \mbox{\tt Z}(2) & \mbox{\tt Z}(2) \\
+\mbox{\tt Z}(2) & \mbox{\tt Z}(2) &
+\begin{array}{cc}
+5 & 6\\
+7 & 8
+\end{array}
+\end{array}
+\right]
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="226" HEIGHT="102"
+ SRC="img32.gif"
+ ALT="\begin{displaymath}\mbox{\tt AA} = \left[
+\begin{array}{ccc}
+\begin{array}{cc}
+1...
+...\begin{array}{cc}
+5 & 6\\
+7 & 8
+\end{array}\end{array}\right]
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+<P>
+<FONT SIZE="-1">
+が得られる。ここで，<TT>A</TT>行列は<TT>AA</TT>行列のピース行列
+(<B>Piece Matrix</B>)と
+呼ばれる。別の行列<TT>B = [1]</TT>を<TT>AA</TT>行列のピース行列として使って，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+B = [1];
+AA = Z(2, 3, A);
+AA(0, 0, B) = [[1 2][3 4]];
+AA(1, 2, B) = [[5 6][7 8]];
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+とすると，
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\mbox{\tt AA} = \left[
+\begin{array}{cccccc}
+1 & 2 & 0 & 0 & 0 & 0\\
+3 & 4 & 5 & 6 & 0 & 0\\
+0 & 0 & 7 & 8 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0
+\end{array}
+\right]
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="198" HEIGHT="102"
+ SRC="img33.gif"
+ ALT="\begin{displaymath}\mbox{\tt AA} = \left[
+\begin{array}{cccccc}
+1 & 2 & 0 & 0 & ...
+... 0 & 7 & 8 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0
+\end{array}\right]
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+となる。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

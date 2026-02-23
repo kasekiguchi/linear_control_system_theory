@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>fprintf</TITLE>
+<META NAME="description" CONTENT="fprintf">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node77.htm">
+<LINK REL="previous" HREF="node75.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node77.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1605"
+ HREF="node77.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1602"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1596"
+ HREF="node75.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1604"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1606"
+ HREF="node77.htm">fread</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1603"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1597"
+ HREF="node75.htm">for</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000472000000000000000">&#160;</A><A NAME="man_fprintf">&#160;</A>
+<BR>
+fprintf
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>fprintf - 書式化したデータをファイルに書き込む
+<DT>【形式】
+<DD><PRE>
+i = fprintf(fd, format, ...)    i = fprintf(file, format, ...)
+   Integer i;                      Integer i;
+   Integer fd;                     String file;
+   String format;                  String format;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>fprintf(fd, format, ...)は，文字列 format で指定した書式で
+fd = fopen()でオープンしたファイルにデータを書き込む。
+整数型，実数型，文字列型のデータを出力できる。
+書式は，</FONT><FONT SIZE="-1">C言語の関数 printf() の書式と同じものを指定する。
+すなわち，普通の文字(アルファベット，数字，エスケープ文字)
+あるいは変換を表す文字列を指定する。エスケープ文字には次の
+ものがある。
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT"><code>\</code>a</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">警告(ベルなど)</TD>
+<TD ALIGN="LEFT"><code>\</code>v</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">垂直タブ</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>\</code>b</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">バックスペース</TD>
+<TD ALIGN="LEFT"><code>\</code><code>\</code></TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">バックスラッス</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>\</code>f</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">改ページ</TD>
+<TD ALIGN="LEFT"><code>\</code>'</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">アポストロフィ</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>\</code>n</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">復帰改行</TD>
+<TD ALIGN="LEFT"><code>\</code>"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">二重引用符</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>\</code>r</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">復帰</TD>
+<TD ALIGN="LEFT"><code>\</code>?</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">疑問符</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>\</code>t</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">水平タブ</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1">変換を表すには，パーセント % ，フィールド幅(オプション)，変換文字
+を指定する。変換文字には，次の文字がある。
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">%d</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">整数型</TD>
+</TR>
+<TR><TD ALIGN="LEFT">%e, %E, %f, %g</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">実数型</TD>
+</TR>
+<TR><TD ALIGN="LEFT">%s</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">文字列型</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1">  
+fprintf()は変換して出力したデータの数を返す。
+fprintf(1,format, ...)は標準出力へ，
+fprintf(2,format, ...)は標準エラー出力へ，それぞれ出力する。
+fprintf(file,format, ...)は，ファイルfileをオープンし，
+fortmatで指定した書式でデータを書き込み，ファイルを閉じる。
+データを 1 度だけ書き込む場合は，この方法が便利である。
+ただし，データを何度も書き込む場合は，ファイルのオープン
+とクローズが繰り返されるので効率が非常に悪い。
+<DT>【例題】
+<DD>ファイル afo を書き込み用にオープンし，fprintf() でデータを書き込む。</FONT><PRE>
+if ((fd = fopen("afo", "w")) &lt; 0) {
+    error("Can't open %s", "afo");
+}
+fprintf(fd, "%d %f %s", 10, 3.1415, "Hello");
+fclose(fd);
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>fopen(<A HREF="node74.htm#man_fopen">2.75</A>), fclose(<A HREF="node65.htm#man_fclose">2.64</A>), fscanf(<A HREF="node81.htm#man_fscanf">2.82</A>), fgets(<A HREF="node70.htm#man_fgets">2.69</A>), fread(<A HREF="node77.htm#man_fread">2.78</A>), fwrite(<A HREF="node83.htm#man_fwrite">2.84</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html1605"
+ HREF="node77.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1602"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1596"
+ HREF="node75.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1604"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1606"
+ HREF="node77.htm">fread</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1603"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1597"
+ HREF="node75.htm">for</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>複素値</TITLE>
+<META NAME="description" CONTENT="複素値">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node43.htm">
+<LINK REL="previous" HREF="node41.htm">
+<LINK REL="up" HREF="node18.htm">
+<LINK REL="next" HREF="node43.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1096"
+ HREF="node43.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1092"
+ HREF="node18.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1086"
+ HREF="node41.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1094"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1095"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1097"
+ HREF="node43.htm">コメント</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1093"
+ HREF="node18.htm">コマンドと便利な機能</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1087"
+ HREF="node41.htm">式の値を保存する変数ans</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION006240000000000000000">&#160;</A>
+<A NAME="1711">&#160;</A>
+<BR>
+複素値
+</H1>
+MATXの全ての演算や関数の記述において，
+複素数値を実値と区別なく使うことができる。
+複素値は，一対の実値をコンマで区切って丸括弧 <TT>(</TT> と <TT>)</TT> 
+で囲むことによって簡単に記述することができる。たとえば，
+<BR CLEAR="ALL">
+<HR><PRE>
+  a = (3,4);
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+と記述すると
+<PRE>
+  a = (3.00000000E+00,  4.00000000E+00)
+</PRE>となる。そして，複素行列を記述するための簡単な方法は少なくとも2つあって，
+一方は，
+<BR CLEAR="ALL">
+<HR><PRE>
+  A = ([[1 2][3 4]], [[5 6][7 8]]);
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+であり，もう一方は
+<BR CLEAR="ALL">
+<HR><PRE>
+  A = [[(1,5), (2,6)][(3,7), (4,8)]];
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+である。両者は同じ結果を導く。
+また，
+<BR CLEAR="ALL">
+<HR><PRE>
+  x = $;
+  A = 3*x^2 + 4*x + 5;
+  B = 6*x^2 + 7*x + 8;
+  C = (A, B);
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+のように記述すると
+<PRE>
+  C = (3,6) s^2 + (4,7) s + (5,8)
+</PRE>となる。複素値の実部と虚部は関数<TT>Re()</TT>と<TT>Im()</TT>によって
+取り出すことができる。
+<A NAME="1977">&#160;</A><A NAME="1978">&#160;</A>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,96 @@
+\documentclass[a4paper,11pt,fleqn]{jreport}
+%--------------------------------------------------------------------------------
+
+%授業実施年●●毎年要変更●●
+	\def\exyear{2024}
+
+%--------------------------------------------------------------------------------
+%
+% Page setting
+%
+\setlength{\topmargin}{-1cm}
+\setlength{\headheight}{0cm}
+\setlength{\headsep}{0cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\textheight}{27cm}
+%	\setlength{\textheight}{26.62cm}
+%	\setlength{\textwidth}{18cm}
+\setlength{\textwidth}{15.92cm}
+\setlength{\footskip}{1.0cm}
+%
+% package
+%
+\usepackage{amsmath}
+\usepackage[dvipdfmx]{graphicx} %%%%
+\usepackage{amssymb}
+\usepackage{epsfig}
+%	\usepackage[dvips,xdvi]{color} %%
+\usepackage[dvipdfmx]{color} %%%%
+\usepackage{wrapfig}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{color}
+%\usepackage{cite}
+%\usepackage{matx}
+%\usepackage{eclclass}
+%
+% Figure & Table caption
+%
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+%
+% Local definition
+%
+\def\defeq{\stackrel{\rm def}{=}}
+\def\rank{\mathop{\rm rank}\nolimits}
+\def\Re{\mathop{\rm Re}\nolimits}
+\def\Im{\mathop{\rm Im}\nolimits}
+\def\det{\mathop{\rm det}\nolimits}
+\def\adj{\mathop{\rm adj}\nolimits}
+\def\Span{\mathop{\rm span}\nolimits}
+\newenvironment{mytheorem}
+{\vspace{1zw}\noindent {\gtfamily 定理} \itshape}
+{\vspace{1zw}}
+%
+%
+%
+\makeatletter
+\renewcommand{\tableofcontents}[1]{%
+  \if@twocolumn\@restonecoltrue\onecolumn
+  \else\@restonecolfalse\fi
+  \chapter*{\contentsname
+    \@mkboth{\contentsname}{\contentsname}%
+  }\vspace*{#1}\@starttoc{toc}%
+  \if@restonecol\twocolumn\fi
+}
+\makeatother
+	%........................................................
+	% matrixの入力(\bmatrix,\ematrix)
+	%	例 \bmatrix{cc} 1&2\\3&4 \ematrix
+	%........................................................
+		\renewcommand{\bmatrix}{\left(\begin{array}}
+		\newcommand{\ematrix}{\end{array}\right)}
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%ヘッダー
+	\def\exheader
+		{
+		\begin{tabular}{cl}
+		{\large 線形制御論（電気電子系）　演習問題 (\exyear)}
+		\hspace{1cm}
+		&
+		\underline{系・学科：\hspace{3cm}}
+		\\[2mm]
+		&\underline{学籍番号：\hspace{3cm}}
+		\\[2mm]
+		&\underline{氏名：\hspace{5cm}}
+		\end{tabular}
+		\ \\
+		}
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+\pagestyle{empty}
+

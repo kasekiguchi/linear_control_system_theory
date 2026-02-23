@@ -1,0 +1,679 @@
+This is pTeX, Version 3.1415 p2.1.4 (JIS) (C version 6.1) (format=platex 97.1.24)  19 AUG 1998 11:31
+**./images.tex
+(images.tex
+pLaTeX2e <1997/01/23>+0 (based on LaTeX2e <1996/12/01> patch level 0)
+
+(/usr/local/lib/texmf/tex/platex2e/base/jbook.cls
+Document Class: jbook 1996/03/01 v1.0c Standard pLaTeX class
+(/usr/local/lib/texmf/tex/platex2e/base/jbk10.clo
+File: jbk10.clo 1996/03/01 v1.0d Standard pLaTeX file (size option)
+)
+\c@part=\count81
+\c@chapter=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\toclineskip=\dimen118
+\@lnumwidth=\dimen119
+\bibindent=\dimen120
+) (/usr/local/lib/tex/inputs/makeidx.sty) (/usr/local/lib/texmf/tex/latex2e/inp
+uts/graphics/graphicx.sty
+Package: graphicx 1996/05/29 v1.0 Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/local/lib/texmf/tex/latex2e/inputs/graphics/keyval.sty
+Package: keyval 1995/09/21 v1.09 key=value parser (DPC)
+) (/usr/local/lib/texmf/tex/latex2e/inputs/graphics/graphics.sty
+Package: graphics 1996/05/29 v1.0 Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/lib/texmf/tex/latex2e/inputs/graphics/trig.sty
+Package: trig 1994/10/16 v1.08 sin cos tan (DPC)
+) (/usr/local/lib/texmf/tex/latex2e/inputs/graphics/graphics.cfg)
+Package graphics Info: Driver file: dvips.def on input line 82.
+(/usr/local/lib/texmf/tex/latex2e/inputs/graphics/dvips.def
+File: dvips.def 1996/05/29 v3.00 Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen121
+\Gin@req@width=\dimen122
+) (/home/dazai/koga/doc/macros/exlist.sty
+Style Option `exlist' Ver.1.0 <30-May-90>
+Enhanced enumerate and description environment
+) (/home/dazai/koga/koga2/MaTX/DOC/Japanese/fancyheadings.sty
+\headrulewidth=\dimen123
+\footrulewidth=\dimen124
+\plainheadrulewidth=\dimen125
+\plainfootrulewidth=\dimen126
+\headwidth=\dimen127
+) (/usr/local/lib/tex/inputs/nruby.sty
+`nruby' V.2.0 <13 Dec 93> by T.Ogihara.
+) (/usr/local/lib/tex/inputs/html.sty
+Package: html 1996/12/22 v1.1 hypertext commands for latex2html (nd, hws, rrm)
+\c@lpart=\count90
+\c@lchapter=\count91
+\c@lsection=\count92
+\c@lsubsection=\count93
+\c@lsubsubsection=\count94
+\c@lparagraph=\count95
+\c@lsubparagraph=\count96
+\c@lequation=\count97
+\c@lsubsubparagraph=\count98
+\ptrfile=\write3
+) (/usr/local/lib/tex/inputs/htmllist.sty) (/home/dazai/koga/doc/macros/jmymac.
+sty
+\kboxwidth=\skip43
+\c@theorem=\count99
+\c@lemma=\count100
+\c@assumption=\count101
+\c@definition=\count102
+\c@corollary=\count103
+\c@problem=\count104
+\c@remark=\count105
+\c@note=\count106
+\c@property=\count107
+\c@fact=\count108
+\c@proposition=\count109
+)
+\@indexfile=\write4
+Writing index file images.idx
+(/usr/local/lib/texmf/tex/latex2e/inputs/graphics/color.sty
+Package: color 1996/05/29 v1.0 Standard LaTeX Color (DPC)
+(/usr/local/lib/texmf/tex/latex2e/inputs/graphics/color.cfg)
+Package color Info: Driver file: dvips.def on input line 127.
+(/usr/local/lib/texmf/tex/latex2e/inputs/graphics/dvipsnam.def
+File: dvipsnam.def 1996/05/29 v3.00 Driver-dependant file (DPC,SPQR)
+))
+\sizebox=\box41
+\lthtmlwrite=\write5
+(images.aux (/home/dazai/koga/koga2/MaTX/DOC/Japanese/introduction.aux) (/home/
+dazai/koga/koga2/MaTX/DOC/Japanese/programming.aux) (/home/dazai/koga/koga2/MaT
+X/DOC/Japanese/command.aux) (/home/dazai/koga/koga2/MaTX/DOC/Japanese/file.aux)
+(/home/dazai/koga/koga2/MaTX/DOC/Japanese/matrix-editor.aux) (/home/dazai/koga/
+koga2/MaTX/DOC/Japanese/graphics.aux) (/home/dazai/koga/koga2/MaTX/DOC/Japanese
+/variable.aux) (/home/dazai/koga/koga2/MaTX/DOC/Japanese/function.aux) (/home/d
+azai/koga/koga2/MaTX/DOC/Japanese/control-flow.aux) (/home/dazai/koga/koga2/MaT
+X/DOC/Japanese/Integer-Real.aux) (/home/dazai/koga/koga2/MaTX/DOC/Japanese/Comp
+lex.aux) (/home/dazai/koga/koga2/MaTX/DOC/Japanese/String.aux) (/home/dazai/kog
+a/koga2/MaTX/DOC/Japanese/Polynomial.aux) (/home/dazai/koga/koga2/MaTX/DOC/Japa
+nese/Rational.aux) (/home/dazai/koga/koga2/MaTX/DOC/Japanese/Matrix.aux) (/home
+/dazai/koga/koga2/MaTX/DOC/Japanese/List.aux) (/home/dazai/koga/koga2/MaTX/DOC/
+Japanese/example.aux) (/home/dazai/koga/koga2/MaTX/DOC/Japanese/acknoledge.aux)
+(/home/dazai/koga/koga2/MaTX/DOC/Japanese/references.aux) (/home/dazai/koga/kog
+a2/MaTX/DOC/Japanese/dataformat.aux) (/home/dazai/koga/koga2/MaTX/DOC/Japanese/
+memory-manage.aux) (/home/dazai/koga/koga2/MaTX/DOC/Japanese/operation.aux) (/h
+ome/dazai/koga/koga2/MaTX/DOC/Japanese/realtime.aux) (/home/dazai/koga/koga2/Ma
+TX/DOC/Japanese/error-message.aux))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+latex2htmlLength hsize=349.0pt
+latex2htmlLength vsize=479.40111pt
+latex2htmlLength hoffset=0.0pt
+latex2htmlLength voffset=0.0pt
+latex2htmlLength topmargin=0.0pt
+latex2htmlLength topskip=0.00003pt
+latex2htmlLength headheight=0.0pt
+latex2htmlLength headsep=0.0pt
+latex2htmlLength parskip=0.0pt plus 1.0pt
+latex2htmlLength oddsidemargin=-22.47748pt
+latex2htmlLength evensidemargin=-22.47748pt
+File: Fig/arch.eps Graphic file (type eps)
+<Fig/arch.eps>
+l2hSize :tex2html_wrap516:168.20607pt::0.0pt::349.0pt.
+[1
+
+
+]
+File: Fig/process.eps Graphic file (type eps)
+<Fig/process.eps>
+l2hSize :tex2html_wrap526:191.35666pt::0.0pt::349.0pt.
+[2
+
+
+]
+File: Fig/translation.eps Graphic file (type eps)
+<Fig/translation.eps>
+l2hSize :tex2html_wrap534:243.62782pt::0.0pt::349.0pt.
+[3
+
+
+]
+File: Fig/flow-matlab.eps Graphic file (type eps)
+<Fig/flow-matlab.eps>
+l2hSize :tex2html_wrap546:92.15565pt::0.0pt::349.0pt.
+[4
+
+
+]
+File: Fig/flow-matx.eps Graphic file (type eps)
+<Fig/flow-matx.eps>
+l2hSize :tex2html_wrap550:112.20502pt::0.0pt::349.0pt.
+[5
+
+
+]
+l2hSize :tex2html_wrap1282:9.51111pt::3.4pt::349.0pt.
+[6
+
+
+]
+l2hSize :tex2html_wrap1286:9.51111pt::3.4pt::349.0pt.
+[7
+
+
+]
+l2hSize :tex2html_wrap1308:9.51111pt::3.4pt::349.0pt.
+[8
+
+
+]
+l2hSize :tex2html_wrap2136:9.51111pt::3.4pt::349.0pt.
+[9
+
+
+]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 239.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 239.
+l2hSize :tex2html_wrap_inline2016:6.95831pt::6.95831pt::7.7778pt.
+[10
+
+
+]
+l2hSize :tex2html_wrap_inline2020:7.44444pt::7.44444pt::5.24995pt.
+[11
+
+
+]
+l2hSize :displaymath2006:31.00029pt::0.0pt::349.0pt.
+[12
+
+
+]
+l2hSize :displaymath2007:31.00029pt::0.0pt::349.0pt.
+[13
+
+
+]
+l2hSize :tex2html_wrap_inline1920:6.45831pt::0.0pt::5.00002pt.
+[14
+
+
+]
+l2hSize :tex2html_wrap_inline3007:18.00014pt::18.00014pt::272.24428pt.
+[15
+
+
+]
+
+! LaTeX Error: Environment tex2html_preform undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.328 \begin{tex2html_preform}
+                              \begin{verbatim} Name :  [ A ]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{center} on input line 326 ended by \end{tex2html_preform}
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.346 ...0E-01\end{verbatim}\end{tex2html_preform}
+                                                  }\htmlrule\end{center}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+l2hSize :figure3410:183.49889pt::0.0pt::349.0pt.
+[16
+
+
+]
+
+! LaTeX Error: Environment tex2html_preform undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.357 \begin{tex2html_preform}
+                              \begin{verbatim} Name :  [ B ]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{center} on input line 355 ended by \end{tex2html_preform}
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.375 ...4E-01\end{verbatim}\end{tex2html_preform}
+                                                  }\htmlrule\end{center}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+l2hSize :figure3428:152.24997pt::0.0pt::349.0pt.
+[17
+
+
+]
+
+! LaTeX Error: Environment tex2html_preform undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.386 \begin{tex2html_preform}
+                              \begin{verbatim}  Name :  [ Re(B) ]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{center} on input line 384 ended by \end{tex2html_preform}
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.404 ...0E-01\end{verbatim}\end{tex2html_preform}
+                                                  }\htmlrule\end{center}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+l2hSize :figure3439:150.99997pt::0.0pt::349.0pt.
+[18
+
+
+]
+
+! LaTeX Error: Environment tex2html_preform undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.415 \begin{tex2html_preform}
+                              \begin{verbatim} Name :  [ Im(B) ]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{center} on input line 413 ended by \end{tex2html_preform}
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.433 ...5E-01\end{verbatim}\end{tex2html_preform}
+                                                  }\htmlrule\end{center}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+l2hSize :figure3450:150.99997pt::0.0pt::349.0pt.
+[19
+
+
+]
+l2hSize :tex2html_wrap_inline4306:8.0pt::8.0pt::12.77782pt.
+[20
+
+
+]
+l2hSize :tex2html_wrap_inline4318:8.0pt::8.0pt::17.77783pt.
+[21
+
+
+]
+l2hSize :tex2html_wrap_inline4320:7.44444pt::7.44444pt::21.38895pt.
+[22
+
+
+]
+l2hSize :displaymath7535:24.50012pt::0.0pt::349.0pt.
+[23
+
+
+]
+l2hSize :displaymath7536:24.50012pt::0.0pt::349.0pt.
+[24
+
+
+]
+l2hSize :displaymath7537:53.80473pt::0.0pt::349.0pt.
+[25
+
+
+]
+l2hSize :tex2html_wrap_inline9293:6.95831pt::6.95831pt::22.22217pt.
+[26
+
+
+]
+l2hSize :tex2html_wrap_inline9295:6.95831pt::6.95831pt::22.22217pt.
+[27
+
+
+]
+l2hSize :displaymath9275:61.00058pt::0.0pt::349.0pt.
+[28
+
+
+]
+l2hSize :displaymath9276:61.00058pt::0.0pt::349.0pt.
+[29
+
+
+]
+l2hSize :displaymath9277:91.00087pt::0.0pt::349.0pt.
+[30
+
+
+]
+l2hSize :displaymath9278:91.00087pt::0.0pt::349.0pt.
+[31
+
+
+]
+l2hSize :displaymath9279:61.00058pt::0.0pt::349.0pt.
+[32
+
+
+]
+l2hSize :displaymath9280:61.00058pt::0.0pt::349.0pt.
+[33
+
+
+]
+l2hSize :displaymath10945:31.0pt::0.0pt::349.0pt.
+[34
+
+
+]
+l2hSize :displaymath10946:54.59993pt::0.0pt::349.0pt.
+[35
+
+
+]
+l2hSize :tex2html_wrap_inline10955:7.33331pt::7.33331pt::9.5793pt.
+[36
+
+
+]
+l2hSize :tex2html_wrap_inline10957:6.95831pt::6.95831pt::9.7263pt.
+[37
+
+
+]
+l2hSize :displaymath10947:106.0pt::0.0pt::349.0pt.
+[38
+
+
+]
+l2hSize :tex2html_wrap_inline10959:8.0pt::8.0pt::25.24771pt.
+[39
+
+
+]
+l2hSize :displaymath10948:46.0pt::0.0pt::349.0pt.
+[40
+
+
+]
+l2hSize :displaymath10949:21.50009pt::0.0pt::349.0pt.
+[41
+
+
+]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 890.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 890.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 890.
+l2hSize :figure10932:101.7851pt::0.0pt::349.0pt.
+[42
+
+
+]
+File: Fig/simu-system2.eps Graphic file (type eps)
+<Fig/simu-system2.eps>
+l2hSize :tex2html_wrap11428:126.91348pt::0.0pt::349.0pt.
+[43
+
+
+]
+l2hSize :displaymath11646:46.0pt::0.0pt::349.0pt.
+[44
+
+
+]
+l2hSize :displaymath11647:31.00029pt::0.0pt::349.0pt.
+[45
+
+
+]
+File: Fig/memory.eps Graphic file (type eps)
+<Fig/memory.eps>
+l2hSize :tex2html_wrap12090:141.59657pt::0.0pt::349.0pt.
+[46
+
+
+]
+l2hSize :tex2html_wrap_inline12072:6.95831pt::6.95831pt::22.22217pt.
+[47
+
+
+]
+File: Fig/mem0.eps Graphic file (type eps)
+<Fig/mem0.eps>
+l2hSize :tex2html_wrap12180:92.38199pt::0.0pt::349.0pt.
+[48
+
+
+]
+File: Fig/mem1.eps Graphic file (type eps)
+<Fig/mem1.eps>
+l2hSize :tex2html_wrap12184:92.38199pt::0.0pt::349.0pt.
+[49
+
+
+]
+File: Fig/mem2.eps Graphic file (type eps)
+<Fig/mem2.eps>
+l2hSize :tex2html_wrap12188:92.38199pt::0.0pt::349.0pt.
+[50
+
+
+]
+File: Fig/mem4.eps Graphic file (type eps)
+<Fig/mem4.eps>
+l2hSize :tex2html_wrap12192:92.38199pt::0.0pt::349.0pt.
+[51
+
+
+]
+File: Fig/mem5.eps Graphic file (type eps)
+<Fig/mem5.eps>
+l2hSize :tex2html_wrap12196:92.38199pt::0.0pt::349.0pt.
+[52
+
+
+]
+File: Fig/mem6.eps Graphic file (type eps)
+<Fig/mem6.eps>
+l2hSize :tex2html_wrap12200:92.38199pt::0.0pt::349.0pt.
+[53
+
+
+]
+File: Fig/mem7.eps Graphic file (type eps)
+<Fig/mem7.eps>
+l2hSize :tex2html_wrap12210:92.38199pt::0.0pt::349.0pt.
+[54
+
+
+]
+File: Fig/mem8.eps Graphic file (type eps)
+<Fig/mem8.eps>
+l2hSize :tex2html_wrap12222:92.38199pt::0.0pt::349.0pt.
+[55
+
+
+]
+File: Fig/mem9.eps Graphic file (type eps)
+<Fig/mem9.eps>
+l2hSize :tex2html_wrap12244:92.38199pt::0.0pt::349.0pt.
+[56
+
+
+]
+File: Fig/mem10.eps Graphic file (type eps)
+<Fig/mem10.eps>
+l2hSize :tex2html_wrap12258:92.38199pt::0.0pt::349.0pt.
+[57
+
+
+]
+File: Fig/mem11.eps Graphic file (type eps)
+<Fig/mem11.eps>
+l2hSize :tex2html_wrap12266:92.38199pt::0.0pt::349.0pt.
+[58
+
+
+]
+File: Fig/mem12.eps Graphic file (type eps)
+<Fig/mem12.eps>
+l2hSize :tex2html_wrap12270:92.38199pt::0.0pt::349.0pt.
+[59
+
+
+]
+l2hSize :picture12301:192.05475pt::0.0pt::349.0pt.
+[60
+
+
+]
+l2hSize :tex2html_wrap_inline12695:8.0pt::8.0pt::5.55557pt.
+[61
+
+
+]
+File: Fig/design.eps Graphic file (type eps)
+<Fig/design.eps>
+l2hSize :tex2html_wrap13544:239.70055pt::0.0pt::349.0pt.
+[62
+
+
+]
+l2hSize :tex2html_wrap_inline13486:6.95831pt::6.95831pt::6.02548pt.
+[63
+
+
+]
+File: Fig/pendulum.eps Graphic file (type eps)
+<Fig/pendulum.eps>
+l2hSize :tex2html_wrap13952:207.36926pt::0.0pt::349.0pt.
+[64
+
+
+]
+l2hSize :displaymath13472:15.83333pt::0.0pt::349.0pt.
+[65
+
+
+]
+l2hSize :displaymath13473:46.0pt::0.0pt::349.0pt.
+[66
+
+
+]
+l2hSize :tex2html_wrap_inline13510:6.94444pt::0.0pt::4.97223pt.
+[67
+
+
+]
+l2hSize :tex2html_wrap_inline13532:6.67859pt::0.0pt::4.78937pt.
+[68
+
+
+]
+l2hSize :tex2html_wrap_inline13534:9.31749pt::0.0pt::4.97223pt.
+[69
+
+
+]
+l2hSize :displaymath13474:61.00058pt::0.0pt::349.0pt.
+[70
+
+
+]
+l2hSize :displaymath13475:121.00116pt::0.0pt::349.0pt.
+[71
+
+
+]
+l2hSize :displaymath13476:17.5pt::0.0pt::349.0pt.
+[72
+
+
+]
+l2hSize :displaymath13477:31.00029pt::0.0pt::349.0pt.
+[73
+
+
+]
+l2hSize :displaymath13478:61.00058pt::0.0pt::349.0pt.
+[74
+
+
+]
+l2hSize :tex2html_wrap_inline13536:8.64003pt::8.64003pt::109.75568pt.
+[75
+
+
+] (images.aux) ) 
+Here is how much of TeX's memory you used:
+ 1611 strings out of 10611
+ 18190 string characters out of 125239
+ 77501 words of memory out of 262141
+ 4409 multiletter control sequences out of 9500
+ 11750 words of font info for 47 fonts, out of 100000 for 255
+ 14 hyphenation exceptions out of 607
+ 25i,13n,20p,244b,569s stack positions out of 300i,40n,60p,4096b,4000s
+
+Output written on images.dvi (75 pages, 33484 bytes).

@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>関係演算 (Relational Operation)</TITLE>
+<META NAME="description" CONTENT="関係演算 (Relational Operation)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node221.htm">
+<LINK REL="previous" HREF="node219.htm">
+<LINK REL="up" HREF="node208.htm">
+<LINK REL="next" HREF="node221.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3383"
+ HREF="node221.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3379"
+ HREF="node208.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3373"
+ HREF="node219.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3381"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3382"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3384"
+ HREF="node221.htm">論理演算 (Logical Operation)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3380"
+ HREF="node208.htm">演算</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3374"
+ HREF="node219.htm">{ポスト,プリ}{インクリメント,デクリメント}</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION0025120000000000000000">&#160;</A>
+<A NAME="12515">&#160;</A>
+<BR>
+関係演算 (Relational Operation)
+</H1><FONT SIZE="-1">
+<A NAME="12660">&#160;</A><A NAME="12661">&#160;</A><A NAME="12662">&#160;</A><A NAME="12663">&#160;</A>
+<A NAME="12664">&#160;</A>
+<A NAME="12665">&#160;</A>
+関係演算子は <TT>&gt;</TT>, <TT>&gt;=</TT>, <TT>&lt;</TT>, <TT>&lt;=</TT> である，
+これらは全て同じ優先度を持つ。
+ちょうど1つ下の優先を持つものとしては等価演算子 <TT>==</TT>, <TT>!=</TT> があり，
+これらは同じ優先度を持つ。
+関係演算子は算術演算子よりも優先度が低い。
+</FONT>
+<P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">整数1 &lt; 整数2</TD>
+<TD ALIGN="LEFT">整数1は整数2より小さい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">整数1 &gt; 整数2</TD>
+<TD ALIGN="LEFT">整数1は整数2より大きい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">整数1 &lt;= 整数2</TD>
+<TD ALIGN="LEFT">整数1は整数2より小さい，又は等しい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">整数1 &gt;= 整数2</TD>
+<TD ALIGN="LEFT">整数1は整数2より大きい，又は等しい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">整数1 == 整数2</TD>
+<TD ALIGN="LEFT">整数1は整数2と等しい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">整数1 != 整数2</TD>
+<TD ALIGN="LEFT">整数1は整数2と等しくない</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実数1 &lt; 実数2</TD>
+<TD ALIGN="LEFT">実数1は実数2より小さい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実数1 &gt; 実数2</TD>
+<TD ALIGN="LEFT">実数1は実数2より大きい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実数1 &lt;= 実数2</TD>
+<TD ALIGN="LEFT">実数1は実数2より小さい，又は等しい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実数1 &gt;= 実数2</TD>
+<TD ALIGN="LEFT">実数1は実数2より大きい，又は等しい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実数1 == 実数2</TD>
+<TD ALIGN="LEFT">実数1は実数2と等しい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実数1 != 実数2</TD>
+<TD ALIGN="LEFT">実数1は実数2と等しくない</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 &lt; 0</TD>
+<TD ALIGN="LEFT">maxeigval(行列) &lt; 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 &gt; 0</TD>
+<TD ALIGN="LEFT">mineigval(行列) &gt; 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 &lt;= 0</TD>
+<TD ALIGN="LEFT">maxeigval(行列) &lt;= 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 &gt;= 0</TD>
+<TD ALIGN="LEFT">mineigval(行列) &gt;= 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 == 0</TD>
+<TD ALIGN="LEFT">行列は零行列である</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 != 0</TD>
+<TD ALIGN="LEFT">行列は零行列でない</TD>
+</TR>
+<TR><TD ALIGN="LEFT">0 &gt; 行列</TD>
+<TD ALIGN="LEFT">maxeigval(行列) &lt; 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">0 &lt; 行列</TD>
+<TD ALIGN="LEFT">mineigval(行列) &gt; 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">0 &gt;= 行列</TD>
+<TD ALIGN="LEFT">maxeigval(行列) &lt;= 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">0 &lt;= 行列</TD>
+<TD ALIGN="LEFT">mineigval(行列) &gt;= 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">0 == 行列</TD>
+<TD ALIGN="LEFT">行列は零行列である</TD>
+</TR>
+<TR><TD ALIGN="LEFT">0 != 行列</TD>
+<TD ALIGN="LEFT">行列は零行列でない</TD>
+</TR>
+</TABLE></DIV>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">行列1 &lt; 行列2</TD>
+<TD ALIGN="LEFT">maxeigval(行列1 - 行列2) &lt; 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 &gt; 行列2</TD>
+<TD ALIGN="LEFT">mineigval(行列1 - 行列2) &gt; 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 &lt;= 行列2</TD>
+<TD ALIGN="LEFT">maxeigval(行列1 - 行列2) &lt;= 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 &gt;= 行列2</TD>
+<TD ALIGN="LEFT">mineigval(行列1 - 行列2) &gt;= 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 == 行列2</TD>
+<TD ALIGN="LEFT">行列1は行列2と等しい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 != 行列2</TD>
+<TD ALIGN="LEFT">行列1は行列2と等しくない</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 &lt; 配列2</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 &gt; 配列2</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 &lt;= 配列2</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 &gt;= 配列2</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 == 配列2</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 != 配列2</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+</TABLE></DIV>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">配列 &lt;  (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 &gt;  (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 &lt;= (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 &gt;= (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 == (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 != (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) &lt; 配列</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) &gt; 配列</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) &lt;= 配列</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) &gt;= 配列</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) == 配列</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) != 配列</TD>
+<TD ALIGN="LEFT">各成分の比較(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">文字列1 == 文字列2</TD>
+<TD ALIGN="LEFT">文字列1は文字列2と等しい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">文字列1 != 文字列2</TD>
+<TD ALIGN="LEFT">文字列1は文字列2と一致しない</TD>
+</TR>
+<TR><TD ALIGN="LEFT">多項式1 == 多項式2</TD>
+<TD ALIGN="LEFT">多項式1は多項式2と等しい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">多項式1 != 多項式2</TD>
+<TD ALIGN="LEFT">多項式1は多項式2と等しくない</TD>
+</TR>
+<TR><TD ALIGN="LEFT">有理多項式1 == 有理多項式2</TD>
+<TD ALIGN="LEFT">有理多項式1は有理多項式2と等しい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">有理多項式1 != 有理多項式2</TD>
+<TD ALIGN="LEFT">有理多項式1は有理多項式2と等しくない</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1">次の式は <TT>-a</TT> が正である(0より大きい)かどうか調べる意図で書かれているが，
+<TT>&lt;</TT> と<TT>-</TT> の間にスペースが無いので，まとめて <TT>&lt;-</TT> として解釈され，
+文法エラーになる。
+<TT>&lt;</TT> と <TT>-</TT> の間にスペースを入れると意図通りに解釈される。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  print 0&lt;-a;
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html3383"
+ HREF="node221.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3379"
+ HREF="node208.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3373"
+ HREF="node219.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3381"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3382"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3384"
+ HREF="node221.htm">論理演算 (Logical Operation)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3380"
+ HREF="node208.htm">演算</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3374"
+ HREF="node219.htm">{ポスト,プリ}{インクリメント,デクリメント}</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>save</TITLE>
+<META NAME="description" CONTENT="save">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node202.htm">
+<LINK REL="previous" HREF="node200.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node202.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2980"
+ HREF="node202.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2977"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2971"
+ HREF="node200.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2979"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2981"
+ HREF="node202.htm">scanf</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2978"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2972"
+ HREF="node200.htm">rtStopRehearsal</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004197000000000000000">&#160;</A><A NAME="man_save">&#160;</A>
+<BR>
+save
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>save - MM-ファイルへの保存
+<DT>【形式】
+<DD><PRE>
+save;
+
+  
+save file;
+   String file;
+
+   
+save var1, var2, ..., varn, file;
+   任意の型 var1, ..., varn;
+   String file;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>save var1, ..., varn, file は，変数 var1, ... varn をファイル file
+に MM-ファイルとして保存する。拡張子を省略すると拡張子は mm となる。
+インタプリタの場合， save "data"; のようにファイル名だけを指定すると，
+全ての大域変数が保存され， save; のように，何も指定しないとファイル
+MaTX.mm に全ての大域変数が 保存される。
+save はインタプリタでもコンパイラでも使用でき，関数の内側でも
+外側(インタプリタのコマンドライン)でも使用できる。しかし，保存した
+データを読み込むコマンド load は，インタプリタのコマンドラインで
+しか使用できない。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; a = 1;
+&gt;&gt; A = [[1 2][3 4]];
+&gt;&gt; save a, A, "AA.mm";
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>load(<A HREF="node113.htm#man_load">2.114</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

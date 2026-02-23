@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>行列エディタ(mated)</TITLE>
+<META NAME="description" CONTENT="行列エディタ(mated)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node66.htm">
+<LINK REL="up" HREF="node63.htm">
+<LINK REL="next" HREF="node68.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1408"
+ HREF="node68.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1404"
+ HREF="node63.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1400"
+ HREF="node66.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1406"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1407"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1409"
+ HREF="node68.htm">グラフィックス</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1405"
+ HREF="node63.htm">行列エディタ(Matrix Editor)</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1401"
+ HREF="node66.htm">キーバインディング</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00840000000000000000">
+行列エディタ(<I>mated</I>)</A>
+</H1><FONT SIZE="-1">
+<A NAME="3503">&#160;</A>
+<A NAME="3470">&#160;</A>
+行列エディタ(<I>mated</I>)は，シェルのコマンドラインから起動することができ，
+<B>MATフォ−マット</B>の行列ファイルを入力・編集することができる．</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+% mated A.mat B.mat C.mat
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR>
+<DIV ALIGN="CENTER">
+
+<DIV ALIGN="CENTER">
+<A NAME="3504">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 5.1:</STRONG>
+<I> mated</I>のキーバインディング</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>機能</TD>
+<TD ALIGN="CENTER" COLSPAN=1>Emacs</TD>
+<TD ALIGN="CENTER" COLSPAN=1>
+Vi</TD>
+<TD ALIGN="CENTER" COLSPAN=1>特殊キー</TD>
+</TR>
+<TR><TD ALIGN="LEFT">右移動</TD>
+<TD ALIGN="LEFT"><code>^</code>F</TD>
+<TD ALIGN="LEFT">l</TD>
+<TD ALIGN="LEFT">→</TD>
+</TR>
+<TR><TD ALIGN="LEFT">左移動</TD>
+<TD ALIGN="LEFT"><code>^</code>B</TD>
+<TD ALIGN="LEFT">h</TD>
+<TD ALIGN="LEFT">←</TD>
+</TR>
+<TR><TD ALIGN="LEFT">上移動</TD>
+<TD ALIGN="LEFT"><code>^</code>P</TD>
+<TD ALIGN="LEFT">k</TD>
+<TD ALIGN="LEFT">↑</TD>
+</TR>
+<TR><TD ALIGN="LEFT">下移動</TD>
+<TD ALIGN="LEFT"><code>^</code>N</TD>
+<TD ALIGN="LEFT">j</TD>
+<TD ALIGN="LEFT">↓</TD>
+</TR>
+<TR><TD ALIGN="LEFT">1 行の始め</TD>
+<TD ALIGN="LEFT"><code>^</code>A</TD>
+<TD ALIGN="LEFT"><code>^</code></TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">1 行の終り</TD>
+<TD ALIGN="LEFT"><code>^</code>E</TD>
+<TD ALIGN="LEFT">$</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">指定した行と列へジャンプ</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">g</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">最終行最終列</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">G</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">1 行削除</TD>
+<TD ALIGN="LEFT"><code>^</code>K-r</TD>
+<TD ALIGN="LEFT">d-r</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">1 列削除</TD>
+<TD ALIGN="LEFT"><code>^</code>K-c</TD>
+<TD ALIGN="LEFT">d-c</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">書き直し</TD>
+<TD ALIGN="LEFT"><code>^</code>L</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">ペースト</TD>
+<TD ALIGN="LEFT"><code>^</code>Y</TD>
+<TD ALIGN="LEFT">p</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">マーク</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">m</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">領域の獲得</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">i</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">領域のペースト</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">o</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">単位行列</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">E</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">零行列</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">Z</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">全成分が 1 の行列</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">O</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">全成分が等しい行列</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">F</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実部行列</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">R</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">虚部行列</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">I</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実行列を複素行列に変換</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">C</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">転置行列(共役転置行列)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">T</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">ファイルからの読み込み</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">r</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">ファイルへの書き込み</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">w</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">終了</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">q</TD>
+<TD ALIGN="LEFT">ESC</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+<P><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html1408"
+ HREF="node68.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1404"
+ HREF="node63.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1400"
+ HREF="node66.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1406"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1407"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1409"
+ HREF="node68.htm">グラフィックス</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1405"
+ HREF="node63.htm">行列エディタ(Matrix Editor)</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1401"
+ HREF="node66.htm">キーバインディング</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,175 @@
+------------------------------------------------------------------
+
+                     MaTX (2001/2/28)
+
+                        UNIX 版 
+
+                       古賀 雅伸
+
+                     Masanobu Koga
+
+                     koga@matx.org
+
+             Kyushu Institute of Technology, JAPAN
+
+        Copyright 2001 Masanobu Koga, K.I.T., JAPAN
+
+------------------------------------------------------------------
+
+● UNIX版の動作環境
+
+   ハードウェア : Sun, HP, DEC, SGI, NEWS, MIPC, Cray, PC/AT互換機
+   メモリ       : 64MByte 以上(推奨 128MByte以上) 
+   OS           : SunOS, Solaris, HP-UX, IRIX, DEC-UNIX, NEWS-OS,
+                  UMIPS, Linux, FreeBSD
+
+
+● 必要なもの
+
+  MaTX-x.y.z.tgz  (MaTXの本体)
+  MaTX-help.tgz   (マニュアル)
+  MaTX-util.tgz   (ユーティリティ)
+
+  ※注意※ 
+
+  x.y.z はバージョンを示します。
+  以下の説明では matx.tgz という名前で参照します。
+
+
+● インストール方法
+
+(1) MaTXの本体(matx.tgz)とマニュアル(MaTX-help.tgz)をインストールする
+    ディレクトリへ移動し，そのディレクリへ移動(cd)する。ここでは，MaTX
+    を /usr/local にインストールすると仮定して説明します。なお，
+    /usr/local にインストールした場合，省略可能な部分があります。
+
+      mv matx.tgz /usr/local
+      mv MaTX-help.tgz /usr/local
+      cd /usr/local
+
+(2) 圧縮フィアル matx.tgz と MaTX-help.tgz を解凍します。
+
+    gzip と tar を使ってファイルを解凍します。
+    (gzip と tar は MaTX-x.y.z.tgz と同じディレクトリにあります)
+
+      gzip -d matx.tgz
+      tar -xvf matx.tar
+      gzip -d MaTX-help.tgz
+      tar -xvf MaTX-help.tar
+
+    /usr/local/MaTXの下に{bin,lib,include,inputs,misc,help}などの
+    ディレクトリができ，その下にいろいろなファイルが展開されます。
+
+(3) 環境変数の設定 (.login または .cshrc の変更) 
+
+    (a) PATH に /usr/local/MaTX/bin を加える。
+
+    (b) 日本語に対応させるため LANG を(ja, japanese, ja_JP*)に設定する。
+
+        setenv LANG ja 
+
+    (c) MATXDIR に /usr/local/MaTX を設定する。(省略可能)
+
+        setenv MATXDIR /usr/local/MaTX
+
+    以上で設定は終わりです。
+
+(4) コマンドラインから matx 起動し，プロンプトが出たら
+
+      demo [リターン]
+
+    と入力して，デモプログラムの動作を確認して下さい。
+    (デモプログラムの漢字コードは EUC です)
+
+
+● その他
+
+(1) MaTXといっしょに配布されているユーティリティ(MaTX-util.tgz)を
+    インストールすると便利な機能が使えるようになります。
+
+      bin/gnuplot    データをプロットするコマンド(mgplotに必要)
+      bin/less       オンラインマニュアルを見るページャ
+      doc/*          ユーティリティのドキュメント
+
+(2) PATH に設定されていない gnuplot, cpp(C プリプロセッサ)を
+    使う場合，MATXGNUPLOT, MATXCPP にそれらを設定します。
+
+        setenv MATXGNUPLOT /opt/gnu/gnuplot
+        setenv MATXCPP /opt/gnu/cpp
+
+(3) matcを実行するとライブラリに関する警告が出ることがあります。
+    その場合，ライブラリに ranlib を実行して下さい。
+
+    例: cd MaTX/lib
+        ranlib *.a
+
+
+● MaTXパッケージの内容
+
+    MATX/bin      【実行ファイル】
+                  matx.exe:     インタプリタ
+                  matc.exe:     コンパイラ
+                  matp.exe:     行列表示プログラム
+                  mated.exe:    行列入力／編集プログラム
+                  rtmatx.exe:   RtMaTXのインタプリタ
+                  rtmatc.exe:   RtMaTXのコンパイラ
+                  cpp.exe       DJGPPのCプリプロセッサ
+                  doscmd.exe:   DOSコマンドゲートウェイ
+                  matxedit.bat: MMファイル編集用のエディタ起動バッチファイル
+                  mxicon.ico:   MXファイルのアイコン
+                  mmicon.ico:   MMファイルのアイコン
+                  maticon.ico:  MATファイルのアイコン
+
+        /lib      【ライブラリ】
+                  libMaTX.lib:  MaTXランタイムライブラリ
+                  libmxmat.lib: 行列演算ライブラリ
+                  libmxgra.lib: グラフィックライブラリ
+                  libmxctr.lib: 制御系解析設計ライブラリ
+                  libmxsig.lib: 信号処理ライブラリ
+
+
+        /librt    【RtMaTXのライブラリ】
+                  libMaTX.lib:  MaTXランタイムライブラリ
+                  libmxmat.lib: 行列演算ライブラリ
+                  libmxgra.lib: グラフィックライブラリ
+                  libmxctr.lib: 制御系解析設計ライブラリ
+                  libmxsig.lib: 信号処理ライブラリ
+
+        /include  【ヘッダファイル】
+                  co_mat.h:     複素行列へッダファイル
+                  complex.h:    複素数ヘッダファイル
+                  datafile.h:   MXデータフォーマット
+                  list.h:       リストヘッダファイル
+                  matrix.h:     行列ヘッダファイル
+                  matxconf.h:   コンフィグレーションファイル
+                  MaTXGVAL.h:   大域変数へッダファイル
+                  MaTXRC.h:     ユーザ関数ヘッダファイル
+                  mxString.h:   文字列ヘッダファイル
+                  mxstype.h:    MXSデータフォーマット
+                  mxSymbol.h:   MaTXのシンボル定義
+                  object.h:     リストの成分のフォーマット
+                  po_mat.h:     多項式行列へッダファイル
+                  poly.h:       多項式ヘッダファイル
+                  ra_mat.h:     有利多項式行列へッダファイル
+                  rational.h:   有理関数ヘッダファイル
+                  re_mat.h:     実行列へッダファイル
+                  realtime.h:   リアルタイム用へッダファイル
+                  stdio_my.h:   C言語標準関数補足へッダファイル
+                  util.h:       ユーティリティヘッダファイル
+
+        /inputs   【MMファイル】
+                  bench.mm:     ベンチマーク
+                  demo.mm:      デモンストレーション
+                  man.mm:       マニュアル参照
+                  MaTXRC.mm:    スタ－トアップファイル
+                  matx.fnc:     ヘルプファイル
+
+                  matrix/*.mm:  行列演算MMファイル
+                  control/*.mm: 制御系解析設計MMファイル
+                  signal/*.mm:  信号処理MMファイル
+                  graph/*.mm:   グラフィックMMファイル
+
+                  contrib       コントリビューションディレクトリ
+                  contrib/ga    遺伝的アルゴリズム(GA) MMファイル
+
+

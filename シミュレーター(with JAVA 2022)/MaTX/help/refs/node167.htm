@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>qr</TITLE>
+<META NAME="description" CONTENT="qr">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node168.htm">
+<LINK REL="previous" HREF="node166.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node168.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2606"
+ HREF="node168.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2603"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2597"
+ HREF="node166.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2605"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2607"
+ HREF="node168.htm">qr_p</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2604"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2598"
+ HREF="node166.htm">putenv</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004163000000000000000">&#160;</A><A NAME="man_qr">&#160;</A>
+<BR>
+qr
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>qr - QR分解
+<DT>【形式】
+<DD><PRE>
+{Q,R} = qr(A)
+   Matrix Q,R;
+   Matrix A;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>qr()は，行列 A の</FONT><FONT SIZE="-1">QR分解を求める。この分解は，正方行列にも非正方
+行列にも行える。実行列の場合，直交行列 Q と上三角行列 R の積に，
+複素行列の場合，ユニタリ行列 Q と上三角行列 R の積に分解する。
+{Q,R} = qr(A)は，A と同じ大きさの上三角行列 R と直交行列
+(ユニタリ行列) Q を求める。これらの行列の間には，A = Q * R，
+Q# * Q = I の関係がある。
+<DT>【算法】
+<DD>文献 1 の算法を使う。
+<DT>【例題】
+<DD>4 x 3 の行列 A の</FONT><FONT SIZE="-1">QR分解を求める。R(3,3) はゼロに近いので R と 
+A はフルランクでない。このことは，行列 A の第 2 列が第 1 列と
+第 3 列の平均となっていることからも分かる。</FONT><PRE>
+&gt;&gt; A = [[1 2 3][4 5 6][7 8 9][10 11 12]];
+&gt;&gt; {Q,R} = qr(A);
+&gt;&gt; print Q,R;
+=== [Q] : (  4,  4) ===
+           (  1)         (  2)         (  3)         (  4)
+(  1) -7.761505E-02 -8.330521E-01  5.007372E-01  2.219508E-01
+(  2) -3.104602E-01 -4.512365E-01 -8.330820E-01  7.729306E-02
+(  3) -5.433053E-01 -6.942101E-02  1.639523E-01 -8.204386E-01
+(  4) -7.761505E-01  3.123945E-01  1.683924E-01  5.211947E-01
+=== [R] : (  4,  3) ===
+           (  1)          (  2)          (  3)     
+(  1) -1.288409E+01 -1.459162E+01 -1.629916E+01
+(  2)  0.000000E+00 -1.041315E+00 -2.082630E+00
+(  3)  0.000000E+00  0.000000E+00  1.195746E-15
+(  4)  0.000000E+00  0.000000E+00  0.000000E+00
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>hess(<A HREF="node90.htm#man_hess">2.91</A>), qr_p(<A HREF="node168.htm#man_qr_p">2.169</A>), qz(<A HREF="node170.htm#man_qz">2.171</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><DT>【文献】
+<DD></FONT></FONT></FONT><DL COMPACT>
+<DT>1.
+<DD>Gene H. Golub and Charles F. Van Loan.  Matrix Computations.
+The Johns Hopkins University Press, 1989
+</DL><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

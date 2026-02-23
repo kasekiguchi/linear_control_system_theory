@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>require修飾子付き関数宣言</TITLE>
+<META NAME="description" CONTENT="require修飾子付き関数宣言">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node90.htm">
+<LINK REL="up" HREF="node90.htm">
+<LINK REL="next" HREF="node92.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1731"
+ HREF="node92.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1727"
+ HREF="node90.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1723"
+ HREF="node90.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1729"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1730"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1732"
+ HREF="node92.htm">関数の定義</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1728"
+ HREF="node90.htm">関数の宣言</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1724"
+ HREF="node90.htm">関数の宣言</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001111000000000000000">&#160;</A> <A NAME="sec:require">&#160;</A>
+<BR>
+<TT>require</TT>修飾子付き関数宣言
+</H2><FONT SIZE="-1">
+<A NAME="5414">&#160;</A>
+関数宣言を<TT>require</TT>修飾子付きで行うと，その関数が定義されている
+ファイルを指定することができる。例えば，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+void mg_main(), mg_sub1(), mg_sub2() require "mg.mm";
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+は，関数<TT>mg_main()</TT>，<TT>mg_sub1()</TT>，<TT>mg_sub2()</TT>
+がファイル<TT>mg.mm</TT>で定義されていることを宣言する。この宣言により，
+3個の中のどの関数が呼ばれても，自動的にファイル<TT>mg.mm</TT>が
+読み込まれる。ファイルが1度読み込まれれば，別の関数が呼ばれても
+<TT>mg.mm</TT>が再読み込みされることはない。
+</FONT>
+<P>
+<FONT SIZE="-1">従来は，関数名とファイル名が一致しなければ，宣言された関数が呼び出されても
+必要なファイルが自動的に読み込まれなかった。<TT>require</TT>修飾子を用いれ
+ば関数名と異なる名前のファイルに関数を定義できる。例えば，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Matrix PoleAssignSISO() "poleasgn.mm";
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>によって，長い名前の関数<TT>PoleAssignSISO()</TT>を短い名前のファイル
+<TT>poleasgn.mm</TT>に保存できるので， DOSのようにファイル名に
+厳しい制限のあるOSでも，自由に関数名を決められる。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="5296">&#160;</A>
+<A NAME="5415">&#160;</A>
+宣言されていて定義されていない関数が呼び出されると，その関数が定義され
+ているファイルが，環境変数<TT>MATXINPUTS</TT>で定義されているディレクトリ群や
+<B>デフォルトmmファイルディレクトリ</B>から再帰的に検索される。
+ファイルやディレクトリの数が多くなると検索に時間がかかるが，<TT>requrie</TT>
+修飾子で関数が定義されているファイルを指定すれば，検索時間が短縮される。
+例えば，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+List bode(...) requrie "control/bode.mm";
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>によって，関数<TT>bode()</TT>は検索対象のディレクトリから相対パスが
+<TT>control/bode.mm</TT>であるファイルに定義されていることが分かるので
+短い時間で発見される。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

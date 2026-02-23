@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>文字列の評価 (matx)</TITLE>
+<META NAME="description" CONTENT="文字列の評価 (matx)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node123.htm">
+<LINK REL="previous" HREF="node121.htm">
+<LINK REL="up" HREF="node117.htm">
+<LINK REL="next" HREF="node123.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2114"
+ HREF="node123.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2110"
+ HREF="node117.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2104"
+ HREF="node121.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2112"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2113"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2115"
+ HREF="node123.htm">文字列への変換</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2111"
+ HREF="node117.htm">文字列</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2105"
+ HREF="node121.htm">文字列から指定文字の位置を調べる</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001550000000000000000">&#160;</A>
+<A NAME="6696">&#160;</A>
+<BR>
+文字列の評価 (matx)
+</H1><FONT SIZE="-1">
+<A NAME="6788">&#160;</A>
+関数<TT>eval()</TT>を用いて，MATXの任意のコ−ドからなる文字列を評価すること
+ができ，関数の戻り値は評価結果と一致する。すなわち，関数の戻り値の型は，
+評価する文字列に依存する。式以外のコ−ドを評価したときは，常に整数0を返す。
+例えば，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  Real a, b, c;
+  Matrix A, B, C;
+
+  a = 1.0; b = 2.0;
+  A = [[1 2][3 4]]; B = [[5 6][7 8]];
+
+  c = eval("a + b");
+  C = eval("A + B");
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+において，<TT>eval("a + b")</TT>は，実数<TT>a</TT>と<TT>b</TT>の和の結果を返すのに
+対して，<TT>eval("A + B")</TT>は，行列<TT>A</TT>と<TT>B</TT>の和の結果を返す。
+</FONT>
+<P>
+<FONT SIZE="-1">また，次の例に示すように<TT>eval()</TT>を関数内で用いると，プログラムのデバッグ
+を効率的に行なうことができる。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  Func void afo()
+  {
+    String cmd;
+
+    ...................
+ 
+    for (;;) {
+      read cmd;
+      if (cmd == "q") {
+        break;
+      }
+      eval(cmd);
+    }
+
+    ..................
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>関数内で<TT>eval()</TT>を使うとき，引数として文字列<TT>"who"</TT>と<TT>"whos"</TT>を
+用いると，その関数の局所変数と大域変数の両方を参照することができる。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  Func void afo()
+  {
+    ...................
+
+    eval("who");
+    eval("whos");
+
+    ..................
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

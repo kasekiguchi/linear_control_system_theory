@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>Ode45HybridAuto</TITLE>
+<META NAME="description" CONTENT="Ode45HybridAuto">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node147.htm">
+<LINK REL="previous" HREF="node145.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node147.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2375"
+ HREF="node147.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2372"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2366"
+ HREF="node145.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2374"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2376"
+ HREF="node147.htm">OdeAuto</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2373"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2367"
+ HREF="node145.htm">Ode45Hybrid</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004142000000000000000">&#160;</A><A NAME="man_Ode45HybridAuto">&#160;</A>
+<BR>
+Ode45HybridAuto
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>Ode45HybridAuto - RKF45法(自動刻み調節)で常微分方程式を解く
+                    (外部信号をサンプリング毎に更新)
+<DT>【形式】
+<DD><PRE>
+{T,X,U} = Ode45HybridAuto(t0,t1,dt,x0,diff_eqs,link_eqs)
+   Array T,X,U;
+   Real t0,t1,dt;
+   Matrix x0;
+   Matrix diff_eqs(t,x,u); (Real t; Matrix x,u;)
+   Matrix link_eqs(t,x);   (Real t; Matrix x;)
+  
+{T,X,U} = Ode45HybridAuto(t0,t1,dt,x0,diff_eqs,link_eqs,eps)
+   Array T,X,U;
+   Real t0,t1,dt;
+   Matrix x0;
+   Matrix diff_eqs(t,x,u); (Real t; Matrix x,u;)
+   Matrix link_eqs(t,x);   (Real t; Matrix x;)
+   Real eps;
+  
+{T,X,U} = Ode45HybridAuto(t0,t1,dt,x0,diff_eqs,link_eqs,eps,
+                                                      dtsav)
+   Array T,X,U;
+   Real t0,t1,dt;
+   Matrix x0;
+   Matrix diff_eqs(t,x,u); (Real t; Matrix x,u;)
+   Matrix link_eqs(t,x);   (Real t; Matrix x;)
+   Real eps,dtsav;
+  
+{T,X,U} = Ode45HybridAuto(t0,t1,dt,x0,diff_eqs,link_eqs,
+                                            eps,dtsav,dtmin)
+   Array T,X,U;
+   Real t0,t1,dt;
+   Matrix x0;
+   Matrix diff_eqs(t,x,u); (Real t; Matrix x,u;)
+   Matrix link_eqs(t,x);   (Real t; Matrix x;)
+   Real eps,dtsav,dtmin;
+  
+{T,X,U} = Ode45HybridAuto(t0,t1,dt,x0,diff_eqs,link_eqs,eps,
+                                          dtsav,dtmin,dtmax)
+   Array T,X,U;
+   Real t0,t1,dt;
+   Matrix x0;
+   Matrix diff_eqs(t,x,u); (Real t; Matrix x,u;)
+   Matrix link_eqs(t,x);   (Real t; Matrix x;)
+   Real eps,dtsav,dtmin,dtmax;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>{T,X,U} = Ode45HybridAuto(t0,t1,dt,x0,diff_eqs,link_eqs)
+<BR>
+は，diff_eqs()で定義される常微分方程式を </FONT><FONT SIZE="-1">RKF45法を使い，各時刻における
+誤差が eps = 1.0E-6 以下になるよう刻み幅を自動調節しながら解き，
+状態の時系列 X，外部信号の時系列 U，時間の系列 T を返す。
+  
+サンプリング時間 dt 毎に link_eqs() を呼び出し，diff_eqs() に渡す
+外部信号 u を更新する。
+  
+刻み幅の最小値は，dtmin = EPS，最大値は dtmax = abs(t1-t0)/5，
+データ保存の最小間隔は，dtsav = 1.0E-3 である。刻み幅を dtmin に
+しても，誤差が eps 以下にならない場合，警告メッセージを表示し，
+次の時刻へ進む。
+  
+Ode45HybridAuto(t0,t1,dt,x0,diff_eqs,link_eqs,eps)は，各時刻における
+誤差が eps になるよう刻み幅を調節しながら常微分方程式を解く。
+  
+Ode45HybridAuto(t0,t1,dt,x0,diff_eqs,link_eqs,eps,
+<BR>
+dtsav)は，保存するデータの間隔を dtsav 以上にし，データを間引く。
+  
+Ode45HybridAuto(t0,t1,dt,x0,diff_eqs,link_eqs,eps,
+<BR>
+dtsav,dtmin)は，刻み幅の最小値を dtmin にする。
+  
+Ode45HybridAuto(t0,t1,dt,x0,diff_eqs,link_eqs,eps,
+<BR>
+dtsav,dtmin,dtmax)は，刻み幅の最大値を dtmax にする。
+  
+引数の意味を次に示す。
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">t0</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>初期時刻</TD>
+</TR>
+<TR><TD ALIGN="LEFT">t1</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>終端時刻</TD>
+</TR>
+<TR><TD ALIGN="LEFT">x0</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>初期状態</TD>
+</TR>
+<TR><TD ALIGN="LEFT">diff_eqs(t,x,u)</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>時刻 t，状態 x，外部信号 u から状態の</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER">&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>微分を計算</TD>
+</TR>
+<TR><TD ALIGN="LEFT">link_eqs(t,x)</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>時刻 t，状態 x から外部信号を計算する</TD>
+</TR>
+<TR><TD ALIGN="LEFT">eps</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>各時刻の打ち切り誤差の最大値</TD>
+</TR>
+<TR><TD ALIGN="LEFT">dtsave</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>データ保存の最小間隔</TD>
+</TR>
+<TR><TD ALIGN="LEFT">dtmin</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>刻み幅の最小値</TD>
+</TR>
+<TR><TD ALIGN="LEFT">dtmax</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>刻み幅の最大値</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1"><DT>【例題】
+<DD></FONT><PRE>
+ユーザーズマニュアル参照。
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>rkf45(<A HREF="node180.htm#man_rkf45">2.181</A>), Ode45(<A HREF="node143.htm#man_Ode45">2.144</A>), Ode45Auto(<A HREF="node144.htm#man_Ode45Auto">2.145</A>), Ode45Hybrid(<A HREF="node145.htm#man_Ode45Hybrid">2.146</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html2375"
+ HREF="node147.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2372"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2366"
+ HREF="node145.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2374"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2376"
+ HREF="node147.htm">OdeAuto</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2373"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2367"
+ HREF="node145.htm">Ode45Hybrid</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

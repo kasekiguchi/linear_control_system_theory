@@ -1,0 +1,1256 @@
+\batchmode
+\documentclass{jbook}
+\makeatletter
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{exlist,fancyheadings,nruby}
+\usepackage{html,htmllist}
+\usepackage{jmymac}
+
+\makeindex
+
+\providecommand{\MaTX}{M\kern-.15em\lower.5ex\hbox{A}\kern-.275emTX}
+\providecommand{\RtMaTX}{R\kern-.10em\lower.5ex\hbox{T}\kern-.10em%
+M\kern-.15em\lower.5ex\hbox{A}\kern-.275emTX}
+\parindent = 10pt
+\newfont{\logo}{titlogo50 scaled \magstep2}  
+\setbox  0=\hbox{\logo L}
+
+\makeatletter
+
+\makeatother
+
+\oddsidemargin  = -0.79cm               %
+\evensidemargin = -0.79cm               %
+\topmargin      = -1.04cm               %
+\textwidth      = 11.35cm               %
+\textheight     = 17.00cm               %
+\addtolength{\textheight}{-\headheight}   %
+\addtolength{\textheight}{-\headsep}      %
+
+
+\floatsep 7pt plus 1pt minus 4pt 
+\textfloatsep 15pt plus 1pt minus 2pt
+\intextsep 7pt plus 1pt minus 4pt 
+
+\setcounter{topnumber}{10}
+\setcounter{bottomnumber}{10}
+\setcounter{totalnumber}{10}
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+\renewcommand{\textfraction}{0.0}
+
+\pagestyle{empty}
+\usepackage[dvips]{color}
+\pagecolor[gray]{.7}
+
+
+\makeatletter
+\count@=\the\catcode`\_ \catcode`\_=8 
+\newenvironment{tex2html_wrap}{}{} \catcode`\_=\count@
+\makeatother
+\let\mathon=$
+\let\mathoff=$
+\ifx\AtBeginDocument\undefined \newcommand{\AtBeginDocument}[1]{}\fi
+\newbox\sizebox
+\setlength{\hoffset}{0pt}\setlength{\voffset}{0pt}
+\addtolength{\textheight}{\footskip}\setlength{\footskip}{0pt}
+\addtolength{\textheight}{\topmargin}\setlength{\topmargin}{0pt}
+\addtolength{\textheight}{\headheight}\setlength{\headheight}{0pt}
+\addtolength{\textheight}{\headsep}\setlength{\headsep}{0pt}
+\setlength{\textwidth}{349pt}
+\newwrite\lthtmlwrite
+\makeatletter
+\let\realnormalsize=\normalsize
+\global\topskip=2sp
+\def\preveqno{}\let\real@float=\@float \let\realend@float=\end@float
+\def\@float{\let\@savefreelist\@freelist\real@float}
+\def\end@float{\realend@float\global\let\@freelist\@savefreelist}
+\let\real@dbflt=\@dbflt \let\end@dblfloat=\end@float
+\let\@largefloatcheck=\relax
+\def\@dbflt{\let\@savefreelist\@freelist\real@dbflt}
+\def\adjustnormalsize{\def\normalsize{\mathsurround=0pt \realnormalsize
+ \parindent=0pt\abovedisplayskip=0pt\belowdisplayskip=0pt}\normalsize}%
+\def\lthtmltypeout#1{{\let\protect\string\immediate\write\lthtmlwrite{#1}}}%
+\newcommand\lthtmlhboxmathA{\adjustnormalsize\setbox\sizebox=\hbox\bgroup}%
+\newcommand\lthtmlvboxmathA{\adjustnormalsize\setbox\sizebox=\vbox\bgroup%
+ \let\ifinner=\iffalse }%
+\newcommand\lthtmlboxmathZ{\@next\next\@currlist{}{\def\next{\voidb@x}}%
+ \expandafter\box\next\egroup}%
+\newcommand\lthtmlmathtype[1]{\def\lthtmlmathenv{#1}}%
+\newcommand\lthtmllogmath{\lthtmltypeout{l2hSize %
+:\lthtmlmathenv:\the\ht\sizebox::\the\dp\sizebox::\the\wd\sizebox.\preveqno}}%
+\newcommand\lthtmlfigureA[1]{\let\@savefreelist\@freelist
+       \lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmlfigureZ{\lthtmlboxmathZ\lthtmllogmath\copy\sizebox
+       \global\let\@freelist\@savefreelist}%
+\newcommand\lthtmldisplayA[1]{\lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmldisplayB[1]{\edef\preveqno{(\theequation)}%
+  \lthtmldisplayA{#1}\let\@eqnnum\relax}%
+\newcommand\lthtmldisplayZ{\lthtmlboxmathZ\lthtmllogmath\lthtmlsetmath}%
+\newcommand\lthtmlinlinemathA[1]{\lthtmlmathtype{#1}\lthtmlhboxmathA  \vrule height1.5ex width0pt }%
+\newcommand\lthtmlinlineA[1]{\lthtmlmathtype{#1}\lthtmlhboxmathA}%
+\newcommand\lthtmlinlineZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetinline}
+\newcommand\lthtmlinlinemathZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetmath}
+\def\lthtmlsetinline{\hbox{\vrule width.1em\vtop{\vbox{%
+  \kern.1em\copy\sizebox}\ifdim\dp\sizebox>0pt\kern.1em\else\kern.3pt\fi
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\lthtmlsetmath{\hbox{\vrule width.1em\vtop{\vbox{%
+  \kern.1em\kern0.8 pt\hbox{\hglue.17em\copy\sizebox\hglue0.8 pt}}\kern.3pt%
+  \ifdim\dp\sizebox>0pt\kern.1em\fi \kern0.8 pt%
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\centerinlinemath{%\dimen1=\ht\sizebox
+  \dimen1=\ifdim\ht\sizebox<\dp\sizebox \dp\sizebox\else\ht\sizebox\fi
+  \advance\dimen1by.5pt \vrule width0pt height\dimen1 depth\dimen1 
+ \dp\sizebox=\dimen1\ht\sizebox=\dimen1\relax}
+
+\def\lthtmlcheckvsize{\ifdim\ht\sizebox<\vsize\expandafter\vfill
+  \else\expandafter\vss\fi}%
+\makeatletter \tracingstats = 1 
+
+
+\begin{document}
+\pagestyle{empty}\thispagestyle{empty}%
+\lthtmltypeout{latex2htmlLength hsize=\the\hsize}%
+\lthtmltypeout{latex2htmlLength vsize=\the\vsize}%
+\lthtmltypeout{latex2htmlLength hoffset=\the\hoffset}%
+\lthtmltypeout{latex2htmlLength voffset=\the\voffset}%
+\lthtmltypeout{latex2htmlLength topmargin=\the\topmargin}%
+\lthtmltypeout{latex2htmlLength topskip=\the\topskip}%
+\lthtmltypeout{latex2htmlLength headheight=\the\headheight}%
+\lthtmltypeout{latex2htmlLength headsep=\the\headsep}%
+\lthtmltypeout{latex2htmlLength parskip=\the\parskip}%
+\lthtmltypeout{latex2htmlLength oddsidemargin=\the\oddsidemargin}%
+\makeatletter
+\if@twoside\lthtmltypeout{latex2htmlLength evensidemargin=\the\evensidemargin}%
+\else\lthtmltypeout{latex2htmlLength evensidemargin=\the\oddsidemargin}\fi%
+\makeatother
+\setcounter{topnumber}{10}
+\setcounter{bottomnumber}{10}
+\setcounter{totalnumber}{10}
+\setcounter{page}{1}
+
+\setlength{\unitlength}{1mm}%
+
+
+\linethickness{2pt}%
+
+
+\setlength{\headrulewidth}{0.0mm}%
+
+
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}%
+{\thechapter\ #1}}
+
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap516}%
+\includegraphics[width=0.7\linewidth]{Fig/arch.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap526}%
+\includegraphics[width=0.7\linewidth]{Fig/process.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap534}%
+\includegraphics[width=0.7\linewidth]{Fig/translation.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap546}%
+\includegraphics[width=0.8\linewidth]{Fig/flow-matlab.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap550}%
+\includegraphics[width=0.8\linewidth]{Fig/flow-matx.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap1282}%
+\fbox{\tt Ctrl}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap1286}%
+\fbox{\tt C}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap1308}%
+\fbox{\tt Ctrl+H}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap2136}%
+\fbox{\tt N}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline2016}%
+$\times$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline2020}%
+$\bs$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmldisplayA{displaymath2006}%
+\begin{displaymath}\left(\begin{array}{l}
+        \mbox{\rm コロン``\mbox{\tt :}''で区切って複数のディレクトリを指定
+        できる。}\\
+        \mbox{\rm MS-DOSバ−ジョンでは，セミコロン``\mbox{\tt ;}''で区切る。}
+        \end{array}\right)
+	\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmldisplayA{displaymath2007}%
+\begin{displaymath}%
+\left(\begin{array}{l}
+        \mbox{\rm コロン``\mbox{\tt :}''で区切って複数のディレクトリを指定
+        できる。}\\
+        \mbox{\rm MS-DOSバ−ジョンでは，セミコロン``\mbox{\tt ;}''で区切る。}
+        \end{array}\right)\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1920}%
+$\mbox{$\bullet$}$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{chapter}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline3007}%
+$\displaystyle
+\left(\begin{array}{l}
+\mbox{\rm コロン``\mbox{\tt :}''で区切って複数のディレクトリを指定できる。}\\
+\mbox{\rm MS-DOSバ−ジョンでは，セミコロン``\mbox{\tt ;}''で区切る。}
+\index{MS-DOS}
+\end{array}\right)$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+
+\setlength{\itemsep}{0.5zh}%
+
+
+\setlength{\parsep}{0.0pt}%
+
+
+\setlength{\parskip}{0.0pt}%
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlfigureA{figure3410}%
+\begin{figure}
+\begin{center}\htmlrule\small
+{\baselineskip = 1em
+\begin{tex2html_preform}\begin{verbatim} Name :  [ A ]
+ Size :  [  50, 10 ]    Filename : A
+
+           (  3)         (  4)         (  5)         (  6)
+( 18)  -1.957854E-01  9.554574E-02 -1.957854E-01  9.554574E-02
+( 19)  -1.953817E-01  9.751419E-02 -1.953817E-01  9.751419E-02
+( 20)  -1.949779E-01  9.948264E-02 -1.949779E-01  9.948264E-02
+( 21)  -1.945741E-01  1.014511E-01 -1.945741E-01  1.014511E-01
+( 22)  -2.084542E-01  8.378548E-02 -2.084542E-01  8.378548E-02
+( 23)  -2.080504E-01  8.575394E-02 -2.080504E-01  8.575394E-02
+( 24)  -2.076466E-01  8.772239E-02 -2.076466E-01  8.772239E-02
+( 25)  -2.072429E-01  8.969085E-02 -2.072429E-01  8.969085E-02
+( 26)  -2.068391E-01  9.165930E-02 -2.068391E-01  9.165930E-02
+( 27)  -2.064353E-01  9.362776E-02 -2.064353E-01  9.362776E-02
+( 28)  -2.060315E-01  9.559621E-02 -2.060315E-01  9.559621E-02
+( 29)  -2.056277E-01  9.756466E-02 -2.056277E-01  9.756466E-02
+( 30)  -2.052239E-01  9.953312E-02 -2.052239E-01  9.953312E-02
+( 31)  -2.048201E-01  1.015015E-01 -2.048201E-01  1.015015E-01
+( 32)  -2.044164E-01  1.034700E-01 -2.044164E-01  1.034700E-01\end{verbatim}\end{tex2html_preform}}\htmlrule\end{center}
+\end{figure}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlfigureA{figure3428}%
+\begin{figure}
+\begin{center}\htmlrule\small
+{\baselineskip = 8pt
+\begin{tex2html_preform}\begin{verbatim} Name :  [ B ]
+ Size :  [  30, 10 ]   Filename : B
+
+         (  3)-Real    (  3)-Imag    (  4)-Real    (  4)-Imag
+( 12)   5.763537E-01  3.227756E-01  2.890290E-01  8.225142E-01
+( 13)   2.218456E-01  1.713277E-01  5.039103E-01  1.292042E-01
+( 14)   2.112349E-01  7.294220E-02  6.336816E-01  4.309787E-01
+( 15)   8.716954E-01  9.988188E-02  6.955673E-01  7.323241E-01
+( 16)   6.781542E-01  8.113680E-01  5.772123E-01  8.804363E-01
+( 17)   6.445914E-01  9.994860E-01  2.568782E-02  8.759036E-03
+( 18)   6.485325E-01  5.361216E-01  2.513150E-01  9.766774E-01
+( 19)   2.967033E-01  7.648637E-01  6.800593E-01  4.797411E-01
+( 20)   8.320193E-01  2.827639E-01  3.725870E-01  1.078266E-01
+( 21)   8.935846E-01  1.882765E-01  9.587078E-01  9.792556E-01
+( 22)   5.605379E-01  2.117229E-01  6.072429E-01  9.438229E-01
+( 23)   8.295992E-01  1.647209E-01  5.731654E-01  7.800235E-01
+( 24)   2.509799E-01  8.080054E-01  2.564957E-01  7.973468E-01
+( 25)   3.942465E-01  4.115652E-01  5.600023E-01  5.074672E-01
+( 26)   9.020740E-01  6.695332E-02  2.406348E-01  4.392214E-01\end{verbatim}\end{tex2html_preform}}\htmlrule\end{center}
+\vspace{-1em}
+\par\end{figure}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{figure3439}%
+\begin{figure}
+\begin{center}\htmlrule\small
+{\baselineskip = 8pt
+\begin{tex2html_preform}\begin{verbatim}  Name :  [ Re(B) ]
+  Size :  [  30, 10 ]
+
+            (  3)         (  4)         (  5)         (  6)
+ ( 12)   5.763537E-01  2.890290E-01  3.210669E-01  2.613233E-01
+ ( 13)   2.218456E-01  5.039103E-01  6.703021E-02  3.930634E-01
+ ( 14)   2.112349E-01  6.336816E-01  5.356539E-02  7.834114E-01
+ ( 15)   8.716954E-01  6.955673E-01  9.301896E-01  4.550905E-01
+ ( 16)   6.781542E-01  5.772123E-01  2.731182E-01  9.353880E-01
+ ( 17)   6.445914E-01  2.568782E-02  8.413805E-01  7.701880E-02
+ ( 18)   6.485325E-01  2.513150E-01  2.286443E-01  2.509221E-01
+ ( 19)   2.967033E-01  6.800593E-01  8.331472E-01  8.763075E-01
+ ( 20)   8.320193E-01  3.725870E-01  7.570482E-01  1.092149E-01
+ ( 21)   8.935846E-01  9.587078E-01  1.217351E-01  9.815443E-01
+ ( 22)   5.605379E-01  6.072429E-01  8.164395E-01  4.465349E-01
+ ( 23)   8.295992E-01  5.731654E-01  1.047806E-01  7.329764E-01
+ ( 24)   2.509799E-01  2.564957E-01  3.381931E-01  3.882216E-01
+ ( 25)   3.942465E-01  5.600023E-01  3.108211E-01  8.225768E-01
+ ( 26)   9.020740E-01  2.406348E-01  3.731643E-01  7.522860E-01\end{verbatim}\end{tex2html_preform}}\htmlrule\end{center}
+\vspace{-1em}
+\par\end{figure}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{figure3450}%
+\begin{figure}
+\begin{center}\htmlrule\small
+{\baselineskip = 8pt
+\begin{tex2html_preform}\begin{verbatim} Name :  [ Im(B) ]
+ Size :  [  30, 10 ]
+
+            (  3)         (  4)         (  5)         (  6)
+ ( 12)   3.227756E-01  8.225142E-01  1.384097E-02  9.237073E-01
+ ( 13)   1.713277E-01  1.292042E-01  1.589902E-01  2.927582E-01
+ ( 14)   7.294220E-02  4.309787E-01  7.498257E-01  1.519544E-01
+ ( 15)   9.988188E-02  7.323241E-01  5.288297E-01  5.194745E-01
+ ( 16)   8.113680E-01  8.804363E-01  1.127707E-03  1.070992E-01
+ ( 17)   9.994860E-01  8.759036E-03  6.378548E-02  9.676939E-01
+ ( 18)   5.361216E-01  9.766774E-01  2.334755E-01  4.185591E-01
+ ( 19)   7.648637E-01  4.797411E-01  5.563773E-01  1.208822E-02
+ ( 20)   2.827639E-01  1.078266E-01  2.987334E-01  5.287705E-01
+ ( 21)   1.882765E-01  9.792556E-01  5.031973E-01  1.600592E-01
+ ( 22)   2.117229E-01  9.438229E-01  6.220121E-01  2.136757E-01
+ ( 23)   1.647209E-01  7.800235E-01  7.095231E-01  1.848203E-01
+ ( 24)   8.080054E-01  7.973468E-01  9.864512E-01  6.998894E-01
+ ( 25)   4.115652E-01  5.074672E-01  8.462741E-01  8.248976E-01
+ ( 26)   6.695332E-02  4.392214E-01  8.449764E-01  3.010135E-01\end{verbatim}\end{tex2html_preform}}\htmlrule\end{center}
+\vspace{-1em}
+\par\end{figure}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline4306}%
+$\{0.$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline4318}%
+$.14\}$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline4320}%
+$\log_{10}$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmldisplayA{displaymath7535}%
+\begin{displaymath}\mbox{\tt Re}\left(\frac{\mbox{\tt a}+ \mbox{\tt b}i}{\mbox{\tt c}+ \mbox{\tt d}i}\right) =
+\frac{\mbox{\tt a}\mbox{\tt c}+ \mbox{\tt b}\mbox{\tt d}}{\mbox{\tt c}^2 + \mbox{\tt d}^2},\quad
+\mbox{\tt Im}\left(\frac{\mbox{\tt a}+ \mbox{\tt b}i}{\mbox{\tt c}+ \mbox{\tt d}i}\right) =
+\frac{\mbox{\tt b}\mbox{\tt c}- \mbox{\tt a}\mbox{\tt d}}{\mbox{\tt c}^2 + \mbox{\tt d}^2}
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath7536}%
+\begin{displaymath}\mbox{\tt Re}\left(\frac{\mbox{\tt a}+ \mbox{\tt b}i}{\mbox{\tt c}+ \mbox{\tt d}i}\right) =
+\frac{(\mbox{\tt a}+ \mbox{\tt b}i)(\mbox{\tt c}- \mbox{\tt d}i)}{(\mbox{\tt c}+ \mbox{\tt d}i)(\mbox{\tt c}- \mbox{\tt d}i)} =
+\frac{\mbox{\tt a}\mbox{\tt c}+ \mbox{\tt b}\mbox{\tt d}}{\mbox{\tt c}^2 + \mbox{\tt d}^2} + 
+\frac{\mbox{\tt b}\mbox{\tt c}- \mbox{\tt a}\mbox{\tt d}}{\mbox{\tt c}^2 + \mbox{\tt d}^2} i
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmldisplayA{displaymath7537}%
+\begin{displaymath}\begin{array}{ccc}
+\displaystyle \frac{\mbox{\tt a}}{\mbox{\tt b}} + \frac{\mbox{\tt c}}{\mbox{\tt c}} = 
+              \frac{\mbox{\tt a}\cdot \mbox{\tt c}+ \mbox{\tt b}\cdot \mbox{\tt c}}
+                   {\mbox{\tt b}\cdot \mbox{\tt c}} &\displaystyle , &
+\displaystyle \frac{\mbox{\tt a}}{\mbox{\tt b}} - \frac{\mbox{\tt c}}{\mbox{\tt c}} = 
+              \frac{\mbox{\tt a}\cdot \mbox{\tt c}- \mbox{\tt b}\cdot \mbox{\tt c}}{\mbox{\tt b}\cdot \mbox{\tt c}}\\
+& & \\
+\displaystyle \frac{\mbox{\tt a}}{\mbox{\tt b}} * \frac{\mbox{\tt c}}{\mbox{\tt c}} = 
+              \frac{\mbox{\tt a}\cdot \mbox{\tt c}}{\mbox{\tt b}\cdot \mbox{\tt c}} &\displaystyle , &
+\displaystyle \frac{\mbox{\tt a}}{\mbox{\tt b}} / \frac{\mbox{\tt c}}{\mbox{\tt c}} = 
+              \frac{\mbox{\tt a}\cdot \mbox{\tt c}}{\mbox{\tt b}\cdot \mbox{\tt c}}
+\end{array}
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline9293}%
+$3 \times 3$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline9295}%
+$1 \times 4$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmldisplayA{displaymath9275}%
+\begin{displaymath}\mbox{\tt B} = 
+\left[\begin{array}{cc}
+\mbox{\tt eval(s+1, A)} & \mbox{\tt eval(s+2, A)}\\
+\mbox{\tt eval(s+3, A)} & \mbox{\tt eval(s+4, A)}
+\end{array}\right] = 
+\left[
+\begin{array}{cccc}
+2 & 2 & 3 & 2\\
+3 & 5 & 3 & 6\\
+4 & 2 & 5 & 2\\
+3 & 7 & 3 & 8
+\end{array}
+\right]
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath9276}%
+\begin{displaymath}\mbox{\tt B} =
+\left[\begin{array}{cc}
+\mbox{\tt eval(RM1, 1)} & \mbox{\tt eval(RM1, 2)}\\
+\mbox{\tt eval(RM1, 3)} & \mbox{\tt eval(RM1, 4)}
+\end{array}\right] = 
+\left[
+\begin{array}{cccc}
+2 & 3 & 3 & 4 \\
+4 & 5 & 5 & 6 \\
+4 & 5 & 5 & 6 \\
+6 & 7 & 7 & 8 
+\end{array}
+\right]
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmldisplayA{displaymath9277}%
+\begin{displaymath}\begin{array}{rcl}
+\mbox{\tt B} & = &
+\left[\begin{array}{cc}
+\mbox{\tt eval((s+1)/(s+2), A)} & \mbox{\tt eval((s+3)/(s+4), A)}\\
+\mbox{\tt eval((s+5)/(s+6), A)} & \mbox{\tt eval((s+7)/(s+8), A)}
+\end{array}\right]\\
+& = &\left[
+\begin{array}{cccc}
+0.50000 & 0.16667 & 0.76471 & 0.05882 \\
+0.25000 & 0.75000 & 0.08824 & 0.85294 \\
+0.84375 & 0.03125 & 0.88235 & 0.01961 \\
+0.04688 & 0.89063 & 0.02941 & 0.91176
+\end{array}
+\right]
+\end{array}
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath9278}%
+\begin{displaymath}\begin{array}{rcl}
+\mbox{\tt B} & = &
+\left[\begin{array}{cc}
+\mbox{\tt eval(RM1, 1)} & \mbox{\tt eval(RM1, 2)}\\
+\mbox{\tt eval(RM1, 3)} & \mbox{\tt eval(RM1, 4)}
+\end{array}\right]\\
+& = &
+\left[\begin{array}{cccc}
+0.66667 & 0.75000 & 0.80000 & 0.83333 \\
+0.80000 & 0.83333 & 0.85714 & 0.87500 \\
+0.85714 & 0.87500 & 0.88889 & 0.90000 \\
+0.88889 & 0.90000 & 0.90909 & 0.91667
+\end{array}\right]
+\end{array}
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmldisplayA{displaymath9279}%
+\begin{displaymath}\mbox{\tt AA} = \left[
+\begin{array}{ccc}
+\begin{array}{cc}
+1 & 2\\
+3 & 4
+\end{array} & \mbox{\tt Z}(2) & \mbox{\tt Z}(2) \\
+\mbox{\tt Z}(2) & \mbox{\tt Z}(2) &
+\begin{array}{cc}
+5 & 6\\
+7 & 8
+\end{array}
+\end{array}
+\right]
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath9280}%
+\begin{displaymath}\mbox{\tt AA} = \left[
+\begin{array}{cccccc}
+1 & 2 & 0 & 0 & 0 & 0\\
+3 & 4 & 5 & 6 & 0 & 0\\
+0 & 0 & 7 & 8 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0
+\end{array}
+\right]
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+
+\setlength{\parsep}{0.0pt}%
+
+
+\setlength{\itemsep}{0.0pt}%
+
+
+\setlength{\parskip}{0.0pt}%
+
+\stepcounter{section}
+
+\setlength{\parsep}{0.0pt}%
+
+
+\setlength{\itemsep}{0.0pt}%
+
+
+\setlength{\parskip}{0.0pt}%
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmldisplayA{displaymath10945}%
+\begin{displaymath}\begin{array}{rcl}
+\dot{x} & = & A x + B u \\
+y & = & C x
+\end{array}
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath10946}%
+\begin{displaymath}\begin{array}{rcl}
+G(s) & = & C (s I - A)^{-1} B \\
+     & = & C \frac{1}{\strut\displaystyle\det(sI-A)}
+       (\Gamma_{n-1}s^{n-1} + \Gamma_{n-2}s^{n-2} + \cdots + \Gamma_0) B\\
+\det(sI - A) & = & s^n + \alpha_{n-1}s^{n-1} + \alpha_{n-2}s^{n-2}
+                   + \cdots + \alpha_0
+\end{array}
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10955}%
+$\Gamma_i$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10957}%
+$\alpha_i$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath10947}%
+\begin{displaymath}\begin{array}{ll}
+\Gamma_{n-1} = I                   
+& \alpha_{n-1} = - {\rm tr}(A\Gamma_{n-1})\\
+\Gamma_{n-2} = A\Gamma_{n-1} + a_{n-1} I 
+& \alpha_{n-2} = - {\rm tr}(A\Gamma_{n-2})/2\\
+\Gamma_{n-3} = A\Gamma_{n-2} + a_{n-2} I 
+& \alpha_{n-3} = - {\rm tr}(A\Gamma_{n-3})/3\\
+\cdots \ \cdots \ \cdots
+& \cdots \ \cdots \ \cdots \\
+\Gamma_i = A\Gamma_{i+1} + \alpha_{i+1}I
+& \alpha_i = - {\rm tr}(A\Gamma_i)/(n-i)\\
+\cdots \ \cdots \ \cdots
+& \cdots \ \cdots \ \cdots \\
+\Gamma_0 = A\Gamma_1 + \alpha_1 I
+& \alpha_0 = - {\rm tr}(A\Gamma_0)/n
+\end{array}
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline10959}%
+${\rm tr}(X)$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+
+\setlength{\parsep}{0.0pt}%
+
+
+\setlength{\itemsep}{0.0pt}%
+
+
+\setlength{\parskip}{0.0pt}%
+
+\stepcounter{section}
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmldisplayA{displaymath10948}%
+\begin{displaymath}\dot{x} =
+\left[\begin{array}{ccc}
+ 0 &  1 &  0\\
+ 0 &  0 &  1\\
+-2 & -3 & -4
+\end{array}\right] x + 
+\left[\begin{array}{c}
+0\\0\\1
+\end{array}\right] u
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath10949}%
+\begin{displaymath}u = \left[\begin{array}{ccc}
+          -1 & -1 & -1
+    \end{array}\right] x
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlfigureA{figure10932}%
+\begin{figure}
+\begin{center}
+\setlength{\unitlength}{3947sp}  %
+\begingroup  \makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+\reset@font\fontsize{#1}{#2pt}%
+\fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+\selectfont}%
+\fi\endgroup  %
+\begin{picture}
+(5169,1524)(266,-4273)
+\thinlines  
+\put(1186,-3076){\circle{150}}
+\put(1801,-3361){\framebox (2100,600){}}
+\put(1801,-4261){\framebox (2100,600){}}
+\put(1276,-3061){\vector( 1, 0){525}}
+\put(3901,-3061){\vector( 1, 0){1200}}
+\put(4501,-3061){\line( 0,-1){900}}
+\put(4501,-3961){\vector(-1, 0){600}}
+\put(1801,-3961){\line(-1, 0){600}}
+\put(1201,-3961){\vector( 0, 1){825}}
+\put(601,-3061){\vector( 1, 0){525}}
+\put(1501,-3796){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$y_c$ }}}
+\put(2851,-4006){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$G_c(s) = \frac{\strut\displaystyle 9(s+1)}{\strut\displaystyle s-5}$ }}}
+\put(4201,-3826){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$u_c$ }}}
+\put(4201,-2956){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$y_p$ }}}
+\put(1501,-2911){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$u_p$ }}}
+\put(901,-2926){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$+$ }}}
+\put(901,-3271){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$-$ }}}
+\put(2851,-3061){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}$G_p(s) = \frac{\strut\displaystyle s-1}{\strut\displaystyle s^2-s-2}$ }}}
+\end{picture}
+\end{center}
+
+\end{figure}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap11428}%
+\includegraphics[width=0.8\linewidth]{Fig/simu-system2.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\appendix
+\stepcounter{chapter}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmldisplayA{displaymath11646}%
+\begin{displaymath}\left[\begin{array}{rrrr}
+1 &  2 &  3 &  4\\
+5 &  6 &  7 &  8\\
+9 & 10 & 11 & 12
+\end{array}\right]
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath11647}%
+\begin{displaymath}\left[\begin{array}{rrr}
+1 + 2i & 3 +  4i &  5 +  6i\\
+7 + 8i & 9 + 10i & 11 + 12i
+\end{array}\right]
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{chapter}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12090}%
+\includegraphics[width=0.5\linewidth]{Fig/memory.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline12072}%
+$2 \times 2$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12180}%
+\includegraphics[width=0.5\linewidth]{Fig/mem0.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12184}%
+\includegraphics[width=0.5\linewidth]{Fig/mem1.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12188}%
+\includegraphics[width=0.5\linewidth]{Fig/mem2.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12192}%
+\includegraphics[width=0.5\linewidth]{Fig/mem4.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12196}%
+\includegraphics[width=0.5\linewidth]{Fig/mem5.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12200}%
+\includegraphics[width=0.5\linewidth]{Fig/mem6.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12210}%
+\includegraphics[width=0.5\linewidth]{Fig/mem7.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12222}%
+\includegraphics[width=0.5\linewidth]{Fig/mem8.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12244}%
+\includegraphics[width=0.5\linewidth]{Fig/mem9.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12258}%
+\includegraphics[width=0.5\linewidth]{Fig/mem10.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12266}%
+\includegraphics[width=0.5\linewidth]{Fig/mem11.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap12270}%
+\includegraphics[width=0.5\linewidth]{Fig/mem12.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{chapter}
+
+\setlength{\unitlength}{0.75mm}%
+
+{\newpage\clearpage
+\lthtmlfigureA{picture12301}%
+\begin{picture}(150,90)
+\put(0,80){\makebox(20,10){整数}}
+\put(20,85){\vector(1,0){10}}
+%
+\put(30,80){\makebox(20,10){実数}}
+\put(50,85){\vector(1,0){10}}
+\put(60,80){\makebox(35,10){実多項式}}
+\put(95,85){\vector(1,0){10}}
+\put(105,80){\makebox(40,10){実有理多項式}}
+\put(40,80){\vector(0,-1){10}}
+\put(77,80){\vector(0,-1){10}}
+\put(125,80){\vector(0,-1){10}}
+%
+\put(0,60){\framebox (20,10){スカラー}}
+\put(30,60){\makebox(20,10){複素数}}
+\put(50,65){\vector(1,0){10}}
+\put(60,60){\makebox(35,10){複素多項式}}
+\put(95,65){\vector(1,0){10}}
+\put(105,60){\makebox(40,10){複素有理多項式}}
+\put(40,60){\vector(0,-1){10}}
+\put(77,60){\vector(0,-1){10}}
+\put(125,60){\vector(0,-1){10}}
+%
+\put(30,44){\framebox (112,2){}}
+%
+\put(40,40){\vector(0,-1){10}}
+\put(77,40){\vector(0,-1){10}}
+\put(125,40){\vector(0,-1){10}}
+%
+\put(0,20){\framebox (20,10){行列}}
+\put(30,20){\makebox(20,10){実行列}}
+\put(50,25){\vector(1,0){10}}
+\put(60,20){\makebox(35,10){実多項式行列}}
+\put(95,25){\vector(1,0){10}}
+\put(105,20){\makebox(40,10){実有理多項式行列}}
+\put(40,20){\vector(0,-1){10}}
+\put(77,20){\vector(0,-1){10}}
+\put(125,20){\vector(0,-1){10}}
+%
+\put(30,0){\makebox(20,10){複素行列}}
+\put(50,5){\vector(1,0){10}}
+\put(60,0){\makebox(35,10){複素多項式行列}}
+\put(95,5){\vector(1,0){10}}
+\put(105,0){\makebox(40,10){複素有理多項式行列}}
+\end{picture}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline12695}%
+$\mid \mid$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{chapter}
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap13544}%
+\includegraphics[height=0.5\textheight]{Fig/design.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline13486}%
+$\mu$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlfigureA{tex2html_wrap13952}%
+\includegraphics[width=0.5\linewidth]{Fig/pendulum.eps}%
+\lthtmlfigureZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath13472}%
+\begin{displaymath}M \ddot{r} = au - F\dot{r} - H
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath13473}%
+\begin{displaymath}\begin{array}{rcl}
+  J \ddot{\theta} & = & V l \sin\theta - H l \cos\theta - c \dot{\theta}\\
+  && m \frac{d^2}{dt^2} (r + l \sin\theta) = H \\
+  && m \frac{d^2}{dt^2} (l \cos\theta) = V - mg
+\end{array}
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline13510}%
+$\theta$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline13532}%
+$\dot{r}$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline13534}%
+$\dot{\theta}$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath13474}%
+\begin{displaymath}x = \left[\begin{array}{c}
+  x_1\\x_2\\x_3\\x_4
+\end{array}\right] = \left[\begin{array}{c}
+r\\\theta\\\dot{r}\\\dot{\theta}
+\end{array}\right]
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath13475}%
+\begin{displaymath}\begin{array}{rcl}
+ \dot{x} = f(x, u) \df &&
+  \left[
+  \begin{array}{c}
+    x_3\\
+    x_4\\
+    (1+\alpha\sin^2x_2)^{-1}\times\{a_{32}\sin x_2\cos x_2 + a_{33}x_3\\
+    (1+\alpha\sin^2x_2)^{-1}\times\{a_{42}\sin x_2 + a_{43}\cos x_2 x_3
+  \end{array}\right.
+\\
+&&
+\left.\begin{array}{l}
+\\
+\\
++ a_{34}\cos x_2 x_4 + a_{35}\sin x_2 x_4^2 + b_3 u\}\\
++ a_{44}x_4 + a_{45} \sin x_2 \cos x_2 x_4^2 + b_4 \cos x_2 u\}
+\end{array}\right]
+\end{array}
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath13476}%
+\begin{displaymath}\alpha = m^2 l^2/\alpha_0
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath13477}%
+\begin{displaymath}\left[
+\begin{array}{ccccc}
+  a_{32} & a_{33} & a_{34} & a_{35} & b_3\\
+  a_{42} & a_{43} & a_{44} & a_{45} & b_4
+\end{array}
+\right]\hspace*{4cm}
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath13478}%
+\begin{displaymath}\begin{array}{l}
+   = \frac{1}{\alpha_0}
+  \left[
+  \begin{array}{cc}
+    -(ml)^2g & -F(J + ml^2)\\
+    (M+m)mlg & Fml
+  \end{array}
+  \right.\\
+\left.\hspace*{2cm}\begin{array}{ccc}
+    cml & (J+ml^2)ml & (J+ml^2)a\\
+-(M+m)c &    -(ml)^2 & -(ml)a
+\end{array}\right]
+\end{array}
+\end{displaymath}%
+\lthtmldisplayZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline13536}%
+$\alpha_0 = (M+m)J+Mml^2$%
+\lthtmlinlinemathZ
+\hfill\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+
+\end{document}

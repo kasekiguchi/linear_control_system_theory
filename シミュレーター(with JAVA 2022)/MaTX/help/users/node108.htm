@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>整数と実数</TITLE>
+<META NAME="description" CONTENT="整数と実数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node113.htm">
+<LINK REL="previous" HREF="node102.htm">
+<LINK REL="up" HREF="MaTX.htm">
+<LINK REL="next" HREF="node109.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1936"
+ HREF="node109.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1932"
+ HREF="MaTX.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1926"
+ HREF="node107.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1934"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1935"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1937"
+ HREF="node109.htm">整数定数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1933"
+ HREF="MaTX.htm">無題</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1927"
+ HREF="node107.htm">Break文とContinue文</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001300000000000000000">&#160;</A>
+<A NAME="5942">&#160;</A><A NAME="5943">&#160;</A>
+<BR>
+整数と実数
+</H1>
+<P>
+<FONT SIZE="-1">MATXは，整数と実数を区別して処理する。
+<TT>1</TT>は整数であり，<TT>1.0</TT>は実数である。
+MATXでは他の多くの言語と同様，整数の割算では切捨てが行なわれる。
+そして，実数は全て倍精度で計算される。
+</FONT>
+<P>
+<FONT SIZE="-1">［宣言］
+</FONT><PRE>
+  Integer a, b, c;
+  Real aa, bb, cc;
+</PRE>
+<P>
+<FONT SIZE="-1">［例］
+</FONT><PRE>
+  0, 3, -4                    // 整数
+  0., 0.0, 3., 3.0, -4. -4.0  // 実数
+  3E4, 3.E4., 3e4, 3.e4.      // 実数
+</PRE>
+<P>
+<FONT SIZE="-1">
+以下の実数定数があらかじめ定義されている。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="6090">&#160;</A><A NAME="6091">&#160;</A>
+<A NAME="6092">&#160;</A><A NAME="6093">&#160;</A><A NAME="6094">&#160;</A>
+</FONT><PRE>
+  PI    =  3.14159265358979323846; // Circumf./Diameter
+  PID   =  ??????;                 // Process ID
+  EPS   =  pow(2.0, -54.0);        // Machine Epsilon
+  Inf   =  Infinity;               // Infinity
+                                   // 正の無限大であり
+                                   // 1.0/0.0等の結果
+  NaN   =  NaN;                    // Not a Number
+                                   // 0.0/0.0等の結果
+</PRE>
+<P>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html1938"
+ HREF="node109.htm">整数定数</A>
+<LI><A NAME="tex2html1939"
+ HREF="node110.htm">整数と実数の比較</A>
+<LI><A NAME="tex2html1940"
+ HREF="node111.htm">整数関数</A>
+<LI><A NAME="tex2html1941"
+ HREF="node112.htm">実数関数</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

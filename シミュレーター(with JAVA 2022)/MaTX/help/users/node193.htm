@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>線形システムの伝達関数行列</TITLE>
+<META NAME="description" CONTENT="線形システムの伝達関数行列">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node194.htm">
+<LINK REL="previous" HREF="node192.htm">
+<LINK REL="up" HREF="node190.htm">
+<LINK REL="next" HREF="node194.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3046"
+ HREF="node194.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3042"
+ HREF="node190.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3036"
+ HREF="node192.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3044"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3045"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3047"
+ HREF="node194.htm">線形システムのボードとナイキスト周波数応答</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3043"
+ HREF="node190.htm">例題</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3037"
+ HREF="node192.htm">離散系リカッティ方程式</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002030000000000000000">&#160;</A>
+<A NAME="10782">&#160;</A>
+<BR>
+線形システムの伝達関数行列
+</H1><FONT SIZE="-1">
+線形システム
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{rcl}
+\dot{x} & = & A x + B u \\
+y & = & C x
+\end{array}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="116" HEIGHT="54"
+ SRC="img34.gif"
+ ALT="\begin{displaymath}\begin{array}{rcl}
+\dot{x} & = & A x + B u \\
+y & = & C x
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+の伝達関数行列
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{rcl}
+G(s) & = & C (s I - A)^{-1} B \\
+& = & C \frac{1}{\strut\displaystyle\det(sI-A)}
+       (\Gamma_{n-1}s^{n-1} + \Gamma_{n-2}s^{n-2} + \cdots + \Gamma_0) B\\
+\det(sI - A) & = & s^n + \alpha_{n-1}s^{n-1} + \alpha_{n-2}s^{n-2}
+                   + \cdots + \alpha_0
+\end{array}
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="479" HEIGHT="92"
+ SRC="img35.gif"
+ ALT="\begin{displaymath}\begin{array}{rcl}
+G(s) & = & C (s I - A)^{-1} B \\
+& = & C...
+...}s^{n-1} + \alpha_{n-2}s^{n-2}
++ \cdots + \alpha_0
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+を<B>ファディーブのアルゴリズム</B>により求める。
+<A NAME="10802">&#160;</A>
+ファディーブのアルゴリズムにより</FONT><IMG
+ WIDTH="20" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img36.gif"
+ ALT="$\Gamma_i$"><FONT SIZE="-1">と</FONT><IMG
+ WIDTH="20" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img37.gif"
+ ALT="$\alpha_i$"><FONT SIZE="-1">は，
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\begin{array}{ll}
+\Gamma_{n-1} = I
+& \alpha_{n-1} = - {\rm tr}(A\Gamma_{n-1})\\
+\Gamma_{n-2} = A\Gamma_{n-1} + a_{n-1} I 
+& \alpha_{n-2} = - {\rm tr}(A\Gamma_{n-2})/2\\
+\Gamma_{n-3} = A\Gamma_{n-2} + a_{n-2} I 
+& \alpha_{n-3} = - {\rm tr}(A\Gamma_{n-3})/3\\
+\cdots \ \cdots \ \cdots
+& \cdots \ \cdots \ \cdots \\
+\Gamma_i = A\Gamma_{i+1} + \alpha_{i+1}I
+& \alpha_i = - {\rm tr}(A\Gamma_i)/(n-i)\\
+\cdots \ \cdots \ \cdots
+& \cdots \ \cdots \ \cdots \\
+\Gamma_0 = A\Gamma_1 + \alpha_1 I
+& \alpha_0 = - {\rm tr}(A\Gamma_0)/n
+\end{array}
+
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="337" HEIGHT="174"
+ SRC="img38.gif"
+ ALT="\begin{displaymath}\begin{array}{ll}
+\Gamma_{n-1} = I
+& \alpha_{n-1} = - {\rm t...
+...1 + \alpha_1 I
+& \alpha_0 = - {\rm tr}(A\Gamma_0)/n
+\end{array}\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+と与えられる。
+ただし， </FONT>
+<!-- MATH: ${\rm tr}(X)$ -->
+<IMG
+ WIDTH="45" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img39.gif"
+ ALT="${\rm tr}(X)$"><FONT SIZE="-1">は，行列</FONT><I>X</I><FONT SIZE="-1">の対角成分の和を意味する。
+
+</FONT>
+<P><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+   Func void main()
+   {
+     Matrix A, B, C, G;    // 変数の宣言
+     Matrix Faddeev();
+05:
+     read A, B, C;         // 行列の読み込み
+     G = Faddeev(A, B, C); // Faddeev()を呼ぶ
+     print G;              // G を表示
+   }
+10:
+   Func Matrix Faddeev(A, B, C)
+     Matrix A, B, C;
+   {
+     Matrix Gamma, N;
+15:  Polynomial s, ch;
+     Integer i, n;
+   
+     s = $;            // 多項式の変数
+     n = Rows(A);      // システムの次数
+20:
+     Gamma = Z(n,A);
+     ch = Polynomial(Z(1,n+1)); 
+                       // 特性多項式
+     ch(n) = 1.0;      // 最高次の係数は 1
+25:
+     Gamma(n-1,A) = I(n);
+     ch(n-1) = - trace(A);
+   
+     for (i = n-2; i &gt;= 0; i--) {
+30:      Gamma(i,A) = A*Gamma(i+1,A) + ch(i+1)*I(n);
+         ch(i) = - trace(A*Gamma(i,A))/(n - i);
+     }
+   
+     N = Z(Rows(C), Cols(B));   
+35:  for (i = 0; i &lt; n; i++) {
+         N = N + C*Gamma(i,A)*B * s^i;
+     }
+   
+     return N/ch;      // 伝達関数を返す
+40:}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+List 3:&nbsp;&nbsp;&nbsp;&nbsp;ファディーブのアルゴリズムによる伝達関数の計算
+</FONT></DIV>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

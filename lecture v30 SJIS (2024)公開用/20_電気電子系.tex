@@ -1,0 +1,87 @@
+\documentclass[a4paper,11pt]{jreport}
+\input{head.tex}
+
+\def\mcnumber{EEE.C361}
+\def\mctitle{線形制御理論}
+\def\mcdept{東京科学大学/電気電子系}
+\def\mcdepts{東京科学大学/電気電子系}
+\def\mcfname{三平}
+\def\mcgname{満司 \\ \Large(システム制御系)}
+\def\mcyear{(ver.3.0)}
+\def\mcquoter{}
+%\def\mcmathcomment{問合先：ocw@sc.ctrl.titech.ac.jp}
+
+\pagestyle{myheadings}
+\markboth{\small \hspace*{6.5cm} \mcdept/\mctitle(\mcfname)/\mcyear}{\small \hspace*{6.5cm} \mcdept/\mctitle(\mcfname)/\mcyear}
+
+
+\begin{document}
+
+
+%変更履歴 %%変更履歴%%　変更履歴を管理
+%
+%
+%ver.2.4 (2023.04.04) By 三平満司（東工大システム制御系）修正／公開
+%
+%　　　　　不具合の微修正
+%
+%　　　　　　前半のリアプノフ関数を用いた最適制御の安定性のタイポ修正
+%
+%　　　　　2023　システム制御系「線形システム制御論」より適用
+%
+%
+%%ver.2.3 (2018.04.04) By 三平満司（東工大システム制御系）修正／公開
+%
+%　　　　　不具合の微修正
+%
+%　　　　　2018　システム制御系「線形システム制御論」用
+%
+%ver.2.2 (2017.09.20) By 三平満司（東工大システム制御系）修正／公開
+%
+%　　　　　不具合の微修正
+%
+%　　　　　2017  電気電子系(3年3Q)「線形制御理論」用
+%
+%ver.2.0 (2017.06.29) By 三平満司（東工大システム制御系）修正／公開
+%
+%　　　　　ver.1.0の授業後，全体の見直しと改定
+%
+%ver.1.0 (2016.11.19) By 三平満司（東工大システム制御系）作成
+%
+%　　　　　2016 電気電子系(3年3Q)「線形制御理論」用に作成
+
+\thispagestyle{empty}
+\vspace*{5cm}
+\begin{center}
+ \bfseries {\LARGE \mcnumber }\\[0.5cm]
+ \bfseries {\Huge \mctitle }\\[0.5cm]
+ \bfseries {\LARGE \mcyear}\\[0.5cm]
+\vspace*{0.5cm}
+ \bfseries {\LARGE \mcdept}\\[0.3cm]
+ \bfseries {\LARGE \mcquoter}
+\end{center}
+\vspace*{7cm}
+\begin{center}
+ \Huge \bfseries  \mcfname \ \ \mcgname
+\end{center}
+
+\renewcommand{\thepage}{\roman{page}}  %sampei
+
+\tableofcontents{-1cm}
+
+\newpage  %sampei
+
+\setcounter{page}{1}  %sampei
+\renewcommand{\thepage}{\arabic{page}}  %sampei
+
+\include{chap1} % 連続時間コントローラの概要
+\include{chap2} % 非線形システムの制御
+\include{chap3} % 連続時間状態方程式の離散化・連続時間コントローラの離散化
+\include{chap4} % 離散時間コントローラの設計
+%\include{chap6} % ディジタルコントローラ構成時の留意点
+%\include{chap7} % むだ時間系の制御 → 削除
+\include{chap8} % 参考文献
+\appendix
+\include{simulator/appendixa}
+%\include{appendixb}
+\end{document}

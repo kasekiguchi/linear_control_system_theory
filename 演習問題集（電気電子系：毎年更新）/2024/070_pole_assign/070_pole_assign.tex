@@ -1,0 +1,129 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%　極配置問題
+%　MATLAB mファイルでA,B行列と極p1,p2を指定してフィードバック(f1,f2)を求める
+%
+%　mファイルの使い方
+%　　　まず A,B 行列と極p1,p2を定義する
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%================================
+%	matlab070.mを利用
+
+
+\input{075_def_file.txt}
+
+%================================
+
+\def\vx
+{	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+}
+
+\noindent
+{\bf 極配置（演習）}
+
+次の状態方程式
+\begin{align*}
+	\frac{d}{dt}
+	\vx
+	& = 
+	\chrA \vx
+	+
+	\chrB
+	u
+\end{align*}
+に対して閉ループ系の極が$ \chrpa, \chrpb $となるような状態フィードバック
+\begin{align*}
+	u 
+	&=
+	\chrF \vx
+\end{align*}
+を求めよ．
+
+
+\vfill
+
+\begin{tabular}{ll}
+	\hspace*{8cm} &
+	\begin{tabular}{|l|}
+		\hline 
+		解答：極配置フィードバック\\
+		\hspace*{8cm} \\[1.5cm]
+		\hline
+	\end{tabular}
+\end{tabular}
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 極配置（演習）}
+
+次の状態方程式
+\begin{align*}
+	\frac{d}{dt}
+	\vx
+	& = 
+	\chrA \vx
+	+
+	\chrB
+	u
+\end{align*}
+に対して閉ループ系の極が$ \chrpa, \chrpb $となるような状態フィードバック
+\begin{align*}
+	u 
+	&=
+	\chrF \vx
+\end{align*}
+を求めよ．
+\\
+
+閉ループ系は
+\begin{align*}
+	\frac{d}{dt} \vx
+	&= \chrA \vx + \chrB \chrF \vx
+\\
+	&= \chrA \vx + \chrBF \vx
+\\
+	&= \chrABF \vx
+\end{align*}
+特性多項式は
+\begin{align*}
+	\mbox{det}[sI-(A+BF)]
+	& =
+	\mbox{det} \chrsIA
+\\
+	&= (\chrsIAa)(\chrsIAd)-(\chrsIAb)(\chrsIAc)
+\\
+	&=  s^2 + (\chrcfb) s + (\chrcfc)
+\end{align*}
+望ましい特性多項式は望ましい極が$\chrpa,\chrpb$であることより
+\begin{align*}
+	(s-(\chrpa))(s-(\chrpb)) = s^2 + \chrcfdb s + \chrcfdc 
+\end{align*}
+よって係数を比較して
+\begin{align*}
+	\chrcfb=\chrcfdb, \ \ \ \chrcfc =\chrcfdc
+\end{align*}
+よって
+\begin{align*}
+	f_1=\chrfa, \ \ \ f_2=\chrfb
+\end{align*}
+
+
+\end{document}
+

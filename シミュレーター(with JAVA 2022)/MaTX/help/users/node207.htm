@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>メモリの状態遷移</TITLE>
+<META NAME="description" CONTENT="メモリの状態遷移">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node206.htm">
+<LINK REL="up" HREF="node205.htm">
+<LINK REL="next" HREF="node208.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3214"
+ HREF="node208.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3210"
+ HREF="node205.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3206"
+ HREF="node206.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3212"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3213"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3215"
+ HREF="node208.htm">演算</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3211"
+ HREF="node205.htm">メモリ管理</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3207"
+ HREF="node206.htm">行列クラスのメモリ管理</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002420000000000000000">
+メモリの状態遷移</A>
+</H1><FONT SIZE="-1">
+メモリの状態遷移の様子を次の例題を使って示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func Matrix afo()
+{
+  Matrix A, B, C, D, E;
+
+  A = [[1 2][3 4]];      // (1)
+  B = [[5 6][7 8]];      // (2)
+  C = A + B;             // (3)
+  D = (A + B) * (A - B); // (4)
+  E = (C + D) * (C - D); // (5)
+  return E;              // (6)
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+プログラムが実行される前のメモリの状態は図&nbsp;<A HREF="node207.htm#fig:memzero">B.2</A>のように
+なっている。ただし，<TT>a</TT>, <TT>b</TT>, ..., <TT>k</TT>は</FONT>
+<!-- MATH: $2 \times 2$ -->
+<IMG
+ WIDTH="40" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img47.gif"
+ ALT="$2 \times 2$"><FONT SIZE="-1">の大きさの行列のメモリを表している。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memzero">&#160;</A><A NAME="11953">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.2:</STRONG>
+行列のメモリ管理(1)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/mem0.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="146" ALIGN="BOTTOM" BORDER="0"
+ SRC="img48.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/mem0.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">関数が実行されて，式(1)の右辺が評価されたときのメモリの状態は
+図&nbsp;<A HREF="node207.htm#fig:memone">B.3</A>のようになっている。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memone">&#160;</A><A NAME="11961">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.3:</STRONG>
+行列のメモリ管理(2)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/mem1.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="146" ALIGN="BOTTOM" BORDER="0"
+ SRC="img49.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/mem1.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">式(1)の右辺が左辺に代入されたときのメモリ状態は図&nbsp;<A HREF="node207.htm#fig:memtwo">B.4</A>
+のようになる。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memtwo">&#160;</A><A NAME="11969">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.4:</STRONG>
+行列のメモリ管理(3)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/mem2.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="146" ALIGN="BOTTOM" BORDER="0"
+ SRC="img50.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/mem2.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">同様に式(2)の代入の後，メモリ状態は図&nbsp;<A HREF="node207.htm#fig:memfour">B.5</A>のようになる。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memfour">&#160;</A><A NAME="11977">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.5:</STRONG>
+行列のメモリ管理(4)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/mem4.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="146" ALIGN="BOTTOM" BORDER="0"
+ SRC="img51.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/mem4.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">式(3)の右辺が評価されたときのメモリの状態は
+図&nbsp;<A HREF="node207.htm#fig:memfive">B.6</A>のようになっている。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memfive">&#160;</A><A NAME="11985">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.6:</STRONG>
+行列のメモリ管理(5)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/mem5.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="146" ALIGN="BOTTOM" BORDER="0"
+ SRC="img52.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/mem5.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">式(3)の右辺が左辺に代入されたときのメモリ状態は図&nbsp;<A HREF="node207.htm#fig:memsix">B.7</A>
+のようになる。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memsix">&#160;</A><A NAME="11993">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.7:</STRONG>
+行列のメモリ管理(6)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/mem6.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="146" ALIGN="BOTTOM" BORDER="0"
+ SRC="img53.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/mem6.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">式(4)の右辺が評価されたときのメモリの状態は
+図&nbsp;<A HREF="node207.htm#fig:memseven">B.8</A>のようになっている。
+<TT>d</TT>, <TT>e</TT>, <TT>f</TT>には，それぞれ</FONT>(<I>A</I> + <I>B</I>)<FONT SIZE="-1">, </FONT>(<I>A</I> - <I>B</I>)<FONT SIZE="-1">,
+</FONT>
+<!-- MATH: $(A + B)*(A - B)$ -->
+(<I>A</I> + <I>B</I>)*(<I>A</I> - <I>B</I>)<FONT SIZE="-1">の計算結果が入っている。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memseven">&#160;</A><A NAME="12004">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.8:</STRONG>
+行列のメモリ管理(7)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/mem7.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="146" ALIGN="BOTTOM" BORDER="0"
+ SRC="img54.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/mem7.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">式(4)の右辺が左辺に代入されたときのメモリ状態は図&nbsp;<A HREF="node207.htm#fig:memeight">B.9</A>
+のようになる。
+</FONT>
+<!-- MATH: $(A + B)*(A - B)$ -->
+(<I>A</I> + <I>B</I>)*(<I>A</I> - <I>B</I>)<FONT SIZE="-1">の計算結果であるfだけが<TT>VAR</TT>状態となり，
+<TT>d</TT>と<TT>e</TT>は<TT>REV</TT>状態となる。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memeight">&#160;</A><A NAME="12016">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.9:</STRONG>
+行列のメモリ管理(8)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/mem8.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="146" ALIGN="BOTTOM" BORDER="0"
+ SRC="img55.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/mem8.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">式(5)の右辺が評価されたときのメモリの状態は
+図&nbsp;<A HREF="node207.htm#fig:memnine">B.10</A>のようになっている。<TT>d</TT>, <TT>e</TT>, <TT>g</TT>には，
+それぞれ</FONT>(<I>C</I> + <I>D</I>)<FONT SIZE="-1">, </FONT>(<I>C</I> - <I>D</I>)<FONT SIZE="-1">,
+</FONT>
+<!-- MATH: $(C + D)*(C - D)$ -->
+(<I>C</I> + <I>D</I>)*(<I>C</I> - <I>D</I>)<FONT SIZE="-1">の計算結果が入っている。
+<TT>d</TT>と<TT>e</TT>は<TT>REV</TT>状態から<TT>g</TT>は<TT>SYS</TT>状態から
+<TT>TMP</TT>状態に移った。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memnine">&#160;</A><A NAME="12033">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.10:</STRONG>
+行列のメモリ管理(9)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/mem9.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="146" ALIGN="BOTTOM" BORDER="0"
+ SRC="img56.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/mem9.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">式(5)の右辺が左辺に代入されたときのメモリ状態は図&nbsp;<A HREF="node207.htm#fig:memten">B.11</A>
+のようになる。
+</FONT>
+<!-- MATH: $(C+D)*(C-D)$ -->
+(<I>C</I>+<I>D</I>)*(<I>C</I>-<I>D</I>)<FONT SIZE="-1">の計算結果である<TT>g</TT>だけが<TT>VAR</TT>状態となり，
+<TT>d</TT>と<TT>e</TT>は<TT>REV</TT>状態となる。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memten">&#160;</A><A NAME="12046">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.11:</STRONG>
+行列のメモリ管理(10)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/mem10.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="146" ALIGN="BOTTOM" BORDER="0"
+ SRC="img57.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/mem10.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">関数が終了したときのメモリの状態は図&nbsp;<A HREF="node207.htm#fig:memeleven">B.12</A>のようになる。
+<TT>VAR</TT>状態にあったメモリが全て<TT>TMP</TT>状態となる。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memeleven">&#160;</A><A NAME="12056">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.12:</STRONG>
+行列のメモリ管理(11)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/mem11.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="146" ALIGN="BOTTOM" BORDER="0"
+ SRC="img58.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/mem11.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memtwelve">&#160;</A><A NAME="12063">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.13:</STRONG>
+行列のメモリ管理(12)</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/mem12.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="146" ALIGN="BOTTOM" BORDER="0"
+ SRC="img59.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/mem12.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">関数の戻り値が変数に代入されると<TT>TMP</TT>状態にある全てのメモリが
+<TT>REV</TT>状態に移り，メモリの状態は図&nbsp;<A HREF="node207.htm#fig:memtwelve">B.13</A>のようになる。
+次に，この関数が呼び出されるときは，全てのメモリは<TT>REV</TT>状態から
+確保されることになる。
+
+</FONT><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html3214"
+ HREF="node208.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3210"
+ HREF="node205.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3206"
+ HREF="node206.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3212"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3213"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3215"
+ HREF="node208.htm">演算</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3211"
+ HREF="node205.htm">メモリ管理</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3207"
+ HREF="node206.htm">行列クラスのメモリ管理</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

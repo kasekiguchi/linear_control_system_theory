@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>isnan</TITLE>
+<META NAME="description" CONTENT="isnan">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node108.htm">
+<LINK REL="previous" HREF="node106.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node108.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1946"
+ HREF="node108.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1943"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1937"
+ HREF="node106.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1945"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1947"
+ HREF="node108.htm">isreal</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1944"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1938"
+ HREF="node106.htm">isinf</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004103000000000000000">&#160;</A><A NAME="man_isnan">&#160;</A>
+<BR>
+isnan
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>isnan - NaN の判定
+<DT>【形式】
+<DD><PRE>
+y = isnan(x)             Y = isnan(X)
+   Integer k;               (Matrix|Array) Y;
+   (Real|Complex) x;        (Matrix|Array) X;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>isnan(x)は，(実数|複素数) x について，値が NaN のとき 1，
+有限あるいは +Inf あるいは -Inf のとき 0 を返す。
+isnan(X)は，(行列|配列) X の各成分に isnan(X(i,j)) を作用した
+結果からなる(行列|配列) を求める。Y の大きさは X の大きさと
+同じになる。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; k = isnan(0.5)
+k = 0
+&gt;&gt; k = isnan(NaN)
+k = 1
+&gt;&gt; k = isnan(Inf)
+k = 0
+&gt;&gt; Y = isnan([1, Inf, NaN, -4])
+=== [Y] : (  1,  4) ===
+           (  1)         (  2)         (  3)         (  4)     
+(  1)  0.000000E+00  0.000000E+00  1.000000E+00  0.000000E+00
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>isinf(<A HREF="node106.htm#man_isinf">2.107</A>), isfinite(<A HREF="node105.htm#man_isfinite">2.106</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>通用範囲に関する規則</TITLE>
+<META NAME="description" CONTENT="通用範囲に関する規則">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node87.htm">
+<LINK REL="previous" HREF="node85.htm">
+<LINK REL="up" HREF="node84.htm">
+<LINK REL="next" HREF="node87.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1662"
+ HREF="node87.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1658"
+ HREF="node84.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1652"
+ HREF="node85.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1660"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1661"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1663"
+ HREF="node87.htm">静的変数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1659"
+ HREF="node84.htm">変数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1653"
+ HREF="node85.htm">変数の宣言</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001020000000000000000">&#160;</A>
+<A NAME="5149">&#160;</A>
+<BR>
+通用範囲に関する規則
+</H1><FONT SIZE="-1">
+MATXプログラムを構成する関数と大域変数は，全てを同時にコンパイル必要はない，
+プログラムのソース・テキストを数個のファイルに保存しておき，以前にコンパイル
+したルーチンをライブラリからロードしてもよい。
+</FONT>
+<P>
+<FONT SIZE="-1">変数の名前の通用範囲(scope)は，その名前が定義されるプログラムの部分である。
+関数の始めに宣言される局所変数では，通用範囲はその名前が宣言される関数であり，
+同じ名前の局所変数が別の関数にあってもこれとは関係がない。
+同じことは関数の引数についてもいえる。それらは実質的には局所変数だからである。
+</FONT>
+<P>
+<FONT SIZE="-1">関数の通用範囲は，コンパイルされるべきファイルで宣言された点から
+そのファイルの終りまで続く。
+一方，大域変数が定義される前に参照されたり，
+<BR>
+<TT>main()</TT>関数の定義されているファイルと別のソース・ファイルで参照
+されたりすると，<TT>extern</TT>宣言が必要となる。 <A NAME="5181">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1">大域変数の<B>宣言</B>とその<B>定義</B>の区別は重要である。
+宣言は変数の性質を指示するものだが，定義は記憶への割り付けも引き起こす。
+ただし，インタプリタ(<I>matx</I>)では，
+宣言によって記憶への割り付けも行なわれる。
+</FONT>
+<P>
+<FONT SIZE="-1">インタプリタ(<I>matx</I>)の実行中，関数の外側では，
+どんなデータでもそのクラスに関係なく任意の変数に代入することができる。
+すなわち，左辺の変数のクラスと
+右辺のデータのクラスが一致してなくても，代入は成功する。
+また，次の節で説明する<B>暗黙の型変換</B>によって，異なる型のデータの
+代入が可能となる場合がある。
+これ以外の全ての場所では，代入において，左辺の変数のクラスと右辺のデータ
+のクラスは一致していなければならない。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

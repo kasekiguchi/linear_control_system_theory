@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>fscanf</TITLE>
+<META NAME="description" CONTENT="fscanf">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node82.htm">
+<LINK REL="previous" HREF="node80.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node82.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1660"
+ HREF="node82.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1657"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1651"
+ HREF="node80.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1659"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1661"
+ HREF="node82.htm">Func</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1658"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1652"
+ HREF="node80.htm">frobnorm_row</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000477000000000000000">&#160;</A><A NAME="man_fscanf">&#160;</A>
+<BR>
+fscanf
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>fscanf - ファイルから書式付きでデータを読み込む
+<DT>【形式】
+<DD><PRE>
+L = fscanf(fd, format)
+   List L;
+   Integer fd;
+   String format;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>fscanf(fd, format)は，fd = fopen() でオープンしたファイルから
+format で指定した書式でデータを読み込み，データからなるリスト
+を返す。整数型，実数型，文字列型のデータを読み込める。
+  
+書式は，</FONT><FONT SIZE="-1">C言語の関数 scanf() の書式と同じものを指定する。
+変換を表すには，パーセント %，フィールド幅(オプション)，
+変換文字を指定する。変換文字には，次の文字がある。
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">%d, %u, %o, %x, %X, %i</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT">整数型</TD>
+</TR>
+<TR><TD ALIGN="LEFT">%e, %E, %f, %g, %G</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT">実数型</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT">(%lf等は倍精度, %hf等は単精度)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">%c, %s</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT">文字列型</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1">  
+fscanf(0,format)は，標準入力から読み込む。
+fscanf(file,format)は，ファイル file をオープンし，
+fortmat で指定した書式でデータを読み込み，ファイルを閉じる。
+データを 1 度だけ読み込む場合は，この方法が便利である。
+ただし，データを何度も読み込む場合は，ファイルのオープン
+とクローズが繰り返されるので効率が非常に悪い。
+<DT>【例題】
+<DD>ファイル afo を読み込み用にオープンし，fscanf() でデータを読み込む。</FONT><PRE>
+if ((fd = fopen("afo", "r")) &lt; 0) {
+    error("Can't open %s", "afo");
+}
+{a, b, c} = fscanf(fd2, "%d %lf %s");
+fclose(fd);
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>fopen(<A HREF="node74.htm#man_fopen">2.75</A>), fclose(<A HREF="node65.htm#man_fclose">2.64</A>), fprintf(<A HREF="node76.htm#man_fprintf">2.77</A>), fgets(<A HREF="node70.htm#man_fgets">2.69</A>), fread(<A HREF="node77.htm#man_fread">2.78</A>), fwrite(<A HREF="node83.htm#man_fwrite">2.84</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

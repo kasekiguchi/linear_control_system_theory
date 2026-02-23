@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>min_row</TITLE>
+<META NAME="description" CONTENT="min_row">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node140.htm">
+<LINK REL="previous" HREF="node138.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node140.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2298"
+ HREF="node140.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2295"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2289"
+ HREF="node138.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2297"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2299"
+ HREF="node140.htm">norm</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2296"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2290"
+ HREF="node138.htm">min_col</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004135000000000000000">&#160;</A><A NAME="man_min_row">&#160;</A>
+<BR>
+min_row
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>min_row - 行毎の最小値
+<DT>【形式】
+<DD><PRE>
+Y = min_row(X)   Y = min_row(X)       Y = min_row(X)
+   Index Y;         Matrix Y;            CoMatrix Y;
+   Index X;         (Matrix|Array) X;    (CoMatrix|CoArray) X;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>X が指数のとき，min_row(X) は行毎に成分の最小値を求め，列ベクトル
+(指数)で返す。X が(行列|配列)のとき，min_row(X) は行毎に成分の最小
+値を求め，列ベクトル(行列|配列)で返す。
+X が複素(行列|配列)のとき，min_row(X) は行毎に絶対が最小値の成分を
+を求め，列ベクトル(複素行列|複素配列)で返す。
+X が縦ベクトルまたは横ベクトルのとき，min_row(X)は，ベクトルの成分
+の最小値を返す。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; Y = min_row([[1, -2][3, 0]])
+=== [Y] : (  2,  1) ===
+           (  1)     
+(  1) -2.00000000E+00
+(  2)  0.00000000E+00
+&gt;&gt; Y = min_row([[1][-2]]) 
+=== [Y] : (  1,  1) ===
+           (  1)     
+(  1) -2.00000000E+00
+&gt;&gt; Y = min_row([[(1,2), (3,4)][(5,6), (7,8)]]) 
+=== [Y] : (  2,  1) ===
+       [ (  1)-Real      (  1)-Imag ]
+(  1)  1.00000000E+00  2.00000000E+00
+(  2)  5.00000000E+00  6.00000000E+00
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>min(<A HREF="node133.htm#man_min">2.134</A>), min_col(<A HREF="node138.htm#man_min_col">2.139</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

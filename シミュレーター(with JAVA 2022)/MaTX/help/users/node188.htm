@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>リストの合成と取り出し</TITLE>
+<META NAME="description" CONTENT="リストの合成と取り出し">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node189.htm">
+<LINK REL="previous" HREF="node187.htm">
+<LINK REL="up" HREF="node184.htm">
+<LINK REL="next" HREF="node189.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2979"
+ HREF="node189.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2975"
+ HREF="node184.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2969"
+ HREF="node187.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2977"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2978"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2980"
+ HREF="node189.htm">リスト関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2976"
+ HREF="node184.htm">リスト</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2970"
+ HREF="node187.htm">リスト成分の付加</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001940000000000000000">&#160;</A> 
+<A NAME="10600">&#160;</A>
+<A NAME="10601">&#160;</A>
+<BR>
+リストの合成と取り出し
+</H1><FONT SIZE="-1">
+長いリストは，短いリストを成分として作ることができる。
+リスト<TT>x</TT>とリスト<TT>y</TT>から長いリスト<TT>z</TT>を作るには，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  x = {4, (3,4), [1 2]};
+  y = {"Hello", 2.0};
+  z = {x, y};
+  // z = {{4, (3,4), [1 2]}, {"Hello", 2.0}}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+のように書く。
+また，成分の範囲を指定することにより，
+リストの任意の部分を取り出すことができる。例えば，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  x2 = x(1:2);                  // x2 = {4, (3,4)}
+
+  x3 = {4, (3,4), [1 2]}(1:2);  // x3 = {4, (3,4)}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+により，リスト<TT>x</TT>から最初の2個の成分を取り出すことができる。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

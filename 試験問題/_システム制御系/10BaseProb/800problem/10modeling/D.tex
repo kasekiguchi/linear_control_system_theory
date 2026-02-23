@@ -1,0 +1,65 @@
+
+%================================================================
+\item
+
+}‚Ì‚R¿—ÊŒn‚ğl‚¦‚éD
+\begin{center}
+@\epsfig{file=10modeling/car3.eps,scale=0.4}
+\end{center}
+
+‚±‚Ì‚R¿—ÊŒn‚Ìó‘Ô•û’ö®‚Í
+{\footnotesize
+\begin{align*} 
+\hspace*{-10mm}
+ \frac{d}{dt} \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+		    \end{array}\right)
+ =&
+ \left(\begin{array}{cccccc}
+        0 & 0 & 0 & 1 & 0 & 0      \\
+        0 & 0 & 0 & 0 & 1 & 0      \\
+        0 & 0 & 0 & 0 & 0 & 1      \\
+	-\frac{k_1}{m_0} -\frac{k_2}{m_0}&  \frac{k_1}{m_0} &  \frac{k_2}{m_0} & 0 & 0 & 0 \\
+	 \frac{k_1}{m_1}                & -\frac{k_1}{m_1} &  0               & 0 & 0 & 0 \\
+	 \frac{k_2}{m_2}                &  0               & -\frac{k_2}{m_2} & 0 & 0 & 0 
+       \end{array}\right)
+ \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+       \end{array}\right)
+\\
+ &\hspace*{10mm} +
+ \left(\begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+	    \frac{1}{m_0} \\
+	    0 \\
+	    0 
+       \end{array}\right)
+        F
+\end{align*}
+}
+‚Æ‚È‚éDˆÈ‰º‚Ì–â‚¢‚É“š‚¦‚æD
+
+\begin{enumerate}
+\item 
+$(m_0, m_1, m_2, k_1, k_2)=(1,1,2,2,1)$‚Ìê‡C‰Â§Œä‚Å‚ ‚é‚©”Û‚©‚ğ”»’f‚¹‚æD
+\vspace{8cm}
+
+\item
+$(m_0, m_1, m_2, k_1, k_2)=(1,1,2,1,2)$‚Ìê‡C‰Â§Œä‚Å‚ ‚é‚©”Û‚©‚ğ”»’f‚¹‚æD
+\vspace{8cm}
+
+\end{enumerate}
+
+%================================================================

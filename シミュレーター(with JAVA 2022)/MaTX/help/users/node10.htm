@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>matxを用いたプログラムの実行</TITLE>
+<META NAME="description" CONTENT="matxを用いたプログラムの実行">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node11.htm">
+<LINK REL="previous" HREF="node9.htm">
+<LINK REL="up" HREF="node9.htm">
+<LINK REL="next" HREF="node11.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html682"
+ HREF="node11.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html678"
+ HREF="node9.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html672"
+ HREF="node9.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html680"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html681"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html683"
+ HREF="node11.htm">matxのオプション</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html679"
+ HREF="node9.htm">プログラムの作り方とその実行方法</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html673"
+ HREF="node9.htm">プログラムの作り方とその実行方法</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00510000000000000000">
+<I>matx</I>を用いたプログラムの実行</A>
+</H1>
+インタプリタ<I>matx</I>を用いてプログラムを実行するには，少なくとも
+以下の5つの方法がある。<A NAME="899">&#160;</A>
+<DL COMPACT>
+<DT>1.
+<DD><I>matx</I>の引数にソースファイルを指定して実行すると，
+ソースファイルは指定された順番に解釈実行される。 <A NAME="587">&#160;</A>
+        (この時，ソースファイルの拡張子<TT>mm</TT>は省略できる。)
+        すなわち，一番最後のファイルの最終行に実行したい関数名を
+        ``<TT>funcname();</TT>''のように追加すれば，その関数を実行する
+        ことができる。
+
+<P>
+
+[例] 最後のソースファイル<TT>sub3.mm</TT>の最終行に``<TT>main();</TT>''を
+      追加して実行。
+
+<P>
+<BR CLEAR="ALL">
+<HR><PRE>
+% emacs sub3.mm
+% matx main.mm sub1.mm sub2.mm sub3.mm
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+<P>
+<DT>2.
+<DD><I>matx</I>の引数にオプション<TT>-e</TT>に続けてMATXのプログラム
+	を書くと，そのプログラムを実行できる。
+        ファイルの最終行に実行したい関数名を書く代りに，
+        ``<TT>-e 'funcname()'</TT>''のようにコマンドラインに書ける。
+	なお，オプション<TT>-e</TT>はコマンドラインの任意の場所で使える。
+        <A NAME="900">&#160;</A>
+
+<P>
+
+[例] 最後のソースファイル<TT>sub3.mm</TT>の最終行に``<TT>main();</TT>''を
+      追加する代りに，コマンドラインに``<TT>-e 'main()'</TT>''と書く。
+<BR CLEAR="ALL">
+<HR><PRE>
+% matx main.mm sub1.mm sub2.mm sub3.mm -e 'main()'
+</PRE>
+<BR CLEAR="ALL">
+<HR><DT>3.
+<DD><I>matx</I>は，引数に指定された全ソースファイルを解釈実行すると，
+        すぐに終了するが，引数の最後に``<TT>-</TT>''があると，全ソースファイルを
+        解釈した後，インタラクティブ・モードになり，プロンプトを表示する。
+	<A NAME="611">&#160;</A>
+	<A NAME="612">&#160;</A>
+        つまり，インタラクティブ・モードになった後で実行したい関数名を
+        ``<TT>funcname();</TT>''と入力すれば，その関数を実行することができる。
+        <A NAME="901">&#160;</A>
+
+<P>
+
+[例] 引数の最後の``<TT>-</TT>''を付けて実行し，インタラクティブ・モード
+      で起動した後，``<TT>main();</TT>''と入力する。
+<BR CLEAR="ALL">
+<HR><PRE>
+% matx main.mm sub1.mm sub2.mm sub3.mm -
+
+MaTX (1) main();
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+<P>
+<DT>4.
+<DD><I>matx</I>を引数なしで実行すると，インタラクティブ・モードで
+        起動されプロンプトを表示するので，<I>load</I>命令でmmファイル
+	を読み込んで，関数を実行することができる。
+	(この時，ファイルの拡張子を省略すると<TT>mm</TT>となる。)
+	<A NAME="902">&#160;</A><A NAME="625">&#160;</A>
+
+<P>
+
+[例] あらかじめ，ソースファイル<TT>sub3.mm</TT>の最終行に``<TT>main();</TT>''
+を追加しておく。<I>matx</I>を引数なしで実行し，インタラクティブ・モードで
+起動して，<I>load</I>命令でソースファイルを読み込む。このとき，<TT>sub3.mm</TT>は，
+最後に読み込む。
+<BR CLEAR="ALL">
+<HR><PRE>
+% emacs sub3.mm
+% matx
+
+MaTX (1) load "main", "sub1", "sub2", "sub3"
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+<P>
+<DT>5.
+<DD>宣言だけされて定義されていない関数が呼び出されると，
+        関数名と同じmmファイルが探索されて読み込まれるので，
+        実行したい関数を宣言した後，``<TT>funcname();</TT>''と入力すれば，
+        望みの関数を実行することができる。
+        ただし，この機能を利用するには，関数名とmmファイルのファイル名
+        が一致していなければならない。
+
+<P>
+
+[例] 実行したい関数``<TT>main()</TT>''を宣言して，関数を直接呼び出す。
+<BR CLEAR="ALL">
+<HR><PRE>
+% emacs main.mm sub1.mm sub2.mm sub3.mm
+% matx
+
+MaTX (1) void main();
+MaTX (2) main();
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+<P>
+<DT>6.
+<DD>UNIXのシェルスクリプトやPerlのスクリプトと同じように、mmファイルの
+      先頭に``<code>#! /usr/local/bin/matx</code>''を追加して、ファイルに
+      実行許可の属性を与えることによって、通常のUNIXのコマンドと同様に
+      mmファイルを実行させることができる。ただし、Cプリプロセッサの機能を
+      使うことができない。
+	<A NAME="641">&#160;</A>
+	<A NAME="642">&#160;</A>
+
+<P>
+
+[例] 実行したいmmファイルの先頭に``<code>#! /usr/local/bin/matx</code>''を追加して、
+実行許可の属性を与える。スクリプトの実行はコマンドラインから行なう。
+<A NAME="903">&#160;</A>
+
+<P>
+<BR CLEAR="ALL">
+<HR><PRE>
+#! /usr/local/bin/matx -nocpp
+
+Func void main()
+{
+  Matrix a, b, c;
+
+  read a, b;
+  c = a + b;
+  prnit a, b, c;
+}
+
+main();
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+<P>
+<BR CLEAR="ALL">
+<HR><PRE>
+% emacs mmtest
+% chmod a+x mmtest
+% ./mmtest
+</PRE>
+<BR CLEAR="ALL">
+<HR></DL>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

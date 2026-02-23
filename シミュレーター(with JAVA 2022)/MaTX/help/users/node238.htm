@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>倒立振子の制御のシミュレーション</TITLE>
+<META NAME="description" CONTENT="倒立振子の制御のシミュレーション">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node239.htm">
+<LINK REL="previous" HREF="node237.htm">
+<LINK REL="up" HREF="node237.htm">
+<LINK REL="next" HREF="node239.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3618"
+ HREF="node239.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3614"
+ HREF="node237.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3608"
+ HREF="node237.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3616"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3617"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3619"
+ HREF="node239.htm">倒立振子のリアルタイム制御</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3615"
+ HREF="node237.htm">シミュレーションからリアルタイム処理へ</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3609"
+ HREF="node237.htm">シミュレーションからリアルタイム処理へ</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002671000000000000000">
+倒立振子の制御のシミュレーション</A>
+</H2><FONT SIZE="-1">
+関数<TT>Ode45HybridAuto()</TT>を使ってディジタル制御のシミュレーショ
+ンを行なうプログラムを示す。まず，メイン関数でパラメータの設定，
+プラントとコントローラの状態の初期値の設定を行なって，シミュレーション
+のための関数を呼び出す。
+<A NAME="13423">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Real a32, a33, a34, a35, a42, a43, a44, a45;
+Real b3, b4, alpha;
+Matrix C, F, Ah, Bh, Ch, Dh, Jh, Xo;
+
+Func void main()
+{
+  Real t0, tf, dt;
+  Matrix TC, XC, UC, x0;
+  void para_init(), diff_eqs(), link_eqs();
+
+  para_init();                 // パラメータの初期化
+  t0 = 0.0; tf = 3.0; dt = 0.005;
+
+  x0 = [0 30.0/180.0*PI 0 0]'; // 初期状態
+  Xo = Z(2,1);                 // 推定値の初期値
+
+  {TC, XC, UC} = 
+    Ode45HybridAuto(t0, tf, dt, x0, diff_eqs, link_eqs);
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+</FONT>
+<P>
+<FONT SIZE="-1">次に，状態方程式を記述する関数<TT>diff_eqs()</TT>を示す。
+<A NAME="13425">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void diff_eqs(DX, t, X, U)
+  Matrix DX, X, U;
+  Real t;
+{
+  Real x1, x2, x3, x4, u, c2, s2, dm;
+
+  x1 = X(1); // 台車の位置
+  x2 = X(2); // 振子の角度
+  x3 = X(3); // 台車の速度(推定値)
+  x4 = X(4); // 振子の角速度(推定値)
+  u = U(1);  // 入力
+
+  c2 = cos(x2); s2 = sin(x2);
+  dm = (1 + alpha*s2^2);
+
+  DX = Z(4,1);  // 状態方程式
+  DX(1) = X(3);
+  DX(2) = X(4);
+  DX(3) = (a32*s2*c2 + a33*x3 + a34*c2*x4  
+           + a35*s2*x4^2 + b3*u)/dm;
+  DX(4) = (a42*s2 + a43*c2*x3 + a44*x4 
+           + a45*s2*c2*x4^2 + b4*c2*u)/dm;
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>そして，コントローラを記述する関数<TT>link_eqs()</TT>を示す。
+<A NAME="13427">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void link_eqs(U, t, X)
+ Matrix U, X;
+ Real t;
+{
+ Matrix Y, Xh;
+
+ Y  = C * X;               // 出力方程式
+ Xh = Ch*Xo + Dh*Y;        // オブザーバの推定
+ U  = - F*Xh;              // 状態フィードバック
+ Xo = Ah*Xo + Bh*Y + Jh*U; // オブザーバの更新
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

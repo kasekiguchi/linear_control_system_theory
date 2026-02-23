@@ -1,0 +1,685 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>MaTXユーザーズマニュアル</TITLE>
+<META NAME="description" CONTENT="MaTXユーザーズマニュアル">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node1.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html59"
+ HREF="node1.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif_gr.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif_gr.gif"> 
+<A NAME="tex2html57"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html58"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html60"
+ HREF="node1.htm">目次</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<P>
+<DIV ALIGN="CENTER"><FONT SIZE="+2">
+<P>
+<BR>
+<BR>
+<P><FONT SIZE="+4">MaTX </FONT>(ver. 4.384)
+<BR>
+<BR>
+<BR>
+<P>ユーザーズ マニュアル
+<BR>
+<BR>
+<BR>
+<P>東京工業大学&nbsp;&nbsp;古賀 雅伸
+<P>
+</DIV></FONT>
+<BR>
+<BR>
+<BR>
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR VALIGN="TOP"><TD></TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD></TD>
+</TR>
+<TR VALIGN="TOP"><TD></TD>
+<TD ALIGN="LEFT">&#169;&nbsp;&nbsp;Copyright 1989 - 1998 Masanobu KOGA,
+All Rights Reserved.</TD>
+</TR>
+<TR VALIGN="TOP"><TD></TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD></TD>
+</TR>
+<TR VALIGN="TOP"><TD></TD>
+<TD ALIGN="LEFT">No part of this publication may be reproduced, transmitted, or
+translated, in any form or by any means, electronic, mechanical,
+manual, optical or otherwise, without prior permission of Masanobu Koga.</TD>
+<TD></TD>
+</TR>
+<TR VALIGN="TOP"><TD></TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD></TD>
+</TR>
+</TABLE></DIV>
+<P>
+<DIV ALIGN="CENTER">
+<BR><HR>
+<DIV ALIGN="CENTER">
+&#169;&nbsp;&nbsp;著作権&nbsp;&nbsp;古賀 雅伸&nbsp;&nbsp;1989 - 1998
+<BR>
+</DIV>
+本説明書の一部または全部を古賀雅伸の許可なく，<BR>
+複写，複製することは，その形態・手段を問わず禁じます。
+<BR><HR>
+<BR></DIV>
+<BR>
+<P>
+<BR><HR>
+
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html61"
+ HREF="node1.htm">目次</A>
+<LI><A NAME="tex2html62"
+ HREF="node2.htm">表目次</A>
+<LI><A NAME="tex2html63"
+ HREF="node3.htm">図目次</A>
+<LI><A NAME="tex2html64"
+ HREF="node4.htm">はじめに</A>
+<UL>
+<LI><A NAME="tex2html65"
+ HREF="node5.htm">プログラミング言語 MATX</A>
+<LI><A NAME="tex2html66"
+ HREF="node6.htm">MATXの構造</A>
+<LI><A NAME="tex2html67"
+ HREF="node7.htm">プログラム作成手順</A>
+<LI><A NAME="tex2html68"
+ HREF="node8.htm">MATXの動作環境</A>
+</UL>
+<LI><A NAME="tex2html69"
+ HREF="node9.htm">プログラムの作り方とその実行方法</A>
+<UL>
+<LI><A NAME="tex2html70"
+ HREF="node10.htm"><I>matx</I>を用いたプログラムの実行</A>
+<LI><A NAME="tex2html71"
+ HREF="node11.htm"><I>matx</I>のオプション</A>
+<LI><A NAME="tex2html72"
+ HREF="node12.htm"><I>matc</I>を用いた実行可能ファイルの作り方</A>
+<LI><A NAME="tex2html73"
+ HREF="node13.htm"><I>matc</I>のオプション</A>
+<LI><A NAME="tex2html74"
+ HREF="node14.htm">コマンドライン履歴・編集</A>
+<LI><A NAME="tex2html75"
+ HREF="node15.htm"><I>mated</I>を用いた行列の入力・編集</A>
+<LI><A NAME="tex2html76"
+ HREF="node16.htm"><I>matp</I>を用いた行列の表示</A>
+<LI><A NAME="tex2html77"
+ HREF="node17.htm">C言語インターフェース</A>
+</UL>
+<LI><A NAME="tex2html78"
+ HREF="node18.htm">コマンドと便利な機能</A>
+<UL>
+<LI><A NAME="tex2html79"
+ HREF="node19.htm">画面に表示</A>
+<LI><A NAME="tex2html80"
+ HREF="node20.htm">キーボードからの入力と編集</A>
+<LI><A NAME="tex2html81"
+ HREF="node21.htm">入出力</A>
+<LI><A NAME="tex2html82"
+ HREF="node22.htm">登録関数の表示(matxのみ)</A>
+<LI><A NAME="tex2html83"
+ HREF="node23.htm">登録変数の表示(matxのみ)</A>
+<LI><A NAME="tex2html84"
+ HREF="node24.htm">変数の消去</A>
+<LI><A NAME="tex2html85"
+ HREF="node25.htm">変数の存在を調べる(matxのみ)</A>
+<LI><A NAME="tex2html86"
+ HREF="node26.htm">環境変数の設定と取得</A>
+<LI><A NAME="tex2html87"
+ HREF="node27.htm">メニューを表示する</A>
+<LI><A NAME="tex2html88"
+ HREF="node28.htm">OSのコマンドを実行する</A>
+<LI><A NAME="tex2html89"
+ HREF="node29.htm">画面のクリア(matxのみ)</A>
+<LI><A NAME="tex2html90"
+ HREF="node30.htm">ベル</A>
+<LI><A NAME="tex2html91"
+ HREF="node31.htm">時間の計測</A>
+<LI><A NAME="tex2html92"
+ HREF="node32.htm">現在の日付と時間</A>
+<LI><A NAME="tex2html93"
+ HREF="node33.htm">警告</A>
+<LI><A NAME="tex2html94"
+ HREF="node34.htm">エラー停止</A>
+<LI><A NAME="tex2html95"
+ HREF="node35.htm">ヘルプ</A>
+<LI><A NAME="tex2html96"
+ HREF="node36.htm">停止</A>
+<LI><A NAME="tex2html97"
+ HREF="node37.htm">終了</A>
+<LI><A NAME="tex2html98"
+ HREF="node38.htm">クラス変換</A>
+<LI><A NAME="tex2html99"
+ HREF="node39.htm">複数行に渡る式(コマンドラインのみ)</A>
+<LI><A NAME="tex2html100"
+ HREF="node40.htm">代入式</A>
+<LI><A NAME="tex2html101"
+ HREF="node41.htm">式の値を保存する変数<TT>ans</TT></A>
+<LI><A NAME="tex2html102"
+ HREF="node42.htm">複素値</A>
+<LI><A NAME="tex2html103"
+ HREF="node43.htm">コメント</A>
+<LI><A NAME="tex2html104"
+ HREF="node44.htm">プリプロセッサ</A>
+<UL>
+<LI><A NAME="tex2html105"
+ HREF="node45.htm">ファイルの読み込み</A>
+<LI><A NAME="tex2html106"
+ HREF="node46.htm">マクロ置換</A>
+<LI><A NAME="tex2html107"
+ HREF="node47.htm">条件つきコンパイル</A>
+</UL>
+<LI><A NAME="tex2html108"
+ HREF="node48.htm">スタートアップファイル</A>
+<LI><A NAME="tex2html109"
+ HREF="node49.htm">クイットファイル(<I>matx</I>のみ)</A>
+<LI><A NAME="tex2html110"
+ HREF="node50.htm">バグ</A>
+</UL>
+<LI><A NAME="tex2html111"
+ HREF="node51.htm">ファイル</A>
+<UL>
+<LI><A NAME="tex2html112"
+ HREF="node52.htm">mmファイル の読み込み(<I>matx</I>のみ)</A>
+<LI><A NAME="tex2html113"
+ HREF="node53.htm">データのファイル入出力</A>
+<UL>
+<LI><A NAME="tex2html114"
+ HREF="node54.htm">行列データのファイル入出力</A>
+<LI><A NAME="tex2html115"
+ HREF="node55.htm">一般データのファイル入出力</A>
+<LI><A NAME="tex2html116"
+ HREF="node56.htm">バイナリデータのファイル入出力</A>
+<LI><A NAME="tex2html117"
+ HREF="node57.htm">一般データの保存と読み込み</A>
+</UL>
+<LI><A NAME="tex2html118"
+ HREF="node58.htm">ファイル入出力</A>
+<LI><A NAME="tex2html119"
+ HREF="node59.htm">プロセスの終端の検出</A>
+<LI><A NAME="tex2html120"
+ HREF="node60.htm">プロセス間通信</A>
+<LI><A NAME="tex2html121"
+ HREF="node61.htm">ファイルのアクセス権を調べる</A>
+<LI><A NAME="tex2html122"
+ HREF="node62.htm">ディレクトリを変更する</A>
+</UL>
+<LI><A NAME="tex2html123"
+ HREF="node63.htm">行列エディタ(Matrix Editor)</A>
+<UL>
+<LI><A NAME="tex2html124"
+ HREF="node64.htm">実行列の編集</A>
+<LI><A NAME="tex2html125"
+ HREF="node65.htm">複素行列の編集</A>
+<LI><A NAME="tex2html126"
+ HREF="node66.htm">キーバインディング</A>
+<LI><A NAME="tex2html127"
+ HREF="node67.htm">行列エディタ(<I>mated</I>)</A>
+</UL>
+<LI><A NAME="tex2html128"
+ HREF="node68.htm">グラフィックス</A>
+<UL>
+<LI><A NAME="tex2html129"
+ HREF="node69.htm"><I>gnuplot</I></A>
+<UL>
+<LI><A NAME="tex2html130"
+ HREF="node70.htm">基本的なプロット</A>
+<LI><A NAME="tex2html131"
+ HREF="node71.htm">複数の線</A>
+<LI><A NAME="tex2html132"
+ HREF="node72.htm">対数プロット</A>
+<LI><A NAME="tex2html133"
+ HREF="node73.htm">1個のウィンドウに複数のグラフ</A>
+<LI><A NAME="tex2html134"
+ HREF="node74.htm">ウィンドウのクリアと消去</A>
+<LI><A NAME="tex2html135"
+ HREF="node75.htm">ラベル，タイトル，グリッド，テキスト，他のコマンド</A>
+<LI><A NAME="tex2html136"
+ HREF="node76.htm">(ポストスクリプト|FIGコード)ファイルに出力</A>
+<LI><A NAME="tex2html137"
+ HREF="node77.htm">Windows95/NTで<I>mgplot</I>を使う</A>
+<LI><A NAME="tex2html138"
+ HREF="node78.htm">Xウィンドウを必要としないグラフィック表示</A>
+</UL>
+<LI><A NAME="tex2html139"
+ HREF="node79.htm"><I>xplot</I></A>
+<UL>
+<LI><A NAME="tex2html140"
+ HREF="node80.htm">基本的なプロット</A>
+<LI><A NAME="tex2html141"
+ HREF="node81.htm">複数の線</A>
+<LI><A NAME="tex2html142"
+ HREF="node82.htm">対数プロット</A>
+<LI><A NAME="tex2html143"
+ HREF="node83.htm">ウィンドウ・マネ−ジャ−の設定</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html144"
+ HREF="node84.htm">変数</A>
+<UL>
+<LI><A NAME="tex2html145"
+ HREF="node85.htm">変数の宣言</A>
+<LI><A NAME="tex2html146"
+ HREF="node86.htm">通用範囲に関する規則</A>
+<LI><A NAME="tex2html147"
+ HREF="node87.htm">静的変数</A>
+<LI><A NAME="tex2html148"
+ HREF="node88.htm">暗黙の型変換</A>
+</UL>
+<LI><A NAME="tex2html149"
+ HREF="node89.htm">関数</A>
+<UL>
+<LI><A NAME="tex2html150"
+ HREF="node90.htm">関数の宣言</A>
+<UL>
+<LI><A NAME="tex2html151"
+ HREF="node91.htm"><TT>require</TT>修飾子付き関数宣言</A>
+</UL>
+<LI><A NAME="tex2html152"
+ HREF="node92.htm">関数の定義</A>
+<LI><A NAME="tex2html153"
+ HREF="node93.htm">複数の値を返す関数</A>
+<LI><A NAME="tex2html154"
+ HREF="node94.htm">可変長引数関数</A>
+<UL>
+<LI><A NAME="tex2html155"
+ HREF="node95.htm">リストを利用した可変長引数関数</A>
+<LI><A NAME="tex2html156"
+ HREF="node96.htm">一般的な可変長引数関数</A>
+</UL>
+<LI><A NAME="tex2html157"
+ HREF="node97.htm">関数呼び出し (matx)</A>
+<LI><A NAME="tex2html158"
+ HREF="node98.htm">関数の引数渡し</A>
+<LI><A NAME="tex2html159"
+ HREF="node99.htm">return文</A>
+<LI><A NAME="tex2html160"
+ HREF="node100.htm">関数の参照</A>
+<LI><A NAME="tex2html161"
+ HREF="node101.htm">コマンドラインの引数</A>
+</UL>
+<LI><A NAME="tex2html162"
+ HREF="node102.htm">制御の流れ</A>
+<UL>
+<LI><A NAME="tex2html163"
+ HREF="node103.htm">If-Else</A>
+<LI><A NAME="tex2html164"
+ HREF="node104.htm">Forループ, Whileループ</A>
+<LI><A NAME="tex2html165"
+ HREF="node105.htm">Do-whileループ</A>
+<LI><A NAME="tex2html166"
+ HREF="node106.htm">Switch文</A>
+<LI><A NAME="tex2html167"
+ HREF="node107.htm">Break文とContinue文</A>
+</UL>
+<LI><A NAME="tex2html168"
+ HREF="node108.htm">整数と実数</A>
+<UL>
+<LI><A NAME="tex2html169"
+ HREF="node109.htm">整数定数</A>
+<LI><A NAME="tex2html170"
+ HREF="node110.htm">整数と実数の比較</A>
+<LI><A NAME="tex2html171"
+ HREF="node111.htm">整数関数</A>
+<LI><A NAME="tex2html172"
+ HREF="node112.htm">実数関数</A>
+</UL>
+<LI><A NAME="tex2html173"
+ HREF="node113.htm">複素数</A>
+<UL>
+<LI><A NAME="tex2html174"
+ HREF="node114.htm">複素数の記述方法</A>
+<LI><A NAME="tex2html175"
+ HREF="node115.htm">複素数の比較</A>
+<LI><A NAME="tex2html176"
+ HREF="node116.htm">複素数関数</A>
+</UL>
+<LI><A NAME="tex2html177"
+ HREF="node117.htm">文字列</A>
+<UL>
+<LI><A NAME="tex2html178"
+ HREF="node118.htm">文字列の成分の取り出し</A>
+<LI><A NAME="tex2html179"
+ HREF="node119.htm">文字列の成分の代入</A>
+<LI><A NAME="tex2html180"
+ HREF="node120.htm">文字列の比較</A>
+<LI><A NAME="tex2html181"
+ HREF="node121.htm">文字列から指定文字の位置を調べる</A>
+<LI><A NAME="tex2html182"
+ HREF="node122.htm">文字列の評価 (matx)</A>
+<LI><A NAME="tex2html183"
+ HREF="node123.htm">文字列への変換</A>
+<LI><A NAME="tex2html184"
+ HREF="node124.htm">文字列関数</A>
+</UL>
+<LI><A NAME="tex2html185"
+ HREF="node125.htm">多項式</A>
+<UL>
+<LI><A NAME="tex2html186"
+ HREF="node126.htm">多項式の記述方法</A>
+<LI><A NAME="tex2html187"
+ HREF="node127.htm">複素多項式</A>
+<LI><A NAME="tex2html188"
+ HREF="node128.htm">多項式の係数の参照</A>
+<LI><A NAME="tex2html189"
+ HREF="node129.htm">多項式の評価</A>
+<LI><A NAME="tex2html190"
+ HREF="node130.htm">多項式の微分と積分</A>
+<LI><A NAME="tex2html191"
+ HREF="node131.htm">多項式の係数のシフト</A>
+<LI><A NAME="tex2html192"
+ HREF="node132.htm">多項式の比較</A>
+<LI><A NAME="tex2html193"
+ HREF="node133.htm">多項式関数</A>
+</UL>
+<LI><A NAME="tex2html194"
+ HREF="node134.htm">有理多項式</A>
+<UL>
+<LI><A NAME="tex2html195"
+ HREF="node135.htm">有理多項式の記述方法</A>
+<LI><A NAME="tex2html196"
+ HREF="node136.htm">複素有理多項式</A>
+<LI><A NAME="tex2html197"
+ HREF="node137.htm">有理多項式の分子多項式と分母多項式</A>
+<LI><A NAME="tex2html198"
+ HREF="node138.htm">有理多項式の次数の増加</A>
+<LI><A NAME="tex2html199"
+ HREF="node139.htm">有理多項式の評価</A>
+<LI><A NAME="tex2html200"
+ HREF="node140.htm">有理多項式の微分</A>
+<LI><A NAME="tex2html201"
+ HREF="node141.htm">有理多項式の係数のシフト</A>
+<LI><A NAME="tex2html202"
+ HREF="node142.htm">有理多項式の比較</A>
+<LI><A NAME="tex2html203"
+ HREF="node143.htm">有理多項式関数</A>
+</UL>
+<LI><A NAME="tex2html204"
+ HREF="node144.htm">行列と配列と指数</A>
+<UL>
+<LI><A NAME="tex2html205"
+ HREF="node145.htm">行列の記述方法</A>
+<UL>
+<LI><A NAME="tex2html206"
+ HREF="node146.htm">行列成分の変換規則</A>
+<LI><A NAME="tex2html207"
+ HREF="node147.htm">行ベクトル</A>
+<LI><A NAME="tex2html208"
+ HREF="node148.htm">列ベクトル</A>
+<LI><A NAME="tex2html209"
+ HREF="node149.htm">行列</A>
+</UL>
+<LI><A NAME="tex2html210"
+ HREF="node150.htm">いろいろな行列</A>
+<UL>
+<LI><A NAME="tex2html211"
+ HREF="node151.htm">零行列</A>
+<LI><A NAME="tex2html212"
+ HREF="node152.htm">単位行列</A>
+<LI><A NAME="tex2html213"
+ HREF="node153.htm">1で満たされた行列</A>
+<LI><A NAME="tex2html214"
+ HREF="node154.htm">等差数列配列</A>
+<LI><A NAME="tex2html215"
+ HREF="node155.htm">対角行列とブロック対角行列</A>
+<LI><A NAME="tex2html216"
+ HREF="node156.htm">複素行列</A>
+<LI><A NAME="tex2html217"
+ HREF="node157.htm">行列を成分とする行列</A>
+</UL>
+<LI><A NAME="tex2html218"
+ HREF="node158.htm">多項式行列</A>
+<UL>
+<LI><A NAME="tex2html219"
+ HREF="node159.htm">多項式行列の記述方法</A>
+<LI><A NAME="tex2html220"
+ HREF="node160.htm">多項式行列の評価</A>
+<LI><A NAME="tex2html221"
+ HREF="node161.htm">多項式行列の微分と積分</A>
+<LI><A NAME="tex2html222"
+ HREF="node162.htm">多項式行列の各要素の係数のシフト</A>
+</UL>
+<LI><A NAME="tex2html223"
+ HREF="node163.htm">有理多項式行列</A>
+<UL>
+<LI><A NAME="tex2html224"
+ HREF="node164.htm">有理多項式行列の記述方法</A>
+<LI><A NAME="tex2html225"
+ HREF="node165.htm">有理多項式行列の評価</A>
+<LI><A NAME="tex2html226"
+ HREF="node166.htm">有理多項式行列の微分</A>
+<LI><A NAME="tex2html227"
+ HREF="node167.htm">有理多項式行列の各要素の係数のシフト</A>
+<LI><A NAME="tex2html228"
+ HREF="node168.htm">有理多項式配列の分子配列と分母配列</A>
+</UL>
+<LI><A NAME="tex2html229"
+ HREF="node169.htm">行列成分の操作</A>
+<UL>
+<LI><A NAME="tex2html230"
+ HREF="node170.htm">成分の取り出し</A>
+<LI><A NAME="tex2html231"
+ HREF="node171.htm">ブロック成分の取り出し</A>
+<LI><A NAME="tex2html232"
+ HREF="node172.htm">式行列の成分の取り出し</A>
+<LI><A NAME="tex2html233"
+ HREF="node173.htm">0-1配列を用いた成分の操作</A>
+<LI><A NAME="tex2html234"
+ HREF="node174.htm">成分の代入</A>
+<LI><A NAME="tex2html235"
+ HREF="node175.htm">ブロック成分の代入</A>
+<LI><A NAME="tex2html236"
+ HREF="node176.htm">行列成分の削除</A>
+<LI><A NAME="tex2html237"
+ HREF="node177.htm">行列の大きさの変更</A>
+<LI><A NAME="tex2html238"
+ HREF="node178.htm">指数を用いた行列成分の操作</A>
+<LI><A NAME="tex2html239"
+ HREF="node179.htm">行列の配列(ピース行列の利用)</A>
+</UL>
+<LI><A NAME="tex2html240"
+ HREF="node180.htm">行列の比較と配列の比較</A>
+<LI><A NAME="tex2html241"
+ HREF="node181.htm">行列とスカラの演算</A>
+<LI><A NAME="tex2html242"
+ HREF="node182.htm">行列関数</A>
+<LI><A NAME="tex2html243"
+ HREF="node183.htm">配列関数</A>
+</UL>
+<LI><A NAME="tex2html244"
+ HREF="node184.htm">リスト</A>
+<UL>
+<LI><A NAME="tex2html245"
+ HREF="node185.htm">リストの記述方法</A>
+<LI><A NAME="tex2html246"
+ HREF="node186.htm">リスト成分の参照と代入</A>
+<LI><A NAME="tex2html247"
+ HREF="node187.htm">リスト成分の付加</A>
+<LI><A NAME="tex2html248"
+ HREF="node188.htm">リストの合成と取り出し</A>
+<LI><A NAME="tex2html249"
+ HREF="node189.htm">リスト関数</A>
+</UL>
+<LI><A NAME="tex2html250"
+ HREF="node190.htm">例題</A>
+<UL>
+<LI><A NAME="tex2html251"
+ HREF="node191.htm">連続系リカッティ方程式</A>
+<LI><A NAME="tex2html252"
+ HREF="node192.htm">離散系リカッティ方程式</A>
+<LI><A NAME="tex2html253"
+ HREF="node193.htm">線形システムの伝達関数行列</A>
+<LI><A NAME="tex2html254"
+ HREF="node194.htm">線形システムのボードとナイキスト周波数応答</A>
+<LI><A NAME="tex2html255"
+ HREF="node195.htm">連続系システムのシミュレーション</A>
+<UL>
+<LI><A NAME="tex2html256"
+ HREF="node196.htm">状態フィードバック制御のシミュレーション (1)</A>
+<LI><A NAME="tex2html257"
+ HREF="node197.htm">状態フィードバック制御のシミュレーション (2)</A>
+<LI><A NAME="tex2html258"
+ HREF="node198.htm">動的フィードバック制御のシミュレーション</A>
+<LI><A NAME="tex2html259"
+ HREF="node199.htm">複雑なシステムのシミュレーション</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html260"
+ HREF="node200.htm">謝辞</A>
+<LI><A NAME="tex2html261"
+ HREF="node201.htm">参考文献</A>
+<LI><A NAME="tex2html262"
+ HREF="node202.htm">データフォーマット</A>
+<UL>
+<LI><A NAME="tex2html263"
+ HREF="node203.htm">MATデータフォーマット</A>
+<LI><A NAME="tex2html264"
+ HREF="node204.htm">MXデータフォーマット</A>
+</UL>
+<LI><A NAME="tex2html265"
+ HREF="node205.htm">メモリ管理</A>
+<UL>
+<LI><A NAME="tex2html266"
+ HREF="node206.htm">行列クラスのメモリ管理</A>
+<LI><A NAME="tex2html267"
+ HREF="node207.htm">メモリの状態遷移</A>
+</UL>
+<LI><A NAME="tex2html268"
+ HREF="node208.htm">演算</A>
+<UL>
+<LI><A NAME="tex2html269"
+ HREF="node209.htm">和 (Addition)</A>
+<LI><A NAME="tex2html270"
+ HREF="node210.htm">差 (Subtraction)</A>
+<LI><A NAME="tex2html271"
+ HREF="node211.htm">積 (Multiplication)</A>
+<LI><A NAME="tex2html272"
+ HREF="node212.htm">スカラ倍 (Scalar Multiplication)</A>
+<LI><A NAME="tex2html273"
+ HREF="node213.htm">逆 (Inverse)</A>
+<LI><A NAME="tex2html274"
+ HREF="node214.htm">商 (Division)</A>
+<LI><A NAME="tex2html275"
+ HREF="node215.htm">累乗 (Power)</A>
+<LI><A NAME="tex2html276"
+ HREF="node216.htm">転置 (Transpose)</A>
+<LI><A NAME="tex2html277"
+ HREF="node217.htm">複素共役転置 (Complex Conjugate Transpose)</A>
+<LI><A NAME="tex2html278"
+ HREF="node218.htm">符合反転 (Negation)</A>
+<LI><A NAME="tex2html279"
+ HREF="node219.htm">{ポスト,プリ}{インクリメント,デクリメント}</A>
+<LI><A NAME="tex2html280"
+ HREF="node220.htm">関係演算 (Relational Operation)</A>
+<LI><A NAME="tex2html281"
+ HREF="node221.htm">論理演算 (Logical Operation)</A>
+</UL>
+<LI><A NAME="tex2html282"
+ HREF="node222.htm">リアルタイム処理(RTMATX)</A>
+<UL>
+<LI><A NAME="tex2html283"
+ HREF="node223.htm">リアルタイム処理</A>
+<LI><A NAME="tex2html284"
+ HREF="node224.htm">リアルタイム処理プログラムの作成</A>
+<UL>
+<LI><A NAME="tex2html285"
+ HREF="node225.htm">プロテクトモードRTMATX(DJGPP版)</A>
+<LI><A NAME="tex2html286"
+ HREF="node226.htm">リアルモードRTMATX(Borland C版)</A>
+</UL>
+<LI><A NAME="tex2html287"
+ HREF="node227.htm">動作環境</A>
+<LI><A NAME="tex2html288"
+ HREF="node228.htm">プログラムの動作</A>
+<UL>
+<LI><A NAME="tex2html289"
+ HREF="node229.htm">メイン関数</A>
+<LI><A NAME="tex2html290"
+ HREF="node230.htm">リアルタイム処理関数</A>
+<LI><A NAME="tex2html291"
+ HREF="node231.htm">画面表示／コマンド入力ループ関数</A>
+<LI><A NAME="tex2html292"
+ HREF="node232.htm">実験装置のインターフェース関数</A>
+<LI><A NAME="tex2html293"
+ HREF="node233.htm">センサとアクチュエータのインターフェース関数</A>
+<LI><A NAME="tex2html294"
+ HREF="node234.htm">入出力カード(D/A,カウンタ)のインターフェース関数</A>
+</UL>
+<LI><A NAME="tex2html295"
+ HREF="node235.htm">メモリ管理</A>
+<LI><A NAME="tex2html296"
+ HREF="node236.htm">リアルタイム処理用関数</A>
+<LI><A NAME="tex2html297"
+ HREF="node237.htm">シミュレーションからリアルタイム処理へ</A>
+<UL>
+<LI><A NAME="tex2html298"
+ HREF="node238.htm">倒立振子の制御のシミュレーション</A>
+<LI><A NAME="tex2html299"
+ HREF="node239.htm">倒立振子のリアルタイム制御</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html300"
+ HREF="node240.htm">エラーメッセージ</A>
+<UL>
+<LI><A NAME="tex2html301"
+ HREF="node241.htm">プログラムの解釈，コンパイル時のエラーメッセージ</A>
+<UL>
+<LI><A NAME="tex2html302"
+ HREF="node242.htm">コンパイル時のメッセージの説明</A>
+</UL>
+<LI><A NAME="tex2html303"
+ HREF="node243.htm">実行時のエラーメッセージ</A>
+<UL>
+<LI><A NAME="tex2html304"
+ HREF="node244.htm">matxの実行時のエラーメッセージ</A>
+<LI><A NAME="tex2html305"
+ HREF="node245.htm">matxの実行時のメッセージの説明</A>
+<LI><A NAME="tex2html306"
+ HREF="node246.htm">クラスライブラリのエラーメッセージ</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html307"
+ HREF="node247.htm">索引</A>
+<LI><A NAME="tex2html308"
+ HREF="node248.htm">この文書について... </A>
+</UL>
+<!-- End of Table of Child-Links -->
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

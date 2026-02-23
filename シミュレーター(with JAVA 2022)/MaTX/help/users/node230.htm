@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>リアルタイム処理関数</TITLE>
+<META NAME="description" CONTENT="リアルタイム処理関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node231.htm">
+<LINK REL="previous" HREF="node229.htm">
+<LINK REL="up" HREF="node228.htm">
+<LINK REL="next" HREF="node231.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3524"
+ HREF="node231.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3520"
+ HREF="node228.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3514"
+ HREF="node229.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3522"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3523"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3525"
+ HREF="node231.htm">画面表示／コマンド入力ループ関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3521"
+ HREF="node228.htm">プログラムの動作</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3515"
+ HREF="node229.htm">メイン関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002642000000000000000">
+リアルタイム処理関数</A>
+</H2><FONT SIZE="-1">
+リアルタイム処理関数<TT>on_task()</TT>の例を次に示す。
+<A NAME="13374">&#160;</A>
+<A NAME="13375">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void on_task()
+{
+  Real r;
+  Matrix yy, y, xf, u;
+
+  // 目標値の計算
+  r = m1*sin(w1*stime*t) + m2*sin(w2*stime*t);
+  t++;
+
+  yy = sensor();        // センサーからの入力
+
+  y = [[  r  - yy(1)]   // 観測出力１
+       [y(1) - yy(2)]]; // 観測出力２
+
+  xf = A * x + B * y;   // コントローラの状態を更新
+  u =  C * x + D * y;   // 制御入力
+  x = xf;               // コントローラの状態を保存
+
+  actuator(u);          // アクチュエータへの出力
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>コメントの説明を補足する。
+</FONT><UL>
+<LI>プラントの出力が目標値に追従することを目的としているため，
+      センサの出力から目標値を引いて観測出力としている。
+      <A NAME="13090">&#160;</A>
+<LI>関数<TT>sensor()</TT>は，センサの測定値をA/D変換器などで取り込んだ
+      値を物理量に変換して返す。<A NAME="13092">&#160;</A>
+<LI>関数<TT>actuator()</TT>はアクチュエータの発生するトルクなどを操作する。
+      この関数内部ではD/A変換器などを操作している。
+      <A NAME="13094">&#160;</A><A NAME="13095">&#160;</A>
+</UL>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

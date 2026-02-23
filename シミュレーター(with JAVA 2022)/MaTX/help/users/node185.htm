@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>リストの記述方法</TITLE>
+<META NAME="description" CONTENT="リストの記述方法">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node186.htm">
+<LINK REL="previous" HREF="node184.htm">
+<LINK REL="up" HREF="node184.htm">
+<LINK REL="next" HREF="node186.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2943"
+ HREF="node186.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2939"
+ HREF="node184.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2933"
+ HREF="node184.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2941"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2942"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2944"
+ HREF="node186.htm">リスト成分の参照と代入</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2940"
+ HREF="node184.htm">リスト</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2934"
+ HREF="node184.htm">リスト</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001910000000000000000">
+リストの記述方法</A>
+</H1><FONT SIZE="-1">
+リストを記述するには，成分となる値をコンマ ``<TT>,</TT>'' で区切って書き並べ，
+<BR>
+ブレース <code>{</code> と <code>}</code> で囲む。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  x = {4, (3,4), [1 2]};
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+により，成分が整数，複素数，行列であるリスト<TT>x</TT>に代入される。
+リストの成分には任意の式を書くことができる。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  x = {sqrt(3.0), ((1.0+2.0)*4.0,:), [1 2] + [3 4]};
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+により，成分が実数，複素数，行列であるリストが<TT>x</TT>に代入される。関数
+<BR>
+<TT>makelist()</TT>を使って，任意個の成分を持つリストを
+定義することができる。 <A NAME="10624">&#160;</A>
+この時，リストの成分は未定義(<TT>UNDEF</TT>)である。<A NAME="10572">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  x = makelist(3);
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

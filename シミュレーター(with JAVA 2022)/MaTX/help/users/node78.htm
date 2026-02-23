@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>Xウィンドウを必要としないグラフィック表示</TITLE>
+<META NAME="description" CONTENT="Xウィンドウを必要としないグラフィック表示">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node77.htm">
+<LINK REL="up" HREF="node69.htm">
+<LINK REL="next" HREF="node79.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1562"
+ HREF="node79.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1558"
+ HREF="node69.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1554"
+ HREF="node77.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1560"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1561"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1563"
+ HREF="node79.htm">xplot</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1559"
+ HREF="node69.htm">gnuplot</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1555"
+ HREF="node77.htm">Windows95/NTでmgplotを使う</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00919000000000000000">
+Xウィンドウを必要としないグラフィック表示</A>
+</H2><FONT SIZE="-1">
+<A NAME="4282">&#160;</A><A NAME="4283">&#160;</A>
+<A NAME="4027">&#160;</A>
+<TT>gplot()</TT>や<TT>mgplot()</TT>で呼び出される<I>gnuplot</I>には
+Tektronix 4010や<I>hterm</I>のグラフィックモ−ドのドライバが
+組み込まれているので，
+Tektronix 4010や<I>hterm</I>のグラフィックモ−ドをサポ−トする端末ソフト
+(<I>kermit</I>, <I>vt98</I>など)を使えば，Xウィンドウ以外の端末でも
+グラフィックを表示することができる。
+<A NAME="4284">&#160;</A><A NAME="4285">&#160;</A>
+<TT>gplot()</TT>や<TT>mgplot()</TT>の出力モ−ドは，変数<TT>mgplot_term</TT>によって
+設定することができる。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  mgplot_term = "";           // X Window System
+  mgplot_term = "x11";        // X Window System
+  mgplot_term = "kc_tek40xx"; // Tektronix 4010 (Kermit)
+  mgplot_term = "hterm";      // Hterm graphics (Hterm)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR><TT>mgplot_term</TT>を``kc_tek40xx''に設定して，グラフィックを表示したとき，
+<I>gnuplot</I>の終了後に画面が乱れることがある。
+そのときは，関数<TT>gcls()</TT>によって画面をクリアする。
+<A NAME="4286">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  gcls();
+  gcls;      // 引数が0個の関数は，括弧を省略できる
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

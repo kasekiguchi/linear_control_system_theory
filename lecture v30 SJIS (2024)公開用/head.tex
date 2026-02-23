@@ -1,0 +1,89 @@
+%
+% Page setting
+%
+\setlength{\topmargin}{-1cm}
+\setlength{\headheight}{0cm}
+\setlength{\headsep}{1cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\textheight}{24.62cm}
+\setlength{\textwidth}{15.92cm}
+\setlength{\footskip}{1.0cm}
+%
+% package
+%
+\usepackage{amsmath}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amssymb}
+\usepackage{epsfig}
+%\usepackage[dvips,xdvi]{color}
+\usepackage[dvipdfmx]{color}
+%\usepackage[dvipdfmx]{color}
+\usepackage{wrapfig}
+\usepackage{subfigure}
+%\usepackage{cite}
+\usepackage{float}
+\usepackage{matx}
+\usepackage{eclclass}
+\usepackage{ulem}
+
+% \usepackage{tikz}
+% \usetikzlibrary{positioning}
+% \usepackage[absolute,overlay]{textpos}
+
+%
+% Figure & Table caption
+%
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+%
+% Local definition
+%
+\def\defeq{\stackrel{\rm def}{=}}
+\def\rank{\mathop{\rm rank}\nolimits}
+\def\Re{\mathop{\rm Re}\nolimits}
+\def\Im{\mathop{\rm Im}\nolimits}
+\def\det{\mathop{\rm det}\nolimits}
+\def\adj{\mathop{\rm adj}\nolimits}
+\def\Span{\mathop{\rm span}\nolimits}
+\newenvironment{mytheorem}
+{\vspace{1zw}\noindent {\gtfamily 定理} \itshape}
+{\vspace{1zw}}
+%
+% 参考文献環境の再定義
+%
+\makeatletter
+\renewcommand{\bibname}{参考文献}
+\renewenvironment{thebibliography}[2]
+{\section*{#2に関する\bibname\@mkboth{\bibname}{\bibname}}%
+   \list{\@biblabel{\@arabic\c@enumiv}}%
+        {\settowidth\labelwidth{\@biblabel{#1}}%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m}
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+\let\@openbib@code\@empty
+\makeatother
+%
+%
+%
+\makeatletter
+\renewcommand{\tableofcontents}[1]{%
+  \if@twocolumn\@restonecoltrue\onecolumn
+  \else\@restonecolfalse\fi
+  \chapter*{\contentsname
+    \@mkboth{\contentsname}{\contentsname}%
+  }\vspace*{#1}\@starttoc{toc}%
+  \if@restonecol\twocolumn\fi
+}
+\makeatother

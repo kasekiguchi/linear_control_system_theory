@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>ウィンドウ・マネ−ジャ−の設定</TITLE>
+<META NAME="description" CONTENT="ウィンドウ・マネ−ジャ−の設定">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node82.htm">
+<LINK REL="up" HREF="node79.htm">
+<LINK REL="next" HREF="node84.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1622"
+ HREF="node84.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1618"
+ HREF="node79.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1614"
+ HREF="node82.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1620"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1621"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1623"
+ HREF="node84.htm">変数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1619"
+ HREF="node79.htm">xplot</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1615"
+ HREF="node82.htm">対数プロット</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00924000000000000000">&#160;</A>
+<A NAME="4203">&#160;</A>
+<A NAME="4204">&#160;</A>
+<BR>
+ウィンドウ・マネ−ジャ−の設定
+</H2><FONT SIZE="-1">
+<A NAME="4300">&#160;</A><A NAME="4301">&#160;</A>
+<A NAME="4302">&#160;</A><A NAME="4303">&#160;</A>
+Xウィンドウ・システムの<B>ウィンドウ・マネ−ジャ−</B>として<I>twm</I>
+を使う場合，以下の記述を各自のウィンドウ・マネ−ジャ−の設定ファイル
+<TT>.twmrc</TT>に加えることによって，<I>xplot</I>を使用するときに，
+キャンバス・ウィンドウだけが表示されるようにできる。
+また，メインウィンドウやデ−タ管理ウィンドウなどは，アイコン・
+マネ−ジャによって自由に操作することができる。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+###############################################
+#       ICON MANAGER
+###############################################
+
+SortIconManager # keep them in alphabetic order
+
+IconManagers
+{
+   "xplot"   "=280x900+2+2" 2
+}
+
+IconManagerShow
+{
+   "xplot"
+}
+
+IconifyByUnmapping
+{
+  "xplot"
+}
+
+StartIconified
+{
+        "XPlot"
+        "2D_Info"
+        "SemiLog_Info"
+        "d1plot-data-1"
+        "d1plot-data-2"
+        "d1plot-data-3"
+        "d2plot-data-1"
+        "d2plot-data-2"
+        "d2plot-data-3"
+        "splot-data-1"
+        "splot-data-2"
+        "splot-data-3"
+}
+#############################################
+</PRE><FONT SIZE="-1"><FONT SIZE="-1">ウィンドウ・システムのウィンドウ・マネ−ジャ−として<I>fvwm</I>を使う場合，
+システムによってはキーボード入力が出来ないことがある。その時は，
+以下の記述を各自のウィンドウ・マネ−ジャ−の設定ファイル<TT>.fwmrc</TT>に加
+える。</FONT></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+# For fvwm-1
+Lenience
+
+# For fvwm-2
+# Style "*" Lenience
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

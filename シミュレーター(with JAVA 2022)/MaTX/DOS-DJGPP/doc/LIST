@@ -1,0 +1,104 @@
+
+    日本語版(A5サイズ約320ペ－ジ)と英語版(A5サイズ約190ペ－ジ)の
+    マニュアルがあります。両面印刷し，製本すると便利です。
+
+   o  「MaTX(ver.4.384) リファレンスマニュアル」, 古賀雅伸, 1998
+        日本語版 (約 320 ページ)
+        (matx-htm.tgz: WEBブラウザ用)
+        (matx-htm.lzh: WEBブラウザ用)
+        (matx-jp.ps.gz: 片面印刷用)
+        (matx-jp.pdf.lzh: 片面印刷用)
+        (book-jp-1.ps.gz: 両面印刷用: 奇数ページ)
+        (book-jp-1.pdf.lzh: 両面印刷用: 奇数ページ)
+        (book-jp-2.ps.gz: 両面印刷用: 偶数ページ)
+        (book-jp-2.pdf.lzh: 両面印刷用: 偶数ページ)
+        (book-jp-two.ps.gz: 両面印刷用: 2 冊同時印刷)
+        (book-jp-two.pdf.lzh: 両面印刷用: 2 冊同時印刷)
+
+        英語版 (約 190 ページ)
+        (matx-eg.ps.gz: 片面印刷用)
+        (book-eg-1.ps.gz: 両面印刷用: 奇数ページ)
+        (book-eg-2.ps.gz: 両面印刷用: 偶数ページ)
+        (book-eg-two.ps.gz: 両面印刷用: 2 冊同時印刷)
+
+   o  「MaTXによるシミュレーション入門」, 野中謙一郎, 1998
+        (sim_primer98-1-0.lzh, または sim_primer98-1-0.tgz)
+
+   o  「MaTX 使用の手引き -- Introduction to MaTX --」, 西村修, 1998
+        (intro98.ps.gz, intro98-html.tgz, intro98-html.lzh)
+
+   o  「Matlib Reference Manual」, 古賀雅伸, 1995
+        (matlib.ps.gz)
+
+   o  「制御系のシミュレーション環境とリアルタイム制御環境の融合」
+       古賀雅伸
+       電気学会論文誌 Vol. 118-C No. 4, 551/557 (1998)
+       (ieej-98-4.ps.gz)
+
+   o  「MaTXを用いた制御系設計を支援する計算機環境」
+        古賀雅伸, 清田洋光, 中山尚登, 三平満司
+        日本機械学会創立100周年記念講演会, D&D'97 CONFERENCE
+        Vol. A, 82/85, (1997)
+        (dd97.ps.gz)
+
+   o  「オンラインパラメータ変更を考慮したリアルタイム制御系CAD」,
+        古賀雅伸, 鳥海洋章，三平満司, 第３５回計測自動制御学会学術講演会,
+        181-182, 1996.
+        (sice96.ps.gz)
+
+   o  「ロボット工学ソフトウェア利用の手引 --
+         科学技術計算プログラミング言語MaTX」(講座), 古賀雅伸,
+         日本ロボット学会誌 Vol. 14, No. 6, 800/803 (1996)
+         (rsj-v14n6.ps.gz)
+
+   o  「制御系CADの環境と標準化」(解説), 山本裕, 古賀雅伸, 藤岡久也
+         計測と制御 Vol. 35, No. 10, 770/777 (1996)
+         (sice-v35n10.ps.gz)
+
+   o  「制御系 CAD の音声入力インタ－フェ－スに関する研究」, 古賀雅伸，
+        源原健，三平満司, 第33回計測自動制御学会学術講演会, 187-188, 1994.
+        (sice94.ps.gz)
+
+   o  「数値処理と数式処理を融合した制御系CAD言語MaTX」, 古賀雅伸，古田勝久,
+        計測自動制御学会論文集 Vol.29, No.10, 1191-1198, 1993.
+        (sice-v29n10.ps.gz)
+
+   o  「制御系解析・設計支援ツール」, 古賀雅伸，古田勝久, 第 29 回計測
+        自動制御学会学術講演会, 267-468, 1990.
+        (sice90.ps.gz)
+
+   o  「MaTX: A High-Performance Interactive software package for Scientific
+        and Engineering Compuation」, Masanobu Koga and Katsuhisa Furuta,
+        5TH IFAC/IMACS Symposium on Computer Aided Design in Control Systems,
+        39-44, 1991.
+        (cadcs91.ps.gz)
+
+   o  「MaTX: A High-Performance Programming Language (Interpreter and
+        Compiler) for Scientific and Engineering Compuation」, Masanobu Koga
+        and Katsuhisa Furuta, 1992 IEEE Symposium on Computer-Aided Control
+        System Design, 15-22, 1992.
+        (cacsd92.ps.gz)
+
+   o  「Programming Language MaTX for Scientific and Engineering
+        Computation」, CAD for CONTROL SYSTEMS, Masanobu Koga and
+        Katsuhisa Furuta, "Marcel Dekker,Inc.", 287-317, July 1993.
+
+   o  「A Compiler of MATLAB to MaTX: Compiling and Linking of m-files to
+        an Executable Program」, Masanobu Koga and Katsuhisa Furuta,
+        IEEE/IFAC Joint Symposium on Computer-Aided Control System Design,
+        137-142, 1994.
+        (cacsd94.ps.gz)
+
+   o  「Real-time CAD of Control Systems Achieving Cooperation of
+         Modeling and Design of Controllers」, Masanobu Koga,
+         Hiroaki Toriumi, Mitsuji Sampei, 1996 IEEE International
+         Symposium on Computer-Aided Control System Design,
+         457-462, 1996.
+         (cacsd96.ps.gz)
+
+   o  「An Integrated Software Environment for Design and
+        Real-Time Implementation of Control Systems」
+        Masanobu Koga, Hiroaki Toriumi, Mitsuji Sampei
+        11th IFAC Symposium on System Identification, 1603/1609, (1997)
+        (sysid97.ps.gz)
+

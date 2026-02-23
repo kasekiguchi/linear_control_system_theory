@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>プリプロセッサ</TITLE>
+<META NAME="description" CONTENT="プリプロセッサ">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node48.htm">
+<LINK REL="previous" HREF="node43.htm">
+<LINK REL="up" HREF="node18.htm">
+<LINK REL="next" HREF="node45.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1120"
+ HREF="node45.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1116"
+ HREF="node18.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1110"
+ HREF="node43.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1118"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1119"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1121"
+ HREF="node45.htm">ファイルの読み込み</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1117"
+ HREF="node18.htm">コマンドと便利な機能</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1111"
+ HREF="node43.htm">コメント</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION006260000000000000000">&#160;</A>
+<A NAME="1749">&#160;</A>
+<BR>
+プリプロセッサ
+</H1>
+<A NAME="1981">&#160;</A>
+<A NAME="1751">&#160;</A>
+<A NAME="1982">&#160;</A>
+MATXは，Cプリプロセッサを呼び出すことによって，言語仕様の拡張を行なって
+いる。拡張された言語仕様のうち，最も良く使われる機能は，文字綴を任意の文字列
+に置換するための<TT>#define</TT>と別のファイルを読み込むための<TT>#include</TT>
+である。デフォルトで呼び出されるCプリプロセッサは，UNIXでは<TT>cpp</TT>，
+Windowsでは各Cコンパイラ(例えばVisual C++の場合<TT>cl</TT>)であるが，
+次に示すように別のプリプロセッサを環境変数<TT>MATXCPP</TT>に設定することが
+できる。
+<BR CLEAR="ALL">
+<HR><PRE>
+  setenv MATXCPP /usr/local/lib/gcc-lib/cpp
+</PRE>
+<BR CLEAR="ALL">
+<HR>オプション<TT>-nocpp</TT>を指定すると，Cプリプロセッサが起動されなくなる。
+オプション<TT>-Dname=def</TT>によってCプリプロセッサに引数を渡せる。
+
+<P>
+また，インタプリタ<I>matx</I>の実行時には<TT>__MATX__</TT>が，
+コンパイラ<I>matc</I>の実行時には<TT>__MATC__</TT>が自動的に<TT>1</TT>に
+定義される。これらを用いるとプログラム中の実行される箇所を
+インタプリタとコンパイラで容易に変更できる。例えば関数のデバッグ時に
+その関数を<I>matx</I>でスクリプトとして実行したいとき以下のようすれば良い。
+この例では，<I>matx</I>を実行するとプログラムはスクリプトとして実行され，
+<TT>A</TT>, <TT>B</TT>, <TT>C</TT>は大域変数として定義されるので，コマンドライン
+からそれらを参照できる。<TT>matc</TT>を実行すれば，関数<TT>afo()</TT>が定義さ
+れる。
+<BR CLEAR="ALL">
+<HR><PRE>
+  #ifdef __MATC__
+  Func void afo()
+  {
+  #endif
+     Matrix A,B,C;
+
+     A = [[1 2][3 4]];
+     B = [[5 6][7 8]];
+     C = A + B;
+     print A,B,C;
+  #ifdef __MATC__
+  }
+  #endif
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+<P>
+また，以下の例(関数が<TT>afo.mm</TT>というファイルに含まれるとする)
+では<I>matx</I>をコマンドラインから
+<BR CLEAR="ALL">
+<HR><PRE>
+  % matx afo.mm -e 'main();'
+</PRE>
+<BR CLEAR="ALL">
+<HR>のように起動するのと同じ結果得られる。
+<I>matc</I>でコンパイルするとき，関数<TT>afo()</TT>のみが定義され，
+``<TT>main();</TT>''は無視される。
+
+<P>
+<BR CLEAR="ALL">
+<HR><PRE>
+  Func void afo()
+  {
+     Matrix A,B,C;
+
+     A = [[1 2][3 4]];
+     B = [[5 6][7 8]];
+     C = A + B;
+     print A,B,C;
+  }
+#ifdef __MATX__
+  main();
+#endif
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html1122"
+ HREF="node45.htm">ファイルの読み込み</A>
+<LI><A NAME="tex2html1123"
+ HREF="node46.htm">マクロ置換</A>
+<LI><A NAME="tex2html1124"
+ HREF="node47.htm">条件つきコンパイル</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>1で満たされた行列</TITLE>
+<META NAME="description" CONTENT="1で満たされた行列">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node154.htm">
+<LINK REL="previous" HREF="node152.htm">
+<LINK REL="up" HREF="node150.htm">
+<LINK REL="next" HREF="node154.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2545"
+ HREF="node154.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2541"
+ HREF="node150.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2535"
+ HREF="node152.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2543"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2544"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2546"
+ HREF="node154.htm">等差数列配列</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2542"
+ HREF="node150.htm">いろいろな行列</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2536"
+ HREF="node152.htm">単位行列</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001823000000000000000">&#160;</A>
+<A NAME="7960">&#160;</A>
+<BR>
+1で満たされた行列
+</H2><FONT SIZE="-1">
+多項式行列の場合，成分の全てが定数項が1である多項式になる。
+有理多項式行列の場合，成分の全てが分子多項式と分母多項式の定数項が1である
+有理多項式になる。
+ピース行列を大きさの単位として使い，
+ピース行列の整数倍の大きな1で満たされた行列を簡単に作ることができる。
+<A NAME="8992">&#160;</A>
+<A NAME="8993">&#160;</A>
+</FONT>
+<P><PRE>
+M1 = ONE(3);        3x3の実行列
+M1 = ONE(3, c);     3x3の複素行列,         c = 複素数
+M1 = ONE(3, P);     3x3の実多項式行列,     P = 実多項式
+M1 = ONE(3, CP);    3x3の複素多項式行列,   CP = 複素多項式
+M1 = ONE(3, R);     3x3の実有理多項式行列,   R = 実有理多項式
+M1 = ONE(3, CR);    3x3の複素有理多項式行列, CR = 複素有理多項式
+M1 = ONE(3, 4);     3x4の実行列,
+M1 = ONE(3, 4, c);  3x4の複素行列,         c = 複素数
+M1 = ONE(3, 4, P);  3x4の実多項式行列,     P = 実多項式
+M1 = ONE(3, 4, CP); 3x4の複素多項式行列,   CP = 複素多項式
+M1 = ONE(3, 4, R);  3x4の実有理多項式行列,   R = 実有理多項式
+M1 = ONE(3, 4, CR); 3x4の複素有理多項式行列, CR = 複素有理多項式
+M2 = ONE(M1);       M1と同じ大きさで同じクラスの行列
+M2 = ONE(3, M1);    M1を横に3個並べた大きさで同じクラスの行列
+M2 = ONE(2, 3, M1); M1を縦に2個,横に3個並べた大きさで
+                    M1と同じクラスの行列
+</PRE>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

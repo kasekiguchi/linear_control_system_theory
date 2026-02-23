@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>pow</TITLE>
+<META NAME="description" CONTENT="pow">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node160.htm">
+<LINK REL="previous" HREF="node158.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node160.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2518"
+ HREF="node160.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2515"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2509"
+ HREF="node158.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2517"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2519"
+ HREF="node160.htm">print</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2516"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2510"
+ HREF="node158.htm">popen</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004155000000000000000">&#160;</A><A NAME="man_pow">&#160;</A>
+<BR>
+pow
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>pow - 累乗
+<DT>【形式】
+<DD><PRE>
+y = pow(x,k)
+   (Integer|Real|Complex|Polynomial|Rational) y;
+   (Integer|Real|Complex|Polynomial|Rational) x;
+   Integer k;
+  
+Y = pow(X,k)             y = pow(x,p)
+   (Matrix|Array) Y;        (Integer|Real|Complex) y;
+   (Matrix|Array) X;        (Integer|Real|Complex) x;
+   Integer k;               Real p;
+  
+Y = pow(X,p)             y = pow(x,c)
+   Array Y;                 Complex y;
+   Array X;                 (Integer|Real|Complex) y;
+   Real p;                  Complex c;
+  
+Y = pow(x,X)
+   Array Y;
+   (Integer|Real|Complex|Polynomial|Rational) x;
+   Array X;
+  
+Y = pow(X,c)             Y = pow(X,K)
+   Array Y;                 Array Y;
+   Array X;                 Array X;
+   Complex c;               Array K;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>スカラー型(整数|実数|複素数|多項式|有理多項式) x について，
+k が整数のとき，pow(x,k)は x の k 乗 xk を求める。
+(行列|配列) X について，k が整数のとき，pow(X,k)は，Xk を
+求める。ただし，配列の場合，成分毎に X(i,j)k を計算する。
+  
+スカラー型(整数|実数|複素数)xについて，pが実数のとき，
+pow(x,p)はxの p乗 xp を求める。
+配列Xについて，pが実数のとき，pow(X,k)は，成分毎にX(i,j)p を
+計算する。
+  
+スカラー型(整数|実数|複素数) x について，c が複素数のとき，
+pow(x,c)は x の c 乗 xc を求める。
+配列 X について，c が複素数のとき，pow(X,c)は，成分毎に X(i,j)c を
+計算する。
+  
+スカラー型(整数|実数|複素数|多項式|有理多項式)xについて，
+Xが配列のとき，pow(x,X)は，Xの成分毎にxX(i,j)を計算し，
+Xと同じ大きさの配列を求める。
+配列Xについて，Kが配列のとき，pow(X,K)は，成分毎に 
+X(i,j)K(i,j) を計算する。X と K の大きさは一致しなければならない。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; y = pow(2,10)
+y = 1024
+&gt;&gt; y = pow((2,3), 3)
+y = (-46,9)
+&gt;&gt; s = Polynomial("s")
+&gt;&gt; y = pow(2*s + 3, 3)
+y = 8 s^3 + 36 s^2 + 54 s + 27
+&gt;&gt; Y = pow([[1 2][3 4]], 3)
+=== [Y] : (  2,  2) ===
+           (  1)           (  2)     
+(  1)  3.70000000E+01  5.40000000E+01
+(  2)  8.10000000E+01  1.18000000E+02
+&gt;&gt; Y = pow(Array([[1 2][3 4]]), 3)
+=== [Y] : (  2,  2) ===
+           (  1)           (  2)     
+(  1)  1.00000000E+00  8.00000000E+00
+(  2)  2.70000000E+01  6.40000000E+01
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>conj(<A HREF="node36.htm#man_conj">2.33</A>), trans(<A HREF="node236.htm#man_trans">2.237</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

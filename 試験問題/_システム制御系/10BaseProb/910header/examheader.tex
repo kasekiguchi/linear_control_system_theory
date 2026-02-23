@@ -1,0 +1,104 @@
+\documentclass[fleqn]{article} 
+\usepackage[a3paper,landscape,vmargin=1.0cm,hmargin=1.5cm]{geometry} 
+
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{latexsym}
+
+\usepackage{multicol}
+
+\usepackage{epsfig}
+\usepackage[dvips,xdvi]{color}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%--------------------------------------------------------------
+	\setlength{\textwidth}{1120pt}
+	\setlength{\textheight}{790pt}
+%--------------------------------------------------------------
+	\setlength{\oddsidemargin}{-50pt}
+	\setlength{\evensidemargin}{-50pt}
+%--------------------------------------------------------------
+	\setlength{\topmargin}{-70pt}
+	\setlength{\headheight}{0pt}
+	\setlength{\topskip}{0pt}
+%--------------------------------------------------------------
+	\setlength{\columnseprule}{0.5pt}
+	\setlength{\columnsep}{10pt}
+%--------------------------------------------------------------
+	\renewcommand{\baselinestretch}{1}
+%--------------------------------------------------------------
+	\setlength{\mathindent}{0.5cm}
+	\setlength{\parindent}{7pt}
+%--------------------------------------------------------------
+	\renewcommand{\bottomfraction}{0.99}
+	\renewcommand{\topfraction}{0.99}
+	\renewcommand{\textfraction}{0.01}
+%--------------------------------------------------------------
+	\pagestyle{empty}
+%--------------------------------------------------------------
+
+
+%----------------------------------------------------------------
+%	definition
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+%   equation ŠÂ‹«
+%----------------------------------------------------------------
+%		\def\topmat{\ \\ \vspace{-4mm}}
+%		\def\botmat{\ \\ \vspace{-2mm}}
+%		\def\bes{\vspace*{2mm}}
+%		\def\ees{\ \\[-2mm]}
+	%........................................................
+	% equation‚ÌŠÂ‹«İ’è(\be,\ee)
+	%      —á \bea ® & ® & ® \nonumber\\ ® & ® & ® \eea
+	%........................................................
+%		\def\be{\\ \ \\[-12mm] \begin{equation}}
+%		\def\ee{\end{equation} \ \\[-11mm]}
+		\newcommand{\be}{\begin{equation}}
+		\newcommand{\ee}{\end{equation}}
+	%........................................................
+	% eqnarray‚ÌŠÂ‹«İ’è(\bea,\eea)
+	%      —á \bea ® & ® & ® \nonumber\\ ® & ® & ® \eea
+	%........................................................
+%		\def\bea{\\ \ \\[-16mm] \begin{eqnarray}}
+%		\def\eea{\end{eqnarray} \ \\[-13mm]}
+		\newcommand{\bea}{\begin{eqnarray}}
+		\newcommand{\eea}{\end{eqnarray}}
+	%........................................................
+	% ”Ô†‚È‚µeqn‚ÌŠÂ‹«İ’è(\nbe,\nee)
+	%      —á \nbe ® \\ ®  \nee
+	%........................................................
+%		\def\nbe{\\ \ \\[-12mm] \[}
+%		\def\nee{\] \ \\[-11mm]}
+		\newcommand{\nbe}{\[}
+		\newcommand{\nee}{\]}
+	%........................................................
+	% matrix‚Ì“ü—Í(\bmatrix,\ematrix)
+	%	—á \bmatrix{cc} 1&2\\3&4 \ematrix
+	%........................................................
+		\renewcommand{\bmatrix}{\left[\begin{array}}
+		\newcommand{\ematrix}{\end{array}\right]}
+	%........................................................
+	% Greek character
+	%........................................................
+		\def\gggm{\mu}
+		\def\ggge{\varepsilon}
+		\def\gggw{\omega}
+		\def\gggh{\theta}
+		\def\ggga{\alpha}
+		\def\gggb{\beta}
+		\def\gggc{\gamma}
+		\def\gggd{\delta}
+		\def\gggp{\phi}
+	%........................................................
+	% others
+	%........................................................
+%		\def\half{\frac{1}{2}}
+		\def\defeq{\stackrel{\rm def}{=}}
+
+
+\renewcommand{\baselinestretch}{0.8}
+
+

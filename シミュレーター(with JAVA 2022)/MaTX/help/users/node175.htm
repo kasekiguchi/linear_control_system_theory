@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>ブロック成分の代入</TITLE>
+<META NAME="description" CONTENT="ブロック成分の代入">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node176.htm">
+<LINK REL="previous" HREF="node174.htm">
+<LINK REL="up" HREF="node169.htm">
+<LINK REL="next" HREF="node176.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2822"
+ HREF="node176.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2818"
+ HREF="node169.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2812"
+ HREF="node174.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2820"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2821"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2823"
+ HREF="node176.htm">行列成分の削除</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2819"
+ HREF="node169.htm">行列成分の操作</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2813"
+ HREF="node174.htm">成分の代入</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001856000000000000000">&#160;</A>
+<A NAME="8330">&#160;</A>
+<BR>
+ブロック成分の代入
+</H2><FONT SIZE="-1">
+左辺の行列の大きさが指定された指数より小さいとき，自動的に拡大され，
+成分の代入が行われる。
+ただし，自動拡大機能を繰り返し用いると処理時間が長くなり，
+メモリの使用効率も悪くなるので，あらかじめ必要な最大の大きさの行列
+を定義してから，成分の代入を行う方が良い。
+左辺の行列の指定された指数の大きさと右辺の行列の大きさは一致しなければな
+らない。
+複素行列には実数と複素数を代入できるが，実行列には実数しか代入できない。
+有理多項式行列には多項式と有理多項式を代入できるが，多項式行列には
+多項式しか代入できない。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="8331">&#160;</A>
+<TT>M2</TT>を<TT>M1</TT>のピース行列とする。
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT"><code>M1(0,0,M2) = M3;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M2を縦横に並べた時，1行1列に代入する</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(1,2,M2) = M3;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M2を縦横に並べた時，2行3列に代入する</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M(1,:,M2) = M3;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M2を縦横に並べた時，2行に代入する</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M(:,2,M2) = M3;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M2を縦横に並べた時，3列に代入する</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(1:2,1:2,M2) = M3;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M2を縦横に並べた時，2-3行,2-3列に代入する</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(1,2:3,M2) = M3;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M2を縦横に並べた時，2行,3-4列に代入する</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(:,2:3,M2) = M3;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M2を縦横に並べた時，3-4列に代入する</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(1,2:,M2) = M3;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M2を縦横に並べた時，2行,3列以降に代入する</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(2:3,1,M2) = M3;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M2を縦横に並べた時，3-4行,2列に代入する</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(2:3,:,M2) = M3;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M2を縦横に並べた時，3-4行に代入する</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(2:,1,M2) = M3;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M2を縦横に並べた時，3行以降,2列に代入する</TD>
+</TR>
+</TABLE></DIV>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

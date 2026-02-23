@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>関数の定義</TITLE>
+<META NAME="description" CONTENT="関数の定義">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node93.htm">
+<LINK REL="previous" HREF="node90.htm">
+<LINK REL="up" HREF="node89.htm">
+<LINK REL="next" HREF="node93.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1743"
+ HREF="node93.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1739"
+ HREF="node89.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1733"
+ HREF="node91.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1741"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1742"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1744"
+ HREF="node93.htm">複数の値を返す関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1740"
+ HREF="node89.htm">関数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1734"
+ HREF="node91.htm">require修飾子付き関数宣言</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001120000000000000000">&#160;</A>
+<A NAME="5308">&#160;</A>
+<BR>
+関数の定義
+</H1><FONT SIZE="-1">
+関数は，関数定義子<TT>Func</TT>に続けてK&amp;Rの関数定義と同様に記述する。
+<TT>ClassName</TT>にはその関数の返す値のクラス名を書く。
+値を返さない関数の<A NAME="5416">&#160;</A>
+<TT>ClassName</TT>には<TT>void</TT>を書く。 
+<A NAME="5417">&#160;</A><A NAME="5418">&#160;</A>
+関数内の個々の文の終りはセミコロン``<TT>;</TT>''で区切っておく。
+<TT>void</TT>型以外の関数の場合，<TT>return</TT>文を省略できない。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  Func ClassName FunctionName(arg1, arg2, arg3, ..., argN)
+  ClassName1 arg1, arg2;
+  ClassName2 arg3;
+  ...............
+  ClassNameM argN;
+  {
+      変数の定義
+
+      複数の文 (関数の本体)
+
+      return;       // void 関数
+      return value; // void 以外の関数
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

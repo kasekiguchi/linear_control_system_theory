@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>複雑なシステムのシミュレーション</TITLE>
+<META NAME="description" CONTENT="複雑なシステムのシミュレーション">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node198.htm">
+<LINK REL="up" HREF="node195.htm">
+<LINK REL="next" HREF="node200.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3118"
+ HREF="node200.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3114"
+ HREF="node195.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3110"
+ HREF="node198.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3116"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3117"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3119"
+ HREF="node200.htm">謝辞</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3115"
+ HREF="node195.htm">連続系システムのシミュレーション</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3111"
+ HREF="node198.htm">動的フィードバック制御のシミュレーション</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002054000000000000000">
+複雑なシステムのシミュレーション</A>
+</H2><FONT SIZE="-1">
+ここでは，もっと複雑なシステムのシミュレーションを行なう方法を紹介する。
+システムが複雑になると，微分方程式を記述する関数<TT>diff_eqs()</TT>や
+各システムの接続関係を記述する関数<TT>link_eqs()</TT>の先頭において，
+拡大された状態<TT>X</TT>から各システムの状態を取り出す作業が複雑になる。
+この作業を簡単にする関数<TT>VecCont()</TT>と<TT>VecChop()</TT>の
+使い方を下図に示すシステムのシミュレーションを通して説明する。
+<A NAME="11322">&#160;</A>
+<A NAME="11323">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1">図に示す各ブロック</FONT><I>P</I><FONT SIZE="-1">,</FONT><I>D</I><FONT SIZE="-1">,</FONT><I>C</I><FONT SIZE="-1">,</FONT><I>F</I><FONT SIZE="-1">はプラント，プラントの不確定要素，
+前置コントローラ，フィードバックコントローラを表し，各ブロックは線形状態
+方程式と線形出力方程式で記述され，その係数は</FONT>
+<!-- MATH: $(Ap, Bp, Cp)$ -->
+(<I>Ap</I>, <I>Bp</I>, <I>Cp</I>)<FONT SIZE="-1">,
+</FONT>
+<!-- MATH: $(Ad, Bd, Cd)$ -->
+(<I>Ad</I>, <I>Bd</I>, <I>Cd</I>)<FONT SIZE="-1">, </FONT>
+<!-- MATH: $(Ac, Bc, Cc)$ -->
+(<I>Ac</I>, <I>Bc</I>, <I>Cc</I>)<FONT SIZE="-1">, </FONT>
+<!-- MATH: $(Af, Bf, Cf)$ -->
+(<I>Af</I>, <I>Bf</I>, <I>Cf</I>)<FONT SIZE="-1">であるとする。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="11290">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 17.2:</STRONG>
+複雑なシステムのシミュレーション</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.8\linewidth]{Fig/simu-system2.eps}$ -->
+<IMG
+ WIDTH="439" HEIGHT="199" ALIGN="BOTTOM" BORDER="0"
+ SRC="img43.gif"
+ ALT="\includegraphics[width=0.8\linewidth]{Fig/simu-system2.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Matrix Ap, Bp, Cp; // 制御器のパラメータ
+Matrix Ad, Bd, Cd; // 不確定要素のパラメータ
+Matrix Ac, Bc, Cc; // 制御器１のパラメータ
+Matrix Af, Bf, Cf; // 制御器２のパラメータ
+List state_idx;    // 状態の指数のリスト
+List input_idx;    // 入力の指数のリスト
+
+Func void main()
+{
+  Matrix xp0, xd0, xc0, xf0, x0;
+  Matrix up0, ud0, uc0, uf0, u0;
+  Array TC, XC, UC;
+   
+  void diff_eqs(), link_eqs();
+  
+  read Ap, Bp, Cp &lt;- "plant";
+  read Ad, Bd, Cd &lt;- "uncertainty";
+  read Ac, Bc, Cc &lt;- "controller-1";
+  read Af, Bf, Cf &lt;- "controller-2";
+  read xp0, xd0, xc0, xf0 &lt;- "init-states";
+  read up0, ud0, uc0, uf0 &lt;- "init-inputs";
+
+  {x0, state_idx} = VecCont({xp0, xd0, xc0, xf0});
+  {u0, input_idx} = VecCont({up0, ud0, uc0, uf0});
+  {TC, XC, UC} =
+     Ode45Auto(0.0, 20.0, x0, diff_eqs, link_eqs);
+
+  print [[TC][XC][UC]] &gt;&gt; "cont.mat";
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+</FONT>
+<P><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void diff_eqs(DX, t, X, U)
+  Real t;
+  Matrix X, DX, U;
+{
+  Matrix xp, xd, xc, xf;
+  Matrix dxp, dxd, dxc, dxf;
+  Matrix up, ud, uc, uf;
+
+  {xp, xd, xc, xf} = VecChop(X, state_idx);
+  {up, ud, uc, uf} = VecChop(U, input_idx);
+
+  dxp = Ap*xp + Bp*up;
+  dxd = Ad*xd + Bd*ud;
+  dxc = Ac*xc + Bc*uc;
+  dxf = Af*xf + Bf*uf;
+  DX = [[dxp][dxd][dxc][dxf]];
+}
+
+Func void link_eqs(U, t, X)
+  Real t;
+  Matrix U, X;
+{
+  Matrix xp, xd, xc, xf;
+  Matrix up, ud, uc, uf;
+  Matrix yp, yd, yc, yf;
+
+  {xp, xd, xc, xf} = VecChop(X, state_idx);
+
+  yp = Ap*xp;
+  yd = Ad*xd;
+  yc = Ac*xc;
+  yf = Af*xf;
+
+  up = yc - yf;
+  ud = up;
+  uc = u;
+  uf = yp + yd;
+  U = [[up][ud][uc][uf]]';
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+List 8:&nbsp;&nbsp;&nbsp;&nbsp;複雑なシステムのシミュレーション
+</FONT></DIV>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

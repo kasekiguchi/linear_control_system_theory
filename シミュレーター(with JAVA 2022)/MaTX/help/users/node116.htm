@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>複素数関数</TITLE>
+<META NAME="description" CONTENT="複素数関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node115.htm">
+<LINK REL="up" HREF="node113.htm">
+<LINK REL="next" HREF="node117.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2035"
+ HREF="node117.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2031"
+ HREF="node113.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2027"
+ HREF="node115.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2033"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2034"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2036"
+ HREF="node117.htm">文字列</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2032"
+ HREF="node113.htm">複素数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2028"
+ HREF="node115.htm">複素数の比較</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001430000000000000000">
+複素数関数</A>
+</H1><FONT SIZE="-1">
+複素数関数の一覧を以下に示す。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="6499">&#160;</A>
+<A NAME="6500">&#160;</A>
+<A NAME="6501">&#160;</A>
+<A NAME="6502">&#160;</A>
+<A NAME="6503">&#160;</A>
+<A NAME="6504">&#160;</A>
+<A NAME="6505">&#160;</A>
+<A NAME="6506">&#160;</A>
+<A NAME="6507">&#160;</A>
+<A NAME="6508">&#160;</A>
+<A NAME="6509">&#160;</A>
+<A NAME="6510">&#160;</A>
+<A NAME="6511">&#160;</A>
+<A NAME="6512">&#160;</A>
+<A NAME="6513">&#160;</A>
+<A NAME="6514">&#160;</A>
+<A NAME="6515">&#160;</A>
+<A NAME="6516">&#160;</A>
+<A NAME="6517">&#160;</A>
+<A NAME="6518">&#160;</A>
+<A NAME="6519">&#160;</A>
+<A NAME="6520">&#160;</A>
+<A NAME="6521">&#160;</A>
+<A NAME="6522">&#160;</A>
+<A NAME="6523">&#160;</A>
+<A NAME="6524">&#160;</A>
+<A NAME="6525">&#160;</A>
+<A NAME="6526">&#160;</A>
+<A NAME="6527">&#160;</A>
+<A NAME="6528">&#160;</A>
+<A NAME="6529">&#160;</A>
+<A NAME="6530">&#160;</A>
+<A NAME="6531">&#160;</A>
+<A NAME="6532">&#160;</A>
+</FONT>
+<P><PRE>
+  Complex c1;
+  Real tol;
+
+  Integer finite(c1);         有限関数
+                              もし c1 が有限値なら 1
+                              無限大あるいは NaN なら 0
+  Integer isnan(c1);          もし c1 が NaN なら 1
+                              それ以外なら 0
+  Real    abs(c1);            絶対値
+  Real    arg(c1);            偏角
+  Comlex  max(c1, c2);        最大値
+  Comlex  min(c1, c2);        最小値
+  Complex sin(c1);            正弦関数
+  Complex sinh(c1);           双曲線正弦関数
+  Complex asin(c1);           逆正弦関数
+  Complex asinh(c1);          逆双曲線正弦関数
+  Complex cos(c1);            余弦関数
+  Complex cosh(c1);           双曲線余弦関数
+  Complex acos(c1);           逆余弦関数
+  Complex acosh(c1);          逆双曲線余弦関数
+  Complex tan(c1);            正接関数
+  Complex tanh(c1);           双曲線正接関数
+  Complex atan(c1);           逆正接関数
+  Complex atanh(c1);          逆双曲線正接関数
+  Complex log(c1);            自然対数
+  Complex log10(c1);          常用対数
+  Complex exp(c1);            指数関数
+  Complex conj(c1);           共役複素数
+  Complex sqrt(c1);           平方根
+  Complex sgn(c1);            符合関数 (c1/abs(c1))
+  Complex pow(c1, c2)          c1^c2
+  Complex trans(c1)            c1'
+  Complex conj(c1)             c1 の共役
+  Complex conjtrans(c1)        c1#
+  Complex inv(c1)              c1~
+  Complex ceil(c1)            最高値の整数への丸め関数
+  Complex floor(c1)           最低値の整数への丸め関数
+  Complex fix(c1)             0 方向の整数への丸め関数
+  Complex round(c1)           最も近い整数への丸め関数
+  Complex round2z(c1)         ゼロへの丸め(tol = EPS)
+  Complex round2z(c1, tol)    絶対値が tol より小なら 0
+</PRE>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

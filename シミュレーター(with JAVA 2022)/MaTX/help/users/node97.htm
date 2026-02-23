@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>関数呼び出し (matx)</TITLE>
+<META NAME="description" CONTENT="関数呼び出し (matx)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node98.htm">
+<LINK REL="previous" HREF="node94.htm">
+<LINK REL="up" HREF="node89.htm">
+<LINK REL="next" HREF="node98.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1803"
+ HREF="node98.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1799"
+ HREF="node89.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1793"
+ HREF="node96.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1801"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1802"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1804"
+ HREF="node98.htm">関数の引数渡し</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1800"
+ HREF="node89.htm">関数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1794"
+ HREF="node96.htm">一般的な可変長引数関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001150000000000000000">
+関数呼び出し (matx)</A>
+</H1><FONT SIZE="-1">
+関数は名前で呼ぶが，その後には丸括弧内に引数を並べたものを付ける。
+引数がなくても丸括弧は省略できない。
+宣言されているが定義されていない関数が呼び出されれると，
+<A NAME="5424">&#160;</A>
+</FONT><DL COMPACT>
+<DT>1.
+<DD>その関数が<TT>require</TT>修飾子付きで宣言されている場合，
+指定されたファイルが読み込まれる。ただし，ファイルが相対パス
+      で指定されている場合，ファイルは，カレントディレクトリ，
+      環境変数<TT>MATXINPUTS</TT>が定義されていれば，そのディレクトリ群，
+      <B>デフォルトmmファイルディレクトリ</B>の順番に探索される。
+<DT>2.
+<DD>その関数が<TT>require</TT>修飾子付きで宣言されていない場合，
+      関数名と同じmmファイルが探索されて読み込まれる。
+      mmファイルは，カレントディレクトリ，環境変数<TT>MATXINPUTS</TT>が
+      定義されていれば，そのディレクトリ群，
+      <B>デフォルトmmファイルディレクトリ</B>の順番に探索される。
+</DL><FONT SIZE="-1"><TT>MATXINPUTS</TT>で指定されたディレクトリ群と
+<B>デフォルトmmファイルディレクトリ</B>は再帰的に検索される。
+環境変数<TT>LANG</TT>に<TT>ja</TT>，<TT>japanese</TT>，<TT>ja_JP.xxx</TT>
+が設定されていて，各ディレクトリに<TT>ja</TT>というディレクトリが
+存在すれば，そこが先に検索される。
+環境変数<TT>MATXINPUTS</TT>には，コロン``<TT>:</TT>''で区切って複数のパスを指定
+することができるが，この環境変数を指定した場合，
+デフォルトのmmファイルディレクトリは，探索されなくなる。
+デフォルトのmmファイルディレクトリも探索して欲しい場合は，
+環境変数にデフォルトのmmファイルディレクトリを指定する必要がある。
+<A NAME="5371">&#160;</A>
+<A NAME="5372">&#160;</A>
+<A NAME="5425">&#160;</A>
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

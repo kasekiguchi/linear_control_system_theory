@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>fread</TITLE>
+<META NAME="description" CONTENT="fread">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node78.htm">
+<LINK REL="previous" HREF="node76.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node78.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1616"
+ HREF="node78.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1613"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1607"
+ HREF="node76.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1615"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1617"
+ HREF="node78.htm">frobnorm</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1614"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1608"
+ HREF="node76.htm">fprintf</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000473000000000000000">&#160;</A><A NAME="man_fread">&#160;</A>
+<BR>
+fread
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>fread - ファイルからバイナリデータを読み込む
+<DT>【形式】
+<DD><PRE>
+X = fread(fd,c,type)     X = fread(fd,c,type,endian)
+   Matrix X;                Matrix X;
+   Integer fd;              Integer fd;
+   Integer c;               Integer c;
+   String type;             String type;
+                            Integer endian;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>fread(fd, c, type) は指定したファイルからバイナリデータを読み込み，
+それを成分とする行ベクトルを返す。読み込みに失敗すると，空行列を返す。
+fd は fopen() が返すファイルディスクリプタ，c は読み込むデータ数，
+type は読み込むデータの型である。type には，</FONT><FONT SIZE="-1">C言語のデータの型を
+文字列で指定する。次に指定できる型を示す。ただし，システムによって
+符合あり(signed)の型を指定できない場合がある。
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">"char"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">文字 (8 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"signed char"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">符合あり文字 (8 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"unsigned char"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">符合なし文字 (8 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"short"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">整数 (16 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"signed short"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">符合あり整数 (16 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"unsigned short"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">符合なし整数 (16 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"int"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">整数 (16,32,64 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"signed int"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">符合あり整数 (16,32,64 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"unsigned int"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">符合なし整数 (16,32,64 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"long"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">整数 (32 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"signed long"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">符合あり整数 (32 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"unsigned long"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">符合なし整数 (32 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"float"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">単精度浮動小数点数 (32 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"double"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">倍精度浮動小数点数 (32 bits)</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1">  
+fread(fd, c, type, 1)は，バイナリデータの数値形式(</FONT><FONT SIZE="-1">Endian)を変更する。
+<DT>【例題】
+<DD>5 個の </FONT><FONT SIZE="-1">int型のバイナリデータを読み込む。</FONT><PRE>
+fd = fopen("data", "r");
+B = fread(fd, 5, "int");
+fclose(fd);
+</PRE><FONT SIZE="-1"><FONT SIZE="-1">3 個の </FONT></FONT><FONT SIZE="-1">double<FONT SIZE="-1">型のバイナリデータを</FONT></FONT><FONT SIZE="-1">Endian<FONT SIZE="-1">を変更し，読み込む。</FONT></FONT><PRE>
+fd = fopen("data", r");
+C = fread(fd, 3, "double", 1);
+fclose(fd);
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT></FONT>
+<DIV><TT>fopen(<A HREF="node74.htm#man_fopen">2.75</A>), fclose(<A HREF="node65.htm#man_fclose">2.64</A>), fscanf(<A HREF="node81.htm#man_fscanf">2.82</A>), fgets(<A HREF="node70.htm#man_fgets">2.69</A>), fwrite(<A HREF="node83.htm#man_fwrite">2.84</A>), reshape(<A HREF="node178.htm#man_reshape">2.179</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html1616"
+ HREF="node78.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1613"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1607"
+ HREF="node76.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1615"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1617"
+ HREF="node78.htm">frobnorm</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1614"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1608"
+ HREF="node76.htm">fprintf</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

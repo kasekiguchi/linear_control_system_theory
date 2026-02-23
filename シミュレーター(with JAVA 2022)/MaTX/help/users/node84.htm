@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>変数</TITLE>
+<META NAME="description" CONTENT="変数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node89.htm">
+<LINK REL="previous" HREF="node68.htm">
+<LINK REL="up" HREF="MaTX.htm">
+<LINK REL="next" HREF="node85.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1634"
+ HREF="node85.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1630"
+ HREF="MaTX.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1624"
+ HREF="node83.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1632"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1633"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1635"
+ HREF="node85.htm">変数の宣言</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1631"
+ HREF="MaTX.htm">無題</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1625"
+ HREF="node83.htm">ウィンドウ・マネ−ジャ−の設定</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001000000000000000000">&#160;</A>
+<A NAME="5133">&#160;</A>
+<BR>
+変数
+</H1><FONT SIZE="-1">
+
+コンパイラ(<I>matc</I>)を使う場合，全ての変数は使う前に
+宣言しておかなければならない。変数には局所変数と大域変数がある。
+<A NAME="5135">&#160;</A>
+<A NAME="5136">&#160;</A>
+<A NAME="5180">&#160;</A>
+局所変数は関数の先頭の実行可能文の前で宣言し，関数内でのみ有効である。
+局所変数が占有したメモリ領域は，その関数が終了すると自動的に解放される。
+一方，大域変数は関数<TT>main()</TT>が定義される前に宣言されなければならない。
+大域変数は，大域的にアクセスできるから，それらは関数間のデータのやりとり
+については，関数の引数と戻り値の代用にすることができる。
+その名前が何らかの形で宣言されていれば，大域変数は，
+それを名前で参照することによって，どの関数からもアクセス可能である。
+そうした関数の間で数多くの変数を共用しなければならない時には，
+長い引数リストよりも大域変数の方が便利である。
+しかしながら，この方法は注意して用いねばならない。
+なぜなら，それはプログラム構造に悪い影響を与え，
+関数間で多くのデータが結合した
+プログラムを作ることになるからである。
+</FONT>
+<P>
+<FONT SIZE="-1">なお，大域変数は</FONT>0<FONT SIZE="-1">に初期化されることが保証されるので，ユーザが陽に初期化
+する必要はない。リストは成分が0個のリストとして初期化される。
+ただし，行列は0 x 0の行列として初期化されるので，
+<TT>length()</TT>関数を用い大きさを調べるなどして，陽に初期化する必要がある。
+一方，局所変数は使用する前に必ず初期化する必要がある。
+</FONT>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html1636"
+ HREF="node85.htm">変数の宣言</A>
+<LI><A NAME="tex2html1637"
+ HREF="node86.htm">通用範囲に関する規則</A>
+<LI><A NAME="tex2html1638"
+ HREF="node87.htm">静的変数</A>
+<LI><A NAME="tex2html1639"
+ HREF="node88.htm">暗黙の型変換</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

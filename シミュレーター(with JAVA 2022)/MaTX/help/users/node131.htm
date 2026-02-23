@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>多項式の係数のシフト</TITLE>
+<META NAME="description" CONTENT="多項式の係数のシフト">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node132.htm">
+<LINK REL="previous" HREF="node130.htm">
+<LINK REL="up" HREF="node125.htm">
+<LINK REL="next" HREF="node132.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2228"
+ HREF="node132.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2224"
+ HREF="node125.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2218"
+ HREF="node130.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2226"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2227"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2229"
+ HREF="node132.htm">多項式の比較</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2225"
+ HREF="node125.htm">多項式</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2219"
+ HREF="node130.htm">多項式の微分と積分</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001660000000000000000">&#160;</A>
+<A NAME="7036">&#160;</A>
+<BR>
+多項式の係数のシフト
+</H1><FONT SIZE="-1">
+<A NAME="7089">&#160;</A>
+<A NAME="7090">&#160;</A>
+多項式の係数を高次方向と低次方向にシフトするには，
+関数<TT>higher()</TT>と<TT>lower()</TT>をそれぞれ用いる。
+第2引数にシフトする回数を指定するが，回数を省略すると1回のシフトを意味する。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  s = $;
+  P1 = 3*s^2 + 4*s + 5;
+  P2 = higher(P1);    // 係数を高次方向に1回シフト
+  P2 = higher(P1,2);  // 係数を高次方向に2回シフト
+  P3 = lower(P2);     // 係数を低次方向に1回シフト
+  P3 = lower(P2,2);   // 係数を低次方向に2回シフト
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

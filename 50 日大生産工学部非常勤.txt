@@ -1,0 +1,102 @@
+日大生産工学部非常勤授業について
+
+資料は電気電子系の線形制御理論と同じものを使用。
+
+
+-------------------------------------------------------
+日大シラバス
+-------------------------------------------------------
+【実施方法】（100分×2回）対面授業，第1回，第2回を同日連続して行う
+【事前学修】（60分）フィードバック制御について概念を確認しておく
+【学習内容(第1回)】制御とは
+【学習内容(第2回)】モデリング（状態方程式）
+【事後学修】（150分）授業について復習するとともに，身近な制御対象の状態方程式を導くなど，状態方程式について理解を深める
+
+[Class] (100 min. x 2 Classes) Face to Face Class, 1st and 2nd classes are held consecutively on the same day
+[Prior Study] (60 min.) Review the concept of feedback control.
+[Contents (1st)] Introduction to Control Theory
+[Contents (2nd)] Modeling: State Equation
+[Afterward Study] (150 min.) Review the classes and deepen your understanding of the state equation by deriving the state equation of familiar control objects.
+-------------------------------------------------------
+-------------------------------------------------------
+【実施方法】（100分×2回）対面授業，第3回，第4回を同日連続して行う
+【事前学修】（240分）テキスト1.2節 - 1.5節を通読した上で座標変換と可制御性の考え方を確認し，疑問点や不明な点をノートにまとめておく．
+【学習内容(第3回)】座標変換
+【学習内容(第4回)】可制御性と可制御性分解
+【事後学修】（300分）授業について復習するとともに，身近なシステムの可制御性を確認し，普通は可制御であるがパラメータによっては不可制御になるシステムの構造について考察する．
+
+[Class] (100 min. x 2 Classes) Face to Face Class, 3rd and 4th classes are held consecutively on the same day
+[Prior Study] (240 min.) Read through sections 1.2 - 1.5 of the text to review the concepts of coordinate transformations and controllability, and make notes on any questions or points that are unclear.
+[Contents (3rd)] Coordinate Transformation
+[Contents (4th)] Controllability and System Decomposition
+[Afterward Study] (300 min.) Review the classes and deepen your understanding of the controllability by checking the controllability of familiar systems and discuss the structure of systems that are normally controllable but become uncontrollable depending on the parameters.
+-------------------------------------------------------
+-------------------------------------------------------
+【実施方法】（100分×2回）対面授業，第5回，第6回を同日連続して行う
+【事前学修】（240分）テキスト1.6節 - 1.7節を通読した上で可観測性とシステムの応答を確認し，疑問点や不明な点をノートにまとめておく．
+【学習内容(第5回)】可観測性と可観測分解
+【学習内容(第6回)】状態方程式の解：遷移行列
+【事後学修】（300分）授業について復習するとともに，身近なシステムの可観測性を確認し，普通は可観測であるがパラメータによって不可観測になるシステムの構造について考察する．今までの事後学修で検討したシステムのうちいくつかについて遷移行列を求める．
+
+[Class] (100 min. x 2 Classes) Face to Face Class, 5th and 6th classes are held consecutively on the same day
+[Prior Study] (240 min.) Read through sections 1.6 - 1.7 of the text to review the concepts of observability and system response, and make notes on any questions or points that are unclear.
+[Contents (5th)] Observability and System Decomposition
+[Contents (6th)] Transition Matrix
+[Afterward Study] (300 min.) Review the classes and deepen your understanding of the observability by checking the observability of familiar systems and discuss the structure of systems that are normally observable but become unobservable depending on the parameters. Derive transition matrices for some of the systems studied so far in the previous afterward-study.
+-------------------------------------------------------
+-------------------------------------------------------
+【実施方法】（100分×2回）対面授業，第7回，第8回を同日連続して行う
+【事前学修】（240分）テキスト1.8節 - 1.9.1節を通読した上でシステムの安定性と状態フィードバック（極配置）の考え方を確認し，疑問点や不明な点をノートにまとめておく．
+【学習内容(第7回)】安定性，状態フィードバック：極配置
+【学習内容(第8回)】状態フィードバック：極と応答
+【事後学修】（300分）授業について復習するとともに，今まで事後学修で検討したシステムのうちいくつかについて極配置での状態フィードバックを求める．
+
+[Class] (100 min. x 2 Classes) Face to Face Class, 7th and 8th classes are held consecutively on the same day
+[Prior Study] (240 min.) Read through sections 1.8 - 1.9.1 of the text to review the concepts of stability and feedback controller design using pole assignment, and make notes on any questions or points that are unclear.
+[Contents (7th)] Stability, State Feedback (Pole Assignment)
+[Contents (8th)] Pole and Response
+[Afterward Study] (300 min.) Review the classes and deepen your understanding of the pole assignment method by designing state feedback controller for some of the systems studied so far in the previous afterward-study.
+-------------------------------------------------------
+-------------------------------------------------------
+【実施方法】（100分×2回）対面授業，第9回，第10回を同日連続して行う
+【事前学修】（240分）テキスト1.9.2節 - 1.9.4節を通読した上で最適制御とリアプノフ関数の考え方を確認し，疑問点や不明な点をノートにまとめておく．
+【学習内容(第9回)】状態フィードバク：最適制御
+【学習内容(第10回)】リアプノフ関数と安定性
+【事後学修】（300分）授業について復習するととともに，MATLAB等の制御系設計ソフトウエアについてウェブで調べる．
+
+[Class] (100 min. x 2 Classes) Face to Face Class, 9th and 10th classes are held consecutively on the same day
+[Prior Study] (240 min.) Read through sections 1.9.2 - 1.9.4 of the text to review the concepts of optimal control and stability analysis using Lyapunov function, and make notes on any questions or points that are unclear.
+[Contents (9th)] State Feedback (Optimal Control)
+[Contents (10th)] Lyapunov Function and Stability of Optimal Control
+[Afterward Study] (300 min.) Review the classes and search the web for controller design CAD like MATLAB
+-------------------------------------------------------
+-------------------------------------------------------
+【実施方法】（100分×2回）対面授業，第11回，第12回を同日連続して行う
+【事前学修】（240分）テキスト1.9.5節 - 1.10節を通読した上でサーボ系とオブザーバの考え方を確認し，疑問点や不明な点をノートにまとめておく．
+【学習内容(第11回)】サーボ系
+【学習内容(第12回)】オブザーバ
+【事後学修】（600分）第1回から今回までの授業を振り返り，モデリング・状態フィードバック（含サーボ系）・オブザーバを用いた設計の流れを総合的に復習し，身近なシステムに対する設計を試みる
+
+[Class] (100 min. x 2 Classes) Face to Face Class, 11th and 12th classes are held consecutively on the same day
+[Prior Study] (240 min.) Read through sections 1.9.5 - 1.10 of the text to review the concepts of servo controller and observer, and make notes on any questions or points that are unclear.
+[Contents (11th)] Serve Controller
+[Contents (12th)] Observer
+[Afterward Study] (600 min.) Review the lessons from the first class to this class. Review the flow of controller design with modeling, state feedback (including servo systems), and observers.  Try to design controller for a familiar system.
+-------------------------------------------------------
+-------------------------------------------------------
+【実施方法】（100分（第13回）＋50分（第14回））対面授業，第13回，第14回を同日連続して行う
+【事前学修】（150分）テキスト2章 - 4章を通読した上で線形化と離散系の考え方を確認し，疑問点や不明な点をノートにまとめておく．
+【学習内容(第13回)】非線形システムの線形化
+【学習内容(第14回)】離散系
+【事後学修】（240分）授業について復習するとともに，身近な非線形システムの線形化を試みる．
+
+[Class] (100 min.(13th) + 50 min.(14th)) Face to Face Class, 13th and 14th classes are held consecutively on the same day
+[Prior Study] (140 min.) Read through chapters 2 - 4 of the text to review the concepts of linearization and control of discrete time systems, and make notes on any questions or points that are unclear.
+[Contents (13th)] Linearization
+[Contents (14th)] Discrete Time Systems
+[Afterward Study] (240 min.) Review the classes and try to linearize a familiar nonlinear system.
+-------------------------------------------------------
+-------------------------------------------------------
+上記参照
+
+See above

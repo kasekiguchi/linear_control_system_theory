@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>メイン関数</TITLE>
+<META NAME="description" CONTENT="メイン関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node230.htm">
+<LINK REL="previous" HREF="node228.htm">
+<LINK REL="up" HREF="node228.htm">
+<LINK REL="next" HREF="node230.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3512"
+ HREF="node230.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3508"
+ HREF="node228.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3502"
+ HREF="node228.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3510"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3511"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3513"
+ HREF="node230.htm">リアルタイム処理関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3509"
+ HREF="node228.htm">プログラムの動作</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3503"
+ HREF="node228.htm">プログラムの動作</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002641000000000000000">
+メイン関数</A>
+</H2><FONT SIZE="-1">
+基本的なメイン関数<TT>main()</TT>の例を次に示す。
+<A NAME="13368">&#160;</A>
+<A NAME="13369">&#160;</A>
+<A NAME="13370">&#160;</A>
+<A NAME="13371">&#160;</A>
+<A NAME="13372">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void main()
+{
+  para_init();            // パラメータの設定
+  var_init();             // 変数の初期化
+  machine_ready();        // 実験装置(電源など)の準備
+
+  rtSetClock(stime);      // サンプリング時間(秒単位)設定
+  rtSetTask(on_task);     // リアルタイムタスクを設定
+  rtSetBreak(break_task); // Ctrl-Cによる割込の処理を設定
+
+  rtStart();              // リアルタイム処理を開始
+  off_task_loop();        // 画面表示，コマンドの入力
+  rtStop();               // リアルタイム処理を停止
+
+  machine_stop();         // 実験装置(電源など)の停止
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>コメントの説明を補足する。
+</FONT><UL>
+<LI>Real型の変数<TT>stime</TT>にはサンプリング時間が秒単位で
+      設定されている。<A NAME="13073">&#160;</A>
+<LI>void型の関数<TT>break_task()</TT>はコントロール+<I>C</I>などの割り込み
+      キーが押された時に呼ばれる関数であり，リアルタイム処理の停止などを
+      記述しておく。<A NAME="13075">&#160;</A>
+<LI>関数<TT>rtStart()</TT>が実行されると，サンプリング時間毎にvoid型の関数
+      <TT>on_task()</TT>が実行される。
+<LI>関数<TT>off_task_loop()</TT>では，変数の表示やコマンドの入力待ち
+      のループが記述されており，この関数の実行が終わると，関数
+      <TT>rtStop()</TT>が呼ばれて，リアルタイム処理が停止する。
+</UL>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

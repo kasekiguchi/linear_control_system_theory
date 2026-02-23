@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>コマンドラインの引数</TITLE>
+<META NAME="description" CONTENT="コマンドラインの引数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node100.htm">
+<LINK REL="up" HREF="node89.htm">
+<LINK REL="next" HREF="node102.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1849"
+ HREF="node102.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1845"
+ HREF="node89.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1841"
+ HREF="node100.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1847"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1848"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1850"
+ HREF="node102.htm">制御の流れ</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1846"
+ HREF="node89.htm">関数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1842"
+ HREF="node100.htm">関数の参照</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001190000000000000000">&#160;</A>
+<A NAME="5405">&#160;</A>
+<BR>
+コマンドラインの引数
+</H1><FONT SIZE="-1">
+コマンドラインの引数は，関数<TT>main()</TT>にリストの形で引数として渡される。
+リストの全ての成分は文字列であり，1番目の成分はコマンド名である。
+整数や実数をコマンドラインで渡すには，リストの成分を取り出してクラス変換関数
+で変換して利用する。
+例えば，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  Func void main(argc, argv)
+      Integer argc;
+      List argv;
+  {
+      Integer a, b;
+
+      print "Command Name is", argv(1, String), ".\n";
+      a = Integer(argv(2, String));
+      b = Integer(argv(3, String));
+      print a + b;
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+は，コマンド名と第1引数と第2引数の和を計算して表示する。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

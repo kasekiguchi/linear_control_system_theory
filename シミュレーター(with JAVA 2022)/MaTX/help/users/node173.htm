@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>0-1配列を用いた成分の操作</TITLE>
+<META NAME="description" CONTENT="0-1配列を用いた成分の操作">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node174.htm">
+<LINK REL="previous" HREF="node172.htm">
+<LINK REL="up" HREF="node169.htm">
+<LINK REL="next" HREF="node174.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2798"
+ HREF="node174.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2794"
+ HREF="node169.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2788"
+ HREF="node172.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2796"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2797"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2799"
+ HREF="node174.htm">成分の代入</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2795"
+ HREF="node169.htm">行列成分の操作</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2789"
+ HREF="node172.htm">式行列の成分の取り出し</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001854000000000000000">
+0-1配列を用いた成分の操作</A>
+</H2><FONT SIZE="-1">
+比較演算の結果生成される0-1配列を用いれば小行列を作成できる。
+m x 1 の縦ベクトル(配列)<TT>A</TT>から負の要素を取り去る例を次に示す。
+<A NAME="8289">&#160;</A>
+<A NAME="9033">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  A = Array([-1, 1, -2, 2]);
+  L = A &gt; 0;         // L = [0 1 0 1]
+  B = A(L);          // B = [1 2]
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>ここで，<TT>L</TT>は比較演算の結果作られる0と1からなる m x 1 の配列である。
+次のように，<TT>L</TT>を用いずに直接正の成分を取り出すこともできる。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  A = Array([-1, 1, -2, 2]);
+  B = A(A &gt; 0);       // B = [1 2]
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>関数<TT>find()</TT>を使って指数を求めてから，正の成分を取り出してもよい。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  A = Array([-1, 1, -2, 2]);
+  idx = find(A &gt; 0);  // idx = [2 4]
+  B = A(idx);         // B = [1 2]
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>次に，<TT>A</TT>の負のようその符合を反転する例を示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  A = Array([-1, 1, -2, 2]);
+  L = A &lt; 0;      // L = [1 0 1 0]
+  B = -A(L);      // B = [1 2]
+  A(L) = B;       // A = [1 1 2 2]
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>次のように，<TT>L</TT>を用いないで直接負の成分の符合を反転することのできる。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  A = Array([-1, 1, -2, 2]);
+  A(A &lt; 0) = -A(A &lt; 0);      // A = [1 1 2 2]
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>関数<TT>find()</TT>を使って指数を求めてから，負の成分の符合を反転しても良い。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  A = Array([-1, 1, -2, 2]);
+  idx = find(A &lt; 0);  // idx = [1 3]
+  A(idx) = -A(idx);   // A = [1 1 2 2]
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

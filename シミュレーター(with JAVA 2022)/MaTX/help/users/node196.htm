@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>状態フィードバック制御のシミュレーション (1)</TITLE>
+<META NAME="description" CONTENT="状態フィードバック制御のシミュレーション (1)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node197.htm">
+<LINK REL="previous" HREF="node195.htm">
+<LINK REL="up" HREF="node195.htm">
+<LINK REL="next" HREF="node197.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3084"
+ HREF="node197.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3080"
+ HREF="node195.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3074"
+ HREF="node195.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3082"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3083"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3085"
+ HREF="node197.htm">状態フィードバック制御のシミュレーション (2)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3081"
+ HREF="node195.htm">連続系システムのシミュレーション</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3075"
+ HREF="node195.htm">連続系システムのシミュレーション</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002051000000000000000">&#160;</A>
+<A NAME="10860">&#160;</A>
+<BR>
+状態フィードバック制御のシミュレーション (1)
+</H2><FONT SIZE="-1">
+連続系線形システム
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\dot{x} =
+\left[\begin{array}{ccc}
+0 &  1 &  0\\
+ 0 &  0 &  1\\
+-2 & -3 & -4
+\end{array}\right] x +
+\left[\begin{array}{c}
+0\\0\\1
+\end{array}\right] u
+
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="248" HEIGHT="78"
+ SRC="img40.gif"
+ ALT="\begin{displaymath}\dot{x} =
+\left[\begin{array}{ccc}
+0 & 1 & 0\\
+0 & 0 & 1\\...
+...ht] x +
+\left[\begin{array}{c}
+0\\ 0\\ 1
+\end{array}\right] u
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+に状態フィードバック
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+u = \left[\begin{array}{ccc}
+-1 & -1 & -1
+    \end{array}\right] x
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="166" HEIGHT="39"
+ SRC="img41.gif"
+ ALT="\begin{displaymath}u = \left[\begin{array}{ccc}
+-1 & -1 & -1
+\end{array}\right] x
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+を用いた連続時間制御とハイブリッド制御のシミュレーションを
+4次のルンゲ−クッタの公式にしたがって，きざみを自動調節しながら行なう
+[<A
+ HREF="node201.htm#William:88:nri">14</A>]。
+</FONT>
+<P>
+<FONT SIZE="-1">関数<TT>main()</TT>はパラメータと初期状態を設定して
+シミュレーションを行ない，結果をファイル<TT>cont.mat</TT>に保存する。
+<TT>diff_eqs()</TT>は動的要素の微分方程式を記述するための関数であり，
+<TT>link_eqs()</TT>は動的要素の接続関係を記述するための関数である。
+</FONT>
+<P>
+<FONT SIZE="-1">関数<TT>Ode45Auto()</TT>と<TT>Ode45HybridAuto()</TT>は陽の非線形関数の積分を行なう。
+関数<TT>Ode45Auto()</TT>は連続時間制御のシュミレーションを行ない，
+関数<TT>Ode45HybridAuto()</TT>はサンプル値系(ディジタルコントローラ
+による連続時間プラントの制御)のシュミレーションを行なう。
+</FONT>
+<P>
+<FONT SIZE="-1">関数<TT>Ode45Auto()</TT>は，5個の引数をとる。
+引数は，初期時刻(<TT>0.0</TT>)，最終時刻
+(<TT>5.0</TT>)，初期状態ベクトル(<TT>x0</TT>)，
+微分係数ベクトル(<TT>dx</TT>)を計算する関数の参照(<code>diff_eqs</code>)，
+入力ベクトル(<TT>u</TT>)を計算する関数の参照(<code>link_eqs</code>)の5個である。
+関数<TT>Ode45HybridAuto()</TT>は，上述の5個の引数に加えて，
+一定入力(<TT>u</TT>)がプラントに与え続けられるサンプリング時間(<TT>dt</TT>)を
+引数にとる。
+</FONT>
+<P>
+<FONT SIZE="-1">微分係数ベクトルを計算する関数<code>diff_eqs()</code>と入力ベクトルを計算する関数
+<code>link_eqs()</code>は，特別なフォーマットでなければならない。
+関数<code>diff_eqs()</code>は4個の引数を持つ。
+第1引数(<TT>dx</TT>)は，微分係数ベクトルを返すために使われ，状態ベクトル
+(<TT>x</TT>)と同じ次元である。第2引数(<TT>t</TT>)は，現時刻を表す実数である。
+第3引数(<TT>x</TT>)は，現時刻の状態ベクトルであり，第4引数(<TT>u</TT>)は，
+動的要素への入力ベクトルである。
+関数<code>link_eqs()</code>は3個の引数を持つ。
+第1引数(<TT>u</TT>)は，入力ベクトルを返すために使われる。
+第2引数(<TT>t</TT>)は，現時刻を表す実数である。
+第3引数(<TT>x</TT>)は，現時刻の状態ベクトルである。
+<A NAME="10943">&#160;</A>
+<A NAME="10944">&#160;</A>
+
+</FONT>
+<P>
+<FONT SIZE="-1">
+<BR></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void main()
+{
+  Real dt;
+  Matrix x0;
+  Array TC, XC, UC, TH, XH, UH;
+  void diff_eqs(), link_eqs();
+
+  dt = 0.01;       // サンプリング時間
+  x0 = [1 1 1]';   // 初期状態
+  {TC,XC,UC} = Ode45Auto(0.0, 5.0, x0, diff_eqs, link_eqs);
+  x0 = [1 1 1]';   // 初期状態
+  {TH,XH,UH} = 
+     Ode45HybridAuto(0.0, 5.0, dt, x0, diff_eqs, link_eqs);
+
+  print [[TC][XC][UC]] &gt;&gt; "cont.mat";
+  print [[TH][XH][UH]] &gt;&gt; "hybd.mat";
+}
+
+Func void diff_eqs(dx, t, x, u)
+  Real t;
+  Matrix x, dx, u;
+{
+  Matrix A, b;
+
+  A = [[ 0   1   0]      // システム行列
+       [ 0   0   1]
+       [-2, -3, -4]];
+
+  b = [0 0 1]';          // 入力行列
+  dx = A*x + b*u;        // 状態方程式
+}
+
+Func void link_eqs(u, t, x)
+  Real t;
+  Matrix u, x;
+{
+  Matrix f;
+
+  f = [-1, -1, -1];   // 状態フィードバックゲイン
+  u = f*x;
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+<BR>
+</FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+List 5:&nbsp;&nbsp;&nbsp;&nbsp;状態フィードバック制御のシミュレーション (1)
+</FONT></DIV>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

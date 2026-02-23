@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>論理演算 (Logical Operation)</TITLE>
+<META NAME="description" CONTENT="論理演算 (Logical Operation)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node220.htm">
+<LINK REL="up" HREF="node208.htm">
+<LINK REL="next" HREF="node222.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3393"
+ HREF="node222.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3389"
+ HREF="node208.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3385"
+ HREF="node220.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3391"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3392"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3394"
+ HREF="node222.htm">リアルタイム処理(RTMATX)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3390"
+ HREF="node208.htm">演算</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3386"
+ HREF="node220.htm">関係演算 (Relational Operation)</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION0025130000000000000000">&#160;</A>
+<A NAME="12554">&#160;</A>
+<BR>
+論理演算 (Logical Operation)
+</H1><FONT SIZE="-1">
+<A NAME="12666">&#160;</A><A NAME="12667">&#160;</A>
+論理演算子<code>&amp;&amp;</code>の優先度は<code>||</code>より高く，
+しかも両者は関係演算子や等値演算子より低い。
+論理値0は偽であり，0以外の値は真である。
+単項否定演算子<code>!</code>は非零すなわち真である被演算数の値を0にし，
+0すなわち偽である被演算数の値を1にする。
+<BR>
+<BR>
+</FONT>
+<P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">整数1 <code>&amp;&amp;</code> 整数2</TD>
+<TD ALIGN="LEFT">整数1と整数2が0でない時1   (論理積)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">整数1 || 整数2</TD>
+<TD ALIGN="LEFT">整数1か整数2が0でない時1   (論理和)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">! 整数1</TD>
+<TD ALIGN="LEFT">整数1が0の時1              (否定)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実数1 <code>&amp;&amp;</code> 実数2</TD>
+<TD ALIGN="LEFT">実数1と実数2が0.0でない時1 (論理積)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実数1 || 実数2</TD>
+<TD ALIGN="LEFT">実数1か実数2が0.0でない時1 (論理和)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">! 実数1</TD>
+<TD ALIGN="LEFT">実数1が0.0の時1            (否定)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 <code>&amp;&amp;</code> 配列2</TD>
+<TD ALIGN="LEFT">論理演算の結果を(0|1)の配列で返す</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 || 配列2</TD>
+<TD ALIGN="LEFT">論理演算の結果を(0|1)の配列で返す</TD>
+</TR>
+<TR><TD ALIGN="LEFT">! 配列1</TD>
+<TD ALIGN="LEFT">論理演算の結果を(0|1)の配列で返す</TD>
+</TR>
+</TABLE></DIV>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

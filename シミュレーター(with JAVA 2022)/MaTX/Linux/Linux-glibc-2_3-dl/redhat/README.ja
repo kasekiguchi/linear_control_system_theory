@@ -1,0 +1,47 @@
+MaTX-RPM README.ja
+
+ftp://ftp.matx.org/pub/MaTX/Linux/Linux-glibc-2_{0,1,2}/redhat
+ディレクトリには MaTX のパッケージとして
+   RPMS/i386/MaTX-x.xx.xx-y.i386.rpm		
+   RPMS/i386/MaTX-docs-x.xx.xx-y.i386.rpm
+   SPECS/MaTX.spec
+   README.ja (このファイル)
+   (x, y はバージョンおよびリリース番号が入ります．)
+が入っています。
+
+
+MaTX の RPM について
+ - MaTX-x.xx.xx-y.i386.rpm パッケージは，コンパイル済のバイナリである
+   ftp://ftp.matx.org/pub/MaTX/Linux/Linux-glibc-2_{0,1,2}/MaTX-x.xx.xx-y.tgz
+   を元に，パッケージ作成を行っています．
+
+ - MaTX-docs-x.xx.xx-y.i386.rpm パッケージは，html形式のドキュメントである
+   ftp://ftp.matx.org/pub/MaTX/Linux/Linux-glibc-2_{0,1,2}/MaTX-help.tgz
+   を元に，パッケージ作成を行っています．
+
+ - MaTX の RPM パッケージは，コンパイル済みバイナリをパックしているため，
+   FSSTND に従っていませんのでお気をつけください．
+   (/usr/local/MaTX にインストールされます)
+
+ - MaTX の RPM パッケージは，MaTX-x.xx.xx-y.tgz が更新された後，
+   6時と18時に自動スクリプトにより作成されます．
+
+ - MaTX の RPM をインストールするには，
+   バージョン3.7以上の gnuplot パッケージが必要です．
+   あらかじめインストールしておいてください．
+
+ - MaTX のバージョン番号の付け方が バージョン 5.0.3 より変わっています。
+   このため、MaTX-5.0+5.0-?.i386.rpm をインストールしている状態で
+   MaTX-5.xx.yy-z.i386.rpm へアップデートしようとすると
+     package %s-%s-%s (which is newer than %s-%s-%s) is already installed
+   と表示され、アップデートできないことがあります．このときは
+    --oldpackage オプションを使用して
+   rpm -Uvh --oldpackage MaTX-5.xx.yy-z.i386.rpm
+   のようにしてください．
+
+   "Major 5 Minor 0+5 Patch 0" is newer than "Major 5 Minor 0 Patch 3".
+                  ^^^ ここ                                  ^ ここ   
+
+ - MaTX のRPMパッケージ作成者が，谷口康明氏より中浦へと変わりました．
+
+MaTX-RPM packager: 中浦 茂樹 (Shigeki Nakaura) nakaura@ctrl.titech.ac.jp

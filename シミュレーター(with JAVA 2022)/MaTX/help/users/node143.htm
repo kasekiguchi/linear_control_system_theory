@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>有理多項式関数</TITLE>
+<META NAME="description" CONTENT="有理多項式関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node142.htm">
+<LINK REL="up" HREF="node134.htm">
+<LINK REL="next" HREF="node144.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2377"
+ HREF="node144.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2373"
+ HREF="node134.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2369"
+ HREF="node142.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2375"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2376"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2378"
+ HREF="node144.htm">行列と配列と指数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2374"
+ HREF="node134.htm">有理多項式</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2370"
+ HREF="node142.htm">有理多項式の比較</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001790000000000000000">
+有理多項式関数</A>
+</H1>
+<P>
+<FONT SIZE="-1">有理多項式関数の一覧を以下に示す。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="7436">&#160;</A>
+<A NAME="7437">&#160;</A>
+<A NAME="7438">&#160;</A>
+<A NAME="7439">&#160;</A>
+<A NAME="7440">&#160;</A>
+<A NAME="7441">&#160;</A>
+<A NAME="7442">&#160;</A>
+<A NAME="7443">&#160;</A>
+<A NAME="7444">&#160;</A>
+<A NAME="7445">&#160;</A>
+<A NAME="7446">&#160;</A>
+<A NAME="7447">&#160;</A>
+<A NAME="7448">&#160;</A>
+<A NAME="7449">&#160;</A>
+</FONT>
+<P><PRE>
+Rational R1;
+Integer i1;
+Real tol;
+
+Matrix  zeros(R1);          有理多項式の零点
+Matrix  poles(R1);          有理多項式の極
+Integer isreal(R1);         実有理多項式の有無
+                            (真 = 1, 偽 = 0)
+Integer iscomplex(R1);      複素有理多項式の有無
+                            (真 = 1, 偽 = 0)
+
+Rational floor(R1)          係数の最低値の整数への丸め
+Rational ceil(R1)           係数の最高値の整数への丸め
+Rational fix(R1)            係数の 0 方向の整数への丸め
+Rational round(R1)          係数の最も近い整数への丸め
+Rational round2z(R1)        係数の0への丸め(tol = EPS)
+Rational round2z(R1, tol)   係数の絶対値がtolより小なら0
+Rational pow(R1, i1)        R1^i1
+Rational trans(R1)          R1'
+Rational conj(R1)           R1 の共役
+Rational conjtrans(R1)      R1#
+Rational inv(R1)            R1~
+</PRE>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

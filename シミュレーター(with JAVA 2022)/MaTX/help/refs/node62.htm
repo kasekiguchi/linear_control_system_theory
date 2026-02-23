@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>exp</TITLE>
+<META NAME="description" CONTENT="exp">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node63.htm">
+<LINK REL="previous" HREF="node61.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node63.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1451"
+ HREF="node63.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1448"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1442"
+ HREF="node61.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1450"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1452"
+ HREF="node63.htm">extern</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1449"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1443"
+ HREF="node61.htm">exit</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000458000000000000000">&#160;</A><A NAME="man_exp">&#160;</A>
+<BR>
+exp
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>exp - 指数
+<DT>【形式】
+<DD><PRE>
+y = exp(x)
+   (Real   |Real|Complex) y;
+   (Integer|Real|Complex) x;
+  
+Y = exp(X)      Y = exp(X)
+   Array Y;        Matrix Y;
+   Array X;        Matrix X;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>exp(x)は，スカラ型(整数, 実数, 複素数) x の指数を求める。
+X が配列のとき，exp(X)は配列 X の各成分の指数からなる配列
+Y を求める。Y の大きさは X の大きさと同じになる。
+X が行列のとき，exp(X)は X の行列指数関数
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+Y = I + X + \frac{X^2}{2!} + \cdots + \frac{X^n}{n!} + \cdots
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="243" HEIGHT="40"
+ SRC="img13.gif"
+ ALT="\begin{displaymath}Y = I + X + \frac{X^2}{2!} + \cdots + \frac{X^n}{n!} + \cdots
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">  
+を求める。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; y = exp(1)
+y = 2.71828
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>sin(<A HREF="node210.htm#man_sin">2.211</A>), cos(<A HREF="node39.htm#man_cos">2.36</A>), tan(<A HREF="node233.htm#man_tan">2.234</A>), log(<A HREF="node114.htm#man_log">2.115</A>), log10(<A HREF="node115.htm#man_log10">2.116</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

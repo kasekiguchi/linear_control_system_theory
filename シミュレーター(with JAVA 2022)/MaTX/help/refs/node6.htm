@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>access</TITLE>
+<META NAME="description" CONTENT="access">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node7.htm">
+<LINK REL="previous" HREF="node5.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node7.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html835"
+ HREF="node7.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html832"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html826"
+ HREF="node5.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html834"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html836"
+ HREF="node7.htm">acos</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html833"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html827"
+ HREF="node5.htm">abs</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00042000000000000000">&#160;</A><A NAME="man_access">&#160;</A>
+<BR>
+access
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>access - ファイルのアクセス権を調べる
+<DT>【形式】
+<DD><PRE>
+i = access(file,mode)      i = access(file)
+    Integer i;                 Integer i;
+    String file,mode;         String file;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>access(file, mode) は file のアクセス権を調べる。
+アクセス権がある場合，0(整数)が返され，アクセス権がない場合，
+0 (整数)以外の値が返される。mode には調べたいアクセス権を
+文字列を組み合わせて指定する。指定できる文字列を以下に示す。
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">"f"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">ファイルが存在するか</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"x"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">ファイルを実行できるか</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"w"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">ファイルに書き込めるか</TD>
+</TR>
+<TR><TD ALIGN="LEFT">"r"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">ファイルを読み込めるか</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1">  
+mode が省略された場合，読み込みに関するアクセス権が調べられる。
+<DT>【例題】
+<DD>次の例では，ファイル "afo.mm" に関するアクセス権を調べる。</FONT><PRE>
+  i = access("afo.mm", "f");
+  if (i == 0) {
+    print "afo.mm exists.";
+  } else {
+    print "afo.mm doesn't exist.";
+  }
+  i = access("afo.mm", "w");
+  if (i == 0) {
+    print "afo.mm can be changed";
+  } else {
+    print "afo.mm cann't be changed.";
+  }
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>fopen(<A HREF="node74.htm#man_fopen">2.75</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

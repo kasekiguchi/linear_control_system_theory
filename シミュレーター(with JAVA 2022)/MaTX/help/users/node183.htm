@@ -1,0 +1,404 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>配列関数</TITLE>
+<META NAME="description" CONTENT="配列関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node182.htm">
+<LINK REL="up" HREF="node144.htm">
+<LINK REL="next" HREF="node184.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2914"
+ HREF="node184.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2910"
+ HREF="node144.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2906"
+ HREF="node182.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2912"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2913"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2915"
+ HREF="node184.htm">リスト</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2911"
+ HREF="node144.htm">行列と配列と指数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2907"
+ HREF="node182.htm">行列関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001890000000000000000">
+配列関数</A>
+</H1><FONT SIZE="-1">
+配列関数の一覧を以下に示す。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="9183">&#160;</A>
+<A NAME="9184">&#160;</A>
+<A NAME="9185">&#160;</A>
+<A NAME="9186">&#160;</A>
+<A NAME="9187">&#160;</A>
+<A NAME="9188">&#160;</A>
+<A NAME="9189">&#160;</A>
+<A NAME="9190">&#160;</A>
+<A NAME="9191">&#160;</A>
+<A NAME="9192">&#160;</A>
+<A NAME="9193">&#160;</A>
+<A NAME="9194">&#160;</A>
+<A NAME="9195">&#160;</A>
+</FONT><PRE>
+Integer  Rows(Array A1);       行の数
+Integer  Cols(Array A1);       列の数
+Integer  length(Array A1);     行と列の大きい方の数
+Integer  isreal(Array A1);     実配列の有無 (真 = 1, 偽 = 0)
+Integer  iscomplex(Array A1);  複素配列の有無 (真 = 1, 偽 = 0)
+Integer  all(Array A1);        全ての成分がゼロでない
+                               (真 = 1, 偽 = 0)
+Integer  all(Matrix M1);       全ての成分がゼロでない
+                               (真 = 1, 偽 = 0)
+Array  all_col(Array A1);      列毎に全ての成分がゼロでない
+                               (真 = 1, 偽 = 0)の横ベクトル
+Array  all_col(Matrix M1);     列毎に全ての成分がゼロでない
+                               (真 = 1, 偽 = 0)の横ベクトル
+Array  all_row(Array A1);      行毎に全ての成分がゼロでない
+                               (真 = 1, 偽 = 0)の縦ベクトル
+Array  all_row(Matrix M1);     行毎に全ての成分がゼロでない
+                               (真 = 1, 偽 = 0)の縦ベクトル
+Integer  any(Array A1);        ゼロでない成分がある
+                               (真 = 1, 偽 = 0)
+Integer  any(Matrix M1);       ゼロでない成分がある
+                               (真 = 1, 偽 = 0)
+Array any_col(Array A1);       列毎にゼロでない成分がある
+                               (真 = 1, 偽 = 0)の横ベクトル
+Array any_col(Matrix M1);      列毎にゼロでない成分がある
+                               (真 = 1, 偽 = 0)の横ベクトル
+Array any_row(Array A1);       行毎にゼロでない成分がある
+                               (真 = 1, 偽 = 0)の縦ベクトル
+Array any_row(Matrix M1);      行毎にゼロでない成分がある
+                               (真 = 1, 偽 = 0)の縦ベクトル
+Array    finite(Array A1);     各成分に対して有限の有無を調べる
+                               無限大あるいはNaNである成分の所が
+                               0，それ以外の成分の所が1である
+                               配列を返す
+Array    isnan(Array A1);      各成分に対してNaNの有無を調べる
+                               NaNである成分の所が1，
+                               それ以外の成分の所が0である
+                               配列を返す
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9196">&#160;</A>
+</FONT><PRE>
+Index find(Array A1);          ゼロでない成分の指数
+                               A1がベクトルでないとき，
+                               行順に成分を調べる
+Index find(Matrix M1);         ゼロでない成分の指数
+                               M1がベクトルでないとき，
+                               行順に成分を調べる
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9197">&#160;</A>
+<A NAME="9198">&#160;</A>
+<A NAME="9199">&#160;</A>
+</FONT><PRE>
+Real   max(Array A1);            最大成分
+Real   min(Array A1);            最小成分
+Real   frobnorm(Array A1);       実配列フロベニウスノルム
+Real   frobnorm(CoArray A1);     複素配列フロベニウスノルム
+Polynomial frobnorm(PoArray A1); 多項式配列フロベニウスノルム
+Rational   frobnorm(RaArray A1); 有理多項式配列フロベニウスノルム
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9200">&#160;</A>
+<A NAME="8871">&#160;</A>
+<A NAME="9201">&#160;</A>
+<A NAME="8873">&#160;</A>
+<A NAME="9202">&#160;</A>
+<A NAME="8875">&#160;</A>
+<A NAME="9203">&#160;</A>
+<A NAME="8877">&#160;</A>
+<A NAME="9204">&#160;</A>
+<A NAME="8879">&#160;</A>
+<A NAME="9205">&#160;</A>
+<A NAME="8881">&#160;</A>
+</FONT><PRE>
+Real sum(Array A1);          全ての成分の和
+Complex sum(CoArray A1);     全ての成分の和
+Polynomail sum(PoArray A1);  全ての成分の和
+Rational sum(RaArray A1);    全ての成分の和
+Real prod(Array A1);         全ての成分の積
+Complex prod(CoArray A1);    全ての成分の積
+Polynomial prod(PoArray A1); 全ての成分の積
+Rational prod(RaArray A1);   全ての成分の積
+
+Real mean(Array A1);         全ての成分の平均値
+Complex mean(CoArray A1);    全ての成分の平均値
+Polynomial mean(PoArray A1); 全ての成分の平均値
+Ratioanal mean(RaArray A1);  全ての成分の平均値
+
+Real std(Array A1);          全ての成分の標準偏差
+Complex std(CoArray A1);     全ての成分の標準偏差
+Polynomial std(PoArray A1);  全ての成分の標準偏差
+Rational std(RaArray A1);    全ての成分の標準偏差
+
+Array cumsum(Array A1);      全ての成分の累積和
+Array cumprod(Array A1);     全ての成分の累積積
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9206">&#160;</A>
+<A NAME="9207">&#160;</A>
+<A NAME="8886">&#160;</A>
+<A NAME="9208">&#160;</A>
+<A NAME="9209">&#160;</A>
+<A NAME="8889">&#160;</A>
+<A NAME="9210">&#160;</A>
+<A NAME="9211">&#160;</A>
+<A NAME="8892">&#160;</A>
+<A NAME="9212">&#160;</A>
+<A NAME="9213">&#160;</A>
+<A NAME="8895">&#160;</A>
+<A NAME="9214">&#160;</A>
+<A NAME="9215">&#160;</A>
+<A NAME="8898">&#160;</A>
+<A NAME="9216">&#160;</A>
+<A NAME="9217">&#160;</A>
+<A NAME="8901">&#160;</A>
+</FONT><PRE>
+Array A1;
+
+Array sum_col(A1);      (縦・横)ベクトルの成分の和
+                        列毎の和からなる横ベクトル
+Array sum_row(A1);      (縦・横)ベクトルの成分の和
+                        行毎の和からなる縦ベクトル
+Array prod_col(A1);     (縦・横)ベクトルの成分の積
+                        列毎の積からなる横ベクトル
+Array prod_row(A1);     (縦・横)ベクトルの成分の積
+                        行毎の積からなる縦ベクトル
+Array mean_col(A1);     (縦・横)ベクトルの成分の平均値
+                        列毎の平均値からなる横ベクトル
+Array mean_row(A1);     (縦・横)ベクトルの成分の平均値
+                        行毎の平均値からなる縦ベクトル
+Array std_col(A1);      (縦・横)ベクトルの成分の標準偏差
+                        列毎の標準偏差からなる横ベクトル
+Array std_row(A1);      (縦・横)ベクトルの成分の標準偏差
+                        行毎の標準偏差からなる縦ベクトル
+Array cumsum_col(A1);   列毎の累積和からなる横ベクトル
+Array cumsum_row(A1);   行毎の累積和からなる縦ベクトル
+Array cumprod_col(A1);  列毎の累積積からなる横ベクトル
+Array cumprod_row(A1);  行毎の累積積からなる縦ベクトル
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9218">&#160;</A>
+<A NAME="9219">&#160;</A>
+<A NAME="8906">&#160;</A>
+<A NAME="8907">&#160;</A>
+</FONT><PRE>
+Real d1, d2;
+Integer split;
+
+Array logspace(d1, d2) 
+               対数空間ベクトル (split=50)
+Array logspace(d1, d2, split)
+               対数空間ベクトル
+Array linspace(d1, d2)
+               線形空間ベクトル (split=100)
+Array linspace(d1, d2, split)
+               線形空間ベクトル
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9220">&#160;</A>
+<A NAME="9221">&#160;</A>
+<A NAME="9222">&#160;</A>
+<A NAME="9223">&#160;</A>
+<A NAME="9224">&#160;</A>
+<A NAME="9225">&#160;</A>
+<A NAME="9226">&#160;</A>
+<A NAME="9227">&#160;</A>
+<A NAME="9228">&#160;</A>
+<A NAME="9229">&#160;</A>
+<A NAME="9230">&#160;</A>
+<A NAME="9231">&#160;</A>
+<A NAME="9232">&#160;</A>
+<A NAME="9233">&#160;</A>
+<A NAME="9234">&#160;</A>
+<A NAME="9235">&#160;</A>
+<A NAME="9236">&#160;</A>
+<A NAME="9237">&#160;</A>
+<A NAME="9238">&#160;</A>
+</FONT><PRE>
+Array A1, A2;
+Integer i1,k;
+Real r1;
+
+Array vec2diag(A1);           縦ベクトルから対角配列
+Array vec2diag(A1, k);
+                              縦ベクトルから対角配列
+                              (kだけ主対角より上)
+Array diag2vec(A1);           対角配列から縦ベクトル
+Array diag2vec(A1, k);
+                              対角配列から縦ベクトル
+                              (kだけ主対角より上)
+Array fliplr(A1);             列を逆順に並べる
+Array flipud(A1);             行を逆順に並べる
+List  sort(A1);               成分を昇べきの順にソートする
+                              複素配列の場合，絶対値でソート
+{A2, idx} = sort(A1);         A2:  ソートした結果の配列
+                              idx: ソートに使った指数
+                              A2 = A1(idx)
+List size(A1);                行数と列数のリスト
+                              {row, col} = size(A1);
+Array rand(m);                m x m の一様乱数配列
+Array rand(m, n);             m x n の一様乱数配列
+Array rand(A1);               A1と同じ大きさの一様乱数配列
+Array randn(A1);              A1と同じ大きさの正規乱数配列
+Array randn(m);               m x m の正規乱数配列
+Array randn(m, n);            m x n の正規乱数配列
+Array max(A1, A2);            A1とA2の大きい方の成分
+                              からなる配列 (複素配列の場合，
+                              絶対値によって比較する
+Array min(A1, A2);            A1とA2の小さい方の成分
+                              からなる配列 (複素配列の場合，
+                              絶対値によって比較する
+Array rem(A1, i1);            A1の各成分に対してrem()を
+                              計算する
+Array rem(A1, r1);            A1の各成分に対してrem()を
+                              計算する
+Array rem(A1, A2);            A1とA2の成分毎にrem()を
+                              計算する
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9239">&#160;</A>
+<A NAME="9240">&#160;</A>
+<A NAME="8933">&#160;</A>
+<A NAME="8934">&#160;</A>
+<A NAME="8935">&#160;</A>
+<A NAME="8936">&#160;</A>
+</FONT><PRE>
+Array data;
+Integer n;
+
+Array fft(data);       高速フーリエ変換
+Array fft(data, n);    高速フーリエ変換
+                       n = 2^m
+Array ifft(data);      高速逆フーリエ変換
+Array ifft(data, n);   高速逆フーリエ変換
+                       n = 2^m
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9241">&#160;</A>
+<A NAME="9242">&#160;</A>
+<A NAME="9243">&#160;</A>
+<A NAME="9244">&#160;</A>
+<A NAME="9245">&#160;</A>
+<A NAME="9246">&#160;</A>
+<A NAME="9247">&#160;</A>
+<A NAME="9248">&#160;</A>
+<A NAME="9249">&#160;</A>
+<A NAME="9250">&#160;</A>
+<A NAME="9251">&#160;</A>
+<A NAME="9252">&#160;</A>
+<A NAME="9253">&#160;</A>
+<A NAME="9254">&#160;</A>
+<A NAME="9255">&#160;</A>
+<A NAME="9256">&#160;</A>
+<A NAME="9257">&#160;</A>
+<A NAME="9258">&#160;</A>
+<A NAME="9259">&#160;</A>
+<A NAME="9260">&#160;</A>
+<A NAME="9261">&#160;</A>
+<A NAME="9262">&#160;</A>
+<A NAME="9263">&#160;</A>
+<A NAME="9264">&#160;</A>
+<A NAME="9265">&#160;</A>
+<A NAME="9266">&#160;</A>
+<A NAME="9267">&#160;</A>
+<A NAME="9268">&#160;</A>
+<A NAME="9269">&#160;</A>
+</FONT>
+<P><PRE>
+Array A1;
+Integer i1;
+Real tol;
+
+Array sgn(A1);          各成分のsgn()の結果からなる配列
+Array abs(A1);          各成分のabs()の結果からなる配列
+Array arg(A1);          各成分のarg()の結果からなる配列
+Array exp(A1);          各成分のexp()の結果からなる配列
+Array sqrt(A1);         各成分のsqrt()の結果からなる配列
+Array log(A1);          各成分のlog()の結果からなる配列
+Array log10(A1);        各成分のlog10()の結果からなる配列
+Array conj(A1);         各成分のconj()の結果からなる配列
+Array inv(A1);          各成分のinv()の結果からなる配列 (A1~)
+Array sin(A1);          各成分のsin()の結果からなる配列
+Array asin(A1);         各成分のasin()の結果からなる配列
+Array sinh(A1);         各成分のsinh()の結果からなる配列
+Array asinh(A1);        各成分のasinh()の結果からなる配列
+Array cos(A1);          各成分のcos()の結果からなる配列
+Array acos(A1);         各成分のacos()の結果からなる配列
+Array cosh(A1);         各成分のcosh()の結果からなる配列
+Array acosh(A1);        各成分のcosh()の結果からなる配列
+Array tan(A1);          各成分のtan()の結果からなる配列
+Array atan(A1);         各成分のatan()の結果からなる配列
+Array tanh(A1);         各成分のtanh()の結果からなる配列
+Array atanh(A1);        各成分のatanh()の結果からなる配列
+Array ceil(A1);         各成分のceil()の結果からなる配列
+Array floor(A1);        各成分のfloor()の結果からなる配列
+Array fix(A1);          各成分のfix()の結果からなる配列
+Array round(A1);        各成分のround()の結果からなる配列
+Array round2z(A1)       ゼロへの丸め(tol = EPS)
+Array round2z(A1, tol)  絶対値が tol より小なら 0
+Array pow(A1, i1);      各成分のpow()の結果からなる配列 
+                        ( A1^i1 )
+Array trans(A1);        A1 の転置 ( A1' )
+Array conjtrans(A1);    A1 の共役転置 ( A1# )
+</PRE>
+<P><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html2914"
+ HREF="node184.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2910"
+ HREF="node144.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2906"
+ HREF="node182.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2912"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2913"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2915"
+ HREF="node184.htm">リスト</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2911"
+ HREF="node144.htm">行列と配列と指数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2907"
+ HREF="node182.htm">行列関数</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>hess</TITLE>
+<META NAME="description" CONTENT="hess">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node91.htm">
+<LINK REL="previous" HREF="node89.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node91.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1759"
+ HREF="node91.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1756"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1750"
+ HREF="node89.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1758"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1760"
+ HREF="node91.htm">higher</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1757"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1751"
+ HREF="node89.htm">help</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000486000000000000000">&#160;</A><A NAME="man_hess">&#160;</A>
+<BR>
+hess
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>hess - ヘッセンベルグ型行列
+<DT>【形式】
+<DD><PRE>
+{Q,H} = hess(A)
+   Matrix Q,H;
+   Matrix A;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>hess()は，行列 A のヘッセンベルグ型を求める。ヘッセンベルグ行列の
+成分は，第 1 副対角成分より下が全てゼロになる。
+{Q,H} = hess(A)は，ヘッセンベルグ行列 H と直交行列(ユニタリ行列) H
+を求める。これらの行列の間には，A = Q * H * Q#，Q# * Q = I(A) の
+関係がある。
+<DT>【算法】
+<DD>hess(A) は，実行列に対して</FONT><FONT SIZE="-1">Eispackのルーチンのortranとorthesを
+使う。orthes は直交相似変換を使って実行列をヘッセンベルグ型に変換
+する。hess(A)は，複素行列に対して</FONT><FONT SIZE="-1">Eispackのqzhesを使う。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; {Q,H} = hess([[1 2 3][4 5 6][7 8 9]]);
+&gt;&gt; print Q,H;
+=== [Q] : (  3,  3) ===
+           (  1)           (  2)           (  3)     
+(  1)  1.00000000E+00  0.00000000E+00  0.00000000E+00
+(  2)  0.00000000E+00 -4.96138938E-01 -8.68243142E-01
+(  3)  0.00000000E+00 -8.68243142E-01  4.96138938E-01
+=== [H] : (  3,  3) ===
+           (  1)           (  2)           (  3)     
+(  1)  1.00000000E+00 -3.59700730E+00 -2.48069469E-01
+(  2) -8.06225775E+00  1.40461538E+01  2.83076923E+00
+(  3)  0.00000000E+00  8.30769231E-01 -4.61538462E-02
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>shcur(<A HREF="#man_shcur"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="cross_ref_motif.gif"></A>), qr(<A HREF="node167.htm#man_qr">2.168</A>), qz(<A HREF="node170.htm#man_qz">2.171</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>リストを利用した可変長引数関数</TITLE>
+<META NAME="description" CONTENT="リストを利用した可変長引数関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node96.htm">
+<LINK REL="previous" HREF="node94.htm">
+<LINK REL="up" HREF="node94.htm">
+<LINK REL="next" HREF="node96.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1781"
+ HREF="node96.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1777"
+ HREF="node94.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1771"
+ HREF="node94.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1779"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1780"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1782"
+ HREF="node96.htm">一般的な可変長引数関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1778"
+ HREF="node94.htm">可変長引数関数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1772"
+ HREF="node94.htm">可変長引数関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001141000000000000000">
+リストを利用した可変長引数関数</A>
+</H2><FONT SIZE="-1">
+リストを利用して，可変長の引数をもつ関数を定義することができる。
+可変長の引数を持つ関数の例として，引数として渡された行列の和を返す関数
+を以下に示す。ただし，引数の行列の大きさは，全て等しいと仮定している。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  Func Matrix sum_mat(args)
+    List args;
+  {
+    Integer i, argn;
+    Matrix ss;
+
+    argn = length(args);
+    ss = args(1, Matrix);
+    for (i = 2; i &lt;= argn; i++) {
+      ss = ss + args(i, Matrix);
+    }
+    return ss;
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>可変長の引数を持つ関数を呼び出す時は，渡したい引数から1つのリストを作り，
+それを引数として渡す。
+関数<TT>sum_mat()</TT>の呼び出しは，次のようになる。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  a = [[1 0][0 1]]; b = [[1 2][3 4]];
+  c = [[4 3][2 1]]; d = [[0 1][1 0]];
+  print sum_mat({a, b, c, d});
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

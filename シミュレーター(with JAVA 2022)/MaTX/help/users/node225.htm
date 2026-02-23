@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>プロテクトモードRTMATX(DJGPP版)</TITLE>
+<META NAME="description" CONTENT="プロテクトモードRTMATX(DJGPP版)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node226.htm">
+<LINK REL="previous" HREF="node224.htm">
+<LINK REL="up" HREF="node224.htm">
+<LINK REL="next" HREF="node226.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3460"
+ HREF="node226.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3456"
+ HREF="node224.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3450"
+ HREF="node224.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3458"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3459"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3461"
+ HREF="node226.htm">リアルモードRTMATX(Borland C版)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3457"
+ HREF="node224.htm">リアルタイム処理プログラムの作成</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3451"
+ HREF="node224.htm">リアルタイム処理プログラムの作成</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002621000000000000000">
+プロテクトモードRTMATX(DJGPP版)</A>
+</H2><FONT SIZE="-1">
+<A NAME="13350">&#160;</A>
+<A NAME="12978">&#160;</A>
+DJGPP版<A NAME="tex2html54"
+ HREF="footnode.htm#foot13351"><SUP>21.1</SUP></A>
+のRTMATXはプロテクトモードで動作するので，MS-DOSのメモリ制約
+を受けることなく，常駐させるデバイスドライバの選択に悩む必要がない。
+そして，パソコンに実装したメモリを全て使えるので
+大量のデータを保存することもできる。
+</FONT>
+<P><P>
+<BR>
+<P>
+<FONT SIZE="-1">リアルタイム処理プログラムを作成する手順例を次に示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+ A:&gt; rtmatc sample.mm
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR><I>rtmatc</I>により実行可能プログラムsample.exeが生成される。
+<A NAME="13353">&#160;</A>
+複数のファイルから実行プログラムを生成する場合，
+以下のような<TT>Makefile</TT>を作成しておくと便利である。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+sample.exe: sample.o  file1.o file2.o
+  rtmatc sample.o file1.o file2.o
+
+sample.o: sample.mm
+  rtmatc -c sample.mm
+
+file1.o: file1.mm
+  rtmatc -c file1.mm
+
+file2.o: file2.mm
+  rtmatc -c file2.mm
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

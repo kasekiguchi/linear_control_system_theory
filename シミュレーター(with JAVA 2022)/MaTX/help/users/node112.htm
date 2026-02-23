@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>実数関数</TITLE>
+<META NAME="description" CONTENT="実数関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node111.htm">
+<LINK REL="up" HREF="node108.htm">
+<LINK REL="next" HREF="node113.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1986"
+ HREF="node113.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1982"
+ HREF="node108.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1978"
+ HREF="node111.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1984"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1985"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1987"
+ HREF="node113.htm">複素数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1983"
+ HREF="node108.htm">整数と実数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1979"
+ HREF="node111.htm">整数関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001340000000000000000">
+実数関数</A>
+</H1><FONT SIZE="-1">
+実数関数の一覧を以下に示す。
+関数の引数は実数でなければならないので，整数を引数として渡すには
+クラス変換関数<TT>Real()</TT>によって実数に変換する。
+<A NAME="6124">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="6125">&#160;</A>
+<A NAME="6126">&#160;</A>
+<A NAME="6127">&#160;</A>
+<A NAME="6128">&#160;</A>
+<A NAME="6129">&#160;</A>
+<A NAME="6130">&#160;</A>
+<A NAME="6131">&#160;</A>
+<A NAME="6132">&#160;</A>
+<A NAME="6133">&#160;</A>
+<A NAME="6134">&#160;</A>
+<A NAME="6135">&#160;</A>
+<A NAME="6136">&#160;</A>
+<A NAME="6137">&#160;</A>
+<A NAME="6138">&#160;</A>
+<A NAME="6139">&#160;</A>
+<A NAME="6140">&#160;</A>
+<A NAME="6141">&#160;</A>
+<A NAME="6142">&#160;</A>
+<A NAME="6143">&#160;</A>
+<A NAME="6144">&#160;</A>
+<A NAME="6145">&#160;</A>
+<A NAME="6146">&#160;</A>
+<A NAME="6147">&#160;</A>
+<A NAME="6061">&#160;</A>
+<A NAME="6148">&#160;</A>
+<A NAME="6063">&#160;</A>
+<A NAME="6149">&#160;</A>
+<A NAME="6150">&#160;</A>
+<A NAME="6151">&#160;</A>
+<A NAME="6152">&#160;</A>
+<A NAME="6153">&#160;</A>
+<A NAME="6154">&#160;</A>
+<A NAME="6070">&#160;</A>
+<A NAME="6155">&#160;</A>
+<A NAME="6156">&#160;</A>
+<A NAME="6157">&#160;</A>
+<A NAME="6158">&#160;</A>
+<A NAME="6159">&#160;</A>
+<A NAME="6160">&#160;</A>
+<A NAME="6161">&#160;</A>
+<A NAME="6162">&#160;</A>
+</FONT>
+<P><PRE>
+  Integer i1;
+  Real r1, r2, x, y, tol;
+
+  Real rem(r1, r2)               割算の余り
+                                 (r1 - r2*fix(r1/r2))
+  Real rem(i1, r2)               割算の余り
+                                 (i1 - r2*fix(i1/r2))
+  Real rem(r1, i2)               割算の余り
+                                 (r1 - i2*fix(r1/i2))
+  Real max(r1, r2)               最大値
+  Real min(r1, r2)               最小値
+  Real sin(r1);                  正弦関数
+  Real sinh(r1);                 双曲線正弦関数
+  Real asin(r1);                 逆正弦関数
+  Real asinh(r1);                逆双曲線正弦関数
+  Real cos(r1);                  余弦関数
+  Real cosh(r1);                 双曲線余弦関数
+  Real acos(r1);                 逆余弦関数
+  Real acosh(r1);                逆双曲線余弦関数
+  Real tan(r1);                  正接関数
+  Real tanh(r1);                 双曲線正接関数
+  Real atan(r1);                 逆正接関数
+  Real atanh(r1);                逆双曲線正接関数
+  Real atan2(y, x);             逆正接関数
+  Real abs(r1);                  絶対値
+  Real exp(r1);                  指数関数
+  Real sqrt(r1);                 平方根
+  Real log(r1);                  自然対数
+  Real log10(r1);                常用対数
+  Real rand();                   0.0と1.0の間の一様乱数
+  Integer rand("seed")           一様乱数の種
+  Integer rand("seed", il)       一様乱数の種の変更
+  Real randn();                  平均0，分散1の正規乱数
+  Integer randn("seed")          正規乱数の種
+  Integer randn("seed", il)      正規乱数の種の変更
+  Real ceil(r1);                 最高値の整数への丸め関数
+  Real fact(r1);                 階乗
+  Real floor(r1);                最低値の整数への丸め関数
+  Real fix(r1);                  0 方向の整数への丸め関数
+  Real round(r1);                最も近い整数への丸め関数
+  Real round2z(r1)               ゼロへの丸め(tol = EPS)
+  Real round2z(r1, tol)          絶対値が tol より小なら 0
+  Real sgn(r1);                  符合関数 (r1 &gt; 0.0, 1.0; 
+                                           r1 = 0.0, 0.0;
+                                           r1 &lt; 0.0, -1.0)
+  Integer finite(r1);            有限関数
+                                 もしr1が有限値なら1
+                                 無限大あるいはNaNなら0
+  Integer isnan(r1);             もしr1がNaNなら1
+                                 それ以外なら0
+  
+  Real pow(r1, r2)               r1^r2
+  Real trans(r1)                 r1'
+  Real conj(r1)                  r1 の共役
+  Real conjtrans(r1)             r1#
+  Real inv(r1)                   r1~
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="6163">&#160;</A>
+<A NAME="6164">&#160;</A>
+<A NAME="6165">&#160;</A>
+<A NAME="6166">&#160;</A>
+<A NAME="6167">&#160;</A>
+</FONT><PRE>
+ Integer fd;
+ String file, format;
+
+ Integer printf(format, ...);        画面表示 (matx)
+ Integer fprintf(fd, format, ...);   ファイル出力
+                                     fd は fopen() の返り値
+ Integer fprintf(file, format, ...); ファイル出力
+                                     file に追加される
+ List    scanf(format, ...);         キーボードから入力
+ List    fscanf(fd, format, ...);    ファイル入力
+ String  sprintf(format, ...);       文字列変換
+</PRE>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

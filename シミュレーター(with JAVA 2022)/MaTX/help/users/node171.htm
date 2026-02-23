@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>ブロック成分の取り出し</TITLE>
+<META NAME="description" CONTENT="ブロック成分の取り出し">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node172.htm">
+<LINK REL="previous" HREF="node170.htm">
+<LINK REL="up" HREF="node169.htm">
+<LINK REL="next" HREF="node172.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2774"
+ HREF="node172.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2770"
+ HREF="node169.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2764"
+ HREF="node170.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2772"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2773"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2775"
+ HREF="node172.htm">式行列の成分の取り出し</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2771"
+ HREF="node169.htm">行列成分の操作</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2765"
+ HREF="node170.htm">成分の取り出し</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001852000000000000000">&#160;</A>
+<A NAME="8267">&#160;</A>
+<A NAME="8268">&#160;</A>
+<BR>
+ブロック成分の取り出し
+</H2><FONT SIZE="-1">
+<TT>M2</TT>を<TT>M1</TT>の<B>ピース行列</B>とする。
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT"><code>M1(0,1,M2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>M2を縦横に並べた時，1行2列のブロック成分</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(1,2,M2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>M2を縦横に並べた時，2行3列のブロック成分</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(1,:,M2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>M2を縦横に並べた時，2行のブロック成分</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(:,1,M2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>M2を縦横に並べた時，2列のブロック成分</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(1:2,2:3,M2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>M2を縦横に並べた時，2-3行，3-4列のブロック成分</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(2:3,4,M2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>M2を縦横に並べた時，3-4行，5列のブロック成分</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(2:3,:,M2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>M2を縦横に並べた時，3-4行のブロック成分</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(2:,4,M2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>M2を縦横に並べた時，3行以降，5列のブロック成分</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(4,2:3,M2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>M2を縦横に並べた時，5行，3-4列のブロック成分</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(:,2:3,M2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>M2を縦横に並べた時，3-4列のブロック成分</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(4,2:,M2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=312>M2を縦横に並べた時，5行，3列以降のブロック成分</TD>
+</TR>
+</TABLE></DIV>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,45 @@
+\begin{picture}(0,0)%
+\epsfig{file=simulator/figure/tricycle.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3729sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(7244,7694)(429,-7283)
+\put(5581,-4561){\makebox(0,0)[rb]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\theta$}%
+}}}
+\put(6571,-4741){\makebox(0,0)[lb]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$O$}%
+}}}
+\put(4591,-5371){\makebox(0,0)[rb]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\displaystyle \frac{L}{\tan \alpha}$}%
+}}}
+\put(2251,-1681){\makebox(0,0)[rb]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$L$}%
+}}}
+\put(811,209){\makebox(0,0)[rb]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$X$}%
+}}}
+\put(5491,-3841){\makebox(0,0)[rb]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\alpha$}%
+}}}
+\put(7651,-7081){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$Y$}%
+}}}
+\put(3421,-7081){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$y$}%
+}}}
+\put(811,-3121){\makebox(0,0)[rb]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$x$}%
+}}}
+\put(1621,-4471){\makebox(0,0)[rb]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$z$}%
+}}}
+\put(4951,-826){\makebox(0,0)[lb]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\alpha$}%
+}}}
+\put(3601,-3121){\makebox(0,0)[lb]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$P$}%
+}}}
+\put(4141,-1501){\makebox(0,0)[rb]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$Q$}%
+}}}
+\put(3601,-2356){\makebox(0,0)[b]{\smash{\SetFigFont{14}{16.8}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\theta$}%
+}}}
+\put(5851,-2536){\makebox(0,0)[lb]{\smash{\SetFigFont{17}{20.4}{\sfdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Rear Wheels}%
+}}}
+\put(5851,-1816){\makebox(0,0)[lb]{\smash{\SetFigFont{17}{20.4}{\sfdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Front Wheel}%
+}}}
+\end{picture}

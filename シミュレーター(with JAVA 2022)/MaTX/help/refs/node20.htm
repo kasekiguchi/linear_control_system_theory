@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>atanh</TITLE>
+<META NAME="description" CONTENT="atanh">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node21.htm">
+<LINK REL="previous" HREF="node19.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node21.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html989"
+ HREF="node21.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html986"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html980"
+ HREF="node19.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html988"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html990"
+ HREF="node21.htm">balance</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html987"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html981"
+ HREF="node19.htm">atan2</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000416000000000000000">&#160;</A><A NAME="man_atanh">&#160;</A>
+<BR>
+atanh
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>atanh - 双曲(線)逆正接
+<DT>【形式】
+<DD><PRE>
+y = atanh(x)                     Y = atanh(X)
+   (Real   |Real|Complex) y;        Array Y;
+   (Integer|Real|Complex) x;        Array X;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>atanh(x)は，スカラ型(整数, 実数, 複素数) x の逆双曲(線)正接を求める。
+角度はラジアンで計算される。
+atanh(X)は，配列 X の各成分の逆双曲(線)正接からなる配列 Y を求める。
+Y の大きさは X の大きさと同じ。
+<DT>【算法】
+<DD>atanh(z) = 1/(2 * log((1+z)/(1+z)))
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; y = atanh(0.5)
+y = 0.549306
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>asin(<A HREF="node16.htm#man_asin">2.12</A>), acos(<A HREF="node7.htm#man_acos">2.3</A>), atan(<A HREF="node18.htm#man_atan">2.14</A>), asinh(<A HREF="node17.htm#man_asinh">2.13</A>), acosh(<A HREF="node8.htm#man_acosh">2.4</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

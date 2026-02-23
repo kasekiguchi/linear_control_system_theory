@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>cosh</TITLE>
+<META NAME="description" CONTENT="cosh">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node41.htm">
+<LINK REL="previous" HREF="node39.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node41.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1209"
+ HREF="node41.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1206"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1200"
+ HREF="node39.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1208"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1210"
+ HREF="node41.htm">cumprod</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1207"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1201"
+ HREF="node39.htm">cos</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000436000000000000000">&#160;</A><A NAME="man_cosh">&#160;</A>
+<BR>
+cosh
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>cosh - 双曲(線)余弦
+<DT>【形式】
+<DD><PRE>
+y = cosh(x)                      Y = cosh(X)
+   (Real   |Real|Complex) y;        Array Y;
+   (Integer|Real|Complex) x;        Array X;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>cosh(x)は，スカラ型(整数, 実数, 複素数) x の双曲(線)余弦を求める。
+角度はラジアンで計算される。
+cosh(X)は，配列 X の各成分の双曲(線)余弦からなる配列 Y を求める。
+Y の大きさは X の大きさと同じ。
+<DT>【算法】
+<DD>cosh(z) = (exp(z) + exp(-z))/2
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; y = cosh(0.5)
+y = 1.12763
+</PRE><FONT SIZE="-1"><FONT SIZE="-1">
+範囲 </FONT></FONT>
+<!-- MATH: $-\pi \leq x \leq \pi$ -->
+<IMG
+ WIDTH="87" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.gif"
+ ALT="$-\pi \leq x \leq \pi$"><FONT SIZE="-1"><FONT SIZE="-1"> のcosh(x)のグラフを表示する。</FONT></FONT><PRE>
+&gt;&gt; x = [-PI:0.05:PI];
+&gt;&gt; mgplot(1, x, cosh(x), {"cosh(x)"});
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT></FONT>
+<DIV><TT>sin(<A HREF="node210.htm#man_sin">2.211</A>), cos(<A HREF="node39.htm#man_cos">2.36</A>), tan(<A HREF="node233.htm#man_tan">2.234</A>), acosh(<A HREF="node8.htm#man_acosh">2.4</A>), exp(<A HREF="node62.htm#man_exp">2.61</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

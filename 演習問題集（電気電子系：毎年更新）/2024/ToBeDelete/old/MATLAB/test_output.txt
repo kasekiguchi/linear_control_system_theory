@@ -1,0 +1,4 @@
+マクロテスト用ファイル
+
+abcdef
+abcde	fgh

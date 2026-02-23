@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>バイナリデータのファイル入出力</TITLE>
+<META NAME="description" CONTENT="バイナリデータのファイル入出力">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node57.htm">
+<LINK REL="previous" HREF="node55.htm">
+<LINK REL="up" HREF="node53.htm">
+<LINK REL="next" HREF="node57.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1278"
+ HREF="node57.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1274"
+ HREF="node53.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1268"
+ HREF="node55.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1276"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1277"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1279"
+ HREF="node57.htm">一般データの保存と読み込み</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1275"
+ HREF="node53.htm">データのファイル入出力</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1269"
+ HREF="node55.htm">一般データのファイル入出力</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00723000000000000000">
+バイナリデータのファイル入出力</A>
+</H2><FONT SIZE="-1">
+<A NAME="2979">&#160;</A>
+<A NAME="2980">&#160;</A>
+<A NAME="2981">&#160;</A>
+<A NAME="2982">&#160;</A>
+<A NAME="2983">&#160;</A>
+<A NAME="2984">&#160;</A>
+<A NAME="2985">&#160;</A>
+<A NAME="2986">&#160;</A>
+<A NAME="2987">&#160;</A>
+<A NAME="2988">&#160;</A>
+<A NAME="2989">&#160;</A>
+<A NAME="2990">&#160;</A>
+<A NAME="2991">&#160;</A>
+<A NAME="2992">&#160;</A><A NAME="2819">&#160;</A>
+関数<TT>fread(fd, size, type)</TT>は指定したファイルからバイナリデータ
+を読み込み，それを成分とする行ベクトルを返す。読み込みに失敗すると，
+<TT>0 x 0</TT>の行列を返す。
+<TT>fd</TT>は<TT>fopen()</TT>が返すファイルディスクリプタ，<TT>size</TT>は
+読み込むデータ数，<TT>type</TT>は読み込むデータの型である。<TT>type</TT>
+には，C言語のデータの型を指定する。以下の表に指定できる型を示す。
+ただし，符合あり(<TT>signed</TT>)の型を指定できないことがある。
+また，<TT>fread(fd, size, type, 1)</TT>はバイナリデータの数値形式
+(Endian)を変更して行ベクトルを返す。
+</FONT>
+<DIV ALIGN="CENTER">
+<BR>
+<DIV ALIGN="CENTER">
+
+<P>
+<BR>
+
+<P>
+<DIV ALIGN="CENTER">
+<A NAME="2831">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 4.1:</STRONG>
+バイナリデータの型</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1><TT> type</TT></TD>
+<TD ALIGN="CENTER" COLSPAN=1>データ型</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "char"</TT></TD>
+<TD ALIGN="LEFT">文字 (8 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "signed char"</TT></TD>
+<TD ALIGN="LEFT">符合あり文字 (8 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "unsigned char"</TT></TD>
+<TD ALIGN="LEFT">符合なし文字 (8 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "short"</TT></TD>
+<TD ALIGN="LEFT">整数 (16 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "signed short"</TT></TD>
+<TD ALIGN="LEFT">符合あり整数 (16 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "unsigned short"</TT></TD>
+<TD ALIGN="LEFT">符合なし整数 (16 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "int"</TT></TD>
+<TD ALIGN="LEFT">整数 (16,32,64 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "signed int"</TT></TD>
+<TD ALIGN="LEFT">符合あり整数 (16,32,64 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "unsigned int"</TT></TD>
+<TD ALIGN="LEFT">符合なし整数 (16,32,64 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "long"</TT></TD>
+<TD ALIGN="LEFT">整数 (32 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "signed long"</TT></TD>
+<TD ALIGN="LEFT">符合あり整数 (32 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "unsigned long"</TT></TD>
+<TD ALIGN="LEFT">符合なし整数 (32 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "float"</TT></TD>
+<TD ALIGN="LEFT">単精度浮動小数点数 (32 bits)</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> "double"</TT></TD>
+<TD ALIGN="LEFT">倍精度浮動小数点数 (32 bits)</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR></DIV><FONT SIZE="-1">関数<TT>fwrite(fd, mat, type)</TT>は行列<TT>mat</TT>の成分を指定したファイル
+に指定したデータ型のバイナリで書き込む。データは行の順に書き込まれる。
+<TT>fd</TT>は<TT>fopen()</TT>が返すファイルディスクリプタ，<TT>mat</TT>は
+書き込む行列，<TT>type</TT>は書き込むデータの型である。<TT>type</TT>
+には，C言語のデータの型を指定する。
+</FONT>
+<P>
+<FONT SIZE="-1">行列の成分を<TT>int</TT>型のバイナリでファイルに保存し，
+そのデータを別の行列に読み込む例を以下に示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  // 行列 A を int 型のバイナリデータとして保存する
+  A = [1 2 3 4 5];
+  fd = fopen("data", "w");
+  fwrite(fd, A, "int");
+  fclose(fd);
+
+  // 5 個の int 型のバイナリデータを行列 B に読み込む 
+  fd = fopen("data", "r");
+  B = fread(fd, 5, "int");
+  fclose(fd);  
+
+  // 3 個の double 型のバイナリデータをEndianを変更
+  // して行列 C に読み込む
+  fd = fopen("data", r");
+  C = fread(fd, 3, "double", 1);
+  fclose(fd);
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1"><A NAME="2994">&#160;</A>
+<A NAME="2872">&#160;</A><A NAME="2873">&#160;</A>
+なお，使用中の計算機のバイナリの数値形式(Endian)は，関数
+<TT>machine_endian()</TT>で調べることができる。この関数は
+IEEE Little Endian (PC, 386, 486, etc.)のとき 0 を返し，
+IEEE Big Endian (SPARC, Motorola, etc.)のとき 1 を返す。
+</FONT><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html1278"
+ HREF="node57.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1274"
+ HREF="node53.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1268"
+ HREF="node55.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1276"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1277"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1279"
+ HREF="node57.htm">一般データの保存と読み込み</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1275"
+ HREF="node53.htm">データのファイル入出力</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1269"
+ HREF="node55.htm">一般データのファイル入出力</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,124 @@
+\begin{thebibliography}{10}
+
+\bibitem{Astrom:83:cam}
+K.~J. Astrom.
+\newblock Computer aided modeling, analysis and design of control systems -- a
+  perspective.
+\newblock {\em Control Systems Magazine}, pages 4--16, 1983.
+
+\bibitem{Dongarra:79:lug}
+J.J. Dongarra, C.B. Moler, J.R. Bunch, and G.W. Stewart.
+\newblock {\em LINPACK --- Users' Guide}.
+\newblock SIAM, Philadelphia, 1979.
+
+\bibitem{Forsythe:77:cmf}
+George~E. Forsythe, Michael~A. Malcolm, and Cleve~B. Moler.
+\newblock {\em Computer Methods for Mathematical Computations}.
+\newblock Prentice-Hall, 1977.
+
+\bibitem{Garbow:77:mer}
+B.S. Garbow, J.M. Boyle, J.J. Dongarra, and C.B. Moler.
+\newblock {\em Matrix Eigensystem Routines -- EISPACK Guide Extension}.
+\newblock Springer-Verlag, 1977.
+
+\bibitem{Golub:89:mc}
+Gene~H. Golub and Charles F.~Van Loan.
+\newblock {\em Matrix Computations}.
+\newblock The Johns Hopkins University Press, 1989.
+
+\bibitem{Potter:66:mqs}
+J.E.Potter.
+\newblock Matrix quadratic solution.
+\newblock {\em SIAM Journal on Appl. Math.}, 14:496--501, 1966.
+
+\bibitem{Kernighan:78:tcp}
+Brian~W. Kernighan and Dennis~M. Ritchie.
+\newblock {\em The C Programming Language}.
+\newblock Prentice-Hall, 1978.
+
+\bibitem{Kernighan:88:tcp}
+Brian~W. Kernighan and Dennis~M. Ritchie.
+\newblock {\em The C Programming Language(ANSI C)}.
+\newblock Prentice-Hall, second edition, 1988.
+
+\bibitem{Koga:91:mah}
+Masanobu Koga and Katsuhisa Furuta.
+\newblock {MaTX} : A high-performance interactive software package for
+  scientific and engineering computation.
+\newblock {\em Proc. of CADCS'91, Swansea, U.K.}, pages 39--44, 1991.
+
+\bibitem{Koga:92:mah}
+Masanobu Koga and Katsuhisa Furuta.
+\newblock {MaTX} : A high-performance programming language (interpreter and
+  compiler) for scientific and engineering computation.
+\newblock {\em Proc. of CACSD'92, Napa, U.S.A.}, pages 15--22, 1992.
+
+\bibitem{Laub:79:acm}
+A.~J. Laub.
+\newblock A schur method for solving algebraic riccati equations.
+\newblock {\em IEEE Trans. on AC}, 24(6), 1979.
+
+\bibitem{Moler:87:pmu}
+C.~Moler, J.~Littel, and S.~Bangert.
+\newblock {\em {PC-MATLAB} -- User's Guide}.
+\newblock N. Main St., Sherborn, MA 01770, USA, 3.1 edition, 1987.
+
+\bibitem{Moler:80:mug}
+Cleve Moler.
+\newblock {\em {MATLAB} -- User's Guide}.
+\newblock Alberquerque, USA, 1980.
+
+\bibitem{William:88:nri}
+William~H. Press, Brian~P. Flannery, Saul~A. Teukolsky, and William~T.
+  Veterling.
+\newblock {\em Numerical Recipes in C (The Art of Scientific Computing)}.
+\newblock Cambridge University Press, 1988.
+
+\bibitem{Smith:76:mer}
+B.T. Smith, J.M. Boyle, J.J. Dongarra, B.S. Garbow, Y.~Ikebe, V.C. Klema, and
+  C.B. Moler.
+\newblock {\em Matrix Eigensystem Routines -- EISPACK Guide}.
+\newblock Springer-Verlag, 1976.
+
+\bibitem{Stewart:73:itm}
+G.W. Stewart.
+\newblock {\em Introduction To Matrix Computations}.
+\newblock Academic Press, 1973.
+
+\bibitem{Walker:82:mad}
+Robert Walker, Charles~Gregory Jr., and Sunil Shah.
+\newblock {MATRIXx}: A data analysis, system identification, control design and
+  simulation package.
+\newblock {\em Control Systems Magazine}, pages 30--37, 1982.
+
+\bibitem{Kondo:90:ync}
+近藤 嘉雪.
+\newblock {\em yaccによる{C}コンパイラプログラミング}.
+\newblock ソフトバンク, 1990.
+
+\bibitem{Koga:90:sks}
+古賀 雅伸 and 古田 勝久.
+\newblock 制御系解析・設計支援ツール.
+\newblock {\em 第２９回計測自動制御学会学術講演会}, pages 467--468, 1990.
+
+\bibitem{Ishida:81:pgc}
+石田~晴久 監訳.
+\newblock {\em プログラミング言語{C}}.
+\newblock 共立出版株式会社, 1981.
+
+\bibitem{Ishida:85:upk}
+石田~晴久 監訳.
+\newblock {\em {UNIX}プログラミング環境}.
+\newblock アスキ−出版局, 1985.
+
+\bibitem{Ishida:89:pgc}
+石田~晴久 監訳.
+\newblock {\em プログラミング言語{C}第2版}.
+\newblock 共立出版株式会社, 1989.
+
+\bibitem{Nakajima:92:pdm}
+中島 信行.
+\newblock {\em パソコンで学割り込みプログラミング}, pages 100--201.
+\newblock CQ出版社, 1992.
+
+\end{thebibliography}

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>複素行列</TITLE>
+<META NAME="description" CONTENT="複素行列">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node157.htm">
+<LINK REL="previous" HREF="node155.htm">
+<LINK REL="up" HREF="node150.htm">
+<LINK REL="next" HREF="node157.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2581"
+ HREF="node157.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2577"
+ HREF="node150.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2571"
+ HREF="node155.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2579"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2580"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2582"
+ HREF="node157.htm">行列を成分とする行列</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2578"
+ HREF="node150.htm">いろいろな行列</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2572"
+ HREF="node155.htm">対角行列とブロック対角行列</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001826000000000000000">&#160;</A>
+<A NAME="7985">&#160;</A>
+<BR>
+複素行列
+</H2><FONT SIZE="-1">
+複素行列の記述方法には，複素数を成分として記述する方法と
+一対の実行列をコンマ ``<TT>,</TT>'' で区切って丸括弧
+<TT>(</TT> と <TT>)</TT> で囲む方法がある。
+実部または虚部だけを指定し，もう一方に <TT>*</TT> を指定して
+複素行列を記述することもできる。
+<A NAME="8996">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+CM3 = (M1,M2); // CM3 = M1 + M2*i;    (M1,M2:実行列)
+CM3 = (M1,*);  // CM3 = M1 + Z(M1)*i; (M1:実行列)
+CM3 = (*,M1);  // CM3 = Z(M1)*i + M1; (M1:実行列)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>複素行列の実部と虚部は，
+関数<TT>Re()</TT>と<TT>Im()</TT>を用いてとり出すことができる。
+<A NAME="8997">&#160;</A>
+<A NAME="8998">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+M1 = Re((M1,M2));  // 実部行列 = Re(複素行列)
+M2 = Im((M1,M2));  // 虚部行列 = Im(複素行列)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

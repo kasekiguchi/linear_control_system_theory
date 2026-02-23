@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>norm</TITLE>
+<META NAME="description" CONTENT="norm">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node141.htm">
+<LINK REL="previous" HREF="node139.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node141.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2309"
+ HREF="node141.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2306"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2300"
+ HREF="node139.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2308"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2310"
+ HREF="node141.htm">Nu</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2307"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2301"
+ HREF="node139.htm">min_row</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004136000000000000000">&#160;</A><A NAME="man_norm">&#160;</A>
+<BR>
+norm
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>norm - ノルム
+<DT>【形式】
+<DD><PRE>
+x = norm(A)              x = norm(A,k)
+   Real x;                  Real x;
+   (Matrix|Array) A;        (Matrix|Array) A;
+                            Integer k;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>norm(A)は，行列 A の最大特異値を求める。norm(A,1) は，A の
+1-ノルム(列毎の和の最大値)を求める。norm(A,2)は，norm(A)と
+等しい。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; x = norm([[1 2 3][4 5 6]])
+x = 9.50803
+&gt;&gt; x = norm([[1 2 3][4 5 6]],1)
+x = 9
+&gt;&gt; x = norm([[1 2 3][4 5 6]],2)
+x = 9.50803
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>frobnorm(<A HREF="node78.htm#man_frobnorm">2.79</A>), infnorm(<A HREF="node98.htm#man_infnorm">2.99</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

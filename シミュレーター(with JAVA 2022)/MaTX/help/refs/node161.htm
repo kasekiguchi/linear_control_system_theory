@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>printf</TITLE>
+<META NAME="description" CONTENT="printf">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node162.htm">
+<LINK REL="previous" HREF="node160.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node162.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2540"
+ HREF="node162.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2537"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2531"
+ HREF="node160.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2539"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2541"
+ HREF="node162.htm">prod</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2538"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2532"
+ HREF="node160.htm">print</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004157000000000000000">&#160;</A><A NAME="man_printf">&#160;</A>
+<BR>
+printf
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>printf - 書式化したデータを標準出力に出力
+<DT>【形式】
+<DD><PRE>
+i = printf(format, ...)
+   Integer i;
+   String format;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>printf(format, ...)は，format で指定した書式で標準出力にデータ
+を書き込む。整数型，実数型，文字列型のデータを出力できる。
+書式は，</FONT><FONT SIZE="-1">C 言語の関数 printf() の書式と同じものを指定する。
+すなわち，普通の文字(アルファベット，数字，エスケープ文字)
+あるいは変換を表す文字列を指定する。エスケープ文字には次の
+ものがある。
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT"><code>\</code>a</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">警告(ベルなど)</TD>
+<TD ALIGN="LEFT"><code>\</code>v</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">垂直タブ</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>\</code>b</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">バックスペース</TD>
+<TD ALIGN="LEFT"><code>\</code><code>\</code></TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">バックスラッス</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>\</code>f</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">改ページ</TD>
+<TD ALIGN="LEFT"><code>\</code>'</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">アポストロフィ</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>\</code>n</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">復帰改行</TD>
+<TD ALIGN="LEFT"><code>\</code>"</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">二重引用符</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>\</code>r</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">復帰</TD>
+<TD ALIGN="LEFT"><code>\</code>?</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">疑問符</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>\</code>t</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT">水平タブ</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1">変換を表すには，パーセント % ，フィールド幅(オプション)，変換文字
+を指定する。変換文字には，次の文字がある。
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">%d</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>整数型</TD>
+</TR>
+<TR><TD ALIGN="LEFT">%e, %E, %f, %g</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>実数型</TD>
+</TR>
+<TR><TD ALIGN="LEFT">%s</TD>
+<TD ALIGN="CENTER">:</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>文字列型</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1">  
+printf()は，変換して出力したデータの数を返す。
+printf(format, ...)とfprintf(1,format,...)は等しい。
+<DT>【例題】
+<DD>printf()でデータを画面に出力。</FONT><PRE>
+printf(fd, "%d %f %s", 10, 3.1415, "Hello");
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>fprintf(<A HREF="node76.htm#man_fprintf">2.77</A>), scanf(<A HREF="node202.htm#man_scanf">2.203</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

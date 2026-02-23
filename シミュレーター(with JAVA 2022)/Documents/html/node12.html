@@ -1,0 +1,638 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>トレーラーのシミュレーション</TITLE>
+<META NAME="description" CONTENT="トレーラーのシミュレーション">
+<META NAME="keywords" CONTENT="appendixa">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EUC-JP">
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="appendixa.css">
+
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="node1.html">
+<LINK REL="next" HREF="node13.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html166"
+  HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="next.gif"></A> 
+<A NAME="tex2html164"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="up.gif"></A> 
+<A NAME="tex2html160"
+  HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="prev.gif"></A>   
+<BR>
+<B> :</B> <A NAME="tex2html167"
+  HREF="node13.html">この文書について...</A>
+<B> :</B> <A NAME="tex2html165"
+  HREF="node1.html">三輪車とトレーラーのシミュレータ について</A>
+<B> :</B> <A NAME="tex2html161"
+  HREF="node11.html">三輪車のシミュレーション</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00160000000000000000">
+トレーラーのシミュレーション</A>
+</H1>
+Fig.<A HREF="#fig:trailermodel">A.16</A>のようなトレーラーのモデルを考える．
+
+<DIV ALIGN="CENTER"><A NAME="fig:trailermodel"></A><A NAME="384"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Fig. A.16:</STRONG>
+トレーラーモデル</CAPTION>
+<TR><TD><IMG
+ WIDTH="847" HEIGHT="1100" BORDER="0"
+ SRC="img48.gif"
+ ALT="\begin{figure}\begin{center}
+\epsfig{file=figure/trailer.eps,scale=0.9}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<BR> <DIV ALIGN="CENTER">
+ <A NAME="390"></A>
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<CAPTION><STRONG>Table A.2:</STRONG>
+トラクターに関する記号の定義</CAPTION>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="23" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img49.gif"
+ ALT="$ P_1$"></TD>
+<TD ALIGN="LEFT">2つの後輪の中点</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="25" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img50.gif"
+ ALT="$ O_1$"></TD>
+<TD ALIGN="LEFT">前輪の回転軸と後輪の回転軸の交点 (トラクターの回転中心)</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="18" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.gif"
+ ALT="$ Q$"></TD>
+<TD ALIGN="LEFT">操舵軸 <!-- MATH
+ $(O_1 P_1 \perp P_1 Q)$
+ -->
+<IMG
+ WIDTH="113" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img51.gif"
+ ALT="$ (O_1 P_1 \perp P_1 Q)$"></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="24" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.gif"
+ ALT="$ L_1$"></TD>
+<TD ALIGN="LEFT"><IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img53.gif"
+ ALT="$ P_1 Q$">間の距離 (0.4 [m])</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="20" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img54.gif"
+ ALT="$ \theta_1$"></TD>
+<TD ALIGN="LEFT">トレーラに対するトラクターの姿勢角</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img30.gif"
+ ALT="$ \alpha$"></TD>
+<TD ALIGN="LEFT">操舵角</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img31.gif"
+ ALT="$ z$"></TD>
+<TD ALIGN="LEFT">トラクターの軌跡</TD>
+</TR>
+</TABLE>
+</DIV>
+ <DIV ALIGN="CENTER">
+ <A NAME="396"></A>
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<CAPTION><STRONG>Table A.3:</STRONG>
+トレーラーに関する記号の定義</CAPTION>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="23" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img55.gif"
+ ALT="$ P_2$"></TD>
+<TD ALIGN="LEFT">2つの後輪の中点</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="25" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img56.gif"
+ ALT="$ O_2$"></TD>
+<TD ALIGN="LEFT"><IMG
+ WIDTH="23" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img49.gif"
+ ALT="$ P_1$">と後輪の回転軸の交点 (トレーラーの回転中心)</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="18" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.gif"
+ ALT="$ Q$"></TD>
+<TD ALIGN="LEFT">操舵軸 <!-- MATH
+ $(O_1 P_1 \perp P_1 Q)$
+ -->
+<IMG
+ WIDTH="113" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img51.gif"
+ ALT="$ (O_1 P_1 \perp P_1 Q)$"></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="24" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img57.gif"
+ ALT="$ L_2$"></TD>
+<TD ALIGN="LEFT"><IMG
+ WIDTH="42" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img58.gif"
+ ALT="$ P_1 P_2$">間の距離 (1.2 [m])</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="20" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img59.gif"
+ ALT="$ \theta_2$"></TD>
+<TD ALIGN="LEFT">トレーラーの姿勢角</TD>
+</TR>
+<TR><TD ALIGN="CENTER"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img60.gif"
+ ALT="$ \eta$"></TD>
+<TD ALIGN="LEFT">トレーラーの軌跡</TD>
+</TR>
+</TABLE>
+</DIV>
+<BR>
+
+<P>
+Fig.<A HREF="#fig:trailermodel">A.16</A>を基に，
+トレーラーの運動方程式は次のように表すことができる．
+<P></P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="84" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img61.gif"
+ ALT="$\displaystyle \frac{d(\theta_1 + \theta_2)}{dt}$"></TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="75" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img62.gif"
+ ALT="$\displaystyle = \dot{z} \frac{\tan \alpha}{L_1}$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(A.5)</TD></TR>
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img63.gif"
+ ALT="$\displaystyle \frac{d\theta_2}{dt}$"></TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="80" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img64.gif"
+ ALT="$\displaystyle = \dot{\eta} \frac{\tan \theta_1}{L_2}$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(A.6)</TD></TR>
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="35" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img65.gif"
+ ALT="$\displaystyle \frac{d x_2}{dt}$"></TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="77" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img66.gif"
+ ALT="$\displaystyle = \dot{\eta} \cos \theta_2$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(A.7)</TD></TR>
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="33" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img67.gif"
+ ALT="$\displaystyle \frac{d y_2}{dt}$"></TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="75" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img68.gif"
+ ALT="$\displaystyle = \dot{\eta} \sin \theta_2$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(A.8)</TD></TR>
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="27" HEIGHT="56" ALIGN="MIDDLE" BORDER="0"
+ SRC="img69.gif"
+ ALT="$\displaystyle \frac{d \eta}{dt}$"></TD>
+<TD NOWRAP ALIGN="LEFT"><IMG
+ WIDTH="77" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img70.gif"
+ ALT="$\displaystyle = \dot{z} \cos \theta_1$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(A.9)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+この運動方程式の新しい時間軸(トレーラーの目標軌道上の位置)を<IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img71.gif"
+ ALT="$ x_2$">とする
+と，次のようになる．
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\left\{
+  \begin{array}{rcl}
+   \displaystyle \frac{d}{dx_2}
+    \left(
+     \begin{array}{c}
+      y_2 \\
+      \theta_1 \\
+      \theta_2
+     \end{array}
+    \right) &=&
+    \left(
+     \begin{array}{c}
+      \tan \theta_2 \\
+      -\frac{\tan \theta_1}{L_2 \cos \theta_2} \\
+      \frac{\tan \theta_1}{L_2 \cos \theta_2}
+     \end{array}
+    \right) +
+    \left(
+     \begin{array}{c}
+      0 \\
+      \frac{1}{L_1 \cos \theta_1 \cos \theta_2} \\
+      0
+     \end{array}
+    \right) \tan \alpha \\
+   \displaystyle \frac{dx_2}{dt} &=& \dot{\eta} \cos \theta_2
+  \end{array}\right.
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="495" HEIGHT="127" ALIGN="MIDDLE" BORDER="0"
+ SRC="img72.gif"
+ ALT="$\displaystyle \left\{ \begin{array}{rcl} \displaystyle \frac{d}{dx_2} \left( \b...
+...\ \displaystyle \frac{dx_2}{dt} &amp;=&amp; \dot{\eta} \cos \theta_2 \end{array}\right.$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(A.10)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+制御方策は，このシステムにおいて<!-- MATH
+ $(y_2, \theta_1, \theta_2)^T = (\mbox{目標軌
+道との偏差，トラクター姿勢角，トレーラー姿勢角})^T$
+ -->
+<IMG
+ WIDTH="122" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img73.gif"
+ ALT="$ (y_2, \theta_1, \theta_2)^T = ($">目標軌
+道との偏差，トラクター姿勢角，トレーラー姿勢角<IMG
+ WIDTH="22" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.gif"
+ ALT="$ )^T$">と捉えて，<!-- MATH
+ $y_2, \theta_1,
+\theta_2 \rightarrow 0$
+ -->
+<IMG
+ WIDTH="103" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img74.gif"
+ ALT="$ y_2, \theta_1,
+\theta_2 \rightarrow 0$">に追従させることを実現すればよい．
+
+<P>
+このシステムのシミュレーション方法を以下に述べる．但し，シミュレーションで
+はトラクターとトレーラー軸の長さはそれぞれ <IMG
+ WIDTH="69" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img75.gif"
+ ALT="$ L_1 = 0.4$">[m] と<IMG
+ WIDTH="69" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img76.gif"
+ ALT="$ L_2 = 1.2$">[m]
+としている．
+<DL COMPACT>
+<DT>sffamilyfseries case 1.</DT>
+<DD>システム方程式を原点近傍で線形化を行い，LQ 制御と極配置による
+      線形制御理論に基づく状態フィードバックを作る．
+<BR>      新しい時間軸<IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img33.gif"
+ ALT="$ x$">に関する方程式を原点近傍で線形化を行うと，
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation*}
+\begin{array}{lclclcl}
+  f(x) &\stackrel{\rm def}{=}&
+   \left(
+    \begin{array}{c}
+     \tan \theta_2 \\
+     -\frac{\tan \theta_1}{L_2 \cos \theta_2} \\
+     \frac{\tan \theta_1}{L_2 \cos \theta_2}
+    \end{array}
+   \right) &\Rightarrow&
+   A &\stackrel{\rm def}{=}&
+   \left(
+    \begin{array}{ccc}
+     \frac{\partial f_1}{\partial y_2} &
+      \frac{\partial f_1}{\partial \theta_1} &
+      \frac{\partial f_1}{\partial \theta_2} \\
+     \frac{\partial f_2}{\partial y_2} &
+      \frac{\partial f_2}{\partial \theta_1} &
+      \frac{\partial f_2}{\partial \theta_2} \\
+     \frac{\partial f_3}{\partial y_2} &
+      \frac{\partial f_3}{\partial \theta_1} &
+      \frac{\partial f_3}{\partial \theta_2} 
+    \end{array}
+  \right) \\
+  & & & & &=&
+  \left. \left(
+  \begin{array}{ccc}
+   0 & 0 & \frac{1}{\cos ^2 \theta_2} \\
+   0 & \frac{-1}{L_2\cos ^2 \theta_1 \cos \theta_2} &
+    \frac{\tan \theta_1}{L_2 \cos ^2 \theta_2} \\
+   0 & \frac{1}{L_2\cos ^2 \theta_1 \cos \theta_2} &
+    \frac{-\tan \theta_1}{L_2 \cos ^2 \theta_2} \\
+  \end{array}
+  \right) \right|_{(y_2,\theta_1, \theta_2) = (0, 0, 0)} \\
+  & & & & &=&
+  \left(
+   \begin{array}{ccc}
+    0 & 0  & 1.0 \\
+    0 & \frac{-1}{L_2} & 0 \\
+    0 & \frac{1}{L_2}  & 0
+   \end{array}
+  \right) \\
+  g(x) &\stackrel{\rm def}{=}&
+  \left(
+   \begin{array}{c}
+    0 \\
+    \frac{1}{L_1 \cos \theta_1 \cos \theta_2} \\
+    0
+   \end{array}
+  \right) &\Rightarrow&
+  B &\stackrel{\rm def}{=}&
+  \left(
+   \begin{array}{c}
+    0 \\
+    \frac{1}{L_1} \\
+    0
+   \end{array}
+ \right)
+ \end{array}
+\end{equation*}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="694" HEIGHT="314" BORDER="0"
+ SRC="img77.gif"
+ ALT="\begin{displaymath}\begin{array}{lclclcl} f(x) &amp;\stackrel{\rm def}{=}&amp; \left( \b...
+...ray}{c} 0 \\ \frac{1}{L_1} \\ 0 \end{array} \right) \end{array}\end{displaymath}"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+&nbsp;&nbsp;&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+      より，線形方程式は次のようになる．ここでは<!-- MATH
+ $\tan \alpha$
+ -->
+<IMG
+ WIDTH="44" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img42.gif"
+ ALT="$ \tan \alpha$">を入力と考
+      えている．
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\frac{d}{dx_2}\left(\begin{array}{c}
+     y_2 \\
+     \theta_1 \\
+     \theta_2
+   \end{array} \right) = \left(\begin{array}{ccc}
+     0 & 0  & 1.0 \\
+     0 & -\frac{1}{1.2} & 0 \\
+     0 & \frac{1}{1.2}  & 0
+   \end{array} \right) \left(\begin{array}{c}
+     y_2 \\
+     \theta_1 \\
+     \theta_2
+   \end{array} \right) + \left(\begin{array}{c}
+     0 \\
+     \frac{1}{0.4} \\
+     0
+   \end{array} \right) \tan \alpha
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="464" HEIGHT="90" ALIGN="MIDDLE" BORDER="0"
+ SRC="img78.gif"
+ ALT="$\displaystyle \frac{d}{dx_2}\left(\begin{array}{c} y_2 \\ \theta_1 \\ \theta_2 ...
+... \left(\begin{array}{c} 0 \\ \frac{1}{0.4} \\ 0 \end{array} \right) \tan \alpha$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(A.11)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+      このシミュレーションではトレーラが後退するとしているので，
+      <!-- MATH
+ $x_2' = -x_2$
+ -->
+<IMG
+ WIDTH="76" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.gif"
+ ALT="$ x_2' = -x_2$">を用いて，線形方程式は次のようになる．
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\frac{d}{dx_2'}\left(\begin{array}{c}
+     y_2 \\
+     \theta_1 \\
+     \theta_2
+   \end{array} \right) = \left(\begin{array}{ccc}
+     0 & 0  & -1.0 \\
+     0 & \frac{1}{1.2} & 0 \\
+     0 & -\frac{1}{1.2} & 0
+   \end{array} \right) \left(\begin{array}{c}
+     y_2 \\
+     \theta_1 \\
+     \theta_2
+   \end{array} \right) + \left(\begin{array}{c}
+     0 \\
+     -\frac{1}{0.4} \\
+     0
+   \end{array} \right) \tan \alpha
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="491" HEIGHT="90" ALIGN="MIDDLE" BORDER="0"
+ SRC="img80.gif"
+ ALT="$\displaystyle \frac{d}{dx_2'}\left(\begin{array}{c} y_2 \\ \theta_1 \\ \theta_2...
+...\left(\begin{array}{c} 0 \\ -\frac{1}{0.4} \\ 0 \end{array} \right) \tan \alpha$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(A.12)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+LQ 制御と極配置によって，この線形システムの状態フィードバックを求
+      めることができる．
+</DD>
+<DT>sffamilyfseries case 2.</DT>
+<DD>システム方程式を厳密な線形化を用いて線形システム方程式を作り，得られた
+      線形方程式に対して極配置によって状態フィードバックを求める．
+<BR>      新しい状態<IMG
+ WIDTH="15" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.gif"
+ ALT="$ \phi$">と新しい入力<IMG
+ WIDTH="13" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.gif"
+ ALT="$ v$">として，
+<BR>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ \begin{eqnarray*}
+\left\{
+  \begin{array}{rcl}
+   \phi &=& \left(
+	     \begin{array}{c}
+	      \phi_1 \\
+	      \phi_2 \\
+	      \phi_3
+	     \end{array}
+	    \right) =
+   \left(
+    \begin{array}{c}
+     y_2 \\
+     \tan \theta_2 \\
+     \frac{\tan \theta_1}{L_2 \cos ^3 \theta_2} \\
+    \end{array}
+   \right) \\
+   \tan \alpha &=& \displaystyle
+    -\frac{L_1 \cos \theta_1(3\sin ^2 \theta_1 \tan \theta_2 - \tan \theta_1)}
+    {L_2} + L_1L_2 \cos ^3 \theta_1 \cos ^4 \theta_2 v
+  \end{array}\right.
+\end{eqnarray*}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP ALIGN="RIGHT"><IMG
+ WIDTH="544" HEIGHT="123" BORDER="0"
+ SRC="img81.gif"
+ ALT="\begin{displaymath}\left\{
+\begin{array}{rcl}
+\phi &amp;=&amp; \left(
+\begin{array}{c}
+\...
+...+ L_1L_2 \cos ^3 \theta_1 \cos ^4 \theta_2 v
+\end{array}\right.\end{displaymath}"></TD>
+<TD>&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+&nbsp;</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+を用いると次の線形方程式が得られる．
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\frac{d \phi}{dt} = \left(\begin{array}{ccc}
+     0 & 1.0 & 0 \\
+     0 & 0 & 1.0 \\
+     0 & 0 & 0
+   \end{array} \right) \phi + \left(\begin{array}{c}
+     0 \\
+     0 \\
+     1.0
+   \end{array} \right) v
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="298" HEIGHT="90" ALIGN="MIDDLE" BORDER="0"
+ SRC="img82.gif"
+ ALT="$\displaystyle \frac{d \phi}{dt} = \left(\begin{array}{ccc} 0 &amp; 1.0 &amp; 0 \\ 0 &amp; 0...
+...rray} \right) \phi + \left(\begin{array}{c} 0 \\ 0 \\ 1.0 \end{array} \right) v$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(A.13)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+      このシミュレーションではトレーラが後退するとしているので，
+      <!-- MATH
+ $x_2' = -x_2$
+ -->
+<IMG
+ WIDTH="76" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.gif"
+ ALT="$ x_2' = -x_2$"> を用いて，線形方程式は次のようになる．
+<P></P>
+<DIV ALIGN="CENTER"><!-- MATH
+ \begin{equation}
+\frac{d \phi}{dt} = \left(\begin{array}{ccc}
+     0 & -1.0 & 0 \\
+     0 & 0 & -1.0 \\
+     0 & 0 & 0
+   \end{array} \right) \phi + \left(\begin{array}{c}
+     0 \\
+     0 \\
+     -1.0
+   \end{array} \right) v
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="338" HEIGHT="90" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.gif"
+ ALT="$\displaystyle \frac{d \phi}{dt} = \left(\begin{array}{ccc} 0 &amp; -1.0 &amp; 0 \\ 0 &amp; ...
+...ray} \right) \phi + \left(\begin{array}{c} 0 \\ 0 \\ -1.0 \end{array} \right) v$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(A.14)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+      極配置によって，この線形システムの状態フィードバックを求めることが
+      できる．
+</DD>
+</DL><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html166"
+  HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:/opt/latex2html/icons/next.gif"></A> 
+<A NAME="tex2html164"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:/opt/latex2html/icons/up.gif"></A> 
+<A NAME="tex2html160"
+  HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:/opt/latex2html/icons/prev.gif"></A>   
+<BR>
+<B> :</B> <A NAME="tex2html167"
+  HREF="node13.html">この文書について...</A>
+<B> :</B> <A NAME="tex2html165"
+  HREF="node1.html">三輪車とトレーラーのシミュレータ について</A>
+<B> :</B> <A NAME="tex2html161"
+  HREF="node11.html">三輪車のシミュレーション</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Shigeki Nakaura
+平成15年3月17日
+</ADDRESS>
+</BODY>
+</HTML>

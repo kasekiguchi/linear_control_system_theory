@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>センサとアクチュエータのインターフェース関数</TITLE>
+<META NAME="description" CONTENT="センサとアクチュエータのインターフェース関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node234.htm">
+<LINK REL="previous" HREF="node232.htm">
+<LINK REL="up" HREF="node228.htm">
+<LINK REL="next" HREF="node234.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3560"
+ HREF="node234.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3556"
+ HREF="node228.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3550"
+ HREF="node232.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3558"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3559"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3561"
+ HREF="node234.htm">入出力カード(D/A,カウンタ)のインターフェース関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3557"
+ HREF="node228.htm">プログラムの動作</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3551"
+ HREF="node232.htm">実験装置のインターフェース関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002645000000000000000">
+センサとアクチュエータのインターフェース関数</A>
+</H2>
+<P>
+<FONT SIZE="-1">
+センサやアクチュエータとのインターフェースは次の5つの関数を使って行なう。
+<A NAME="13386">&#160;</A>
+<A NAME="13387">&#160;</A>
+<A NAME="13388">&#160;</A>
+<A NAME="13389">&#160;</A>
+<A NAME="13390">&#160;</A>
+</FONT><PRE>
+void sensor_init();        センサの初期化
+void actuator_init();      アクチュエータの初期化
+void actuator_stop();      アクチュエータの停止
+void actuator();           アクチュエータへの出力
+Matrix sensor();           センサからの入力
+</PRE>
+<P>
+<FONT SIZE="-1">センサの初期関数の例を次に示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void sensor_init()
+{
+  void count_init();
+
+  // 変換係数の設定(m/カウント数)
+  c_k = [[0.07489506 * 0.001]     
+         [0.04600000 * 0.001]
+         [0.07501935 * 0.001]];
+
+  count_init(); // カウンタの初期化
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1">アクチュエータの初期関数の例を次に示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void actuator_init()
+{
+  void actuator_stop();
+
+  apd = amd = fsp = fsm = fcp = fcm = Z(DA_CH, 1);
+
+  // 変換係数の設定
+  fsp(1) = 6.843;
+  fcp(1) = 6.843/3;
+  fsm(1) = 8.026;
+  fcm(1) = 8.026/3;
+  apd(1) = 8.355 ;
+  amd(1) = 9.394 ;
+    
+  fsp(2) = 1.967 ;
+  fcp(2) = 1.967/3;
+  fsm(2) = 2.089 ;
+  fcm(2) = 2.089/3;
+  apd(2) = 1.050 ;
+  amd(2) = 1.071 ;
+
+  actuator_stop(); // アクチュエータ停止
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1">アクチュエータを停止する関数の例を次に示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void actuator_stop()
+{
+  void da_zero();
+
+  da_zero(); // D/A出力を0にする
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1">センサの出力を読み込む関数の例を示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func Matrix sensor()
+{
+  Integer i;
+  Matrix cnt_data;
+
+  Integer count_get(); // カウンタ読み込み関数
+
+  cnt_data = Z(CNT_CH,1);
+  for (i = 1; i &lt;= CNT_CH; i++){
+    cnt_data(i) = c_k(i) * count_get(i);
+  }
+
+  return cnt_data;
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1">アクチュエータへ出力する関数の例を示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void actuator(data)
+  Matrix data;
+{
+  Integer i;
+  Index da_port;
+  Matrix v;
+
+  void da_conv(); // D/A出力関数
+
+  v = Z(DA_CH, 1);
+  for (i = 1; i &lt;= DA_CH; i++) {
+    if (data(i) &gt;= 0.0) {
+      v(i) = data(i) / apd(i);
+    } else {
+      v(i) = data(i) / amd(i);
+    }
+  }
+    
+  da_port = [1 2];
+  da_conv(da_port, v);
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

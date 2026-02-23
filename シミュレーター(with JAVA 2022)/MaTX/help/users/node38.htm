@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>クラス変換</TITLE>
+<META NAME="description" CONTENT="クラス変換">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node39.htm">
+<LINK REL="previous" HREF="node37.htm">
+<LINK REL="up" HREF="node18.htm">
+<LINK REL="next" HREF="node39.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1048"
+ HREF="node39.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1044"
+ HREF="node18.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1038"
+ HREF="node37.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1046"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1047"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1049"
+ HREF="node39.htm">複数行に渡る式(コマンドラインのみ)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1045"
+ HREF="node18.htm">コマンドと便利な機能</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1039"
+ HREF="node37.htm">終了</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION006200000000000000000">&#160;</A>
+<A NAME="1610">&#160;</A>
+<A NAME="1611">&#160;</A>
+<BR>
+クラス変換
+</H1>
+型の異なるデータの演算においては，自動型変換が行なわれるが，
+いくつかの演算は，明示的な型変換を必要とする。例えば，
+<BR CLEAR="ALL">
+<HR><PRE>
+  A = ([1 2 3] * [4 5 6]') * [[1 2][3 4]];
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+で，<code>([1 2 3] * [4 5 6]')</code>は<TT>1</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>1</TT>の実行列
+であるので，次の行列との乗算はエラーとなる。<TT>1</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>1</TT>
+の実行列から<code>(1,1)</code>成分を取り出すには式を
+ブラケット <TT>[</TT> と <TT>]</TT> で囲み変数行列と同様に扱えるようにする
+<A HREF="node172.htm#subsec:eqn_mat">15.5.3</A>。すなわち
+<BR CLEAR="ALL">
+<HR><PRE>
+  A = [[1 2 3] * [4 5 6]'](1) * [[1 2][3 4]];
+</PRE>
+<BR CLEAR="ALL">
+<HR>のように変更する。
+<BR CLEAR="ALL">
+<HR><PRE>
+  A = [[1 2][3 4]];  B = [[5 6][7 8]];
+  C = A .* B;
+  D = Array(A) * Array(B);
+</PRE>
+<BR CLEAR="ALL">
+<HR><A NAME="1956">&#160;</A>
+
+の結果<TT>C</TT>と<TT>D</TT>は一致する。
+<BR CLEAR="ALL">
+<HR><PRE>
+  A = [[1 2][3 4]];
+  for (i = 1; i &lt;= 10; i++) {
+    print A * i &gt;&gt; "A-" + String(i) + ".mat";
+  }
+</PRE>
+<BR CLEAR="ALL">
+<HR><A NAME="1957">&#160;</A>
+
+で，関数<TT>String()</TT>は，整数を文字列に変換する。
+
+<P>
+
+クラス変換関数を用いてクラスを変換することができる。
+クラス名とそのクラスへの変換関数の名前は一致している。
+以下にクラス変換関数の一覧を示す。
+
+<P>
+<A NAME="1958">&#160;</A>
+<PRE>
+s = String(整数)         整数の文字列化
+s = String(実数)         実数の文字列化
+s = String(複素数)       複素数の文字列化
+s = String(多項式)       多項式の文字列化
+</PRE>
+<P>
+<A NAME="1959">&#160;</A>
+<PRE>
+i1 = Integer(文字列)     整数の文字列表現の整数化
+i1 = Integer(実数)       実数に一番近い整数
+</PRE>
+<P>
+<A NAME="1960">&#160;</A>
+<PRE>
+r1 = Real(文字列)        実数の文字列表現の実数化
+r1 = Real(複素数)        複素数の実部
+</PRE>
+<P>
+<A NAME="1961">&#160;</A>
+<PRE>
+c1 = Complex(実数)       実数が実部で，虚部が零の複素数
+</PRE>
+<P>
+<A NAME="1962">&#160;</A>
+<PRE>
+P1 = Polynomial(実数)    定数項が実数の実多項式
+CP1 = Polynomial(複素数) 定数項が複素数の複素多項式
+P1 = Polynomial(実行列)  行列の成分を昇べきの順に係数に持つ多項式，
+                         次数はベクトルの次数-1
+</PRE>
+<P>
+<A NAME="1963">&#160;</A>
+<PRE>
+CP1 = CoPolynomial(実多項式) 引数を実部とする複素多項式
+</PRE>
+<P>
+<A NAME="1964">&#160;</A>
+<PRE>
+R1 = Rational(実数 r)    分子がPolynomial(r1)，分母が1
+CR1 = Rational(複素数 c) 分子がPolynomial(c1)，分母が1
+R1 = Rational(実多項式)  分子が実多項式，分母が1
+R1 = Rational(実行列 M1) 分子がPolynomial(M1)，分母が1
+</PRE>
+<P>
+<A NAME="1965">&#160;</A>
+<PRE>
+CR1 = CoRational(実有理関数) 引数を実部とする複素有理関数
+</PRE>
+<P>
+<A NAME="1966">&#160;</A>
+<PRE>
+M1 = Matrix(配列)        配列と同じ成分を持つ行列
+M1 = Matrix(多項式)      多項式の係数を昇べきの順に並べた横ベクトル
+M1 = Matrix(実数 r)      (1,1)成分がrの1x1実行列
+CM1 = Matrix(複素数 c)   (1,1)成分がcの1x1複素行列
+</PRE>
+<P>
+<A NAME="1967">&#160;</A>
+<A NAME="1968">&#160;</A>
+<A NAME="1969">&#160;</A>
+<PRE>
+CM1 = CoMatrix(実行列|配列)     引数を実部とする複素行列
+PM1 = PoMatrix(実行列|配列)     引数を定数項とする多項式行列
+CPM1 = PoMatrix(複素行列|配列)  引数を定数項とする複素多項式行列
+RM1 = RaMatrix(実行列|配列)     引数を分子の定数項とする
+                                有理関数行列
+CRM1 = RaMatrix(複素行列|配列)  引数を分子の定数項とする
+                                複素有理関数行列
+RM1 = RaMatrix(多項式行列|配列) 引数を分子とする有理関数行列
+</PRE>
+<P>
+<A NAME="1970">&#160;</A>
+<PRE>
+A1 = Array(行列)         行列と同じ成分を持つ配列
+A1 = Array(多項式)       多項式の係数を昇べきの順に並べた配列
+A1 = Array(実数 r)       (1,1)成分がrの1x1実配列
+CA1 = Array(複素数 c)    (1,1)成分がcの1x1複素配列
+</PRE>
+<P>
+<A NAME="1971">&#160;</A>
+<A NAME="1972">&#160;</A>
+<A NAME="1973">&#160;</A>
+<PRE>
+CM1 = CoArray(実配列|行列)     引数を実部とする複素配列
+PM1 = PoArray(実配列|行列)     引数を定数項とする多項式配列
+CPM1 = PoArray(複素配列|行列)  引数を定数項とする複素多項式配列
+RM1 = RaArray(実配列|行列)     引数を分子の定数項とする
+                               有理関数配列
+CRM1 = RaArray(複素配列|行列)  引数を分子の定数項とする
+                               複素有理関数配列
+RM1 = RaArray(多項式配列|行列) 引数を分子とする有理関数配列
+</PRE>
+<P>
+<A NAME="1974">&#160;</A>
+<PRE>
+I1 = Index(行列)         整数に近似した成分を持つ指数
+I1 = Index(配列)         整数に近似した成分を持つ指数
+I1 = Index(整数 i)       第１成分がiの指数
+I1 = Index(実数 r)       第１成分がrを近似した整数である指数
+</PRE>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

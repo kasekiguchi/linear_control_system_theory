@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>線形システムのボードとナイキスト周波数応答</TITLE>
+<META NAME="description" CONTENT="線形システムのボードとナイキスト周波数応答">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node195.htm">
+<LINK REL="previous" HREF="node193.htm">
+<LINK REL="up" HREF="node190.htm">
+<LINK REL="next" HREF="node195.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3058"
+ HREF="node195.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3054"
+ HREF="node190.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3048"
+ HREF="node193.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3056"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3057"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3059"
+ HREF="node195.htm">連続系システムのシミュレーション</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3055"
+ HREF="node190.htm">例題</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3049"
+ HREF="node193.htm">線形システムの伝達関数行列</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002040000000000000000">&#160;</A>
+<A NAME="10834">&#160;</A>
+<A NAME="10835">&#160;</A>
+<BR>
+線形システムのボードとナイキスト周波数応答
+</H1><FONT SIZE="-1">
+与えられた線形システムの伝達関数のボード線図とナイキスト線図を描くための
+データを計算する。
+以下は，リストの説明である。
+</FONT><UL>
+<LI>1行，19行，33行: 関数の始まり。
+<LI>3行，5行，23行，24行，37行，38行: 局所変数の宣言。
+<LI>6行: 関数の宣言。
+<LI>8行: 多項式変数の定義。
+<LI>9行: 3次実有理関数を入力。
+<LI>11行: 対数空間ベクトル。
+<LI>12行，13行: 複数の戻り値を返す関数<TT>Bode()</TT>と<TT>Nyquist()</TT>を呼ぶ。
+<LI>20行，21行，34行，35行: 関数の引数の宣言。
+<LI>26行，40行: 虚数単位の定義。
+<LI>27行，41行: 有理関数配列の評価。(配列の各成分毎に評価する)
+<LI>28行，29行: 配列演算。
+<LI>30行，42行: 2つの成分を持つリストを返す。
+</UL><FONT SIZE="-1">
+<A NAME="10940">&#160;</A>
+<A NAME="10847">&#160;</A>
+<A NAME="10941">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1">
+<BR></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+   Func void main()
+   {
+     Polynomial s;
+     Rational G;
+05:  Array w, ga, ph, re, im;
+     List Bode(...), Nyquist(...);
+   
+     s = $;                      // 多項式変数
+     G = (s^2 + 3*s + 4)/(s^3 + 5*s^2 + 6*s + 7);
+10:                              // 伝達関数
+     w = logspace(0.01, 100.0);  // 周波数の範囲
+     {ga, ph} = Bode(G, w);      // ゲインと位相
+     {re, im} = Nyquist(G, w);   // 実部と虚部
+
+15:  print [[w][re][im]] &gt;&gt; "nyquist.mat"; // データ保存
+     print [[w][ga][ph]] &gt;&gt; "bode.mat";    // データ保存
+   }
+   
+   Func List Bode(G, w)
+20:  Rational G;
+     Array w;
+   {
+     Complex j;
+     Array data, ga, ph;
+25:   
+     j = (0,1);                    // 虚数単位
+     data = eval(G, j*w);          // G(j*w)
+     ga = 20.0 * log10(abs(data)); // ゲイン [dB]
+     ph = arg(data) * 180.0 / PI;  // 位相  [degree]
+30:  return {ga, ph};
+   }
+   
+   Func List Nyquist(G, w)
+     Rational G;
+35:  Array w;
+   {
+     Complex j;
+     Array data;
+
+40:  j = (0,1);                    // 虚数単位
+     data = eval(G, j*w);          // G(j*w)
+     return {Re(data), Im(data)};  // 実部と虚部
+   }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+<BR>
+</FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+List 4:&nbsp;&nbsp;&nbsp;&nbsp;ボード線図とナイキスト線図
+</FONT></DIV>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

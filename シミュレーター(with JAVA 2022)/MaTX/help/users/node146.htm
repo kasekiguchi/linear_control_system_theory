@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>行列成分の変換規則</TITLE>
+<META NAME="description" CONTENT="行列成分の変換規則">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node147.htm">
+<LINK REL="previous" HREF="node145.htm">
+<LINK REL="up" HREF="node145.htm">
+<LINK REL="next" HREF="node147.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2456"
+ HREF="node147.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2452"
+ HREF="node145.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2446"
+ HREF="node145.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2454"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2455"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2457"
+ HREF="node147.htm">行ベクトル</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2453"
+ HREF="node145.htm">行列の記述方法</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2447"
+ HREF="node145.htm">行列の記述方法</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001811000000000000000">
+行列成分の変換規則</A>
+</H2><FONT SIZE="-1">
+行列の成分に異なるクラスの値が存在する時，以下の規則に従って
+自動変換が行なわれる。
+</FONT><DL>
+<DT><STRONG>1.</STRONG>
+<DD>成分の整数は全て実数に変換される。
+<DT><STRONG>2.</STRONG>
+<DD>成分に複素数又は複素行列が存在する時，
+<BR>
+全ての成分は複素数に変換される。
+<DT><STRONG>3.</STRONG>
+<DD>成分に多項式又は多項式行列が存在する時，
+<BR>
+          全ての成分は多項式に変換される。
+<DT><STRONG>4.</STRONG>
+<DD>成分に有理多項式または有理多項式行列が存在する時，
+<BR>
+          全ての成分は有理多項式に変換される。
+<DT><STRONG><B>例外</B></STRONG>
+<DD>成分が全て文字列の時，それらを結合した
+<BR>
+            文字列に変換される。
+<BR>
+            (Matlabとの互換性のための規則であり，
+<BR>
+             一般ユ−ザは，使用すべきでない。)
+</DL><FONT SIZE="-1">ただし，成分中に式がある場合，式の解釈が行なわれた後，自動変換が行なわれる。
+次のような間違いを犯す可能性があるので，注意すること。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+M1 = [1/2, 3/4, 4/5, 5/6];
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+この結果は，ユーザの予想と反して，</FONT>
+<!-- MATH: $1 \times 4$ -->
+<IMG
+ WIDTH="40" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.gif"
+ ALT="$1 \times 4$"><FONT SIZE="-1">の零行列となる。
+望みの結果を得るためには，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+M1 = [1./2., 3./4., 4./5., 5./6.];
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+としなければならない。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

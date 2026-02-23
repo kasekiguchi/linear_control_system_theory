@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>行列と配列と指数</TITLE>
+<META NAME="description" CONTENT="行列と配列と指数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node184.htm">
+<LINK REL="previous" HREF="node134.htm">
+<LINK REL="up" HREF="MaTX.htm">
+<LINK REL="next" HREF="node145.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2389"
+ HREF="node145.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2385"
+ HREF="MaTX.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2379"
+ HREF="node143.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2387"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2388"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2390"
+ HREF="node145.htm">行列の記述方法</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2386"
+ HREF="MaTX.htm">無題</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2380"
+ HREF="node143.htm">有理多項式関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001800000000000000000">&#160;</A>
+<A NAME="7866">&#160;</A>
+<A NAME="7867">&#160;</A>
+<A NAME="7868">&#160;</A>
+<BR>
+行列と配列と指数
+</H1>
+<P>
+<FONT SIZE="-1">行列と配列のデータ構造は全く一致し，
+複数のデータを1次元的または2次元的に保存するという性質は変わらない。
+行列の演算では代数的な行列演算が行なわれるのに対し，
+配列の演算では配列の各成分に対して演算が行なわれ，演算結果は
+各成分の演算結果を成分とする配列となる。
+計算の途中で一時的に行列を配列として扱う
+配列演算子 <code>.*</code>, <code>./</code>, <code>.\</code>, <code>.^</code> や
+スカラと行列や配列の演算においてスカラをその値で満たされた
+行列として扱う演算子 <code>.+</code>と<code>.-</code>がある。
+行列と配列はクラス変換関数<TT>Matrix()</TT>と<TT>Array()</TT>によって
+相互変換できる。
+便利な添字記法を使えば，行・列・成分・部分行列を簡単に参照できる。
+</FONT>
+<P>
+<FONT SIZE="-1">指数は整数を1次元的に並べたものであり，部分行列の取り出しや代入といった
+操作に使われる。
+クラス変換関数<TT>Index()</TT>を使って行列や配列から指数を作れる。
+<A NAME="8970">&#160;</A>
+<A NAME="8971">&#160;</A>
+<A NAME="8972">&#160;</A>
+<A NAME="7875">&#160;</A>
+<A NAME="7876">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="8973">&#160;</A><A NAME="8974">&#160;</A>
+<A NAME="8975">&#160;</A><A NAME="8976">&#160;</A>
+<A NAME="8977">&#160;</A><A NAME="8978">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1">
+［宣言］
+</FONT><PRE>
+  Matrix A, B, C;      // 実行列
+  CoMatrix CA, CB, CC; // 複素行列
+  PoMatrix PA, PB, PC; // 多項式行列
+  RaMatrix RA, RB, RC; // 有理多項式行列
+
+  Array D, E, F;       // 実配列
+  CoArray CD, CE, CF;  // 複素配列
+  PoArray PD, PE, PF;  // 多項式配列
+  RaArray RD, RE, RF;  // 有理多項式配列
+
+  Index II, JJ;        // 指数
+</PRE>
+<P>
+<FONT SIZE="-1">
+［例］
+</FONT><PRE>
+  [[1 2][3 4]], [(1,2), (3,4)]                // 行列
+  Array([[1 2][3 4]]), Array([(1,2), (3,4)])  // 配列
+  Index([1 2 3 4]), Index([10 8 6 4 2])       // 指数
+</PRE>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html2391"
+ HREF="node145.htm">行列の記述方法</A>
+<UL>
+<LI><A NAME="tex2html2392"
+ HREF="node146.htm">行列成分の変換規則</A>
+<LI><A NAME="tex2html2393"
+ HREF="node147.htm">行ベクトル</A>
+<LI><A NAME="tex2html2394"
+ HREF="node148.htm">列ベクトル</A>
+<LI><A NAME="tex2html2395"
+ HREF="node149.htm">行列</A>
+</UL>
+<LI><A NAME="tex2html2396"
+ HREF="node150.htm">いろいろな行列</A>
+<UL>
+<LI><A NAME="tex2html2397"
+ HREF="node151.htm">零行列</A>
+<LI><A NAME="tex2html2398"
+ HREF="node152.htm">単位行列</A>
+<LI><A NAME="tex2html2399"
+ HREF="node153.htm">1で満たされた行列</A>
+<LI><A NAME="tex2html2400"
+ HREF="node154.htm">等差数列配列</A>
+<LI><A NAME="tex2html2401"
+ HREF="node155.htm">対角行列とブロック対角行列</A>
+<LI><A NAME="tex2html2402"
+ HREF="node156.htm">複素行列</A>
+<LI><A NAME="tex2html2403"
+ HREF="node157.htm">行列を成分とする行列</A>
+</UL>
+<LI><A NAME="tex2html2404"
+ HREF="node158.htm">多項式行列</A>
+<UL>
+<LI><A NAME="tex2html2405"
+ HREF="node159.htm">多項式行列の記述方法</A>
+<LI><A NAME="tex2html2406"
+ HREF="node160.htm">多項式行列の評価</A>
+<LI><A NAME="tex2html2407"
+ HREF="node161.htm">多項式行列の微分と積分</A>
+<LI><A NAME="tex2html2408"
+ HREF="node162.htm">多項式行列の各要素の係数のシフト</A>
+</UL>
+<LI><A NAME="tex2html2409"
+ HREF="node163.htm">有理多項式行列</A>
+<UL>
+<LI><A NAME="tex2html2410"
+ HREF="node164.htm">有理多項式行列の記述方法</A>
+<LI><A NAME="tex2html2411"
+ HREF="node165.htm">有理多項式行列の評価</A>
+<LI><A NAME="tex2html2412"
+ HREF="node166.htm">有理多項式行列の微分</A>
+<LI><A NAME="tex2html2413"
+ HREF="node167.htm">有理多項式行列の各要素の係数のシフト</A>
+<LI><A NAME="tex2html2414"
+ HREF="node168.htm">有理多項式配列の分子配列と分母配列</A>
+</UL>
+<LI><A NAME="tex2html2415"
+ HREF="node169.htm">行列成分の操作</A>
+<UL>
+<LI><A NAME="tex2html2416"
+ HREF="node170.htm">成分の取り出し</A>
+<LI><A NAME="tex2html2417"
+ HREF="node171.htm">ブロック成分の取り出し</A>
+<LI><A NAME="tex2html2418"
+ HREF="node172.htm">式行列の成分の取り出し</A>
+<LI><A NAME="tex2html2419"
+ HREF="node173.htm">0-1配列を用いた成分の操作</A>
+<LI><A NAME="tex2html2420"
+ HREF="node174.htm">成分の代入</A>
+<LI><A NAME="tex2html2421"
+ HREF="node175.htm">ブロック成分の代入</A>
+<LI><A NAME="tex2html2422"
+ HREF="node176.htm">行列成分の削除</A>
+<LI><A NAME="tex2html2423"
+ HREF="node177.htm">行列の大きさの変更</A>
+<LI><A NAME="tex2html2424"
+ HREF="node178.htm">指数を用いた行列成分の操作</A>
+<LI><A NAME="tex2html2425"
+ HREF="node179.htm">行列の配列(ピース行列の利用)</A>
+</UL>
+<LI><A NAME="tex2html2426"
+ HREF="node180.htm">行列の比較と配列の比較</A>
+<LI><A NAME="tex2html2427"
+ HREF="node181.htm">行列とスカラの演算</A>
+<LI><A NAME="tex2html2428"
+ HREF="node182.htm">行列関数</A>
+<LI><A NAME="tex2html2429"
+ HREF="node183.htm">配列関数</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

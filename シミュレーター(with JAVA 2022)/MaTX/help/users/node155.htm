@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>対角行列とブロック対角行列</TITLE>
+<META NAME="description" CONTENT="対角行列とブロック対角行列">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node156.htm">
+<LINK REL="previous" HREF="node154.htm">
+<LINK REL="up" HREF="node150.htm">
+<LINK REL="next" HREF="node156.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2569"
+ HREF="node156.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2565"
+ HREF="node150.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2559"
+ HREF="node154.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2567"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2568"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2570"
+ HREF="node156.htm">複素行列</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2566"
+ HREF="node150.htm">いろいろな行列</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2560"
+ HREF="node154.htm">等差数列配列</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001825000000000000000">&#160;</A>
+<A NAME="7977">&#160;</A>
+<A NAME="7978">&#160;</A>
+<BR>
+対角行列とブロック対角行列
+</H2><FONT SIZE="-1">
+対角行列及びブロック対角行列を定義する時，
+全ての成分のクラスは一致しなければならない。
+整数，実数，多項式等のスカラーと行列を混在させてブロック対角行列を記述する
+には，スカラーを<TT>1 x 1</TT>の行列として記述する。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+M1 = diag(1.0, 2.0, 3.0);        // 実対角行列
+CM1 = diag((1,2), (3,4), (5,6)); // 複素対角行列
+M4 = diag(M1, M2, M3);           // ブロック対角行列
+M3 = diag(M1, M2, [1]);          // ブロック対角行列
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

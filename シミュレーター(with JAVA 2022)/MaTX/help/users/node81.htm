@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>複数の線</TITLE>
+<META NAME="description" CONTENT="複数の線">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node82.htm">
+<LINK REL="previous" HREF="node80.htm">
+<LINK REL="up" HREF="node79.htm">
+<LINK REL="next" HREF="node82.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1600"
+ HREF="node82.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1596"
+ HREF="node79.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1590"
+ HREF="node80.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1598"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1599"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1601"
+ HREF="node82.htm">対数プロット</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1597"
+ HREF="node79.htm">xplot</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1591"
+ HREF="node80.htm">基本的なプロット</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00922000000000000000">
+複数の線</A>
+</H2><FONT SIZE="-1">
+1つのグラフ上に複数の線をプロットする方法は2つある。
+1つ目の方法は，関数<TT>xplot()</TT>に<TT>xplot(X,Y)</TT>
+のように2個の引数を渡す方法である。ただし，<TT>X</TT>と<TT>Y</TT>の行の長さは
+同じでなければならない。<TT>X</TT>と<TT>Y</TT>がベクトルか行列かに応じて以下の
+ようにプロットされる線が異なる。
+</FONT>
+<P><UL>
+<LI>もし<TT>Y</TT>が行列で<TT>X</TT>がベクトルなら，<TT>xplot(X,Y)</TT>は，
+      ベクトル<TT>X</TT>に対して<TT>Y</TT>の各行を対応させて異なった線種で線を描く。
+<LI>もし<TT>X</TT>が行列で<TT>Y</TT>がベクトルなら，
+      <TT>xplot(X,Y)</TT>は，ベクトル<TT>Y</TT>に対して<TT>X</TT>の各行を対応
+      させて異なった線種で線を描く。
+<LI>もし<TT>X</TT>と<TT>Y</TT>の両方が行列なら，<TT>xplot(X,Y)</TT>は，
+      <TT>Y</TT>の各行に対して<TT>X</TT>の各行を対応させて異なった線種で線を描く。
+<LI>もし<TT>xplot(Y)</TT>のように<TT>X</TT>が指定されなかったら，<TT>Y</TT>の
+      各成分とその成分の指数を対応させて異なった線種で線を描く。
+</UL>
+<P>
+<FONT SIZE="-1">1つのグラフ上に複数の線をプロットする2つ目の方法は，
+関数<TT>xplot()</TT>に複数の引数を渡す方法である。
+</FONT>
+<P><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  xplot(X1, Y1, X2, Y2, ..., X5, Y5);
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1">変数<TT>X1</TT>, <TT>Y1</TT>, <TT>X2</TT>, <TT>Y2</TT>等は，行列の対である。
+それぞれの<TT>x-y</TT>対が1つのグラフ上にプロットされる。
+この方法を使えば，異なった長さの線を同一グラフ上にプロットすることができる。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

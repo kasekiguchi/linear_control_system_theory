@@ -1,0 +1,36 @@
+.\" Copyright (c) 1989-1995 by Masanobu Koga, Tokyo Institute of Technology
+.\" All rights reserved.
+.\" Do not modified without permission.
+.\"
+.nr X 0
+.TH MaTX 1 "1998.08.25"
+.SH "名前"
+matx \- 記述性に優れた数値計算用のプログラミング言語
+.SH "形式"
+.B "matx [\-nocpp] [mm\-files] [\-] [\-\-] (インタプリタ)"
+
+.B "matc [\-nocpp] [\-nomm] [mm\-files] (コンパイラ)"
+
+.SH "説明"
+.B matx
+は東京工業大学の古賀雅伸助手によって開発された科学や工学に必要な
+数値及び数式計算をサポートする記述性に優れたプログラミング言語です。
+すべての文書、サンプル、及び mm ファイルは
+/usr/local/MaTX
+に置かれます。
+.PP
+exitコマンドによりmatxを終了することができます。
+また、matxの起動時には
+/usr/local/MaTX/inputs/MaTXRC.mm
+が、matcの起動時には
+/usr/local/MaTX/include/MaTXRC.h
+が読み込まれます。
+.SH "環境変数"
+.nf
+.B DISPLAY
+xplot及びgnuplotが接続するXサーバー
+.fi
+.SH "著者"
+古賀雅伸
+
+谷口康明 訳

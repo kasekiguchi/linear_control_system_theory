@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>logspace</TITLE>
+<META NAME="description" CONTENT="logspace">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node117.htm">
+<LINK REL="previous" HREF="node115.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node117.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2045"
+ HREF="node117.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2042"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2036"
+ HREF="node115.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2044"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2046"
+ HREF="node117.htm">lower</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2043"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2037"
+ HREF="node115.htm">log10</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004112000000000000000">&#160;</A><A NAME="man_logspace">&#160;</A>
+<BR>
+logspace
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>logspace - 対数等間隔ベクトル
+<DT>【形式】
+<DD><PRE>
+y = logspace(d1,d2)
+   Array y;
+   Real d1,d2;
+
+y = logspace(d1,d2,n)
+   Array y;
+   Real d1,d2;
+   Integer n;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>logspace(d1,d2) は，</FONT>10<SUP><I>d</I>1</SUP><FONT SIZE="-1"> と </FONT>10<SUP><I>d</I>2</SUP><FONT SIZE="-1"> を対数等間隔で 50 分割した 50 個
+の値からなる行ベクトルを返す。もし，d2 が PI なら，</FONT>10<SUP><I>d</I>1</SUP><FONT SIZE="-1"> と </FONT><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.gif"
+ ALT="$\pi$"><FONT SIZE="-1"> を
+対数等間隔する。
+logspace(d1,d2,N) は，</FONT>10<SUP><I>d</I>1</SUP><FONT SIZE="-1"> と </FONT>10<SUP><I>d</I>2</SUP><FONT SIZE="-1"> を対数等間隔で N 分割した N 個の
+値からなる行ベクトルを返す。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; y = logspace(-2.0,2.0,4)
+ === [y] : (  1,  4) ===
+            (  1)         (  2)         (  3)         (  4)     
+ (  1)  1.000000E-02  2.154434E-01  4.641588E+00  1.000000E+02
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>linspace(<A HREF="node112.htm#man_linspace">2.113</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

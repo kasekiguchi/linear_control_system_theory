@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>sum_row</TITLE>
+<META NAME="description" CONTENT="sum_row">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node230.htm">
+<LINK REL="previous" HREF="node228.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node230.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3288"
+ HREF="node230.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3285"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3279"
+ HREF="node228.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3287"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3289"
+ HREF="node230.htm">svd</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3286"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3280"
+ HREF="node228.htm">sum_col</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004225000000000000000">&#160;</A><A NAME="man_sum_row">&#160;</A>
+<BR>
+sum_row
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>sum_row - 行毎の成分の和
+<DT>【形式】
+<DD><PRE>
+Y = sum_row(X)
+   (Matrix|Array|Index) Y;
+   (Matrix|Array|Index) X;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>sum_row(X)は，行毎に成分の和を求め，列ベクトルを返す。
+X が列ベクトルまたは行ベクトルのとき，sum_row(X) は
+全ての成分の和を求める。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; Y = sum_row([[1 2][3 4]])
+=== [Y] : (  2,  1) ===
+           (  1)     
+(  1)  3.00000000E+00
+(  2)  7.00000000E+00
+&gt;&gt; Y = sum_row([[1][3]])   
+=== [Y] : (  1,  1) ===
+           (  1)     
+(  1)  4.00000000E+00
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>sum(<A HREF="node227.htm#man_sum">2.228</A>), sum_col(<A HREF="node228.htm#man_sum_col">2.229</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

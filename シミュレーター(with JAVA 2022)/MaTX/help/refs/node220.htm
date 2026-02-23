@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>sqrt</TITLE>
+<META NAME="description" CONTENT="sqrt">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node221.htm">
+<LINK REL="previous" HREF="node219.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node221.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3189"
+ HREF="node221.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3186"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3180"
+ HREF="node219.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3188"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3190"
+ HREF="node221.htm">sscanf</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3187"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3181"
+ HREF="node219.htm">sprintf</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004216000000000000000">&#160;</A><A NAME="man_sqrt">&#160;</A>
+<BR>
+sqrt
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>sqrt - 平方根
+<DT>【形式】
+<DD><PRE>
+y = sqrt(x)
+   (Real   |Real|Complex) y;
+   (Integer|Real|Complex) x;
+  
+Y = sqrt(X)     Y = sqrt(X)
+   Array Y;        Matrix Y;
+   Array X;        Matrix X;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>sqrt(x)は，スカラ型(整数, 実数, 複素数) x の平方根を求める。
+特別に，sqrt(-1) と sqrt(-1.0) は，虚数単位 </FONT><I>i</I><FONT SIZE="-1"> を返す。
+X が配列のとき，sqrt(X)は配列 X の各成分の平方根からなる配列
+Y を求める。Y の大きさは X の大きさと同じになる。
+X が行列のとき，sqrt(X)は 
+</FONT>
+<!-- MATH: $Y \times Y = X$ -->
+<IMG
+ WIDTH="85" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.gif"
+ ALT="$ Y \times Y = X $"><FONT SIZE="-1">を満たす X の平方根行列の 1 つを求める。
+<DT>【算法】
+<DD>平方根行列を求めるとき，Schur分解に基づく方法を利用する。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; y = sqrt(2)
+y = 1.41421
+&gt;&gt; y = sqrt(-1)
+y = (0,1)
+&gt;&gt; y = sqrt((2,3))
+y = (1.67415, 0.895977)
+&gt;&gt; Y = Re(sqrt([[7 10][15 22]]))
+=== [Y] : (  2,  2) ===
+         (  1)           (  2)     
+(  1)  1.56669890E+00  1.74077656E+00
+(  2)  2.61116484E+00  4.17786374E+00
+&gt;&gt; Y = sqrt(Array([[7 10][15 22]]))
+=== [Y] : (  2,  2) ===
+           (  1)           (  2)     
+(  1)  2.64575131E+00  3.16227766E+00
+(  2)  3.87298335E+00  4.69041576E+00
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>sin(<A HREF="node210.htm#man_sin">2.211</A>), cos(<A HREF="node39.htm#man_cos">2.36</A>), tan(<A HREF="node233.htm#man_tan">2.234</A>), sqrt10(<A HREF="#man_sqrt10"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="cross_ref_motif.gif"></A>), exp(<A HREF="node62.htm#man_exp">2.61</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

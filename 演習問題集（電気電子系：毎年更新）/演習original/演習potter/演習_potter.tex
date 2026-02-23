@@ -1,0 +1,281 @@
+\documentclass[a4paper,11pt]{jreport}
+%--------------------------------------------------------------------------------
+
+%--------------------------------------------------------------------------------
+%
+% Page setting
+%
+\setlength{\topmargin}{-1cm}
+\setlength{\headheight}{0cm}
+\setlength{\headsep}{0cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\textheight}{26.62cm}
+\setlength{\textwidth}{15.92cm}
+\setlength{\footskip}{1.0cm}
+%
+% package
+%
+\usepackage{amsmath}
+\usepackage[dvipdfmx]{graphicx} %%%%
+\usepackage{amssymb}
+\usepackage{epsfig}
+%	\usepackage[dvips,xdvi]{color} %%
+\usepackage[dvipdfmx]{color} %%%%
+\usepackage{wrapfig}
+\usepackage{subfigure}
+\usepackage{float}
+%\usepackage{cite}
+%\usepackage{matx}
+%\usepackage{eclclass}
+%
+% Figure & Table caption
+%
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+%
+% Local definition
+%
+\def\defeq{\stackrel{\rm def}{=}}
+\def\rank{\mathop{\rm rank}\nolimits}
+\def\Re{\mathop{\rm Re}\nolimits}
+\def\Im{\mathop{\rm Im}\nolimits}
+\def\det{\mathop{\rm det}\nolimits}
+\def\adj{\mathop{\rm adj}\nolimits}
+\def\Span{\mathop{\rm span}\nolimits}
+\newenvironment{mytheorem}
+{\vspace{1zw}\noindent {\gtfamily 定理} \itshape}
+{\vspace{1zw}}
+%
+%
+%
+\makeatletter
+\renewcommand{\tableofcontents}[1]{%
+  \if@twocolumn\@restonecoltrue\onecolumn
+  \else\@restonecolfalse\fi
+  \chapter*{\contentsname
+    \@mkboth{\contentsname}{\contentsname}%
+  }\vspace*{#1}\@starttoc{toc}%
+  \if@restonecol\twocolumn\fi
+}
+\makeatother
+	%........................................................
+	% matrixの入力(\bmatrix,\ematrix)
+	%	例 \bmatrix{cc} 1&2\\3&4 \ematrix
+	%........................................................
+		\renewcommand{\bmatrix}{\left(\begin{array}}
+		\newcommand{\ematrix}{\end{array}\right)}
+%--------------------------------------------------------------------------------
+
+\pagestyle{empty}
+
+\begin{document}
+
+%---------------------------------------------------------------------------
+\begin{tabular}{cl}
+\hspace*{2cm}
+{\large 線形制御論（電気電子系）　演習問題}
+\hspace{1cm}
+&
+\underline{系・学科：\hspace{3cm}}
+\\[2mm]
+&\underline{学籍番号：\hspace{3cm}}
+\\[2mm]
+&\underline{氏名：\hspace{5cm}}
+\end{tabular}
+\ \\
+
+\noindent
+{\bf 最適制御：不安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & = 1 \cdot x + 1 \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=1,B=1\\
+	J & = \int_0^{\infty} x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=1,R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+
+
+
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 最適制御：不安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & =1 \cdot x + 1 \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=1,B=1\\
+	J & = \int_0^{\infty} x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=1,R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+\\
+
+有本-potterの方法
+\begin{align*}
+ \Phi = \left(\begin{array}{cc}
+	       A  & - B R^{-1} B^T \\
+	       -Q & - A^T
+	      \end{array}\right)
+      = \left(\begin{array}{cc}
+	       1  & - 1\frac{1}{r} 1 \\
+	       -1 & -1
+	      \end{array}\right)
+      = \left(\begin{array}{cc}
+	       1  & - \frac{1}{r}  \\
+	       -1 & -1
+	      \end{array}\right)
+\end{align*}
+固有値は
+\begin{align*}
+	\mbox{det}(\lambda I-\Phi) 
+	= \mbox{det}
+		\left(\begin{array}{cc}
+	       \lambda -1  & \frac{1}{r}  \\
+	       1 & \lambda +1
+	      \end{array}\right)
+	= (\lambda -1)(\lambda +1) -\frac{1}{r}
+\\
+	= \lambda^2-(1+\frac{1}{r})
+	=(\lambda-\sqrt{1+\frac{1}{r}})(\lambda+\sqrt{1+\frac{1}{r}})
+\end{align*}
+よって，固有値は$\lambda = \pm \sqrt{1+\frac{1}{r}}$\\
+このうち（実部が）負の固有値は
+\begin{align*}
+	\lambda = - \sqrt{1+\frac{1}{r}}
+\end{align*}
+
+この時の固有ベクトルは
+\begin{align*}
+	(\lambda I-\Phi)  w
+	=	\left(\begin{array}{cc}
+	       \lambda -1  &  \frac{1}{r}  \\
+	       1 & \lambda +1
+	      \end{array}\right)
+		\left(\begin{array}{c}
+	       x  \\
+	       y
+	      \end{array}\right)
+	=	\left(\begin{array}{c}
+	      (\lambda-1)x  + \frac{1}{r}\cdot y  \\
+	       x + (\lambda +1)y
+	      \end{array}\right)
+	= 0
+\end{align*}
+第1要素より
+\begin{align*}
+	      (\lambda-1)x  + \frac{1}{r}\cdot y  = 0
+\end{align*}
+よって
+\begin{align*}
+	      \frac{1}{r}\cdot y= - (\lambda-1)x  
+\end{align*}
+有本potterの方法より，Riccati方程式の解は
+\begin{align*}
+	      P = Y X^{-1} = \frac{y}{x} = -r(\lambda -1) = -r(- \sqrt{1+\frac{1}{r}}-1) = r(1+\sqrt{1+\frac{1}{r}})=r +\sqrt{r^2+r}
+\end{align*}
+
+
+\newpage
+
+%---------------------------------------------------------------------------
+\begin{tabular}{cl}
+\hspace*{2cm}
+{\large 線形制御論（電気電子系）　演習問題}
+\hspace{1cm}
+&
+\underline{系・学科：\hspace{3cm}}
+\\[2mm]
+&\underline{学籍番号：\hspace{3cm}}
+\\[2mm]
+&\underline{氏名：\hspace{5cm}}
+\end{tabular}
+\ \\
+
+\noindent
+{\bf 最適制御：安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & = \underline{-1} \cdot x + 1 \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=\underline{-1},B=1\\
+	J & = \int_0^{\infty} x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=1,R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+
+
+
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 最適制御：安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & =\underline{-1} \cdot x + 1 \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=\underline{-1},B=1\\
+	J & = \int_0^{\infty} x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=1,R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+\\
+
+有本-potterの方法
+\begin{align*}
+ \Phi = \left(\begin{array}{cc}
+	       A  & - B R^{-1} B^T \\
+	       -Q & - A^T
+	      \end{array}\right)
+      = \left(\begin{array}{cc}
+	       -1  & - 1\frac{1}{r} 1 \\
+	       -1 & 1
+	      \end{array}\right)
+      = \left(\begin{array}{cc}
+	       -1  & - \frac{1}{r}  \\
+	       -1 & 1
+	      \end{array}\right)
+\end{align*}
+固有値は
+\begin{align*}
+	\mbox{det}(\lambda I-\Phi) 
+	= \mbox{det}
+		\left(\begin{array}{cc}
+	       \lambda+1  & \frac{1}{r}  \\
+	       1 & \lambda -1
+	      \end{array}\right)
+	= (\lambda +1)(\lambda-1) -\frac{1}{r}
+\\
+	= \lambda^2-(1+\frac{1}{r})
+	=(\lambda-\sqrt{1+\frac{1}{r}})(\lambda+\sqrt{1+\frac{1}{r}})
+\end{align*}
+よって，固有値は$\lambda = \pm \sqrt{1+\frac{1}{r}}$\\
+このうち（実部が）負の固有値は
+\begin{align*}
+	\lambda = - \sqrt{1+\frac{1}{r}}
+\end{align*}
+
+この時の固有ベクトルは
+\begin{align*}
+	(\lambda I-\Phi)  w
+	=	\left(\begin{array}{cc}
+	       \lambda+1  &  \frac{1}{r}  \\
+	       1 & \lambda -1
+	      \end{array}\right)
+		\left(\begin{array}{c}
+	       x  \\
+	       y
+	      \end{array}\right)
+	=	\left(\begin{array}{c}
+	      (\lambda+1)x  + \frac{1}{r}\cdot y  \\
+	       x + (\lambda -1)y
+	      \end{array}\right)
+	= 0
+\end{align*}
+第1要素より
+\begin{align*}
+	      (\lambda+1)x  + \frac{1}{r}\cdot y  = 0
+\end{align*}
+よって
+\begin{align*}
+	      \frac{1}{r}\cdot y= - (\lambda+1)x  
+\end{align*}
+有本potterの方法より，Riccati方程式の解は
+\begin{align*}
+	      P = Y X^{-1} = \frac{y}{x} = -r(\lambda+1) = -r(- \sqrt{1+\frac{1}{r}}+1) = -r(1-\sqrt{1+\frac{1}{r}})=-r +\sqrt{r^2+r}
+\end{align*}
+
+
+\end{document}
+

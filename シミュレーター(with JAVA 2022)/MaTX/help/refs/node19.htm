@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>atan2</TITLE>
+<META NAME="description" CONTENT="atan2">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node20.htm">
+<LINK REL="previous" HREF="node18.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node20.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html978"
+ HREF="node20.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html975"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html969"
+ HREF="node18.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html977"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html979"
+ HREF="node20.htm">atanh</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html976"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html970"
+ HREF="node18.htm">atan</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000415000000000000000">&#160;</A><A NAME="man_atan2">&#160;</A>
+<BR>
+atan2
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>atan2 - 4 象限表現の逆正接
+<DT>【形式】
+<DD><PRE>
+p = atan2(y,x)             P = atan2(Y,X)
+   (Real   |Real) p;          Array P;
+   (Integer|Real) x,y;        Array X,Y;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>atan2(y, x)は，スカラ型(整数, 実数) y と x の逆正接を 4 象限
+表現で求める。角度はラジアンで計算される。atan2(y, x) の結果は
+</FONT>
+<!-- MATH: $-\pi \leq \mathop{\rm atan2}\nolimits(y, x) \leq \pi$ -->
+<IMG
+ WIDTH="154" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.gif"
+ ALT="$ -\pi \leq \mathop{\rm atan2}\nolimits(y, x) \leq \pi $"><FONT SIZE="-1">の範囲の実数となる。
+atan2(Y, X)は，配列 Y と X の各成分の 4 象限表現の逆正接から
+なる配列 P を求める。P の大きさは X の大きさと同じ。X と Y の
+大きさは一致しなければならい。
+atan2(y,x) と atan(y/x) の違いは，atan(y/x) の範囲が[-</FONT><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.gif"
+ ALT="$\pi$"><FONT SIZE="-1">/2, </FONT><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img1.gif"
+ ALT="$\pi$"><FONT SIZE="-1">/2]
+であることである。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; y = atan2(1, 1)
+y = 0.785398 (= PI/4)
+</PRE><FONT SIZE="-1"><FONT SIZE="-1">
+複素数 z = (x, y) の極座標は</FONT></FONT><PRE>
+&gt;&gt; r = abs(z);
+&gt;&gt; theta = atan2(Im(z), Re(z));
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">
+で求まる。このとき，z は r * exp((0,1)*theta) と一致する。
+<DT>【参照】
+<DD></FONT></FONT></FONT>
+<DIV><TT>asin(<A HREF="node16.htm#man_asin">2.12</A>), acos(<A HREF="node7.htm#man_acos">2.3</A>), atan(<A HREF="node18.htm#man_atan">2.14</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

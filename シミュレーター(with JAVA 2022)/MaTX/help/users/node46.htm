@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>マクロ置換</TITLE>
+<META NAME="description" CONTENT="マクロ置換">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node47.htm">
+<LINK REL="previous" HREF="node45.htm">
+<LINK REL="up" HREF="node44.htm">
+<LINK REL="next" HREF="node47.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1147"
+ HREF="node47.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1143"
+ HREF="node44.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1137"
+ HREF="node45.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1145"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1146"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1148"
+ HREF="node47.htm">条件つきコンパイル</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1144"
+ HREF="node44.htm">プリプロセッサ</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1138"
+ HREF="node45.htm">ファイルの読み込み</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION006262000000000000000">
+マクロ置換</A>
+</H2>
+<A NAME="1984">&#160;</A>
+次のマクロ定義
+<BR CLEAR="ALL">
+<HR><PRE>
+  #define     YES    1
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+によって，その名前を文字列によって置換するという簡単な代入が行なわれる。
+
+<P>
+普通，定義行の終りまでが置換テキストであるが，``<IMG
+ WIDTH="13" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.gif"
+ ALT="$\bs$">''を行末に付ける
+ことによって，長い定義を次の行に続けることができる。
+<TT>#define</TT>で定義された名前の通用範囲は，定義した点からソ−スファイル
+の最後までである。
+
+<P>
+また，引数つきマクロの定義も可能である。
+これを使えば，テキストの置換はマクロの呼び出しに依存することになる。
+例えば，<TT>ABCD</TT>というマクロを定義したとする。
+<BR CLEAR="ALL">
+<HR><PRE>
+#define ABCD(S) S(1,Matrix),S(2,Matrix),S(3,Matrix),S(4,Matrix)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+この<TT>ABCD</TT>はインライン展開され</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+S = tf2ss((s+1)/(s^2+3*s+4));
+bodeplot(ABCD(S))
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+は次の行に換わる。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+S = tf2ss((s+1)/(s^2+3*s+4));
+bodeplot(S(1,Matrix),S(2,Matrix),S(3,Matrix),S(4,Matrix));
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

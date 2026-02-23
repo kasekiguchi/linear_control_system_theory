@@ -1,0 +1,273 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>動的フィードバック制御のシミュレーション</TITLE>
+<META NAME="description" CONTENT="動的フィードバック制御のシミュレーション">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node199.htm">
+<LINK REL="previous" HREF="node197.htm">
+<LINK REL="up" HREF="node195.htm">
+<LINK REL="next" HREF="node199.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3108"
+ HREF="node199.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3104"
+ HREF="node195.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3098"
+ HREF="node197.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3106"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3107"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3109"
+ HREF="node199.htm">複雑なシステムのシミュレーション</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3105"
+ HREF="node195.htm">連続系システムのシミュレーション</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3099"
+ HREF="node197.htm">状態フィードバック制御のシミュレーション (2)</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002053000000000000000">&#160;</A>
+<A NAME="10927">&#160;</A>
+<BR>
+動的フィードバック制御のシミュレーション
+</H2><FONT SIZE="-1">
+下に示すようなシステムに動的フィードバックを施す場合の
+一般的なシミュレーションを行なう。
+関数<TT>init_params()</TT>はプラントとコントローラのパラメータを設定する
+関数であり，関数<TT>main()</TT>はパラメータと初期状態を設定して
+シミュレーションを行ない，結果をファイル<TT>cont.mat</TT>に保存する。
+<TT>diff_eqs()</TT>は動的要素の微分方程式を記述するための関数であり，
+<TT>link_eqs()</TT>は動的要素の接続関係を記述するための関数である。
+<A NAME="10946">&#160;</A>
+</FONT>
+<P>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="11251">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 17.1:</STRONG>
+制御対象とコントローラ</CAPTION>
+<TR><TD><IMG
+ WIDTH="433" HEIGHT="145"
+ SRC="img42.gif"
+ ALT="\begin{figure}
+\begin{center}
+\setlength{\unitlength}{3947sp} %
+\begingroup \mak...
+...le s-1}{\strut\displaystyle s^2-s-2}$ }}}
+\end{picture}\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<BR>
+<P>
+<FONT SIZE="-1">ここでは，制御対象と制御器のパラメータを大域変数として宣言する
+プログラムとパラメータを静的な局所変数として宣言するプログラムを
+示す。
+</FONT>
+<P>
+<FONT SIZE="-1">ファイルから読み込みやキーボードから入力でパラメータを変更しながら
+シミュレーションを繰り返す場合は，大域変数を用いる方が都合が良い。
+しかし，大域変数はプログラム中の任意の場所で修正される可能性が
+あり，変数名が衝突するなどの問題があるので，
+大規模なプログラムには用いない方が良い。
+一方，静的変数はそれが定義された関数内でのみ有効なので，他の関数
+の局所変数や大域変数と衝突することがないので大規模プログラムに
+有効である。
+</FONT>
+<P>
+<FONT SIZE="-1">
+<A NAME="11321">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Matrix Ap, bp, cp;     // 制御対象のパラメータ
+Matrxi Ac, bc, cc, dc; // 制御器のパラメータ
+   
+Func void init_params()
+{
+  // 制御対象のパラメータ
+  Ap = [[0  1]
+        [2  1]];
+  bp = [0 1]';
+  cp = [-1, 1];
+   
+  // 制御器のパラメータ
+  Ac = [5];
+  bc = [1];
+  cc = [54];
+  dc = [9];
+}
+
+Func void main()
+{
+  Matrix x0;
+  Array TC, XC, UC;
+   
+  void diff_eqs(), link_eqs(), init_params();
+
+  init_params();
+
+  x0 = [1 0 0]';
+  {TC, XC, UC} =
+     Ode45Auto(0.0, 20.0, x0, diff_eqs, link_eqs);
+
+  print [[TC][XC][UC]] &gt;&gt; "cont.mat";
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+List 7-1:&nbsp;&nbsp;&nbsp;&nbsp;動的フィードバック制御のシミュレーション(大域変数使用)
+</FONT></DIV>
+<P><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void diff_eqs(DX, t, X, UY)
+  Real t;
+  Matrix X, DX, UY;
+{
+  Matrix dxp, dxc, xp, xc, up, uc;
+
+  xp = X(1:2,1);          // 制御対象の状態
+  xc = X(3:3,1);          // 制御器の状態
+  up = UY(1:1,1);         // 制御対象への入力
+  uc = UY(2:2,1);         // 制御器への入力
+
+  dxp = Ap*xp + bp*up;    // 制御対象の状態方程式
+  dxc = Ac*xc + bc*uc;    // 制御器の状態方程式
+
+  DX = [[dxp][dxc]];
+}
+
+Func void link_eqs(UY, t, X)
+  Real t;
+  Matrix UY, X;
+{
+  Matrix xp, up, yp, xc, yc, uc;
+
+  xp = X(1:2,1);          // 制御対象の状態
+  xc = X(3:3,1)           // 制御器の状態
+
+  yp = cp*xp;             // 制御対象の出力
+  uc = yp;                // yp を uc に接続
+
+  yc = cc*xc + dc*uc;     // 制御器の出力
+  up = - yc;              // yc を up に接続
+
+  UY = [up uc]';
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+List 7-2:&nbsp;&nbsp;&nbsp;&nbsp;動的フィードバック制御のシミュレーション(大域変数使用)
+</FONT></DIV><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void main()
+{
+  Matrix x0;
+  Array TC, XC, UC;
+   
+  void diff_eqs(), link_eqs();
+
+  x0 = [1 0 0]';
+  {TC, XC, UC} =
+     Ode45Auto(0.0, 20.0, x0, diff_eqs, link_eqs);
+  print [[TC][XC][UC]] &gt;&gt; "cont.mat";
+}
+
+Func void diff_eqs(DX, t, X, UY)
+  Real t;
+  Matrix X, DX, UY;
+{
+  static Integer init;
+  static Matrix Ap, bp, Ac, bc;
+  Matrix dxp, dxc, xp, xc, up, uc;
+
+  if (init == 0) {
+    init = 1;
+    Ap = [[0  1]       // 制御対象のパラメータ
+          [2  1]];
+    bp = [0 1]';
+    Ac = [5];          // 制御器のパラメータ
+    bc = [1];
+  }
+
+  xp = X(1:2,1);          // 制御対象の状態
+  xc = X(3:3,1);          // 制御器の状態
+  up = UY(1:1,1);         // 制御対象への入力
+  uc = UY(2:2,1);         // 制御器への入力
+  dxp = Ap*xp + bp*up;    // 制御対象の状態方程式
+  dxc = Ac*xc + bc*uc;    // 制御器の状態方程式
+  DX = [[dxp][dxc]];
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+List 7-3:&nbsp;&nbsp;&nbsp;&nbsp;動的フィードバック制御のシミュレーション(静的変数使用)
+</FONT></DIV>
+<P><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void link_eqs(UY, t, X)
+  Real t;
+  Matrix UY, X;
+{
+  static Integer init;
+  static Matrix cp, cc, dc;
+  Matrix xp, up, yp, xc, yc, uc;
+
+  if (init == 0) {       
+    init = 1;
+    cp = [-1, 1];  // 制御対象のパラメータ
+    cc = [54];     // 制御器のパラメータ
+    dc = [9];
+ }
+
+  xp = X(1:2,1);          // 制御対象の状態
+  xc = X(3:3,1)           // 制御器の状態
+
+  yp = cp*xp;             // 制御対象の出力
+  uc = yp;                // yp を uc に接続
+
+  yc = cc*xc + dc*uc;     // 制御器の出力
+  up = - yc;              // yc を up に接続
+
+  UY = [up uc]';
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+List 7-4:&nbsp;&nbsp;&nbsp;&nbsp;動的フィードバック制御のシミュレーション(静的変数使用)
+</FONT></DIV>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

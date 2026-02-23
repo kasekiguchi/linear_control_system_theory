@@ -1,0 +1,867 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>行列関数</TITLE>
+<META NAME="description" CONTENT="行列関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node183.htm">
+<LINK REL="previous" HREF="node181.htm">
+<LINK REL="up" HREF="node144.htm">
+<LINK REL="next" HREF="node183.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2904"
+ HREF="node183.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2900"
+ HREF="node144.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2894"
+ HREF="node181.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2902"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2903"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2905"
+ HREF="node183.htm">配列関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2901"
+ HREF="node144.htm">行列と配列と指数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2895"
+ HREF="node181.htm">行列とスカラの演算</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001880000000000000000">
+行列関数</A>
+</H1><FONT SIZE="-1">
+行列関数の一覧を以下に示す。
+<A NAME="8585">&#160;</A><A NAME="8586">&#160;</A>
+固有値の計算はEISPACKのアルゴリズムを使っている <A NAME="8587">&#160;</A>
+[<A
+ HREF="node201.htm#Stewart:73:itm">16</A>],[<A
+ HREF="node201.htm#Smith:76:mer">15</A>],[<A
+ HREF="node201.htm#Garbow:77:mer">4</A>]。
+きざみを自動調節しながら4次のルンゲ−クッタの公式にしたがって
+指定された誤差内で常微分方程式の解を求める
+<A NAME="8591">&#160;</A>
+関数<TT>OdeAuto()</TT>は，文献[<A
+ HREF="node201.htm#William:88:nri">14</A>]のアルゴリズムを参照している。
+また，
+<BR>
+RKF45の公式にしたがって，指定されたきざみ幅で，常微分方程式の解を求める
+関数<TT>Ode45()</TT>は，文献[<A
+ HREF="node201.htm#Forsythe:77:cmf">3</A>]のアルゴリズムを参照している。
+LU分解，QR分解，QZ分解は，文献[<A
+ HREF="node201.htm#Golub:89:mc">5</A>]を参考にした。
+<A NAME="8597">&#160;</A><A NAME="8598">&#160;</A>
+<A NAME="8599">&#160;</A>
+<A NAME="8600">&#160;</A>
+<A NAME="8601">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="9072">&#160;</A><A NAME="8603">&#160;</A>
+<A NAME="9073">&#160;</A>
+<A NAME="8605">&#160;</A>
+<A NAME="9074">&#160;</A>
+<A NAME="8607">&#160;</A>
+<A NAME="9075">&#160;</A>
+<A NAME="8609">&#160;</A>
+<A NAME="9076">&#160;</A>
+<A NAME="8611">&#160;</A>
+<A NAME="9077">&#160;</A>
+<A NAME="8613">&#160;</A>
+<A NAME="9078">&#160;</A>
+<A NAME="8615">&#160;</A>
+<A NAME="9079">&#160;</A>
+<A NAME="9080">&#160;</A>
+</FONT><PRE>
+Matrix M1;
+Real tol;
+
+Integer  rank(M1);       ランク
+Integer  rank(M1, tol);  ランク
+                         tol: 許容誤差
+Integer  Rows(M1);       行の数
+Integer  Cols(M1);       列の数
+Integer  length(M1);     行と列の大きい方の数
+Integer  isreal(M1);     実行列の有無 (真 = 1, 偽 = 0)
+Integer  iscomplex(M1);  複素行列の有無 (真 = 1, 偽 = 0)
+Integer  isscalar(M1);   スカラーの有無 (真 = 1, 偽 = 0)
+Array    finite(M1);     各成分に対して有限の有無を調べる
+                         無限大あるいはNaNである成分の所が0，
+                         それ以外の成分の所が1である
+                         配列を返す
+Array    isnan(M1);      各成分に対してNaNの有無を調べる
+                         NaNである成分の所が1，
+                         それ以外の成分の所が0である
+                         配列を返す
+Matrix   sgn(M1);        各成分のsgn()を結果からなる行列
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9081">&#160;</A><A NAME="8621">&#160;</A>
+<A NAME="9082">&#160;</A><A NAME="8623">&#160;</A>
+<A NAME="9083">&#160;</A>
+<A NAME="9084">&#160;</A>
+<A NAME="9085">&#160;</A><A NAME="8627">&#160;</A>
+<A NAME="9086">&#160;</A><A NAME="8629">&#160;</A>
+<A NAME="9087">&#160;</A>
+<A NAME="9088">&#160;</A>
+<A NAME="9089">&#160;</A>
+<A NAME="8633">&#160;</A>
+<A NAME="8634">&#160;</A>
+<A NAME="8635">&#160;</A>
+<A NAME="8636">&#160;</A>
+<A NAME="9090">&#160;</A>
+<A NAME="8638">&#160;</A>
+<A NAME="9091">&#160;</A><A NAME="8640">&#160;</A>
+<A NAME="8641">&#160;</A><A NAME="8642">&#160;</A>
+</FONT><PRE>
+Marix M1, V1;         V1 はベクトル
+Integer p;
+
+Real max(M1);         最大成分
+Real min(M1);         最小成分
+List maximum(M1);     行列の最大成分とその位置
+                      {r1, i, j} = maximum(M1);
+                      r1 == M1(i,j)
+List maximum(V1);     ベクトルの最大成分とその位置
+                      {r1, i} = maximum(V1);
+                      r1 == V1(i)
+List minimum(M1);     行列の最小成分とその位置
+                      {r1, i, j} = minimum(M1);
+                      r1 == M1(i,j)
+List minimum(V1);     ベクトルの最小値とその位置
+                      {r1, i} = minimum(V1);
+                      r1 == V1(i)
+Real maxsing(M1);     最大特異値
+Real minsing(M1);     最小特異値
+Real det(M1);         実行列の行列式
+Real trace(M1);       実行列のトレース
+Real frobnorm(M1);    (実/複素)行列のフロベニウスノルム
+                      (ユークリッドノルム)
+Real infnorm(M1);     (実/複素)行列の最大ノルム
+Real norm(M1, p);
+                      (実/複素)行列のノルム
+                      M1が行列の時，
+                      p = 1: 1-ノルム
+                      p = 2: 最大特異値
+                      M1がベクトルの時，p-ノルム
+Real norm(M1);        norm(M1, 2)
+</PRE>
+<P><PRE>
+Complex max(Matrix M1);      絶対値が最大の成分
+Complex min(Matrix M1);      絶対値が最小の成分
+List maximum(Matrix M1);     絶対値が最大の成分とその位置
+                             {c1, i, j} = maximum(M1);
+                             c1 == M1(i,j)
+List minimum(Matrix M1);     絶対値が最小の成分とその位置
+                             {c1, i, j} = mininum(M1);
+                             c1 == M1(i,j)
+Complex det(CMatrix M1);     複素行列の行列式
+Complex trace(CMatrix M1);   複素行列のトレース
+</PRE><FONT SIZE="-1"><A NAME="9092">&#160;</A>
+<A NAME="9093">&#160;</A>
+</FONT>
+<P><PRE>
+Polynomial det(PMatrix M1);     多項式行列の行列式
+Polynomial trace(PMatrix M1);   多項式行列のトレース
+Polynomial frobnorm(Matrix M1); 多項式行列のフロベニウスノルム
+</PRE><FONT SIZE="-1"><A NAME="9094">&#160;</A>
+<A NAME="9095">&#160;</A>
+<A NAME="9096">&#160;</A>
+</FONT>
+<P><PRE>
+Rational  det(RMatrix M1);     有理多項式行列の行列式
+Rational  trace(RMatrix M1);   有理多項式行列のトレース
+Rational  frobnorm(Matrix M1); 有理多項式行列のフロベニウスノルム
+</PRE><FONT SIZE="-1"><A NAME="9097">&#160;</A>
+<A NAME="9098">&#160;</A>
+<A NAME="9099">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="9100">&#160;</A>
+<A NAME="8660">&#160;</A>
+<A NAME="9101">&#160;</A>
+<A NAME="8662">&#160;</A>
+<A NAME="9102">&#160;</A>
+<A NAME="8664">&#160;</A>
+<A NAME="9103">&#160;</A>
+<A NAME="8666">&#160;</A>
+<A NAME="9104">&#160;</A>
+<A NAME="8668">&#160;</A>
+<A NAME="9105">&#160;</A>
+<A NAME="8670">&#160;</A>
+</FONT><PRE>
+Real sum(Matrix M1);          全ての成分の和
+Complex sum(CoMatrix M1);     全ての成分の和
+Polynomail sum(PoMatrix M1);  全ての成分の和
+Rational sum(RaMatrix M1);    全ての成分の和
+Real prod(Matrix M1);         全ての成分の積
+Complex prod(CoMatrix M1);    全ての成分の積
+Polynomial prod(PoMatrix M1); 全ての成分の積
+Rational prod(RaMatrix M1);   全ての成分の積
+
+Real mean(Matrix M1);         全ての成分の平均値
+Complex mean(CoMatrix M1);    全ての成分の平均値
+Polynomial mean(PoMatrix M1); 全ての成分の平均値
+Ratioanal mean(RaMatrix M1);  全ての成分の平均値
+
+Real std(Matrix M1);          全ての成分の標準偏差
+Complex std(CoMatrix M1);     全ての成分の標準偏差
+Polynomial std(PoMatrix M1);  全ての成分の標準偏差
+Rational std(RaMatrix M1);    全ての成分の標準偏差
+
+Matrix cumsum(Matrix M1);     全ての成分の累積和
+Matrix cumprod(Matrix M1);    全ての成分の累積積
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9106">&#160;</A>
+<A NAME="9107">&#160;</A>
+<A NAME="9108">&#160;</A>
+<A NAME="8676">&#160;</A>
+<A NAME="9109">&#160;</A>
+<A NAME="9110">&#160;</A>
+<A NAME="9111">&#160;</A>
+<A NAME="8680">&#160;</A>
+<A NAME="9112">&#160;</A>
+<A NAME="9113">&#160;</A>
+<A NAME="9114">&#160;</A>
+<A NAME="8684">&#160;</A>
+<A NAME="9115">&#160;</A>
+<A NAME="9116">&#160;</A>
+<A NAME="9117">&#160;</A>
+<A NAME="8688">&#160;</A>
+<A NAME="9118">&#160;</A>
+<A NAME="9119">&#160;</A>
+<A NAME="8691">&#160;</A>
+<A NAME="9120">&#160;</A>
+<A NAME="9121">&#160;</A>
+<A NAME="8694">&#160;</A>
+</FONT><PRE>
+Matrix M1;
+
+Matrix sum_col(M1);      (縦・横)ベクトルの成分の和
+                         列毎の和からなる横ベクトル
+Matrix sum_row(M1);      (縦・横)ベクトルの成分の和
+                         行毎の和からなる縦ベクトル
+Matrix prod_col(M1);     (縦・横)ベクトルの成分の積
+                         列毎の積からなる横ベクトル
+Matrix prod_row(M1);     (縦・横)ベクトルの成分の積
+                         行毎の積からなる縦ベクトル
+Matrix mean_col(M1);     (縦・横)ベクトルの成分の平均値
+                         列毎の平均値からなる横ベクトル
+Matrix mean_row(M1);     (縦・横)ベクトルの成分の平均値
+                         行毎の平均値からなる縦ベクトル
+Matrix std_col(M1);      (縦・横)ベクトルの成分の標準偏差
+                         列毎の標準偏差からなる横ベクトル
+Matrix std_row(M1);      (縦・横)ベクトルの成分の標準偏差
+                         行毎の標準偏差からなる縦ベクトル
+Matrix cumsum_col(M1);   列毎の累積和
+Matrix cumsum_row(M1);   行毎の累積和
+Matrix cumprod_col(M1);  列毎の累積積
+Matrix cumprod_row(M1);  行毎の累積積
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9122">&#160;</A>
+<A NAME="8698">&#160;</A><A NAME="8699">&#160;</A>
+<A NAME="9123">&#160;</A>
+<A NAME="8701">&#160;</A>
+<A NAME="8702">&#160;</A>
+</FONT><PRE>
+Matrix M1, M2;
+
+Matrix eigval(M1);      固有値
+Matrix eigval(M1, M2);  一般固有値
+Matrix eigvec(M1);      固有ベクトル
+Matrix eigvec(M1, M2);  一般固有ベクトル
+</PRE><FONT SIZE="-1"><TT>eigval()</TT>は固有値を実部の降順に返し，<TT>eigvec()</TT>は
+その固有値に対応する順で固有ベクトルを返す。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="9124">&#160;</A><A NAME="8708">&#160;</A>
+<A NAME="8709">&#160;</A>
+<A NAME="8710">&#160;</A>
+<A NAME="9125">&#160;</A>
+<A NAME="9126">&#160;</A>
+</FONT><PRE>
+Matrix M1;
+
+Matrix singval(M1);       特異値
+Matrix singleftvec(M1);   左の特異ベクトル
+Matrix singrightvec(M1);  右の特異ベクトル
+</PRE><FONT SIZE="-1"><TT>singval()</TT>は特異値を降順に返し，<TT>singleftvec()</TT>と
+<TT>singrightvec()</TT>はその特異値に対応する順で特異ベクトルを
+返す。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="9127">&#160;</A><A NAME="8719">&#160;</A>
+<A NAME="8720">&#160;</A>
+<A NAME="9128">&#160;</A>
+<A NAME="9129">&#160;</A>
+<A NAME="8723">&#160;</A>
+<A NAME="9130">&#160;</A>
+<A NAME="8725">&#160;</A>
+<A NAME="9131">&#160;</A>
+<A NAME="8727">&#160;</A>
+<A NAME="9132">&#160;</A>
+<A NAME="8729">&#160;</A><A NAME="8730">&#160;</A>
+<A NAME="9133">&#160;</A>
+<A NAME="8732">&#160;</A>
+</FONT><PRE>
+Matrix M1;
+Real tol;
+
+Matrix  vectorprod(M1);      ベクトル積, 外積
+Matrix  exp(M1);             指数行列
+Matrix  sqrt(M1);            平方根行列
+Matrix  log(M1);             対数行列
+Matrix  kernel(M1);          零空間(カーネル)
+Matrix  pseudoinv(M1);       擬似逆行列
+Matrix  pseudoinv(M1, tol);  擬似逆行列
+                             tol: 許容誤差
+Matrix  abs(M1);             各成分のabs()
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9134">&#160;</A>
+<A NAME="8736">&#160;</A>
+<A NAME="9135">&#160;</A>
+<A NAME="8738">&#160;</A>
+<A NAME="9136">&#160;</A>
+<A NAME="8740">&#160;</A>
+<A NAME="9137">&#160;</A>
+<A NAME="8742">&#160;</A>
+<A NAME="9138">&#160;</A><A NAME="8744">&#160;</A>
+<A NAME="9139">&#160;</A>
+<A NAME="9140">&#160;</A>
+<A NAME="9141">&#160;</A>
+<A NAME="9142">&#160;</A>
+<A NAME="9143">&#160;</A>
+</FONT><PRE>
+Matrix M1;
+Real tol;
+Integer i1;
+
+Matrix conj(M1);          共役行列
+Matrix trans(M1);         転置行列     M1'
+Matrix conjtrans(M1);     共役転置行列 M1#
+Matrix inv(M1);           逆行列       M1~
+Matrix pow(M1, i1);       累乗       M1^i1
+
+Matrix ceil(M1);          各成分のceil()の結果
+Matrix floor(M1);         各成分のfloor()の結果
+Matrix fix(M1);           各成分のfix()の結果
+Matrix round(M1);         各成分のround()の結果
+Matrix round2z(M1);       各成分のround2z()の結果
+Matrix round2z(M1, tol);  各成分のround2z()の結果
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="8752">&#160;</A>
+<A NAME="9144">&#160;</A>
+<A NAME="9145">&#160;</A>
+<A NAME="9146">&#160;</A>
+<A NAME="9147">&#160;</A>
+<A NAME="9148">&#160;</A>
+<A NAME="8758">&#160;</A>
+<A NAME="8759">&#160;</A>
+<A NAME="9149">&#160;</A>
+<A NAME="9150">&#160;</A>
+<A NAME="9151">&#160;</A>
+<A NAME="9152">&#160;</A>
+<A NAME="9153">&#160;</A>
+<A NAME="9154">&#160;</A>
+<A NAME="9155">&#160;</A>
+<A NAME="9156">&#160;</A>
+<A NAME="9157">&#160;</A>
+<A NAME="8769">&#160;</A>
+<A NAME="9158">&#160;</A>
+<A NAME="9159">&#160;</A>
+</FONT><PRE>
+Matrix M1, M2;
+Integer k, m, n;
+Index idx;
+
+Matrix  vec2diag(M1);        縦ベクトルから対角行列
+Matrix  vec2diag(M1, k);
+                             縦ベクトルから対角行列
+                             (k だけ主対角より上)
+Matrix  diag2vec(M1);        対角行列から縦ベクトル
+Matrix  diag2vec(M1, k);
+                             対角行列から縦ベクトル
+                             (k だけ主対角より上)
+Matrix  fliplr(M1);          列を逆順に並べる
+Matrix  flipud(M1);          行を逆順に並べる
+Matrix  shiftLeft(M1, k);
+                             全ての列を左に k シフトし，
+                             右から 0 を代入する
+                             k 省略すると，シフト数は 1 となる
+Matrix  shiftRight(M1, k);
+                             全ての列を右に k シフトし，
+                             左から 0 を代入する
+                             k 省略すると，シフト数は 1 となる
+Matrix  shiftUp(M1, k);
+                             全ての列を上に k シフトし，
+                             下から 0 を代入する
+                             k 省略すると，シフト数は 1 となる
+Matrix  shiftDown(M1, k);
+                             全ての列を下に k シフトし，
+                             上から 0 を代入する
+                             k 省略すると，シフト数は 1 となる
+Matrix  rotateLeft(M1, k);
+                             全ての列を左に k 回転する
+                             k 省略すると，シフト数は 1 となる
+Matrix  rotateRight(M1, k);
+                             全ての列を右に k 回転する
+                             k 省略すると，シフト数は 1 となる
+Matrix  rotateUp(M1, k);
+                             全ての列を上に k 回転する
+                             k 省略すると，シフト数は 1 となる
+Matrix  rotateDown(M1, k);
+                             全ての列を下に k 回転する
+                             k 省略すると，シフト数は 1 となる
+Matrix  reshape(M1, m, n);
+                             行列 M1 から行方向に成分を取り出
+                             して m x n の行列を作る。
+List    sort(M1);            成分を昇べきの順にソートする
+                             複素行列の場合，絶対値でソート
+{M2, idx} = sort(M1);        M2:  ソートした結果の行列
+                             idx: ソートに使った指数
+                             M2 = M1(idx)
+List    sort(Array A1);      成分を昇べきの順にソートする
+                             複素行列の場合，絶対値でソート
+{A2, idx} = sort(A1);        A2:  ソートした結果の配列
+                             idx: ソートに使った指数
+                             A2 = A1(idx)
+Matrix max(M1, M2);          M1 と M2 の大きい方の成分
+                             からなる行列 (複素行列の場合，
+                             絶対値によって比較する
+Matrix min(M1, M2);          M1 と M2 の小さい方の成分
+                             からなる行列 (複素行列の場合，
+                             絶対値によって比較する
+Matrix rem(M1, i1);          M1の各成分に対してrem()を
+                             計算する
+Matrix rem(M1, r1);          M1の各成分に対してrem()を
+                             計算する
+Matrix rem(M1, M2);          M1とM2の成分毎にrem()を
+                             計算する
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9160">&#160;</A>
+<A NAME="9161">&#160;</A>
+<A NAME="8776">&#160;</A>
+<A NAME="8777">&#160;</A>
+</FONT><PRE>
+Matrix M1;
+Integer m, n;
+
+Matrix  rand(M1);          M1 と同じ大きさの一様乱数行列
+Integer rand("seed"):      一様乱数の種
+Integer rand("seed", m):   一様乱数の種を設定
+Matrix  randn(M1);         M1 と同じ大きさの正規乱数行列
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9162">&#160;</A>
+<A NAME="8781">&#160;</A>
+<A NAME="8782">&#160;</A>
+</FONT><PRE>
+Matrix  rngkut4(Real t, Matrix x, void dx())
+                : dt = 1.0E-7, u = Z(0);
+Matrix  rngkut4(Real t, Matrix x, void dx(), Matrix u)
+                : dt = 1.0E-7
+Matrix  rngkut4(Real t, Matrix x, void dx(), Matrix u,
+                Real dt)
+      4次のルンゲ−クッタの公式にしたがって常微分方程式の解を求める。
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9163">&#160;</A>
+</FONT><PRE>
+                                    
+List Ode(Real t0, Real t1, Matrix x, void dx());
+                             : h=4.0E-2, dtsav=1.0E-3
+List Ode(Real t0, Real t1, Matrix x, void dx(),
+              void input()); : h=4.0E-2, dtsav=1.0E-3
+List Ode(Real t0, Real t1, Matrix x, void dx(),
+              void input(), Real h); : dtsav=1.0E-3
+List Ode(Real t0, Real t1, Matrix x, void dx(),
+              void input(), Real h, Real dtsav);
+     4次のルンゲ−クッタの公式にしたがって，指定されたきざみ幅hで，
+     常微分方程式の[t0,t1]時刻の解を求める。
+     {T, X, U} = Ode();
+     T: 時間の系列
+     X: 状態ベクトルの時系列
+     U: 入出力ベクトルの時系列
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9164">&#160;</A>
+<A NAME="8789">&#160;</A>
+</FONT><PRE>
+                                    
+List OdeAuto(Real t0, Real t1, Matrix x, void dx());
+             : eps=1.0E-6, dtsav=1.0E-3,
+               dtmin=EPS, dtmax=abs(t1-t0)/5
+List OdeAuto(Real t0, Real t1, Matrix x, void dx(),
+             void input());
+             : eps=1.0E-6, dtsav=1.0E-3
+               dtmin=EPS, dtmax=abs(t1-t0)/5
+List OdeAuto(Real t0, Real t1, Matrix x, void dx(),
+             void input(), Real eps); 
+             : dtsav=1.0E-3, dtmin=EPS, dtmax=abs(t1-t1)/5
+List OdeAuto(Real t0, Real t1, Matrix x, void dx(),
+             void input(), Real eps, Real dtsav);
+             : dtmin=EPS, dtmax=abs(t1-t0)/5
+List OdeAuto(Real t0, Real t1, Matrix x, void dx(),
+             void input(), Real eps, Real dtsav, Real dtmin);
+             : dtmin=EPS
+List OdeAuto(Real t0, Real t1, Matrix x, void dx(),
+             void input(), Real eps,
+             Real dtsav, Real dtmin, Real dtmax);
+     きざみを自動調節しながら4次のルンゲ−クッタの公式にしたがって
+     指定された誤差内で常微分方程式の[t0,t1]時刻の解を求める。
+     ただし，きざみの最小値と最大値はdtminとdtmaxであり，
+     dtmax &lt; dtsav のとき，dtmax = dtsavに設定される。
+     {T, X, U} = OdeAuto();
+     T: 時間の系列
+     X: 状態ベクトルの時系列
+     U: 入出力ベクトルの時系列
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9165">&#160;</A>
+</FONT><PRE>
+                                    
+List OdeHybrid(Real t0, Real t1, Real dt, Matrix x,
+         void dx())               : h=4.0E-2, dtsav=1.0E-3
+List OdeHybrid(Real t0, Real t1, Real dt, Matrix x,
+         void dx(), void input()) : h=4.0E-2, dtsav=1.0E-3
+List OdeHybrid(Real t0, Real t1, Real dt, Matrix x,
+         void dx(), void input(), Real h) : dtsav=1.0E-3
+List OdeHybrid(Real t0, Real t1, Real dt, Matrix x, void dx(),
+         void input(), Real h, Real dtsav) 
+     4次のルンゲ−クッタの公式にしたがって，指定されたきざみ幅hで，
+     常微分方程式の[t0,t1]時刻の解を求める。ただし，
+     サンプリング間で外部入力は一定値をとる。
+     また，きざみ幅hが省略されて，dt &lt; 4.0E-2のとき，
+     h = dtである．
+     {T, X, U} = OdeHybrid();
+     T: 時間の系列
+     X: 状態ベクトルの時系列
+     U: 入出力ベクトルの時系列
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9166">&#160;</A>
+</FONT><PRE>
+                                    
+List OdeHybridAuto(Real t0, Real t1, Real dt, Matrix x,
+                   void dx())
+                  : eps=1.0E-6, dtsav=1.0E-3,
+                    dtmin=EPS, dtmax=abs(t1-t0)/5
+List OdeHybridAuto(Real t0, Real t1, Real dt, Matrix x,
+                   void dx(), void input())
+                  : eps=1.0E-6, dtsav=1.0E-3,
+                    dtmin=EPS, dtmax=abs(t1-t0)/5
+List OdeHybridAuto(Real t0, Real t1, Real dt, Matrix x,
+                   void dx(), void input(), Real eps) 
+                   : dtsav=1.0E-3, dtmin=EPS, dtmax=abs(t1-t0)/5
+List OdeHybridAuto(Real t0, Real t1, Real dt, Matrix x,
+                   void dx(), void input(), Real eps, Real dtsav)
+                   : dtmin=EPS, dtmax=abs(t1-t0)/5
+List OdeHybridAuto(Real t0, Real t1, Real dt, Matrix x,
+                   void dx(), void input(), Real eps,
+                   Real dtsav, Real dtmin)
+                   : dtmax=abs(t1-t0)/5
+List OdeHybridAuto(Real t0, Real t1, Real dt, Matrix x,
+                   void dx(), void input(), Real eps,
+                   Real dtsav, Real dtmin, Real dtmax)
+     きざみを自動調節しながら4次のルンゲ−クッタの公式にしたがって
+     指定された誤差内で常微分方程式の[t0,t1]時刻の解を求める。
+     サンプリング間で外部入力は一定値をとる。
+     ただし，きざみの最小値と最大値はdtminとdtmaxであり，
+     dtmax &lt; dtsav のとき，dtmax = dtsavに設定される。
+     {T, X, U} = OdeHybridAuto();
+     T: 時間の系列
+     X: 状態ベクトルの時系列
+     U: 入出力ベクトルの時系列
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9167">&#160;</A>
+<A NAME="8799">&#160;</A>
+</FONT><PRE>
+Matrix  rkf45(Real t, Matrix x, void dx())
+                : dt = 1.0E-7, u = Z(0);
+Matrix  rkf45(Real t, Matrix x, void dx(), Matrix u)
+                : dt = 1.0E-7
+Matrix  rkf45(Real t, Matrix x, void dx(), Matrix u,
+                Real dt)
+      RKF45の公式にしたがって常微分方程式の解を求める。
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9168">&#160;</A>
+</FONT><PRE>
+                                    
+List Ode45(Real t0, Real t1, Matrix x, void dx());
+                             : h=4.0E-2, dtsav=1.0E-3
+List Ode45(Real t0, Real t1, Matrix x, void dx(),
+              void input()); : h=4.0E-2, dtsav=1.0E-3
+List Ode45(Real t0, Real t1, Matrix x, void dx(),
+              void input(), Real h); : dtsav=1.0E-3
+List Ode45(Real t0, Real t1, Matrix x, void dx(),
+              void input(), Real h, Real dtsav);
+     RKF45の公式にしたがって，指定されたきざみ幅hで，
+     常微分方程式の[t0,t1]時刻の解を求める。
+     {T, X, U} = Ode45();
+     T: 時間の系列
+     X: 状態ベクトルの時系列
+     U: 入出力ベクトルの時系列
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9169">&#160;</A>
+</FONT><PRE>
+                                    
+List Ode45Auto(Real t0, Real t1, Matrix x, void dx());
+               : eps=1.0E-6, dtsav=1.0E-3,
+                 dtmin=EPS, dtmax=abs(t1-t0)/5
+List Ode45Auto(Real t0, Real t1, Matrix x, void dx(),
+               void input());
+               : eps=1.0E-6, dtsav=1.0E-3,
+                 dtmin=EPS, dtmax=abs(t1-t0)/5
+List Ode45Auto(Real t0, Real t1, Matrix x, void dx(),
+               void input(), Real eps);
+              : dtsav=1.0E-3, dtmin=EPS, dtmax=abs(t1-t0)/5
+List Ode45Auto(Real t0, Real t1, Matrix x, void dx(),
+               void input(), Real eps, Real dtsav);
+              : dtmin=EPS, dtmax=abs(t1-t0)/5
+List Ode45Auto(Real t0, Real t1, Matrix x, void dx(),
+               void input(), Real eps,
+               Real dtsav, Real dtmin);
+              : dtmax=abs(t1-t0)/5
+List Ode45Auto(Real t0, Real t1, Matrix x, void dx(),
+               void input(), Real eps,
+               Real dtsav, Real dtmin, Real dtmax);
+     きざみを自動調節しながらRKF45の公式にしたがって
+     指定された誤差内で常微分方程式の[t0,t1]時刻の解を求める。
+     ただし，きざみの最小値と最大値はdtminとdtmaxであり，
+     dtmax &lt; dtsav のとき，dtmax = dtsavに設定される。
+     {T, X, U} = Ode45Auto();
+     T: 時間の系列
+     X: 状態ベクトルの時系列
+     U: 入出力ベクトルの時系列
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9170">&#160;</A>
+</FONT><PRE>
+                                    
+List Ode45Hybrid(Real t0, Real t1, Real dt, Matrix x,
+         void dx())               : h=4.0E-2, dtsav=1.0E-3
+List Ode45Hybrid(Real t0, Real t1, Real dt, Matrix x,
+         void dx(), void input()) : h=4.0E-2, dtsav=1.0E-3
+List Ode45Hybrid(Real t0, Real t1, Real dt, Matrix x,
+         void dx(), void input(), Real h) : dtsav=1.0E-3
+List Ode45Hybrid(Real t0, Real t1, Real dt, Matrix x, void dx(),
+         void input(), Real h, Real dtsav) 
+     RKF45の公式にしたがって，指定されたきざみ幅hで，
+     常微分方程式の[t0,t1]時刻の解を求める。ただし，
+     サンプリング間で外部入力は一定値をとる。
+     また，きざみ幅hが省略されて，dt &lt; 4.0E-2のとき，
+     h = dtである．
+     {T, X, U} = Ode45Hybrid();
+     T: 時間の系列
+     X: 状態ベクトルの時系列
+     U: 入出力ベクトルの時系列
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9171">&#160;</A>
+</FONT><PRE>
+                                    
+List Ode45HybridAuto(Real t0, Real t1, Real dt, Matrix x,
+                     void dx())
+                     : eps=1.0E-6, dtsav=1.0E-3,
+                       dtmin=EPS, dtmax=abs(t1-t0)/5
+List Ode45HybridAuto(Real t0, Real t1, Real dt, Matrix x,
+                     void dx(), void input())
+                     : eps=1.0E-6, dtsav=1.0E-3
+                       dtmin=EPS, dtmax=abs(t1-t0)/5
+List Ode45HybridAuto(Real t0, Real t1, Real dt, Matrix x,
+                 void dx(), void input(), Real eps)
+               : dtsav=1.0E-3, dtmin=EPS, dtmax=abs(t1-t0)/5
+List Ode45HybridAuto(Real t0, Real t1, Real dt, Matrix x,
+                     void dx(), void input(), Real eps,
+                     Real dtsav) 
+                    : dtmin=EPS, dtmax=abs(t1-t0)/5
+List Ode45HybridAuto(Real t0, Real t1, Real dt, Matrix x,
+                     void dx(), void input(), Real eps,
+                     Real dtsav, Real dtmin) 
+                    : dtmax=abs(t1-t0)/5
+List Ode45HybridAuto(Real t0, Real t1, Real dt, Matrix x,
+                     void dx(), void input(), Real eps,
+                     Real dtsav, Real dtmin, Real dtmax) 
+     きざみを自動調節しながらRKF45の公式にしたがって
+     指定された誤差内で常微分方程式の[t0,t1]時刻の解を求める。
+     サンプリング間で外部入力は一定値をとる。
+     ただし，きざみの最小値と最大値はdtminとdtmaxであり，
+     dtmax &lt; dtsav のとき，dtmax = dtsavに設定される。
+     {T, X, U} = Ode45HybridAuto();
+     T: 時間の系列
+     X: 状態ベクトルの時系列
+     U: 入出力ベクトルの時系列
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9172">&#160;</A>
+</FONT><PRE>
+                                    
+void OdeStop();       Ode(), OdeAuto(), OdeHybrid(),
+                      OdeHybridAuto(), Ode45(), Ode45Auto(),
+                      Ode45Hybrid(), Ode45HybridAuto()の実行を
+                      強制的にストップする．
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9173">&#160;</A>
+<A NAME="8818">&#160;</A>
+<A NAME="8819">&#160;</A>
+</FONT><PRE>
+                                    
+List OdeXY(Real t);   Ode(), OdeAuto(), OdeHybrid(),
+                      OdeHybridAuto(), Ode45(), Ode45Auto(),
+                      Ode45Hybrid(), Ode45HybridAuto()の
+                      実行中に時刻 t の状態と入出力を返す。
+
+                      {X_d, Y_d} = OdeXY(t)
+
+                      遅れのあるシステムのシミュレーション
+                      に用いる。
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9174">&#160;</A>
+<A NAME="9175">&#160;</A>
+<A NAME="8824">&#160;</A>
+<A NAME="8825">&#160;</A>
+</FONT><PRE>
+                                    
+Matrix M1, M2;
+Integer row, col;
+
+List size(M1);      行数と列数のリスト
+                    {row, col} = size(M1);
+List eig(M1);       固有値問題
+                    {val, vec} = eig(M1);
+                    M1 * vec = vec * val;
+                    val: 固有値(対角行列)
+                    vec: 固有ベクトル
+List eig(M1, M2);   一般固有値問題
+                    {val, vec} = eig(M1, M2);
+                    M1 * vec = M2 * vec * val;
+                    val: 一般固有値(対角行列)
+                    vec: 一般固有ベクトル
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9176">&#160;</A><A NAME="8829">&#160;</A>
+<A NAME="9177">&#160;</A><A NAME="8831">&#160;</A>
+<A NAME="9178">&#160;</A>
+<A NAME="8833">&#160;</A>
+<A NAME="9179">&#160;</A>
+<A NAME="8835">&#160;</A>
+</FONT><PRE>
+                                    
+Matrix M1;
+
+List svd(M1);          特異値分解
+                       {U, D, V} = svd(A);
+                       U * D * V# = A;
+                       U: 左特異ベクトル
+                       V: 右特異ベクトル
+                       D: 特異値(Aと同じ大きさの行列)
+List lu(M1);           LU分解
+                       {L, U, P} = lu(A);
+                       L * U = P * A;
+                       L: 下三角行列
+                       U: 上三角行列
+                       P: 置換行列
+List hess(M1);         Hessenberg分解
+                       {Q, H} = hess(A);
+                       Q# * A * Q = H;
+                       Q: 直交行列orユニタリ行列
+                       H: ヘッセンベルグ行列
+List schur(M1);        Schur分解
+                       {U, T} = schur(A);
+                       U# * A * U = T;
+                       U: 直交行列orユニタリ行列
+                       T: 擬似上三角行列or上三角行列,
+</PRE>
+<P>
+<FONT SIZE="-1"><A NAME="9180">&#160;</A><A NAME="8839">&#160;</A>
+<A NAME="9181">&#160;</A>
+<A NAME="8841">&#160;</A>
+<A NAME="9182">&#160;</A><A NAME="8843">&#160;</A>
+</FONT><PRE>
+                                    
+Matrix M1, M2;
+
+List qr(M1);           QR分解 
+                       {Q, R} = qr(A);
+                       Q * R = A;
+                       Q: 直交行列orユニタリ行列
+                       R: 上三角行列
+List qr_p(M1);         QR分解(置換付)
+                       {Q, R, P} = qr_p(A);
+                       Q * R = A * P;
+                       Q: 直交行列orユニタリ行列
+                       R: 上三角行列
+                       P: 置換行列
+List qz(M1, M2);
+                       QZ分解 
+                       {AA, BB, Q, Z, VEC} = qz(M1, M2)
+                       Q# * M1 * Z = AA;
+                       Q# * M2 * Z = BB;
+                       val = diag2vec(AA) ./ diag2vec(BB);
+                       M1 * VEC = M2 * VEC * vec2diag(val);
+                      AA: 上三角行列
+                      BB: 上三角行列
+                       Q: 直交行列orユニタリ行列
+                       Z: 直交行列orユニタリ行列
+                     VEC: 一般固有ベクトル
+                     val: 一般固有値
+</PRE><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html2904"
+ HREF="node183.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2900"
+ HREF="node144.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2894"
+ HREF="node181.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2902"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2903"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2905"
+ HREF="node183.htm">配列関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2901"
+ HREF="node144.htm">行列と配列と指数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2895"
+ HREF="node181.htm">行列とスカラの演算</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>条件つきコンパイル</TITLE>
+<META NAME="description" CONTENT="条件つきコンパイル">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node46.htm">
+<LINK REL="up" HREF="node44.htm">
+<LINK REL="next" HREF="node48.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1157"
+ HREF="node48.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1153"
+ HREF="node44.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1149"
+ HREF="node46.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1155"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1156"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1158"
+ HREF="node48.htm">スタートアップファイル</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1154"
+ HREF="node44.htm">プリプロセッサ</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1150"
+ HREF="node46.htm">マクロ置換</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION006263000000000000000">
+条件つきコンパイル</A>
+</H2><FONT SIZE="-1">
+<A NAME="1985">&#160;</A>
+<A NAME="1986">&#160;</A>
+<A NAME="1987">&#160;</A>
+<A NAME="1988">&#160;</A>
+<A NAME="1989">&#160;</A>
+次のコンパイラ(インタプリタ)の制御文</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+#if constant-expression
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+は，定数式がゼロでないかチェックする。
+次の制御文</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+#ifdef identifier
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+は，<TT>identifier</TT>が定義されているかチェックする。
+すなわち，<TT>identifier</TT>が既に<TT>#define</TT>によって定義されたか
+どうかをチェックする。
+次の制御文</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+#ifndef identifier
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+は，<TT>identifier</TT>が定義されていないかチェックする。
+これらの制御文の後には，任意のソ−スと制御文</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+#else
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+と</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+#endif
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+が続くことができる。
+もし，チェックされた条件が真のとき，<TT>#else</TT>と<TT>#endif</TT>の間の行は
+無視される。
+もし，チェックされた条件が偽のとき，テストと<TT>#else</TT>あるいは，
+<TT>#endif</TT>の間の行は無視される。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>error</TITLE>
+<META NAME="description" CONTENT="error">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node59.htm">
+<LINK REL="previous" HREF="node57.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node59.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1407"
+ HREF="node59.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1404"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1398"
+ HREF="node57.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1406"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1408"
+ HREF="node59.htm">eval</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1405"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1399"
+ HREF="node57.htm">else</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000454000000000000000">&#160;</A><A NAME="man_error">&#160;</A>
+<BR>
+error
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>error - エラーメッセージを出力
+<DT>【形式】
+<DD><PRE>
+error()
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>error()を使用すると，実行が停止され，エラーメッセージが標準
+エラー出力に出力される。引数がない場合は，単に実行が停止する。
+引数の長さが 0 の文字列ならば，エラーは無視される。printf()と
+同じ書式を指定できる。
+  
+インタプリタで実行すると，引数の文字列だけでなく，エラーが発生
+した個所に関する情報も表示される。オプション -withlog を用いれば，
+ログファイル MaTX.log にもエラーメッセージが出力される。
+<DT>【例題】
+<DD></FONT><PRE>
+A = [[1 2][3 4]];
+B = [1];
+if (Rows(A) != Rows(B) || Cols(A) != Cols(B)) {
+    error("add(): Dimension error A(%d,%d), B(%d,%d)\n",
+    Rows(A), Cols(A), Rows(B), Cols(B));
+} else {
+    print A + B;
+}
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>warning(<A HREF="node241.htm#man_warning">2.242</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

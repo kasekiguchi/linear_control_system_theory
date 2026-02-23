@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>svd</TITLE>
+<META NAME="description" CONTENT="svd">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node231.htm">
+<LINK REL="previous" HREF="node229.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node231.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3299"
+ HREF="node231.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3296"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3290"
+ HREF="node229.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3298"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3300"
+ HREF="node231.htm">switch</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3297"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3291"
+ HREF="node229.htm">sum_row</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004226000000000000000">&#160;</A><A NAME="man_svd">&#160;</A>
+<BR>
+svd
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>svd - 特異値分解
+<DT>【形式】
+<DD><PRE>
+{U,D,V} = svd(A)
+   Matrix U,D,V;
+   Matrix A;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>svd(A)は，行列 A の特異値分解を行う。A は，正方行列でも非正方行列
+でもよい。{U,D,V} = svd(A) は，行列 A と同じ大きさで，負でない実数
+を対角成分にもつ行列 D ，A = U * D * V# を満たす直交行列(ユニタリ
+行列) U と V を求める。D の対角には特異値が降順に並ぶ。
+<DT>【算法】
+<DD>文献 1 の算法を使う。
+<DT>【注意】
+<DD>繰り返し計算で特異値が求まらない場合は，次のメッセージが表示される。
+</FONT>
+<P>
+<FONT SIZE="-1">Solution will not converge
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; A = [[1 2 3][4 5 6]];
+&gt;&gt; {U, D, V} = svd(A);
+&gt;&gt; print U, D, V
+=== [U] : (  2,  2) ===
+           (  1)           (  2)
+(  1) -3.86317703E-01 -9.22365780E-01
+(  2) -9.22365780E-01  3.86317703E-01
+=== [D] : (  2,  3) ===
+           (  1)           (  2)           (  3)     
+(  1)  9.50803200E+00  0.00000000E+00  0.00000000E+00
+(  2)  0.00000000E+00  7.72869636E-01  0.00000000E+00
+=== [V] : (  3,  3) ===
+           (  1)           (  2)           (  3)     
+(  1) -4.28667134E-01  8.05963909E-01  4.08248290E-01
+(  2) -5.66306919E-01  1.12382414E-01 -8.16496581E-01
+(  3) -7.03946704E-01 -5.81199080E-01  4.08248290E-01
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>singval(<A HREF="node213.htm#man_singval">2.214</A>), singleftvec(<A HREF="node211.htm#man_singleftvec">2.212</A>), singrightvec(<A HREF="node212.htm#man_singrightvec">2.213</A>), maxsing(<A HREF="node126.htm#man_maxsing">2.127</A>), minsing(<A HREF="node137.htm#man_minsing">2.138</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><DT>【文献】
+<DD></FONT></FONT></FONT><DL COMPACT>
+<DT>1.
+<DD>Gene H. Golub and Charles F. Van Loan.  Matrix Computations.
+The Johns Hopkins University Press, 1989
+</DL><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

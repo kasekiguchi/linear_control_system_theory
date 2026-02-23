@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>変数の存在を調べる(matxのみ)</TITLE>
+<META NAME="description" CONTENT="変数の存在を調べる(matxのみ)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node26.htm">
+<LINK REL="previous" HREF="node24.htm">
+<LINK REL="up" HREF="node18.htm">
+<LINK REL="next" HREF="node26.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html892"
+ HREF="node26.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html888"
+ HREF="node18.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html882"
+ HREF="node24.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html890"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html891"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html893"
+ HREF="node26.htm">環境変数の設定と取得</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html889"
+ HREF="node18.htm">コマンドと便利な機能</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html883"
+ HREF="node24.htm">変数の消去</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00670000000000000000">
+変数の存在を調べる(matxのみ)</A>
+</H1>
+<A NAME="1938">&#160;</A>
+<A NAME="1458">&#160;</A>
+ある変数が定義されているか調べるには，変数名を引数として関数<TT>exist()</TT>を
+呼ぶ。局所変数として定義されている場合は，2，大域変数としてのみ
+定義されている場合は，1，定義されていない場合は，0が返される。
+<BR CLEAR="ALL">
+<HR><PRE>
+  i = exist("A");
+  if (i == 0)
+    print "A dosen't exist.";
+  } else if (i == 1) {
+    print "A is a global variable.";
+  } else if (i == 2) {
+    print "A is a local variable.";
+  }
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

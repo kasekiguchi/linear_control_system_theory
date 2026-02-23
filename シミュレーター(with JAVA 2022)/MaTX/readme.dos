@@ -1,0 +1,158 @@
+------------------------------------------------------------------
+
+                     MaTX (2000/2/14)
+
+                     DOS (DJGPP) 版 
+
+                       古賀 雅伸
+
+                     Masanobu Koga
+
+                     koga@matx.org
+
+             Tokyo Institute of Technology, JAPAN
+
+          Copyright 2000 Masanobu Koga, T.I.T., JAPAN
+
+--------------------------------------------------------------------
+
+　パッケージに含まれるファイルのうちMaTX-utilに含まれるファイル
+およびDJGPPのファイル(Windows版の場合)を除くものをMaTX本体とい
+います。MaTX本体の著作権は古賀雅伸に有ります。「ソフトウェア使
+用許諾規定」をよく読んでから使用して下さい。
+
+● DJGPP版の動作環境
+
+   ハードウェア : IBM-PC 互換機, PC9801シリーズ (80386以上)
+   メモリ       : 16MByte 以上(推奨 24MByte以上) 
+   OS           : DOS
+
+● インストール方法
+
+  (1) MaTXをインスト－ルするディレクトリに移動する．
+
+  (2) 自己解凍形式ファイルを実行すると，MATX ディレクトリに
+      ファイルが展開される。
+
+  (3) AUTOEXEC.BAT に環境変数の設定をする。
+
+    (a) MATXDIRにMaTXをインストールしたディレクトリを設定する．
+
+        例: set MATXDIR=C:/MATX
+
+    (b) DJGPPにDJGPPをインストールしたディレクトリを設定する。
+
+        例: set DJGPP=C:\MATX\djgpp\djgpp.env
+
+    (c) PATH にMaTXの実行ファイルのあるディレクトリを加える．
+
+        例: set PATH=%PATH%;C:\MATX\BIN
+
+    (d) PAGER に自分の好みのページャを指定する。
+
+        例: set PAGER=C:/MATX/BIN/LESS
+
+    (e) LANG に日本語を設定する。
+
+        例: set LANG=ja
+
+  (4) 環境変数を有効にするためリブートする。
+
+
+● デモの実行
+
+     DOSプロンプトで
+
+       C:\ matx
+
+     と入力し，MaTXを起動する。MaTX のプロンプトが出たら
+
+       MaTX(1) demo
+
+     と入力して，デモプログラムで動作を確認する。
+
+
+● DJGPP パッケージについて
+
+   DJGPP版の MaTX を使うには djgpp-2.02 が必要です。MaTX のパッケージ
+   には，MaTX を動作させるのに必要な DJGPP のファイルが含まれています。
+   他のファイルをインストールしたい人は，次のアドレスから入手できます。
+
+     ftp://ftp.matx.matx/pub/djgpp-2.02
+
+   djgpp 付属の make.exe からは 16-bit DPMI server を必要とする
+   コマンドを起動できないようです。例えば，Borland のコマンドラ
+   イン用のコンパイラを起動できません。他の make と区別するには
+   make.exe を gmake.exe のよう名前を変える方法があります。
+
+
+● MaTX パッケージの内容
+
+    MATX/bin      【実行ファイル】
+                  matx.exe:   インタプリタ
+                  matc.exe:   コンパイラ
+                  matp.exe:   行列表示プログラム
+                  mated.exe:  行列入力／編集プログラム
+                  rtmatx.exe: RtMaTXのインタプリタ
+                  rtmatc.exe: RtMaTXのコンパイラ
+
+        lib      【ライブラリ】
+                  libMaTX.a:   MaTXランタイムライブラリ
+                  libmxmat.a:  行列演算ライブラリ
+                  libmxgra.a:  グラフィックライブラリ
+                  libmxctr.a:  制御系解析設計ライブラリ
+                  libmxsig.a:  信号処理ライブラリ
+
+        librt    【RtMaTXのライブラリ】
+                  libMaTX.a:   MaTXランタイムライブラリ
+                  libmxmat.a:  行列演算ライブラリ
+                  libmxgra.a:  グラフィックライブラリ
+                  libmxctr.a:  制御系解析設計ライブラリ
+                  libmxsig.a:  信号処理ライブラリ
+
+        include  【ヘッダファイル】
+                  matrix.h:     行列ヘッダファイル
+                  poly.h:       多項式ヘッダファイル
+                  rational.h:   有理関数ヘッダファイル
+                  list.h:       リストヘッダファイル
+                  complex.h:    複素数ヘッダファイル
+                  mxstring.h:   文字列ヘッダファイル
+                  util.h:       ユーティリティヘッダファイル
+                  matxrc.h:     ユーザ関数ヘッダファイル
+                  matxgval.h:   大域変数ヘッダファイル
+
+        inputs   【MMファイル】
+                  MaTXRC.mm:     スタ－トアップファイル
+                  matx.hlp:      ヘルプファイル
+
+                  matrix/*.mm:   行列演算MMファイル
+                  control/*.mm:  制御系解析設計MMファイル
+                  signal/*.mm:   信号処理MMファイル
+                  graph/*.mm:    グラフィックMMファイル
+
+                  contrib       コントリビューションディレクトリ
+                  contrib/ga    遺伝的アルゴリズム(GA) MMファイル
+
+        demos    【デモファイル】
+                  SICE_SS        MaTXを用いたH∞制御系設計演習
+                                （SICE夏期セミナ'96）
+                  SYSID97        Control of Mini-inverted pendulum using RtMaTX
+                                 (SYSID'97) 
+                  DD97           RtMaTX を用いたミニ倒立振子の制御
+                                 (D&D'97 Media-Integrated Presentation)
+                  INTMAC97       RtMaTXを用いたミニ倒立振子の制御
+                                 (INTERMAC'97)
+
+● ユーティリティの内容
+
+    o less                  (オンラインマニュアルを見るため)
+                            djgppのlessではなく，これを使ってください。
+    o gnuplot               (データをプロットするため)
+    o caps2ctl              (CAPSキーとCTRLキーを交換)
+    o qkc                   (漢字コード変換，DOSファイルと
+                             UNIXファイルのコード変換)
+    o nulprn.sys             Ctrl-Pキーの機能(プリンタ出力)を無効にする
+                            (CONFIG.SYSに登録する)
+    o tcsh                  (UNIXでおなじみのシェル)
+
+-----------------------------------------------------------------------------

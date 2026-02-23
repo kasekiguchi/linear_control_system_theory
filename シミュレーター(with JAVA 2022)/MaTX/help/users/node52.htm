@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>mmファイル の読み込み(matxのみ)</TITLE>
+<META NAME="description" CONTENT="mmファイル の読み込み(matxのみ)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node53.htm">
+<LINK REL="previous" HREF="node51.htm">
+<LINK REL="up" HREF="node51.htm">
+<LINK REL="next" HREF="node53.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1226"
+ HREF="node53.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1222"
+ HREF="node51.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1216"
+ HREF="node51.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1224"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1225"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1227"
+ HREF="node53.htm">データのファイル入出力</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1223"
+ HREF="node51.htm">ファイル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1217"
+ HREF="node51.htm">ファイル</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00710000000000000000">
+mmファイル の読み込み(<I>matx</I>のみ)</A>
+</H1><FONT SIZE="-1">
+<A NAME="2962">&#160;</A>
+<A NAME="2709">&#160;</A>
+<A NAME="2710">&#160;</A>
+<A NAME="2963">&#160;</A>
+<A NAME="2712">&#160;</A>
+<TT>load</TT>コマンドの引数にmmファイルの名前を文字列として指定することによって
+mmファイルを読み込むことができる。
+拡張子を省略すると，拡張子は<TT>mm</TT>となる。
+コンマで区切ることにより，複数のmmファイルを同時に指定できる。
+mmファイルは，
+</FONT><DL COMPACT>
+<DT>1.
+<DD>カレントディレクトリ
+<DT>2.
+<DD>環境変数<TT>MATXINPUTS</TT>で定義されているディレクトリ以下の全ての
+ディレクトリ
+<BR>
+
+<!-- MATH: $\displaystyle
+\left(\begin{array}{l}
+\mbox{\rm コロン``\mbox{\tt :}''で区切って複数のディレクトリを指定できる。}\\
+\mbox{\rm MS-DOSバ−ジョンでは，セミコロン``\mbox{\tt ;}''で区切る。}
+\index{MS-DOS}
+\end{array}\right)$ -->
+<IMG
+ WIDTH="437" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.gif"
+ ALT="$\displaystyle
+\left(\begin{array}{l}
+\mbox{\rm コロン\lq\lq \mbox{\tt :}''で区切って...
+...ンでは，セミコロン\lq\lq \mbox{\tt ;}''で区切る。}
+\index{MS-DOS}
+\end{array}\right)$"><DT>3.
+<DD><B>デフォルトmmファイルディレクトリ</B>以下の全てのディレクトリ
+(コンパイル時に決定される)
+<A NAME="2724">&#160;</A>
+</DL><FONT SIZE="-1">の順番で探索される。
+環境変数<TT>LANG</TT>に<TT>ja</TT>，<TT>japanese</TT>，<TT>ja_JP.xxx</TT>
+が設定されていて，各ディレクトリに<TT>ja</TT>というディレクトリが
+存在すれば，そこが先に検索される。
+</FONT>
+<P>
+<FONT SIZE="-1">何も指定しないと，カレントディレクトリにファイル<TT>MaTXRC.mm</TT>
+が存在すれば，そのファイルが読み込まれる。<A NAME="2966">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+load "filename1.mm", "filename2.mm";
+load;
+
+load "/usr/local/tmp/file.mm";  // UNIXの絶対パス
+load "c:/tmp/file.mm";          // DOS の絶対パス(1)
+load "c:\\tmp\file.mm";         // DOS の絶対パス(2)
+</PRE><FONT SIZE="-1">の絶対パスの区切り文字はスラッシュ <code>/</code> でも
+バックスラッシュ <code>\</code> のどちらでもよい。
+ただし，文字列中の <code>\t</code> や <code>\n</code> などは特殊文字として
+解釈されるので，バックスラッシュ <code>\</code> を重ねる必要がある。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

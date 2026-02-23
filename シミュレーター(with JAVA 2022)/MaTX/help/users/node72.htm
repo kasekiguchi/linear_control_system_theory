@@ -1,0 +1,334 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>対数プロット</TITLE>
+<META NAME="description" CONTENT="対数プロット">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node73.htm">
+<LINK REL="previous" HREF="node71.htm">
+<LINK REL="up" HREF="node69.htm">
+<LINK REL="next" HREF="node73.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1492"
+ HREF="node73.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1488"
+ HREF="node69.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1482"
+ HREF="node71.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1490"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1491"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1493"
+ HREF="node73.htm">1個のウィンドウに複数のグラフ</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1489"
+ HREF="node69.htm">gnuplot</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1483"
+ HREF="node71.htm">複数の線</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00913000000000000000">&#160;</A>
+<A NAME="3749">&#160;</A>
+<A NAME="3750">&#160;</A>
+<BR>
+対数プロット
+</H2>
+<P>
+<FONT SIZE="-1">関数<TT>gplot_semilogx()</TT>を使うと，
+<TT>X</TT>軸が</FONT><IMG
+ WIDTH="38" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.gif"
+ ALT="$\log_{10}$"><FONT SIZE="-1">，<TT>Y</TT>軸が線形スケール(片対数スケール)
+でデータがプロットされる。
+関数<TT>gplot_semilogy()</TT>を使うと，
+<TT>Y</TT>軸が</FONT><IMG
+ WIDTH="38" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.gif"
+ ALT="$\log_{10}$"><FONT SIZE="-1">，<TT>X</TT>軸が線形スケール(片対数スケール)
+でデータがプロットされる。
+関数<TT>gplot_loglog()</TT>を使うと，
+<TT>X</TT>軸と<TT>Y</TT>軸が共に</FONT><IMG
+ WIDTH="38" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.gif"
+ ALT="$\log_{10}$"><FONT SIZE="-1">スケール(両対数スケール)
+でデータがプロットされる。
+</FONT>
+<P>
+<FONT SIZE="-1">対数プロットでは，最初からグリッド線が表示される。
+グリッド線を消去するには，関数<TT>gplot_grid(0)</TT>や
+関数<TT>mgplot_grid(win,0)</TT>を使えばよい。
+</FONT>
+<P>
+<FONT SIZE="-1">関数<TT>gplot_semilogx()</TT>(<TT>gplot_semilogy()</TT>,
+<TT>gplot_loglog()</TT>)の使い方は，関数(<TT>gplot()</TT>)のそれと同じである。
+</FONT>
+<P>
+<FONT SIZE="-1">関数<TT>mgplot_semilogx()</TT>(<TT>mgplot_semilogy()</TT>,
+<TT>mgplot_loglog()</TT>)の使い方は，関数<TT>mgplot()</TT>のそれと同じである。
+</FONT>
+<P>
+<FONT SIZE="-1">1つのグラフ上に複数の対数プロット描くには，
+関数<TT>greplot()</TT>や
+<BR>
+<TT>mgreplot()</TT>と同様に，次に示す関数を使えばよい。
+これらの関数を使うと，古い線に新しい線が重ねてプロットされる。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="4233">&#160;</A>
+<A NAME="4234">&#160;</A>
+<A NAME="4235">&#160;</A>
+<A NAME="4236">&#160;</A>
+<A NAME="4237">&#160;</A>
+<A NAME="4238">&#160;</A>
+</FONT>
+<BR>
+<DIV ALIGN="CENTER">
+
+<A NAME="tbl:gnuplot_three">&#160;</A>
+<DIV ALIGN="CENTER">
+<A NAME="4239">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 6.3:</STRONG>
+グラフィック関数3(<I> gnuplot</I>)</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>関数名/引数</TD>
+<TD ALIGN="CENTER" COLSPAN=1>機能</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_semilogx(X, Y)</TD>
+<TD ALIGN="LEFT">セミログ x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_semilogx(X, Y, titles)</TD>
+<TD ALIGN="LEFT">(x軸 ログ)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_semilogx(X, Y, titles, cmd)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;Array X, Y; List titles; List cmds;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_semilogy(X, Y)</TD>
+<TD ALIGN="LEFT">セミログ x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_semilogy(X, Y, titles)</TD>
+<TD ALIGN="LEFT">(y軸 ログ)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_semilogy(X, Y, titles, cmd)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;Array X, Y; List titles; List cmds;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_loglog(X, Y)</TD>
+<TD ALIGN="LEFT">ログログ x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_loglog(X, Y, titles)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_loglog(X, Y, titles, cmd)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;Array X, Y; List titles; List cmds;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_semilogx(win, X, Y)</TD>
+<TD ALIGN="LEFT">セミログ x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_semilogx(win, X, Y, titles)</TD>
+<TD ALIGN="LEFT">(x軸 ログ)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_semilogx(win, X, Y, titles, cmds)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;Integer win; Array X, Y;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;List titles; List cmds;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_semilogy(win, X, Y)</TD>
+<TD ALIGN="LEFT">セミログ x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_semilogy(win, X, Y, titles)</TD>
+<TD ALIGN="LEFT">(y軸 ログ)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_semilogy(win, X, Y, titles, cmds)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;Integer win; Array X, Y;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;List titles; List cmds;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_loglog(win, X, Y)</TD>
+<TD ALIGN="LEFT">ログログ x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_loglog(win, X, Y, titles)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_loglog(win, X, Y, titles, cmds)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;Integer win; Array X, Y;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;List titles; List cmds;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+<P>
+<FONT SIZE="-1"><A NAME="4240">&#160;</A>
+<A NAME="4241">&#160;</A>
+<A NAME="4242">&#160;</A>
+<A NAME="4243">&#160;</A>
+<A NAME="4244">&#160;</A>
+<A NAME="4245">&#160;</A>
+</FONT>
+<BR>
+<DIV ALIGN="CENTER">
+
+<A NAME="tbl:gnuplot_four">&#160;</A>
+<DIV ALIGN="CENTER">
+<A NAME="4246">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 6.4:</STRONG>
+グラフィック関数4(<I> gnuplot</I>)</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>関数名/引数</TD>
+<TD ALIGN="CENTER" COLSPAN=1>機能</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot_semilogx(X, Y)</TD>
+<TD ALIGN="LEFT">セミログ x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot_semilogx(X, Y, titles)</TD>
+<TD ALIGN="LEFT">(x軸 ログ)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot_semilogx(X, Y, titles, cmds)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;Array X, Y; List titles; List cmds;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot_semilogy(X, Y)</TD>
+<TD ALIGN="LEFT">セミログ x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot_semilogy(X, Y, titles)</TD>
+<TD ALIGN="LEFT">(y軸 ログ)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot_semilogy(X, Y, titles, cmds)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;Array X, Y; List titles; List cmds;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot_loglog(X, Y)</TD>
+<TD ALIGN="LEFT">ログログ x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot_loglog(X, Y, titles)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot_loglog(X, Y, titles, cmds)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;Array X, Y; List titles; List cmds;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot_semilogx(win, X, Y)</TD>
+<TD ALIGN="LEFT">セミログ x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot_semilogx(win, X, Y, titles)</TD>
+<TD ALIGN="LEFT">(x軸 ログ)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot_semilogx(win, X, Y, titles, cmds)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;Integer win; Array X, Y;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;List titles; List cmds;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot_semilogy(win, X, Y)</TD>
+<TD ALIGN="LEFT">セミログ x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot_semilogy(win, X, Y, titles)</TD>
+<TD ALIGN="LEFT">(y軸 ログ)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot_semilogy(win, X, Y, titles, cmds)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;Integer win; Array X, Y;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;List titles; List cmds;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot_loglog(win, X, Y)</TD>
+<TD ALIGN="LEFT">ログログ x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot_loglog(win, X, Y, titles)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot_loglog(win, X, Y, titles, cmds)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;Integer win; Array X, Y;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;&nbsp;&nbsp;&nbsp;List titles; List cmds;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html1492"
+ HREF="node73.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1488"
+ HREF="node69.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1482"
+ HREF="node71.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1490"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1491"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1493"
+ HREF="node73.htm">1個のウィンドウに複数のグラフ</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1489"
+ HREF="node69.htm">gnuplot</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1483"
+ HREF="node71.htm">複数の線</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

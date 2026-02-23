@@ -1,0 +1,630 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>リファレンスマニュアル</TITLE>
+<META NAME="description" CONTENT="リファレンスマニュアル">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node248.htm">
+<LINK REL="previous" HREF="node3.htm">
+<LINK REL="up" HREF="REFS.htm">
+<LINK REL="next" HREF="node5.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html570"
+ HREF="node5.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html567"
+ HREF="REFS.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html561"
+ HREF="node3.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html569"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html571"
+ HREF="node5.htm">abs</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html568"
+ HREF="REFS.htm">無題</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html562"
+ HREF="node3.htm">クイックリファレンス</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00040000000000000000">
+リファレンスマニュアル</A>
+</H1>
+
+関数とコマンドのリファレンスガイドを以下に示す。
+各キーワードについて表<A HREF="node4.htm#tbl:reference_func">30</A>に示す内容が述べられる。
+<BR>
+<DIV ALIGN="CENTER">
+<A NAME="tbl:reference_func">&#160;</A>
+<P>
+<BR>
+
+<P>
+
+<A NAME="832">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<CAPTION><STRONG>表 30:</STRONG>
+リファレンスマニュアルの内容</CAPTION>
+<TR><TD ALIGN="LEFT">目的</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>簡単な説明を与える。</TD>
+</TR>
+<TR><TD ALIGN="LEFT">形式</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>関数の書式を示す。</TD>
+</TR>
+<TR><TD ALIGN="LEFT">詳細</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>関数は何をするためのものなのか，
+またどのような規則や制約があるのかを説明する。</TD>
+</TR>
+<TR><TD ALIGN="LEFT">算法</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>関連するアルゴリズムとルーチンを示す。</TD>
+</TR>
+<TR><TD ALIGN="LEFT">例題</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>関数の使用例を示す。</TD>
+</TR>
+<TR><TD ALIGN="LEFT">文献</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>参考文献等の資料。</TD>
+</TR>
+<TR><TD ALIGN="LEFT">参照</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=170>関連する関数の参照。</TD>
+</TR>
+</TABLE></DIV>
+<BR>
+<P>
+形式の表記法について説明する。関数<TT>abs()</TT>の形式を次に示す。<PRE>
+    y = abs(x)                       Y = abs(X)
+       (Integer|Real|Real) y;           (Matrix|Array|Index) Y;
+       (Integer|Real|Complex) x;        (Matrix|Array|Index) X;
+  
+    y = abs(s)
+       Matrix y;
+       String s;
+</PRE><FONT SIZE="-1">関数<TT>abs()</TT>には，大まかな形式が</FONT>3<FONT SIZE="-1">種類ある。
+</FONT>1<FONT SIZE="-1">番目の形式</FONT><PRE>
+    y = abs(x)
+       (Integer|Real|Real) y;
+       (Integer|Real|Complex) x;
+</PRE><FONT SIZE="-1"><FONT SIZE="-1">はスカラ型に関する形式で，整数(Integer)が引数のとき整数を，
+実数が引数のとき実数を，複素数が引数のとき実数をそれぞれ返すことを意味する。
+同様に，</FONT></FONT>2<FONT SIZE="-1"><FONT SIZE="-1">番目の形式</FONT></FONT><PRE>
+    Y = abs(X)
+       (Matrix|Array|Index) Y;
+       (Matrix|Array|Index) X;
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">は，行列型に関する形式で，引数が行列，配列，指数のとき，
+それぞれ行列，配列，指数を返すことを意味する。
+そして，</FONT></FONT></FONT>3<FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">番目の形式</FONT></FONT></FONT><PRE>
+    y = abs(s)
+       Matrix y;
+       String s;
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">は少し特殊で，引数が文字列のとき行列を返すことを意味する。
+</FONT></FONT></FONT></FONT>
+<P>
+<FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">関数<TT>eig()</TT>の形式を次に示す。</FONT></FONT></FONT></FONT><PRE>
+    {D,X} = eig(A)       {D,X} = eig(A,B)
+       CoMatrix D,X;        CoMatrix D,X;
+       Matrix A;            Matrix A,B;
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">関数<TT>eig()</TT>には，形式が</FONT></FONT></FONT></FONT></FONT>2<FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">種類あり，
+一方は</FONT></FONT></FONT></FONT></FONT>1<FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">個の行列を受け取り，もう一方は</FONT></FONT></FONT></FONT></FONT>2<FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">個の行列を受け取る。
+どちらの形式も</FONT></FONT></FONT></FONT></FONT>2<FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">個の複素行列を返す。
+関数の結果を</FONT></FONT></FONT></FONT></FONT><PRE>
+    L = eig(A);
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">のようにリストとして保存したり，</FONT></FONT></FONT></FONT></FONT></FONT><PRE>
+   D = {eig(A)}(1,1,Matrix);
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">のように多段リストを利用し，直接参照することもできる。
+</FONT></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html572"
+ HREF="node5.htm">abs</A>
+<LI><A NAME="tex2html573"
+ HREF="node6.htm">access</A>
+<LI><A NAME="tex2html574"
+ HREF="node7.htm">acos</A>
+<LI><A NAME="tex2html575"
+ HREF="node8.htm">acosh</A>
+<LI><A NAME="tex2html576"
+ HREF="node9.htm">all</A>
+<LI><A NAME="tex2html577"
+ HREF="node10.htm">all_col</A>
+<LI><A NAME="tex2html578"
+ HREF="node11.htm">all_row</A>
+<LI><A NAME="tex2html579"
+ HREF="node12.htm">any</A>
+<LI><A NAME="tex2html580"
+ HREF="node13.htm">any_col</A>
+<LI><A NAME="tex2html581"
+ HREF="node14.htm">any_row</A>
+<LI><A NAME="tex2html582"
+ HREF="node15.htm">arg</A>
+<LI><A NAME="tex2html583"
+ HREF="node16.htm">asin</A>
+<LI><A NAME="tex2html584"
+ HREF="node17.htm">asinh</A>
+<LI><A NAME="tex2html585"
+ HREF="node18.htm">atan</A>
+<LI><A NAME="tex2html586"
+ HREF="node19.htm">atan2</A>
+<LI><A NAME="tex2html587"
+ HREF="node20.htm">atanh</A>
+<LI><A NAME="tex2html588"
+ HREF="node21.htm">balance</A>
+<LI><A NAME="tex2html589"
+ HREF="node22.htm">bell</A>
+<LI><A NAME="tex2html590"
+ HREF="node23.htm">bench</A>
+<LI><A NAME="tex2html591"
+ HREF="node24.htm">bit_and</A>
+<LI><A NAME="tex2html592"
+ HREF="node25.htm">bit_comp</A>
+<LI><A NAME="tex2html593"
+ HREF="node26.htm">bit_lshift</A>
+<LI><A NAME="tex2html594"
+ HREF="node27.htm">bit_or</A>
+<LI><A NAME="tex2html595"
+ HREF="node28.htm">bit_rshift</A>
+<LI><A NAME="tex2html596"
+ HREF="node29.htm">bit_xor</A>
+<LI><A NAME="tex2html597"
+ HREF="node30.htm">case</A>
+<LI><A NAME="tex2html598"
+ HREF="node31.htm">ceil</A>
+<LI><A NAME="tex2html599"
+ HREF="node32.htm">chdir</A>
+<LI><A NAME="tex2html600"
+ HREF="node33.htm">clear</A>
+<LI><A NAME="tex2html601"
+ HREF="node34.htm">clock</A>
+<LI><A NAME="tex2html602"
+ HREF="node35.htm">Cols</A>
+<LI><A NAME="tex2html603"
+ HREF="node36.htm">conj</A>
+<LI><A NAME="tex2html604"
+ HREF="node37.htm">conjtrans</A>
+<LI><A NAME="tex2html605"
+ HREF="node38.htm">continue</A>
+<LI><A NAME="tex2html606"
+ HREF="node39.htm">cos</A>
+<LI><A NAME="tex2html607"
+ HREF="node40.htm">cosh</A>
+<LI><A NAME="tex2html608"
+ HREF="node41.htm">cumprod</A>
+<LI><A NAME="tex2html609"
+ HREF="node42.htm">cumprod_col</A>
+<LI><A NAME="tex2html610"
+ HREF="node43.htm">cumprod_row</A>
+<LI><A NAME="tex2html611"
+ HREF="node44.htm">cumsum</A>
+<LI><A NAME="tex2html612"
+ HREF="node45.htm">cumsum_col</A>
+<LI><A NAME="tex2html613"
+ HREF="node46.htm">cumsum_row</A>
+<LI><A NAME="tex2html614"
+ HREF="node47.htm">De</A>
+<LI><A NAME="tex2html615"
+ HREF="node48.htm">default</A>
+<LI><A NAME="tex2html616"
+ HREF="node49.htm">degree</A>
+<LI><A NAME="tex2html617"
+ HREF="node50.htm">demo</A>
+<LI><A NAME="tex2html618"
+ HREF="node51.htm">derivative</A>
+<LI><A NAME="tex2html619"
+ HREF="node52.htm">det</A>
+<LI><A NAME="tex2html620"
+ HREF="node53.htm">diag2vec</A>
+<LI><A NAME="tex2html621"
+ HREF="node54.htm">do</A>
+<LI><A NAME="tex2html622"
+ HREF="node55.htm">eig</A>
+<LI><A NAME="tex2html623"
+ HREF="node56.htm">eigvec</A>
+<LI><A NAME="tex2html624"
+ HREF="node57.htm">else</A>
+<LI><A NAME="tex2html625"
+ HREF="node58.htm">error</A>
+<LI><A NAME="tex2html626"
+ HREF="node59.htm">eval</A>
+<LI><A NAME="tex2html627"
+ HREF="node60.htm">exist</A>
+<LI><A NAME="tex2html628"
+ HREF="node61.htm">exit</A>
+<LI><A NAME="tex2html629"
+ HREF="node62.htm">exp</A>
+<LI><A NAME="tex2html630"
+ HREF="node63.htm">extern</A>
+<LI><A NAME="tex2html631"
+ HREF="node64.htm">fact</A>
+<LI><A NAME="tex2html632"
+ HREF="node65.htm">fclose</A>
+<LI><A NAME="tex2html633"
+ HREF="node66.htm">feof</A>
+<LI><A NAME="tex2html634"
+ HREF="node67.htm">fft</A>
+<LI><A NAME="tex2html635"
+ HREF="node68.htm">fft_col</A>
+<LI><A NAME="tex2html636"
+ HREF="node69.htm">fft_row</A>
+<LI><A NAME="tex2html637"
+ HREF="node70.htm">fgets</A>
+<LI><A NAME="tex2html638"
+ HREF="node71.htm">find</A>
+<LI><A NAME="tex2html639"
+ HREF="node72.htm">fliplr</A>
+<LI><A NAME="tex2html640"
+ HREF="node73.htm">flipud</A>
+<LI><A NAME="tex2html641"
+ HREF="node74.htm">fopen</A>
+<LI><A NAME="tex2html642"
+ HREF="node75.htm">for</A>
+<LI><A NAME="tex2html643"
+ HREF="node76.htm">fprintf</A>
+<LI><A NAME="tex2html644"
+ HREF="node77.htm">fread</A>
+<LI><A NAME="tex2html645"
+ HREF="node78.htm">frobnorm</A>
+<LI><A NAME="tex2html646"
+ HREF="node79.htm">frobnorm_col</A>
+<LI><A NAME="tex2html647"
+ HREF="node80.htm">frobnorm_row</A>
+<LI><A NAME="tex2html648"
+ HREF="node81.htm">fscanf</A>
+<LI><A NAME="tex2html649"
+ HREF="node82.htm">Func</A>
+<LI><A NAME="tex2html650"
+ HREF="node83.htm">fwrite</A>
+<LI><A NAME="tex2html651"
+ HREF="node84.htm">getch</A>
+<LI><A NAME="tex2html652"
+ HREF="node85.htm">getenv</A>
+<LI><A NAME="tex2html653"
+ HREF="node86.htm">gets</A>
+<LI><A NAME="tex2html654"
+ HREF="node87.htm">gettimer</A>
+<LI><A NAME="tex2html655"
+ HREF="node88.htm">gotoxy</A>
+<LI><A NAME="tex2html656"
+ HREF="node89.htm">help</A>
+<LI><A NAME="tex2html657"
+ HREF="node90.htm">hess</A>
+<LI><A NAME="tex2html658"
+ HREF="node91.htm">higher</A>
+<LI><A NAME="tex2html659"
+ HREF="node92.htm">I</A>
+<LI><A NAME="tex2html660"
+ HREF="node93.htm">if</A>
+<LI><A NAME="tex2html661"
+ HREF="node94.htm">ifft</A>
+<LI><A NAME="tex2html662"
+ HREF="node95.htm">ifft_col</A>
+<LI><A NAME="tex2html663"
+ HREF="node96.htm">ifft_row</A>
+<LI><A NAME="tex2html664"
+ HREF="node97.htm">Im</A>
+<LI><A NAME="tex2html665"
+ HREF="node98.htm">infnorm</A>
+<LI><A NAME="tex2html666"
+ HREF="node99.htm">Inport</A>
+<LI><A NAME="tex2html667"
+ HREF="node100.htm">Inportb</A>
+<LI><A NAME="tex2html668"
+ HREF="node101.htm">integral</A>
+<LI><A NAME="tex2html669"
+ HREF="node102.htm">inv</A>
+<LI><A NAME="tex2html670"
+ HREF="node103.htm">iscomplex</A>
+<LI><A NAME="tex2html671"
+ HREF="node104.htm">isempty</A>
+<LI><A NAME="tex2html672"
+ HREF="node105.htm">isfinite</A>
+<LI><A NAME="tex2html673"
+ HREF="node106.htm">isinf</A>
+<LI><A NAME="tex2html674"
+ HREF="node107.htm">isnan</A>
+<LI><A NAME="tex2html675"
+ HREF="node108.htm">isreal</A>
+<LI><A NAME="tex2html676"
+ HREF="node109.htm">kbhit</A>
+<LI><A NAME="tex2html677"
+ HREF="node110.htm">kernel</A>
+<LI><A NAME="tex2html678"
+ HREF="node111.htm">length</A>
+<LI><A NAME="tex2html679"
+ HREF="node112.htm">linspace</A>
+<LI><A NAME="tex2html680"
+ HREF="node113.htm">load</A>
+<LI><A NAME="tex2html681"
+ HREF="node114.htm">log</A>
+<LI><A NAME="tex2html682"
+ HREF="node115.htm">log10</A>
+<LI><A NAME="tex2html683"
+ HREF="node116.htm">logspace</A>
+<LI><A NAME="tex2html684"
+ HREF="node117.htm">lower</A>
+<LI><A NAME="tex2html685"
+ HREF="node118.htm">lu</A>
+<LI><A NAME="tex2html686"
+ HREF="node119.htm">lu_p</A>
+<LI><A NAME="tex2html687"
+ HREF="node120.htm">machine_endian</A>
+<LI><A NAME="tex2html688"
+ HREF="node121.htm">makelist</A>
+<LI><A NAME="tex2html689"
+ HREF="node122.htm">max</A>
+<LI><A NAME="tex2html690"
+ HREF="node123.htm">maximum</A>
+<LI><A NAME="tex2html691"
+ HREF="node124.htm">maximum_col</A>
+<LI><A NAME="tex2html692"
+ HREF="node125.htm">maximum_row</A>
+<LI><A NAME="tex2html693"
+ HREF="node126.htm">maxsing</A>
+<LI><A NAME="tex2html694"
+ HREF="node127.htm">max_col</A>
+<LI><A NAME="tex2html695"
+ HREF="node128.htm">max_row</A>
+<LI><A NAME="tex2html696"
+ HREF="node129.htm">mean</A>
+<LI><A NAME="tex2html697"
+ HREF="node130.htm">mean_col</A>
+<LI><A NAME="tex2html698"
+ HREF="node131.htm">mean_row</A>
+<LI><A NAME="tex2html699"
+ HREF="node132.htm">menu</A>
+<LI><A NAME="tex2html700"
+ HREF="node133.htm">min</A>
+<LI><A NAME="tex2html701"
+ HREF="node134.htm">minimum</A>
+<LI><A NAME="tex2html702"
+ HREF="node135.htm">minimum_col</A>
+<LI><A NAME="tex2html703"
+ HREF="node136.htm">minimum_row</A>
+<LI><A NAME="tex2html704"
+ HREF="node137.htm">minsing</A>
+<LI><A NAME="tex2html705"
+ HREF="node138.htm">min_col</A>
+<LI><A NAME="tex2html706"
+ HREF="node139.htm">min_row</A>
+<LI><A NAME="tex2html707"
+ HREF="node140.htm">norm</A>
+<LI><A NAME="tex2html708"
+ HREF="node141.htm">Nu</A>
+<LI><A NAME="tex2html709"
+ HREF="node142.htm">Ode</A>
+<LI><A NAME="tex2html710"
+ HREF="node143.htm">Ode45</A>
+<LI><A NAME="tex2html711"
+ HREF="node144.htm">Ode45Auto</A>
+<LI><A NAME="tex2html712"
+ HREF="node145.htm">Ode45Hybrid</A>
+<LI><A NAME="tex2html713"
+ HREF="node146.htm">Ode45HybridAuto</A>
+<LI><A NAME="tex2html714"
+ HREF="node147.htm">OdeAuto</A>
+<LI><A NAME="tex2html715"
+ HREF="node148.htm">OdeHybrid</A>
+<LI><A NAME="tex2html716"
+ HREF="node149.htm">OdeHybridAuto</A>
+<LI><A NAME="tex2html717"
+ HREF="node150.htm">OdeStop</A>
+<LI><A NAME="tex2html718"
+ HREF="node151.htm">OdeXY</A>
+<LI><A NAME="tex2html719"
+ HREF="node152.htm">ONE</A>
+<LI><A NAME="tex2html720"
+ HREF="node153.htm">Outport</A>
+<LI><A NAME="tex2html721"
+ HREF="node154.htm">Outportb</A>
+<LI><A NAME="tex2html722"
+ HREF="node155.htm">pause</A>
+<LI><A NAME="tex2html723"
+ HREF="node156.htm">pclose</A>
+<LI><A NAME="tex2html724"
+ HREF="node157.htm">poles</A>
+<LI><A NAME="tex2html725"
+ HREF="node158.htm">popen</A>
+<LI><A NAME="tex2html726"
+ HREF="node159.htm">pow</A>
+<LI><A NAME="tex2html727"
+ HREF="node160.htm">print</A>
+<LI><A NAME="tex2html728"
+ HREF="node161.htm">printf</A>
+<LI><A NAME="tex2html729"
+ HREF="node162.htm">prod</A>
+<LI><A NAME="tex2html730"
+ HREF="node163.htm">prod_col</A>
+<LI><A NAME="tex2html731"
+ HREF="node164.htm">prod_row</A>
+<LI><A NAME="tex2html732"
+ HREF="node165.htm">pseudoinv</A>
+<LI><A NAME="tex2html733"
+ HREF="node166.htm">putenv</A>
+<LI><A NAME="tex2html734"
+ HREF="node167.htm">qr</A>
+<LI><A NAME="tex2html735"
+ HREF="node168.htm">qr_p</A>
+<LI><A NAME="tex2html736"
+ HREF="node169.htm">quit</A>
+<LI><A NAME="tex2html737"
+ HREF="node170.htm">qz</A>
+<LI><A NAME="tex2html738"
+ HREF="node171.htm">rand</A>
+<LI><A NAME="tex2html739"
+ HREF="node172.htm">randn</A>
+<LI><A NAME="tex2html740"
+ HREF="node173.htm">rank</A>
+<LI><A NAME="tex2html741"
+ HREF="node174.htm">Re</A>
+<LI><A NAME="tex2html742"
+ HREF="node175.htm">read</A>
+<LI><A NAME="tex2html743"
+ HREF="node176.htm">rem</A>
+<LI><A NAME="tex2html744"
+ HREF="node177.htm">require</A>
+<LI><A NAME="tex2html745"
+ HREF="node178.htm">reshape</A>
+<LI><A NAME="tex2html746"
+ HREF="node179.htm">return</A>
+<LI><A NAME="tex2html747"
+ HREF="node180.htm">rkf45</A>
+<LI><A NAME="tex2html748"
+ HREF="node181.htm">rngkut4</A>
+<LI><A NAME="tex2html749"
+ HREF="node182.htm">roots</A>
+<LI><A NAME="tex2html750"
+ HREF="node183.htm">rotateDown</A>
+<LI><A NAME="tex2html751"
+ HREF="node184.htm">rotateLeft</A>
+<LI><A NAME="tex2html752"
+ HREF="node185.htm">rotateRight</A>
+<LI><A NAME="tex2html753"
+ HREF="node186.htm">rotateUp</A>
+<LI><A NAME="tex2html754"
+ HREF="node187.htm">round</A>
+<LI><A NAME="tex2html755"
+ HREF="node188.htm">round2z</A>
+<LI><A NAME="tex2html756"
+ HREF="node189.htm">Rows</A>
+<LI><A NAME="tex2html757"
+ HREF="node190.htm">rtIsOnLine</A>
+<LI><A NAME="tex2html758"
+ HREF="node191.htm">rtIsRehearsal</A>
+<LI><A NAME="tex2html759"
+ HREF="node192.htm">rtIsRunning</A>
+<LI><A NAME="tex2html760"
+ HREF="node193.htm">rtIsTimeOut</A>
+<LI><A NAME="tex2html761"
+ HREF="node194.htm">rtSetBreak</A>
+<LI><A NAME="tex2html762"
+ HREF="node195.htm">rtSetClock</A>
+<LI><A NAME="tex2html763"
+ HREF="node196.htm">rtSetTask</A>
+<LI><A NAME="tex2html764"
+ HREF="node197.htm">rtStart</A>
+<LI><A NAME="tex2html765"
+ HREF="node198.htm">rtStartRehearsal</A>
+<LI><A NAME="tex2html766"
+ HREF="node199.htm">rtStop</A>
+<LI><A NAME="tex2html767"
+ HREF="node200.htm">rtStopRehearsal</A>
+<LI><A NAME="tex2html768"
+ HREF="node201.htm">save</A>
+<LI><A NAME="tex2html769"
+ HREF="node202.htm">scanf</A>
+<LI><A NAME="tex2html770"
+ HREF="node203.htm">schur</A>
+<LI><A NAME="tex2html771"
+ HREF="node204.htm">settimer</A>
+<LI><A NAME="tex2html772"
+ HREF="node205.htm">sgn</A>
+<LI><A NAME="tex2html773"
+ HREF="node206.htm">shiftDown</A>
+<LI><A NAME="tex2html774"
+ HREF="node207.htm">shiftLeft</A>
+<LI><A NAME="tex2html775"
+ HREF="node208.htm">shiftRight</A>
+<LI><A NAME="tex2html776"
+ HREF="node209.htm">shiftUp</A>
+<LI><A NAME="tex2html777"
+ HREF="node210.htm">sin</A>
+<LI><A NAME="tex2html778"
+ HREF="node211.htm">singleftvec</A>
+<LI><A NAME="tex2html779"
+ HREF="node212.htm">singrightvec</A>
+<LI><A NAME="tex2html780"
+ HREF="node213.htm">singval</A>
+<LI><A NAME="tex2html781"
+ HREF="node214.htm">sinh</A>
+<LI><A NAME="tex2html782"
+ HREF="node215.htm">size</A>
+<LI><A NAME="tex2html783"
+ HREF="node216.htm">sort</A>
+<LI><A NAME="tex2html784"
+ HREF="node217.htm">sort_col</A>
+<LI><A NAME="tex2html785"
+ HREF="node218.htm">sort_row</A>
+<LI><A NAME="tex2html786"
+ HREF="node219.htm">sprintf</A>
+<LI><A NAME="tex2html787"
+ HREF="node220.htm">sqrt</A>
+<LI><A NAME="tex2html788"
+ HREF="node221.htm">sscanf</A>
+<LI><A NAME="tex2html789"
+ HREF="node222.htm">static</A>
+<LI><A NAME="tex2html790"
+ HREF="node223.htm">std</A>
+<LI><A NAME="tex2html791"
+ HREF="node224.htm">std_col</A>
+<LI><A NAME="tex2html792"
+ HREF="node225.htm">std_row</A>
+<LI><A NAME="tex2html793"
+ HREF="node226.htm">strchr</A>
+<LI><A NAME="tex2html794"
+ HREF="node227.htm">sum</A>
+<LI><A NAME="tex2html795"
+ HREF="node228.htm">sum_col</A>
+<LI><A NAME="tex2html796"
+ HREF="node229.htm">sum_row</A>
+<LI><A NAME="tex2html797"
+ HREF="node230.htm">svd</A>
+<LI><A NAME="tex2html798"
+ HREF="node231.htm">switch</A>
+<LI><A NAME="tex2html799"
+ HREF="node232.htm">system</A>
+<LI><A NAME="tex2html800"
+ HREF="node233.htm">tan</A>
+<LI><A NAME="tex2html801"
+ HREF="node234.htm">tanh</A>
+<LI><A NAME="tex2html802"
+ HREF="node235.htm">trace</A>
+<LI><A NAME="tex2html803"
+ HREF="node236.htm">trans</A>
+<LI><A NAME="tex2html804"
+ HREF="node237.htm">typeof</A>
+<LI><A NAME="tex2html805"
+ HREF="node238.htm">vec2diag</A>
+<LI><A NAME="tex2html806"
+ HREF="node239.htm">vectorprod</A>
+<LI><A NAME="tex2html807"
+ HREF="node240.htm">version</A>
+<LI><A NAME="tex2html808"
+ HREF="node241.htm">warning</A>
+<LI><A NAME="tex2html809"
+ HREF="node242.htm">what</A>
+<LI><A NAME="tex2html810"
+ HREF="node243.htm">which</A>
+<LI><A NAME="tex2html811"
+ HREF="node244.htm">while</A>
+<LI><A NAME="tex2html812"
+ HREF="node245.htm">who</A>
+<LI><A NAME="tex2html813"
+ HREF="node246.htm">whos</A>
+<LI><A NAME="tex2html814"
+ HREF="node247.htm">zeros</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

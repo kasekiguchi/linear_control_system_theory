@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>多項式行列の記述方法</TITLE>
+<META NAME="description" CONTENT="多項式行列の記述方法">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node160.htm">
+<LINK REL="previous" HREF="node158.htm">
+<LINK REL="up" HREF="node158.htm">
+<LINK REL="next" HREF="node160.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2619"
+ HREF="node160.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2615"
+ HREF="node158.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2609"
+ HREF="node158.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2617"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2618"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2620"
+ HREF="node160.htm">多項式行列の評価</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2616"
+ HREF="node158.htm">多項式行列</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2610"
+ HREF="node158.htm">多項式行列</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001831000000000000000">
+多項式行列の記述方法</A>
+</H2><FONT SIZE="-1">
+多項式行列は，多項式を成分とする行列である。
+多項式行列の操作は実行列や複素行列といった数値行列と同じである。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  s = $;
+
+  PM1 = [[s + 1  s + 2]    PM2 = [[s + 5  s + 6]
+         [s + 3  s + 4]];         [s + 7  s + 8]];
+
+  PM1 = diag(s+1, s+2, s+3, s+4);
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>多項式行列を記述する便利な方法には，少なくとも２つある。１つは，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  s = $;
+
+  A = [[1 2][3 4]]*s^2 + [[5 6][7 8]]*s
+      + [[9 10][11 12]];
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+であり，もう１つは</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  s = $;
+
+  A = [[  s^2+5*s+9 , 2*s^2+6*s+10]
+       [3*s^2+7*s+11, 4*s^2+8*s+12]];
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+で，どちらも同じ多項式行列を作る。
+前者は，行列を多項式の係数として用い，後者は，４つの多項式を陽に行列の
+成分として使っている。
+</FONT>
+<P>
+<FONT SIZE="-1">複素多項式行列の記述方法には，複素多項式を成分として記述する方法と
+一対の実多項式行列をコンマ ``<TT>,</TT>'' で区切って丸括弧
+<TT>(</TT> と <TT>)</TT> で囲む方法がある。
+実部または虚部だけを指定し，もう一方に <TT>*</TT> を指定して
+複素多項式行列を記述することもできる。
+<A NAME="8999">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+CPM1 = (PM1,PM2); // CPM1 = PM1 + PM2 i,
+                  // PM1とPM2は，実多項式行列
+CPM1 = (PM1,*);   // CPM1 = PM1 + Z(PM1) i,
+                  // PM1は，実多項式行列
+CPM1 = (*,PM1);   // CPM1 = Z(PM1) + PM1 i,
+                  // PM1は，実多項式行列
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>実部多項式行列と虚部多項式行列は，
+関数<TT>Re()</TT>と<TT>Im()</TT>を用いて取り出すことができる。
+<A NAME="9000">&#160;</A>
+<A NAME="9001">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+PM1 = Re((PM1, PM2));  // 実部多項式行列
+PM2 = Im((PM1, PM2));  // 虚部多項式行列
+</PRE><FONT SIZE="-1">
+<BR>
+<HR> 2個の実多項式行列PM1とPM2から複素多項式行列CPM1を作る。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  s = $;
+
+ PM1 = [[s + 1  s + 2]    PM2 = [[s + 5  s + 6]
+         [s + 3  s + 4]];         [s + 7  s + 8]];
+
+  CPM1 = (PM1, PM2);
+  CPM2 = [[(1,1)*s+(1,5) (1,1)*s+(2,6)]
+          [(1,1)*s+(3,7) (1,1)*s+(4,8)]];
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

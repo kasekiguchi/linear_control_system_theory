@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>複数の値を返す関数</TITLE>
+<META NAME="description" CONTENT="複数の値を返す関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node94.htm">
+<LINK REL="previous" HREF="node92.htm">
+<LINK REL="up" HREF="node89.htm">
+<LINK REL="next" HREF="node94.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1755"
+ HREF="node94.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1751"
+ HREF="node89.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1745"
+ HREF="node92.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1753"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1754"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1756"
+ HREF="node94.htm">可変長引数関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1752"
+ HREF="node89.htm">関数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1746"
+ HREF="node92.htm">関数の定義</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001130000000000000000">&#160;</A>
+<A NAME="5324">&#160;</A>
+<BR>
+複数の値を返す関数
+</H1><FONT SIZE="-1">
+リストを利用して，複数個の戻り値を同時に返す関数を定義することができる。
+そのような関数は，次の形式で記述する。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  Integer a, d;
+  Complex b, f;
+  Matrix c, e;
+  List func();
+  {a, b, c} = func(d, e, f);
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+``<TT>a, b, c</TT>''は，関数<TT>func()</TT>からの複数個の戻り値を表して
+いて，``<TT>d, e, f</TT>''は，関数<TT>func()</TT>の引数を意味する。
+関数<TT>func()</TT>は，複数個の戻り値から構成されるリストを返す。
+左辺のリストの成分の数が関数の返すリストの成分の数より少ない時，
+左辺のリストの成分の数だけ関数の返すリストの成分が使用され，
+それ以上の成分は捨てられる。 <A NAME="5334">&#160;</A>
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

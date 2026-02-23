@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>倒立振子のリアルタイム制御</TITLE>
+<META NAME="description" CONTENT="倒立振子のリアルタイム制御">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node238.htm">
+<LINK REL="up" HREF="node237.htm">
+<LINK REL="next" HREF="node240.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3628"
+ HREF="node240.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3624"
+ HREF="node237.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3620"
+ HREF="node238.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3626"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3627"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3629"
+ HREF="node240.htm">エラーメッセージ</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3625"
+ HREF="node237.htm">シミュレーションからリアルタイム処理へ</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3621"
+ HREF="node238.htm">倒立振子の制御のシミュレーション</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002672000000000000000">
+倒立振子のリアルタイム制御</A>
+</H2><FONT SIZE="-1">
+この章の前で説明したように，リアルタイム処理のプログラムを作成するには，
+3つの関数を記述するだけで良い。メイン関数と画面表示関数は
+は例題で示した通りで良い。リアルタイム処理関数はシミュレーションで用いた
+<TT>link_eqs()</TT>を次のように変更するだけで良い。
+<A NAME="13429">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void on_task()
+{
+  Matrix Y, Xh;
+
+  Y  = sensor();            // センサから入力
+  Xh = Ch*Xo + Dh*Y;        // オブザーバの推定
+  U  = - F*Xh;              // 状態フィードバック
+  actuator(U);              // アクチュエータへ出力
+  Xo = Ah*Xo + Bh*Y + Jh*U; // オブザーバの更新
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

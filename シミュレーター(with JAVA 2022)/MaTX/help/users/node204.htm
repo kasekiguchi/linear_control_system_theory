@@ -1,0 +1,625 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>MXデータフォーマット</TITLE>
+<META NAME="description" CONTENT="MXデータフォーマット">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node203.htm">
+<LINK REL="up" HREF="node202.htm">
+<LINK REL="next" HREF="node205.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3178"
+ HREF="node205.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3174"
+ HREF="node202.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3170"
+ HREF="node203.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3176"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3177"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3179"
+ HREF="node205.htm">メモリ管理</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3175"
+ HREF="node202.htm">データフォーマット</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3171"
+ HREF="node203.htm">MATデータフォーマット</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002320000000000000000">&#160;</A>
+<A NAME="11488">&#160;</A>
+<BR>
+MXデータフォーマット
+</H1><FONT SIZE="-1">
+データファイルは，1個以上の変数を含み，
+変数は，連続的に保存されている。
+それぞれの変数は，変数の属性を記述した情報を含む20バイトの
+ヘッダーから始まる。
+20バイトのヘッダーは，5個の4バイト長の整数から構成されている。
+</FONT><DL COMPACT>
+<DT>1.
+<DD>変数のタイプを表す整数。この整数を，<TT>[M|O|P|C]</TT>
+と表すと，
+
+<P>
+<TT>M</TT>は，ファイルを書いたマシーンを表す。
+
+<P>
+<DIV ALIGN="CENTER">
+<A NAME="11493">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=1>マシーン</TD>
+<TD ALIGN="CENTER">M</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Sun</TD>
+<TD ALIGN="CENTER">0x10</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Appolo</TD>
+<TD ALIGN="CENTER">0x10</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Macintosh</TD>
+<TD ALIGN="CENTER">0x10</TD>
+</TR>
+<TR><TD ALIGN="LEFT">PC</TD>
+<TD ALIGN="CENTER">0x20</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Other Intel</TD>
+<TD ALIGN="CENTER">0x30</TD>
+</TR>
+<TR><TD ALIGN="LEFT">VAX D-float</TD>
+<TD ALIGN="CENTER">0x40</TD>
+</TR>
+<TR><TD ALIGN="LEFT">VAX G-float</TD>
+<TD ALIGN="CENTER">0x50</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<TT>O</TT>は，行列データの保存される順序を表す。
+                <TT>O</TT>が0なら，列毎にデータが保存され
+                <TT>O</TT>が1なら，行毎にデータが保存される。
+
+<P>
+<TT>P</TT>は，データ精度を表す。
+<DIV ALIGN="CENTER">
+<A NAME="11506">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=1>データ精度</TD>
+<TD ALIGN="CENTER">P</TD>
+</TR>
+<TR><TD ALIGN="LEFT">倍精度(64ビット)浮動小数点</TD>
+<TD ALIGN="CENTER">0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">単精度(32ビット)浮動小数点</TD>
+<TD ALIGN="CENTER">1</TD>
+</TR>
+<TR><TD ALIGN="LEFT">32ビット符合付き整数</TD>
+<TD ALIGN="CENTER">2</TD>
+</TR>
+<TR><TD ALIGN="LEFT">16ビット符合付き整数</TD>
+<TD ALIGN="CENTER">3</TD>
+</TR>
+<TR><TD ALIGN="LEFT">16ビット符合なし整数</TD>
+<TD ALIGN="CENTER">4</TD>
+</TR>
+<TR><TD ALIGN="LEFT">8ビット符合なし整数</TD>
+<TD ALIGN="CENTER">5</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<TT>C</TT>は，データの型を表す。
+<A NAME="11515">&#160;</A>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=1>データ型</TD>
+<TD ALIGN="CENTER">C</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Matrix</TD>
+<TD ALIGN="CENTER">0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Integer</TD>
+<TD ALIGN="CENTER">1</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Real Number</TD>
+<TD ALIGN="CENTER">2</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Complex Number</TD>
+<TD ALIGN="CENTER">3</TD>
+</TR>
+<TR><TD ALIGN="LEFT">String</TD>
+<TD ALIGN="CENTER">4</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Polynomial</TD>
+<TD ALIGN="CENTER">5</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Rational</TD>
+<TD ALIGN="CENTER">6</TD>
+</TR>
+<TR><TD ALIGN="LEFT">List</TD>
+<TD ALIGN="CENTER">7</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Array</TD>
+<TD ALIGN="CENTER">8</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Index</TD>
+<TD ALIGN="CENTER">9</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<DT>2.
+<DD>2番目の整数は，データの型によって表すものが異なる。
+
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=1>データ型</TD>
+<TD ALIGN="CENTER" COLSPAN=1>名前</TD>
+<TD ALIGN="CENTER" COLSPAN=1>内容</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Matrix</TD>
+<TD ALIGN="LEFT">rows</TD>
+<TD ALIGN="LEFT">行列の行の数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Integer</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Real Number</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Complex Number</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">String</TD>
+<TD ALIGN="LEFT">stringlen</TD>
+<TD ALIGN="LEFT">文字列長</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Polynomial</TD>
+<TD ALIGN="LEFT">degree</TD>
+<TD ALIGN="LEFT">次数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Rational</TD>
+<TD ALIGN="LEFT">ndegree</TD>
+<TD ALIGN="LEFT">分子の次数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">List</TD>
+<TD ALIGN="LEFT">length</TD>
+<TD ALIGN="LEFT">成分の数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Array</TD>
+<TD ALIGN="LEFT">rows</TD>
+<TD ALIGN="LEFT">配列の行の数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Index</TD>
+<TD ALIGN="LEFT">rows</TD>
+<TD ALIGN="LEFT">1</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<DT>3.
+<DD>3番目の整数は，データの型によって表すものが異なる。
+
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=1>データ型</TD>
+<TD ALIGN="CENTER" COLSPAN=1>名前</TD>
+<TD ALIGN="CENTER" COLSPAN=1>内容</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Matrix</TD>
+<TD ALIGN="LEFT">cols</TD>
+<TD ALIGN="LEFT">行列の列の数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Integer</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Real Number</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Complex Number</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">String</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Polynomial</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Rational</TD>
+<TD ALIGN="LEFT">ddegree</TD>
+<TD ALIGN="LEFT">分母の次数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">List</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Array</TD>
+<TD ALIGN="LEFT">cols</TD>
+<TD ALIGN="LEFT">配列の列の数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Index</TD>
+<TD ALIGN="LEFT">cols</TD>
+<TD ALIGN="LEFT">指数の数</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<DT>4.
+<DD>4番目の整数は，データの型によって表すものが異なる。
+
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=1>データ型</TD>
+<TD ALIGN="CENTER" COLSPAN=1>名前</TD>
+<TD ALIGN="CENTER" COLSPAN=1>内容</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Matrix</TD>
+<TD ALIGN="LEFT">class</TD>
+<TD ALIGN="LEFT">0(実行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">または</TD>
+<TD ALIGN="LEFT">class</TD>
+<TD ALIGN="LEFT">1(複素行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Array</TD>
+<TD ALIGN="LEFT">class</TD>
+<TD ALIGN="LEFT">2(実多項式行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">または</TD>
+<TD ALIGN="LEFT">class</TD>
+<TD ALIGN="LEFT">3(複素多項式行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Index</TD>
+<TD ALIGN="LEFT">class</TD>
+<TD ALIGN="LEFT">4(実有理多項式行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">class</TD>
+<TD ALIGN="LEFT">5(複素有理多項式行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Integer</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Real Number</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Complex Number</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">String</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Polynomial</TD>
+<TD ALIGN="LEFT">imagf</TD>
+<TD ALIGN="LEFT">0(実多項式)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">imagf</TD>
+<TD ALIGN="LEFT">1(複素多項式)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Rational</TD>
+<TD ALIGN="LEFT">imagf</TD>
+<TD ALIGN="LEFT">0(実有理多項式)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">imagf</TD>
+<TD ALIGN="LEFT">1(複素有理多項式)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">List</TD>
+<TD ALIGN="LEFT">dummy</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<DT>5.
+<DD>5番目の整数は，データの名前の長さを表す。
+
+<P>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=1>データ型</TD>
+<TD ALIGN="CENTER" COLSPAN=1>名前</TD>
+<TD ALIGN="CENTER" COLSPAN=1>内容</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Matrix</TD>
+<TD ALIGN="CENTER">namelen</TD>
+<TD ALIGN="LEFT">名前の長さ</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Integer</TD>
+<TD ALIGN="CENTER">namelen</TD>
+<TD ALIGN="LEFT">名前の長さ</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Real Number</TD>
+<TD ALIGN="CENTER">namelen</TD>
+<TD ALIGN="LEFT">名前の長さ</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Complex Number</TD>
+<TD ALIGN="CENTER">namelen</TD>
+<TD ALIGN="LEFT">名前の長さ</TD>
+</TR>
+<TR><TD ALIGN="LEFT">String</TD>
+<TD ALIGN="CENTER">namelen</TD>
+<TD ALIGN="LEFT">名前の長さ</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Polynomial</TD>
+<TD ALIGN="CENTER">namelen</TD>
+<TD ALIGN="LEFT">名前の長さ</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Rational</TD>
+<TD ALIGN="CENTER">namelen</TD>
+<TD ALIGN="LEFT">名前の長さ</TD>
+</TR>
+<TR><TD ALIGN="LEFT">List</TD>
+<TD ALIGN="CENTER">namelen</TD>
+<TD ALIGN="LEFT">名前の長さ</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Array</TD>
+<TD ALIGN="CENTER">namelen</TD>
+<TD ALIGN="LEFT">名前の長さ</TD>
+</TR>
+<TR><TD ALIGN="LEFT">Index</TD>
+<TD ALIGN="CENTER">namelen</TD>
+<TD ALIGN="LEFT">名前の長さ</TD>
+</TR>
+</TABLE></DIV></DL>
+<P>
+<FONT SIZE="-1">
+20バイトのヘッダーの次に，<TT>namelen</TT>長の変数の名前が続く。
+最後の文字は，(0でコード化される)<TT>NUL</TT>文字である。
+この後のデータは，データ型によってことなる。
+</FONT>
+<P><DL>
+<DD>[有理多項式]
+<DT><STRONG>整数</STRONG>
+<DD>データの精度に応じた整数(2バイトまたは，4バイト)。
+<BR>
+<DT><STRONG>実数</STRONG>
+<DD>データの精度に応じた実数(4バイトまたは，8バイト)。
+<BR>
+<DT><STRONG>複素数</STRONG>
+<DD>2個のデータの精度に応じた実数(4バイトまたは，8バイト)。
+<BR>
+<DT><STRONG>文字列</STRONG>
+<DD><TT>stringlen</TT>長の文字列。最後の文字は，<TT>NUL</TT>文字である。
+<BR>
+<DT><STRONG>多項式</STRONG>
+<DD><P>
+<DL>
+<DD>[複素多項式]
+<DT><STRONG>実多項式</STRONG>
+<DD><TT>degree + 1</TT>個の
+精度に応じた実数(4バイトまたは，8バイト)。
+<BR>
+<DT><STRONG>複素多項式</STRONG>
+<DD><TT>2</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>(degree + 1)</TT>個の
+精度に応じた実数(4バイトまたは，8バイト)。
+</DL>
+<P>
+<DT><STRONG>有理多項式</STRONG>
+<DD><P>
+<DL>
+<DD>[複素有理多項式]
+<DT><STRONG>実有理多項式</STRONG>
+<DD><TT>ndegree + 1</TT>個の
+精度に応じた実数(4バイトまたは，8バイト)，<TT>ddegree + 1</TT>
+                    個の精度に応じた実数(4バイトまたは，8バイト)。
+<BR>
+<DT><STRONG>複素有理多項式</STRONG>
+<DD><TT>2</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>(ndegree + 1)</TT>個の
+                    精度に応じた実数(4バイトまたは，8バイト)，
+                    <TT>2</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>(ddegree + 1)</TT>個の
+                    精度に応じた実数(4バイトまたは，8バイト)。
+</DL>
+<P>
+<DT><STRONG>行列</STRONG>
+<DD><P>
+<DL>
+<DD>[複素有理多項式行列]
+<DT><STRONG>実行列</STRONG>
+<DD><TT>rows</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>cols</TT>個の
+精度に応じた実数(4バイトまたは，8バイト)。
+<BR>
+<DT><STRONG>複素行列</STRONG>
+<DD><TT>2</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>(rows</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>cols)</TT>個の
+                      精度に応じた実数(4バイトまたは，8バイト)。
+<BR>
+<DT><STRONG>実多項式行列</STRONG>
+<DD><TT>rows</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>cols</TT>個の実多項式。
+                      (<TT>degree + 1</TT>個の
+                      精度に応じた実数(4バイトまたは，8バイト))。
+<BR>
+<DT><STRONG>複素多項式行列</STRONG>
+<DD><TT>rows</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>cols</TT>個の複素多項式。
+                      (<TT>degree + 1</TT>個の
+                       精度に応じた実数(4バイトまたは，8バイト))。
+<BR>
+<DT><STRONG>実有理多項式行列</STRONG>
+<DD><TT>rows</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>cols</TT>個の実有理多項式。
+                      (<TT>ndegree + 1</TT>個の
+                      精度に応じた実数(4バイトまたは，8バイト)，
+                      <TT>ddegree + 1</TT>
+                      個の精度に応じた実数(4バイトまたは，8バイト))。
+<BR>
+<DT><STRONG>複素有理多項式行列</STRONG>
+<DD><TT>rows</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>cols</TT>個の複素有理多項式。
+<BR>
+                      (<TT>2</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>(ndegree + 1)</TT>個の
+                      精度に応じた実数(4バイトまたは，8バイト)，
+<BR>
+                      <TT>2</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>(ddegree + 1)</TT>
+                      個の精度に応じた実数(4バイトまたは，8バイト))。
+</DL>
+<P>
+<DT><STRONG>リスト</STRONG>
+<DD><TT>length</TT>個の
+                      成分のクラスを表す4バイト長整数とデータの結合。
+
+<P>
+<DT><STRONG>配列</STRONG>
+<DD><P>
+<DL>
+<DD>[複素有理多項式配列]
+<DT><STRONG>実配列</STRONG>
+<DD><TT>rows</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>cols</TT>個の
+精度に応じた実数(4バイトまたは，8バイト)。
+<BR>
+<DT><STRONG>複素配列</STRONG>
+<DD><TT>2</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>(rows</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>cols)</TT>個の
+                      精度に応じた実数(4バイトまたは，8バイト)。
+<BR>
+<DT><STRONG>実多項式配列</STRONG>
+<DD><TT>rows</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>cols</TT>個の実多項式。
+                      (<TT>degree + 1</TT>個の
+                      精度に応じた実数(4バイトまたは，8バイト))。
+<BR>
+<DT><STRONG>複素多項式配列</STRONG>
+<DD><TT>rows</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>cols</TT>個の複素多項式。
+                      (<TT>degree + 1</TT>個の
+                       精度に応じた実数(4バイトまたは，8バイト))。
+<BR>
+<DT><STRONG>実有理多項式配列</STRONG>
+<DD><TT>rows</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>cols</TT>個の実有理多項式。
+                      (<TT>ndegree + 1</TT>個の
+                      精度に応じた実数(4バイトまたは，8バイト)，
+                      <TT>ddegree + 1</TT>
+                      個の精度に応じた実数(4バイトまたは，8バイト))。
+<BR>
+<DT><STRONG>複素有理多項式配列</STRONG>
+<DD><TT>rows</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>cols</TT>個の複素有理多項式。
+<BR>
+                      (<TT>2</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>(ndegree + 1)</TT>個の
+                      精度に応じた実数(4バイトまたは，8バイト)，
+<BR>
+                      <TT>2</TT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><TT>(ddegree + 1)</TT>
+                      個の精度に応じた実数(4バイトまたは，8バイト))。
+</DL>
+<P>
+<DT><STRONG>指数</STRONG>
+<DD><TT>cols</TT>個の
+                      精度に応じた実数(4バイトまたは，8バイト)。
+<BR>
+</DL><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html3178"
+ HREF="node205.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3174"
+ HREF="node202.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3170"
+ HREF="node203.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3176"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3177"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3179"
+ HREF="node205.htm">メモリ管理</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3175"
+ HREF="node202.htm">データフォーマット</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3171"
+ HREF="node203.htm">MATデータフォーマット</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

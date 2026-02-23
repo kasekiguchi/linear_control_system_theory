@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>asin</TITLE>
+<META NAME="description" CONTENT="asin">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node17.htm">
+<LINK REL="previous" HREF="node15.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node17.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html945"
+ HREF="node17.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html942"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html936"
+ HREF="node15.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html944"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html946"
+ HREF="node17.htm">asinh</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html943"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html937"
+ HREF="node15.htm">arg</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000412000000000000000">&#160;</A><A NAME="man_asin">&#160;</A>
+<BR>
+asin
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>asin - 逆正弦
+<DT>【形式】
+<DD><PRE>
+y = asin(x)                     Y = asin(X)
+   (Real   |Real|Complex) y;       Array Y;
+   (Integer|Real|Complex) x;       Array X;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>asin(x)は，スカラ型(整数, 実数, 複素数) x の逆正弦を求める。
+角度はラジアンで計算される。x が実数のとき，
+</FONT>
+<!-- MATH: $-1 \leq x \leq 1$ -->
+<IMG
+ WIDTH="84" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.gif"
+ ALT="$ -1 \leq x \leq 1$"><FONT SIZE="-1">の範囲に対し，asin(x) は
+</FONT>
+<!-- MATH: $-\frac{\pi}{2} \leq \mathop{\rm asin}\nolimits(x) \leq \frac{\pi}{2}$ -->
+<IMG
+ WIDTH="131" HEIGHT="31" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.gif"
+ ALT="$-\frac{\pi}{2} \leq \mathop{\rm asin}\nolimits(x) \leq \frac{\pi}{2}$"><FONT SIZE="-1">の範囲の実数となる。
+asin(X)は，配列 X の各成分の逆正弦からなる配列 Y を求める。
+Y の大きさは X の大きさと同じ。
+<DT>【算法】
+<DD></FONT><PRE>
+i = (0,1)
+asin(z) = - i*log(i*z + sqrt(1 - z*z))
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【例題】
+<DD></FONT></FONT><PRE>
+&gt;&gt; y = asin(0.5)
+y = 0.523599
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1">
+範囲 -1 &lt;= x &lt;= 1 のasin(x)のグラフを表示する。</FONT></FONT></FONT><PRE>
+&gt;&gt; x = [-1:0.05:1];
+&gt;&gt; mgplot(1, x, asin(x), {"asin(x)"});
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT></FONT></FONT>
+<DIV><TT>acos(<A HREF="node7.htm#man_acos">2.3</A>), atan(<A HREF="node18.htm#man_atan">2.14</A>), asinh(<A HREF="node17.htm#man_asinh">2.13</A>), acosh(<A HREF="node8.htm#man_acosh">2.4</A>), atanh(<A HREF="node20.htm#man_atanh">2.16</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

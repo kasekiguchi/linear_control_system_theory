@@ -1,0 +1,24 @@
+\def\chrA{3}
+\def\chrB{1}
+\def\chrC{1}
+\def\chrp{-2}
+\def\chrmp{2}
+\def\chreA{\left(\begin{array}{cc} 3 & 0\\ -1 & 0 \end{array}\right)}
+\def\chreB{\left(\begin{array}{c} 1\\ 0 \end{array}\right)}
+\def\chrABF{F+3}
+\def\chrBK{K}
+\def\chrclA{\left(\begin{array}{cc} F+3 & K\\ -1 & 0 \end{array}\right)}
+\def\chrsIA{\left(\begin{array}{cc} s-F-3 & -K\\ 1 & s \end{array}\right)}
+\def\chrsIAa{s-F-3}
+\def\chrsIAb{-K}
+\def\chrsIAc{1}
+\def\chrsIAd{s}
+\def\chrdetsIA{s^2+\left(-F-3\right)\,s+K}
+\def\chrcoefa{1}
+\def\chrcoefb{-F-3}
+\def\chrcoefc{K}
+\def\chrcoefad{1}
+\def\chrcoefbd{4}
+\def\chrcoefcd{4}
+\def\chrsF{-7}
+\def\chrsK{4}

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>連続系リカッティ方程式</TITLE>
+<META NAME="description" CONTENT="連続系リカッティ方程式">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node192.htm">
+<LINK REL="previous" HREF="node190.htm">
+<LINK REL="up" HREF="node190.htm">
+<LINK REL="next" HREF="node192.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3022"
+ HREF="node192.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3018"
+ HREF="node190.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3012"
+ HREF="node190.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3020"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3021"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3023"
+ HREF="node192.htm">離散系リカッティ方程式</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3019"
+ HREF="node190.htm">例題</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3013"
+ HREF="node190.htm">例題</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002010000000000000000">&#160;</A>
+<A NAME="10722">&#160;</A>
+<BR>
+連続系リカッティ方程式
+</H1><FONT SIZE="-1">
+連続時間の線形システムのリカッティ方程式の解法は
+ハミルトン行列の固有値問題に帰着され[<A
+ HREF="node201.htm#Potter:66:mqs">6</A>]，
+そのプログラムの例を以下に示す。
+関数<TT>eigvec()</TT>は固有値の実部の大きさの降順
+に固有ベクトルを並べて返すので，
+20-21行目は，安定な固有値に対応する固有ベクトルを取り出す。
+以下は，リストの説明である。
+<A NAME="10936">&#160;</A>
+</FONT>
+<P><UL>
+<LI>1行と11行: 関数の始まり。
+<LI>3行と14行: 局所変数の宣言。
+<LI>6行: キーボードから行列を読み込む。
+<LI>7行: 関数<TT>CRiccati()</TT>を呼ぶ。
+<LI>8行: 解行列<TT>P</TT>を表示する。
+<LI>12行: 関数の引数の宣言。
+<LI>16行: ハミルトン行列を作る[<A
+ HREF="node201.htm#Potter:66:mqs">6</A>]。
+<LI>19行: 固有ベクトルの計算。
+<LI>22行と23行: 行列<TT>vec</TT>から安定な固有値に対する固有ベクトルを取り出す。
+      <TT>vec(1:n,n+1:2*n)</TT>は<TT>vec</TT>の1行からn行，n+1列から2n列の部分行列，
+      <TT>vec(n+1:2*n,n+1:2*n)</TT>は<TT>vec</TT>のn+1行から2n行，n+1列から2n列の部分
+      行列である。
+<LI>25行と26行: 関数<TT>isreal()</TT>は与えられた行列が実行列なら<TT>1</TT>を，
+そうでなければ<TT>0</TT>を返す。
+<LI>27行: 関数<TT>Re()</TT>は行列の実部を返す。
+</UL><FONT SIZE="-1"><A NAME="10937">&#160;</A>
+<A NAME="10938">&#160;</A>
+</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+   Func void main()
+   {
+     Matrix A, B, Q, R, P;     // 局所変数の宣言
+     Matrix CRiccati();        // 関数の宣言
+05:
+     read A, B, Q, R;          // 行列エディタを起動
+     P = CRiccati(A, B, Q, R); // CRiccati()を呼ぶ
+     print P;                  // Pを表示
+   }
+10:
+   Func Matrix CRiccati(A, B, Q, R)
+     Matrix A, B, Q, R;
+   {
+     Integer n;
+15:  Matrix H, U, V, vec, P;
+
+     n = Rows(A);
+     H = [[ A  , -B*R~*B#]      // ハミルトン行列
+          [-Q  , -A#     ]];
+20:   
+     vec = eigvec(H);           // H の固有ベクトル
+     U = vec(    1:n, n+1:2*n); // 安定な固有値に対応
+     V = vec(n+1:2*n, n+1:2*n); // する固有ベクトルを
+                                // 取り出す
+25:  if (isreal(A) &amp;&amp; isreal(B) &amp;&amp;
+         isreal(Q) &amp;&amp; isreal(R)) {
+         P = Re(V*U~);
+     } else {
+         P = V*U~;
+30:  }
+   
+     return P;
+   }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+List 1:&nbsp;&nbsp;&nbsp;&nbsp;連続時間の線形システムのリカッティ方程式の解
+</FONT></DIV>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

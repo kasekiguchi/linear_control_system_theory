@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>xplot</TITLE>
+<META NAME="description" CONTENT="xplot">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node69.htm">
+<LINK REL="up" HREF="node68.htm">
+<LINK REL="next" HREF="node80.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1572"
+ HREF="node80.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1568"
+ HREF="node68.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1564"
+ HREF="node78.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1570"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1571"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1573"
+ HREF="node80.htm">基本的なプロット</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1569"
+ HREF="node68.htm">グラフィックス</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1565"
+ HREF="node78.htm">Xウィンドウを必要としないグラフィック表示</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00920000000000000000">
+<I>xplot</I></A>
+</H1><FONT SIZE="-1">
+<I>xplot</I><A NAME="tex2html34"
+ HREF="footnode.htm#foot4288"><SUP>6.2</SUP></A>を使ってデータをプロットするには以下の関数を使う。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="4289">&#160;</A>
+</FONT>
+<BR>
+<DIV ALIGN="CENTER">
+
+<A NAME="tbl:xplot_one">&#160;</A>
+<DIV ALIGN="CENTER">
+<A NAME="4290">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 6.10:</STRONG>
+グラフィック関数1(<I> xplot</I>)</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>関数名</TD>
+<TD ALIGN="CENTER" COLSPAN=1>引数</TD>
+<TD ALIGN="CENTER" COLSPAN=1>
+機能</TD>
+</TR>
+<TR><TD ALIGN="LEFT">xplot(Y)</TD>
+<TD ALIGN="LEFT">Array X, Y</TD>
+<TD ALIGN="LEFT">線形 x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">xplot(X, Y)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+<P>
+<FONT SIZE="-1"><A NAME="4291">&#160;</A>
+<A NAME="4075">&#160;</A>
+グラフィック関数<TT>xplot()</TT>使うと，自動的に<I>xplot</I>が起動されて，
+データが1Dキャンバス，2Dキャンバス，あるいはセミログキャンバスに
+プロットされる。
+したがって，グラフィック関数<TT>xplot()</TT>はX-Window System上でしか
+使うことができない。
+</FONT>
+<P>
+<FONT SIZE="-1">また，グラフィック関数を使うには，
+MATXを起動する前に，環境変数<TT>DISPLAY</TT>にユーザが使っている
+端末の名前を設定しておく必要がある。<A NAME="4292">&#160;</A>
+<A NAME="4082">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  % setenv DISPLAY `hostname`:0.0
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1"><A NAME="4087">&#160;</A>
+<A NAME="4088">&#160;</A>
+いったん<TT>xplot</TT>が起動されると，マウスを使ってポップアップメニューで
+ラベル，タイトル，スケール，フォントを変更したり，画面のハードコピーを
+ネットワークに接続されているプリンタに出力したり，<B>FIGコード</B>に落して
+T<SMALL>E</SMALL>Xの文書に取り込んだりすることができる。
+また，次の関数を使ってもラベル，タイトル，グリッドを描くことができる。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="4293">&#160;</A>
+<A NAME="4294">&#160;</A>
+<A NAME="4295">&#160;</A>
+<A NAME="4296">&#160;</A>
+<A NAME="4096">&#160;</A>
+</FONT>
+<BR>
+<DIV ALIGN="CENTER">
+
+<A NAME="tbl:xplot_two">&#160;</A>
+<DIV ALIGN="CENTER">
+<A NAME="4297">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 6.11:</STRONG>
+グラフィック関数2(<I> xplot</I>)</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>関数名</TD>
+<TD ALIGN="CENTER" COLSPAN=1>引数</TD>
+<TD ALIGN="CENTER" COLSPAN=1>
+機能</TD>
+</TR>
+<TR><TD ALIGN="LEFT">xplot_title(text)</TD>
+<TD ALIGN="LEFT">String text</TD>
+<TD ALIGN="LEFT">グラフタイトル</TD>
+</TR>
+<TR><TD ALIGN="LEFT">xplot_xlabel(text)</TD>
+<TD ALIGN="LEFT">String text</TD>
+<TD ALIGN="LEFT">X軸ラベル</TD>
+</TR>
+<TR><TD ALIGN="LEFT">xplot_ylabel(text)</TD>
+<TD ALIGN="LEFT">String text</TD>
+<TD ALIGN="LEFT">Y軸ラベル</TD>
+</TR>
+<TR><TD ALIGN="LEFT">xplot_grid()</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">グリッド線</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+<P>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html1574"
+ HREF="node80.htm">基本的なプロット</A>
+<LI><A NAME="tex2html1575"
+ HREF="node81.htm">複数の線</A>
+<LI><A NAME="tex2html1576"
+ HREF="node82.htm">対数プロット</A>
+<LI><A NAME="tex2html1577"
+ HREF="node83.htm">ウィンドウ・マネ−ジャ−の設定</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html1572"
+ HREF="node80.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1568"
+ HREF="node68.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1564"
+ HREF="node78.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1570"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1571"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1573"
+ HREF="node80.htm">基本的なプロット</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1569"
+ HREF="node68.htm">グラフィックス</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1565"
+ HREF="node78.htm">Xウィンドウを必要としないグラフィック表示</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>rand</TITLE>
+<META NAME="description" CONTENT="rand">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node172.htm">
+<LINK REL="previous" HREF="node170.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node172.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2650"
+ HREF="node172.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2647"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2641"
+ HREF="node170.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2649"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2651"
+ HREF="node172.htm">randn</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2648"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2642"
+ HREF="node170.htm">qz</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004167000000000000000">&#160;</A><A NAME="man_rand">&#160;</A>
+<BR>
+rand
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>rand - 一様乱数
+<DT>【形式】
+<DD><PRE>
+y = rand()            Y = rand(n)
+   Real y;               Array Y;
+                         Integer n;
+  
+Y = rand(m,n)         Y = rand(X)
+   Array Y;              Array Y;
+   Integer m,n;          (Matrix|Array) X;
+  
+s = rand("seed");     p = rand("seed", s);
+   Integer s;            Integer p;
+                         Integer s;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>rand()は，区間(0,1)に一様に分布する乱数を生成する。整数 n について，
+rand(n)は n * n の一様乱数配列を返す。rand(m,n) は，m * n の一様乱数
+配列を返す。X が行列のとき，rand(X) は，X と同じ大きさの一様乱数
+配列を返す。
+  
+rand() は疑似乱数に基づき区間 [</FONT>2<SUP>-53</SUP><FONT SIZE="-1">, </FONT>1-2<SUP>-53</SUP><FONT SIZE="-1">] の浮動小数点を
+生成する。理論的に，生成される乱数の周期は約 </FONT>
+<!-- MATH: $2.3 \times 10^{18}$ -->
+<IMG
+ WIDTH="73" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.gif"
+ ALT="$2.3 \times 10^{18}$"><FONT SIZE="-1">である。
+乱数列は乱数発生器の状態に依存して決定され，乱数発生器の状態は
+種によって変更できる。rand("seed") は一様乱数の種(Integer)を返し，
+rand("seed", m) は一様乱数の種を整数 m に設定する。
+<DT>【例題】
+<DD>1 * 4 の一様乱数配列を生成する。</FONT><PRE>
+Y = rand(1, 4)
+=== [Y] : (  1,  4) ===
+           (  1)         (  2)         (  3)         (  4)
+(  1)  2.853808E-01  2.533581E-01  9.346853E-02  6.084968E-01
+</PRE><FONT SIZE="-1"><FONT SIZE="-1">次の例では，まず乱数発生器の種を調べる。1個の乱数を生成すると種が
+変わることが分かる。種を 1 に戻すと前と同じ乱数が生成される。</FONT></FONT><PRE>
+&gt;&gt; s = rand("seed")
+s = 1271983233
+&gt;&gt; y = rand()
+y = 0.90342
+&gt;&gt; s = rand("seed")
+s = 1776642162
+&gt;&gt; s = rand("seed", 1)
+s = 1
+&gt;&gt; y = rand()
+y = 0.285381
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><DT>【算法】
+<DD>文献 1, 2 参照。
+<DT>【参照】
+<DD></FONT></FONT></FONT>
+<DIV><TT>randn(<A HREF="node172.htm#man_randn">2.173</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><DT>【文献】
+<DD></FONT></FONT></FONT></FONT><DL COMPACT>
+<DT>1.
+<DD>William H. Press and Brian P. Flannery and Saul A. Teukolsky 
+and William T. Veterling, Numerical Recipes in C (The Art of 
+Scientific Computing), Cambridge University Press, 1988
+<DT>2.
+<DD>丹慶 勝市, 奥村 晴彦, 佐藤 俊朗, 小林 誠, 
+ニューメリカルレシピ・イン・シー, 技術評論社, 1993
+</DL><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

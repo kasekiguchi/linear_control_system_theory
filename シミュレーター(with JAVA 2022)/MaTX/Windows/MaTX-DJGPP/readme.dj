@@ -1,0 +1,173 @@
+------------------------------------------------------------------
+
+                     MaTX (2002/1/13)
+
+           Windows 95/98/ME/NT/2000/XP (DJGPP) 版 
+
+                       古賀 雅伸
+
+                     Masanobu Koga
+
+                     koga@matx.org
+
+             Kyushu Institute of Technology, JAPAN
+
+          Copyright 2002 Masanobu Koga, K.I.T., JAPAN
+
+--------------------------------------------------------------------
+
+● DJGPP版の動作環境
+
+   ハードウェア : IBM-PC 互換機, PC9801シリーズ (Pentium以上)
+   メモリ       : 64MByte 以上(推奨 128MByte以上) 
+   OS           : Windows 95/98/ME/NT/2000/XP
+
+
+● MaTX本体のインストール方法
+
+  (1) 自己解凍形式ファイルを実行すると，MaTX-DJ フォルダに
+      ファイルが展開される。
+
+  (2) MaTX-DJ フォルダの setup.exe を実行すると，インストーラが
+      起動されるので，インストールするディレクトリなどを指定する。
+
+  (3) Windows NT/2000/XP で使用する場合，
+
+      「コントロールパネル」-->「システム」 の環境変数に
+
+      PATH にMaTXの実行ファイルのあるディレクトリを加える．
+
+        PATH=%PATH%;C:\MATX-DJ\BIN
+
+  (4) Windows NT/2000/XP で使用する場合，
+
+      画面制御のため
+
+         system32/config.nt
+
+      に
+
+         devicehigh=%SystemRoot%\system32\ansi.sys
+
+      を追加する。
+
+
+● DJGPPコンパイラのインストール方法
+
+   MaTX本体と同様に，MaTX-djgpp.exe を解凍し，setup.exe を実行する。
+
+
+● マニュアルのインストール方法
+
+   MaTX本体と同様に，MaTX-help.exe を解凍し，setup.exe を実行する。
+
+
+● デモの実行
+
+    「スタート」-->「プログラム」-->「MaTX-DJ」-->「MaTX-DJ」を実行，
+     あるいは「MS-DOSプロンプト(DOS窓)」を開き，
+
+       matx
+
+     と入力し，MaTXを起動する。MaTX のプロンプトが出たら
+
+       MaTX(1) demo
+
+     と入力して，デモプログラムで動作を確認する。
+
+
+● DJGPP パッケージについて
+
+   DJGPP版の MaTX を使うには djgpp-2.02 が必要です。MaTX のパッケージ
+   には，MaTX を動作させるのに必要な DJGPP のファイルが含まれています。
+   他のファイルをインストールしたい人は，次のアドレスから入手できます。
+
+     ftp://ftp.matx.matx/pub/djgpp-2.02
+
+   djgpp 付属の make.exe からは 16-bit DPMI server を必要とする
+   コマンドを起動できないようです。例えば，Borland のコマンドラ
+   イン用のコンパイラを起動できません。他の make と区別するには
+   make.exe を gmake.exe のよう名前を変える方法があります。
+
+
+● MaTX パッケージの内容
+
+    MATX/bin      【実行ファイル】
+                  matx.exe:     インタプリタ
+                  matc.exe:     コンパイラ
+                  matp.exe:     行列表示プログラム
+                  mated.exe:    行列入力／編集プログラム
+                  rtmatx.exe:   RtMaTXのインタプリタ
+                  rtmatc.exe:   RtMaTXのコンパイラ
+                  cpp.exe       DJGPPのCプリプロセッサ
+                  doscmd.exe:   DOSコマンドゲートウェイ
+                  matxedit.bat: MMファイル編集用のエディタ起動バッチファイル
+                  mxicon.ico:   MXファイルのアイコン
+                  mmicon.ico:   MMファイルのアイコン
+                  maticon.ico:  MATファイルのアイコン
+
+        /lib      【ライブラリ】
+                  libMaTX.lib:  MaTXランタイムライブラリ
+                  libmxmat.lib: 行列演算ライブラリ
+                  libmxgra.lib: グラフィックライブラリ
+                  libmxctr.lib: 制御系解析設計ライブラリ
+                  libmxsig.lib: 信号処理ライブラリ
+
+
+        /librt    【RtMaTXのライブラリ】
+                  libMaTX.lib:  MaTXランタイムライブラリ
+                  libmxmat.lib: 行列演算ライブラリ
+                  libmxgra.lib: グラフィックライブラリ
+                  libmxctr.lib: 制御系解析設計ライブラリ
+                  libmxsig.lib: 信号処理ライブラリ
+
+        /include  【ヘッダファイル】
+                  co_mat.h:     複素行列へッダファイル
+                  complex.h:    複素数ヘッダファイル
+                  datafile.h:   MXデータフォーマット
+                  list.h:       リストヘッダファイル
+                  matrix.h:     行列ヘッダファイル
+                  matxconf.h:   コンフィグレーションファイル
+                  MaTXGVAL.h:   大域変数へッダファイル
+                  MaTXRC.h:     ユーザ関数ヘッダファイル
+                  mxString.h:   文字列ヘッダファイル
+                  mxstype.h:    MXSデータフォーマット
+                  mxSymbol.h:   MaTXのシンボル定義
+                  object.h:     リストの成分のフォーマット
+                  po_mat.h:     多項式行列へッダファイル
+                  poly.h:       多項式ヘッダファイル
+                  ra_mat.h:     有利多項式行列へッダファイル
+                  rational.h:   有理関数ヘッダファイル
+                  re_mat.h:     実行列へッダファイル
+                  realtime.h:   リアルタイム用へッダファイル
+                  stdio_my.h:   C言語標準関数補足へッダファイル
+                  util.h:       ユーティリティヘッダファイル
+
+        /inputs   【MMファイル】
+                  bench.mm:     ベンチマーク
+                  demo.mm:      デモンストレーション
+                  man.mm:       マニュアル参照
+                  MaTXRC.mm:    スタ－トアップファイル
+                  matx.fnc:     ヘルプファイル
+
+                  matrix/*.mm:  行列演算MMファイル
+                  control/*.mm: 制御系解析設計MMファイル
+                  signal/*.mm:  信号処理MMファイル
+                  graph/*.mm:   グラフィックMMファイル
+
+                  contrib       コントリビューションディレクトリ
+                  contrib/ga    遺伝的アルゴリズム(GA) MMファイル
+
+● ユーティリティの内容
+
+    o less                  (オンラインマニュアルを見るため)
+                            djgppのlessではなく，これを使ってください。
+    o gnuplot               (データをプロットするため)
+    o caps2ctl              (CAPSキーとCTRLキーを交換)
+    o qkc                   (漢字コード変換，DOSファイルと
+                             UNIXファイルのコード変換)
+    o nulprn.sys             Ctrl-Pキーの機能(プリンタ出力)を無効にする
+                            (CONFIG.SYSに登録する)
+    o tcsh                  (UNIXでおなじみのシェル)
+
+-----------------------------------------------------------------------------

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>エラー停止</TITLE>
+<META NAME="description" CONTENT="エラー停止">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node35.htm">
+<LINK REL="previous" HREF="node33.htm">
+<LINK REL="up" HREF="node18.htm">
+<LINK REL="next" HREF="node35.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1000"
+ HREF="node35.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html996"
+ HREF="node18.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html990"
+ HREF="node33.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html998"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html999"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1001"
+ HREF="node35.htm">ヘルプ</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html997"
+ HREF="node18.htm">コマンドと便利な機能</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html991"
+ HREF="node33.htm">警告</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION006160000000000000000">&#160;</A>
+<A NAME="1558">&#160;</A>
+<BR>
+エラー停止
+</H1>
+<A NAME="1951">&#160;</A>
+<TT>error()</TT>関数を使用すると，エラーメッセージが表示され，実行が中止される。
+メッセージが標準エラー出力に出力される。
+長さが0の文字列を引数にして<TT>error()</TT>を呼ぶと，エラーは無視される。
+引数がない場合は，単に実行が停止する。
+この関数には<TT>printf()</TT>と同じ書式を指定できる。
+<BR CLEAR="ALL">
+<HR><PRE>
+error("ERROR: Zero division\n");
+error("Dimension error A(%d, %d), B(%d, %d)\n",
+       Rows(A), Cols(A), Rows(B), Cols(B));
+error("");
+error();
+</PRE>
+<BR CLEAR="ALL">
+<HR>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

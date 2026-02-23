@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>入出力カード(D/A,カウンタ)のインターフェース関数</TITLE>
+<META NAME="description" CONTENT="入出力カード(D/A,カウンタ)のインターフェース関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node233.htm">
+<LINK REL="up" HREF="node228.htm">
+<LINK REL="next" HREF="node235.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3570"
+ HREF="node235.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3566"
+ HREF="node228.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3562"
+ HREF="node233.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3568"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3569"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3571"
+ HREF="node235.htm">メモリ管理</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3567"
+ HREF="node228.htm">プログラムの動作</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3563"
+ HREF="node233.htm">センサとアクチュエータのインターフェース関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002646000000000000000">
+入出力カード(D/A,カウンタ)のインターフェース関数</A>
+</H2>
+<P>
+<FONT SIZE="-1">
+カウンタカードやD/A変換カードのインターフェース関数の例を次に示す。
+RTMATXにはパソコンのI/Oポートをアクセスする関数，16進数表記，
+整数のビット操作関数が準備されているので，それらを用いれば，
+I/Oカードのインターフェース関数をRTMATXの関数として記述できる。
+もちろん，C言語で関数を記述しリンクすることも簡単にできる。
+</FONT>
+<P>
+<FONT SIZE="-1">カウンタ(CONTEC, CNT24-4(PC))のモード設定関数，初期値設定関数，
+初期化関数の例を次に示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+// カウンタのモード設定
+Func void count_mode(port)
+  Integer port;
+{
+  Outportb(CNT_COM, port + 1);
+  Outportb(CNT_DAT, MODE_CNT);
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+// カウンタの初期値設定
+Func void count_set(port, data)
+  Integer port;
+  Integer data;
+{
+  Outportb(CNT_COM, port);
+
+  Outportb(CNT_DAT, rem(data, 0x100));
+  data = data / 0x100;
+
+  Outportb(CNT_DAT, rem(data, 0x100));
+  data = data / 0x100;
+
+  Outportb(CNT_DAT, rem(data, 0x1000));
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+// カウンタの初期化
+Func void count_init()
+{
+  Integer i, ch_port;
+
+  void count_mode(), count_set();
+    
+  for (i = 1; i &lt;= CNT_CH; i++) {
+    ch_port = 5 * (i - 1);
+    count_mode(ch_port);
+    count_set(ch_port, 0);
+  }
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>カウンタの値を読み出す関数の例を次に示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func Integer count_get(ch)
+  Integer ch;
+{
+  Integer ch_port;
+  Integer d1, d2, d3, data;
+
+  ch_port = 5 * (ch - 1);
+
+  Outportb(CNT_COM, 0x14);
+  Outportb(CNT_DAT, 0x7);
+  Outportb(CNT_COM, ch_port);
+
+  d1 = Inportb(CNT_DAT);
+  d2 = Inportb(CNT_DAT);
+  d3 = Inportb(CNT_DAT);
+    
+  data = d3*0x10000 + d2*0x100 + d1;
+    
+  if (data &gt; 0x800000) {
+    data = data - 0xffffff - 1;
+  }
+
+  return data;
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1">D/A変換(CONTEC)の出力関数の例を次に示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void da_conv(da_port, da_data)
+  Index da_port;
+  Matrix da_data;
+{
+  Integer i, data_i;
+  Real data;
+
+  for (i = 1; i &lt;= length(da_port); i++) {
+    data = da_data(i);
+    if (data &gt;= 10.0) {
+      data = 9.9951;
+    } else if (data &lt;= -10.0) {
+      data = -10.0;
+    }
+
+    data_i = Integer(4096.0 * (data + 10.0) / 20.0);
+    if (rtIsTesting() == 0) {
+      Outport(PORTNO_da, data_i*0x10 + da_port(i)-1);
+    }
+  }
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1">D/A変換器へ0[v]に設定する関数の例を次に示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void da_zero()
+{
+  Integer i;
+  Index da_port;
+  Matrix da_data;
+
+  void da_conv();
+
+  da_port = Z(DA_CH, 1);
+  da_data = Z(DA_CH, 1);
+  for (i = 1; i &lt;= DA_CH; i++) {
+    da_port(i) = i;
+    da_data(i) = 0.0;
+  }
+  da_conv(da_port, da_data);
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

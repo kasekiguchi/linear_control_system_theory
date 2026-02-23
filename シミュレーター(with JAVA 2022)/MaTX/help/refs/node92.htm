@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>I</TITLE>
+<META NAME="description" CONTENT="I">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node93.htm">
+<LINK REL="previous" HREF="node91.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node93.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1781"
+ HREF="node93.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1778"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1772"
+ HREF="node91.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1780"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1782"
+ HREF="node93.htm">if</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1779"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1773"
+ HREF="node91.htm">higher</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000488000000000000000">&#160;</A><A NAME="man_I">&#160;</A>
+<BR>
+I
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>I - 単位行列
+<DT>【形式】
+<DD><PRE>
+Y = I(n)          Y = I(m,n)
+   Matrix Y;         Matrix Y;
+   Integer n;        Integer m,n;
+  
+Y = I(X)          Y = I(m,n,X)
+   Matrix Y;         Matrix Y;
+   Integer X;        Integer m,n;
+                     Matrix X;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>整数 n について，I(n)は n * n の単位行列を返す。I(m,n) は，対角
+成分が 1 で，他の成分がゼロの m * n の行列を返す。X が行列のとき，
+I(X) は，X と同じ大きさで，対角成分が 1，他の成分がゼロの行列を
+返す。I(m,n,X) は，大きさが m*Rows(X) * n*Cols(X)で，対角成分が
+1 で，他の成分がゼロの行列を返す。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; Y = I(2)
+=== [Y] : (  2,  2) ===
+           (  1)           (  2)     
+(  1)  1.00000000E+00  0.00000000E+00
+(  2)  0.00000000E+00  1.00000000E+00
+&gt;&gt; Y = I(2,3)
+=== [Y] : (  2,  3) ===
+           (  1)           (  2)           (  3)     
+(  1)  1.00000000E+00  0.00000000E+00  0.00000000E+00
+(  2)  0.00000000E+00  1.00000000E+00  0.00000000E+00
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>Z(<A HREF="#man_Z">2.248</A>), ONES(<A HREF="#man_ONES"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]" SRC="cross_ref_motif.gif"></A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

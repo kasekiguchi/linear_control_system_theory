@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>複素多項式</TITLE>
+<META NAME="description" CONTENT="複素多項式">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node128.htm">
+<LINK REL="previous" HREF="node126.htm">
+<LINK REL="up" HREF="node125.htm">
+<LINK REL="next" HREF="node128.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2180"
+ HREF="node128.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2176"
+ HREF="node125.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2170"
+ HREF="node126.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2178"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2179"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2181"
+ HREF="node128.htm">多項式の係数の参照</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2177"
+ HREF="node125.htm">多項式</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2171"
+ HREF="node126.htm">多項式の記述方法</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001620000000000000000">&#160;</A>
+<A NAME="6984">&#160;</A>
+<BR>
+複素多項式
+</H1><FONT SIZE="-1">
+複素多項式の入力方法には，複素数を係数として記述する方法と
+一対の実多項式をコンマで ``<TT>,</TT>'' 区切って丸括弧 <TT>(</TT> と <TT>)</TT>で
+囲む方法がある。
+実部または虚部だけを指定し，もう一方に <TT>*</TT> を指定して
+複素多項式を記述することもできる。
+<A NAME="7081">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  CP1 = (P1,P2);  // CP1 = P1 + P2*i; (P1, P2: 実多項式)
+  CP1 = (P1,*);   // CP1 = P1 + 0*i;  (P1: 実多項式)
+  CP1 = (*,P1);   // CP1 = 0  + P1*i; (P1: 実多項式)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>複素多項式の実部と虚部は，関数<TT>Re()</TT>と<TT>Im()</TT>
+を用いて取り出すことができる。
+<A NAME="7082">&#160;</A>
+<A NAME="7083">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  P1 = Re((P1,P2));  // 実部多項式 = Re(複素多項式)
+  P2 = Im((P1,P2));  // 虚部多項式 = Im(複素多項式)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

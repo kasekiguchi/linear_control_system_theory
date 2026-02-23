@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>指数を用いた行列成分の操作</TITLE>
+<META NAME="description" CONTENT="指数を用いた行列成分の操作">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node179.htm">
+<LINK REL="previous" HREF="node177.htm">
+<LINK REL="up" HREF="node169.htm">
+<LINK REL="next" HREF="node179.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2858"
+ HREF="node179.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2854"
+ HREF="node169.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2848"
+ HREF="node177.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2856"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2857"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2859"
+ HREF="node179.htm">行列の配列(ピース行列の利用)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2855"
+ HREF="node169.htm">行列成分の操作</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2849"
+ HREF="node177.htm">行列の大きさの変更</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001859000000000000000">&#160;</A>
+<A NAME="8354">&#160;</A>
+<BR>
+指数を用いた行列成分の操作
+</H2><FONT SIZE="-1">
+<B>指数</B>は，整数を1次元的に並べたものであり，
+クラス変換関数<TT>Index()</TT>を使って行列や配列から作ることができる。
+指数は，ある行列から任意の成分を取り出して，任意の順に並べた部分行列を
+作ったり，ある行列に任意の順で成分を代入する時に，使われる。
+行列の成分の取り出しや代入のために使われるコロン<TT>:</TT>で区切った整数の
+並びも指数と同様な働きをする。
+</FONT>
+<P>
+<FONT SIZE="-1">例えば，<TT>X</TT>が<TT>n</TT>次元ベクトルで<TT>V</TT>が<TT>n</TT>次元指数とすると，
+<TT>X(V)</TT>は，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+[X(V(1)), X(V(2)), X(V(3)), ..., X(V(n))]
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+となる。また，代入式において両辺で指数を使うと，もっと複雑なことができる。
+例えば，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+A(:, Index([3 5 10])) = B(:, 1:3)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+によって，行列<TT>A</TT>の3列，5列，10列に行列<TT>B</TT>の最初の3列が
+代入される。もっと一般的に，もし<TT>v</TT>と<TT>w</TT>が指数なら，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+A(v, w)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+は，<TT>v</TT>と<TT>w</TT>の成分を行番号と列番号としてもつ<TT>A</TT>の成分からなる
+部分行列を意味する。したがって，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+A(:, n:-1:1)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+は，行列<TT>A</TT>の列の順番を逆にした行列である。
+</FONT>
+<P>
+<FONT SIZE="-1">指数とピース行列を同時に使えば，行列の配列から任意のブロック成分からなる
+部分行列を参照することができる。
+</FONT>
+<P>
+<FONT SIZE="-1">例えば，<TT>A</TT>が<TT>n x n</TT>行列で，<TT>AA</TT>が<TT>n x n*n</TT>
+の行列の配列で，<TT>v</TT>が<TT>n</TT>次元指数とすると，
+<TT>AA(v, A)</TT>は，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+[AA(v(1), A), AA(v(2), A), AA(v(3), A), ..., AA(v(n), A)]
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+となる。また，代入式において両辺で指数を使うと，もっと複雑なことができる。
+例えば，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+AA(:, Index([3 5 10]), A) = BB(:, 1:3, A)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+によって，行列の配列<TT>AA</TT>の4列，6列，11列に行列<TT>BB</TT>の2-4列が
+代入される。もっと一般的に，もし<TT>v</TT>と<TT>w</TT>が指数なら，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+AA(v, w, A)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+は，<TT>v</TT>と<TT>w</TT>の成分を行と列としてもつ<TT>AA</TT>のブロック成分からなる
+部分行列を意味する。したがって，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+AA(:, n:-1:1, A)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+は，行列の配列<TT>AA</TT>の列の順番を逆にした行列である。
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT"><code>M1(IDX2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M1のIDX2成分からなる部分行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(1,IDX2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M1の1行IDX2列からなる部分行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(IDX1,IDX2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M1のIDX1行IDX2列からなる部分行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(IDX1,1)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M1のIDX1行1列からなる部分行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(IDX1,1:2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M1のIDX1行1〜2列からなる部分行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(1:2,IDX2)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M1の1〜2行IDX2列からなる部分行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>MM(IDX1,IDX2,M)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>MMのピース行列Mによる(IDX1+1)行</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>(IDX2+1)列からなる部分行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>MM(0,IDX2,M)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>MMのピース行列Mによる1行</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>(IDX2+1)列からなる部分行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>MM(IDX1,0,M)</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>MMのピース行列Mによる(IDX1+1)行</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>1列からなる部分行列</TD>
+</TR>
+</TABLE></DIV>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT"><code>M1(IDX2)         = M2;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M1のIDX2成分にM2を代入</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(1,IDX2)       = M2;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M1の1行IDX2列にM2を代入</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(IDX1,IDX2)    = M2;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M1のIDX1行IDX2列にM2を代入</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(IDX1,1)       = M2;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M1のIDX1行1列にM2を代入</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(IDX1,1:2)     = M2;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M1のIDX1行1〜2列にM2を代入</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>M1(1:2,IDX2)     = M2;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>M1の1〜2行IDX2列にM2を代入</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>MM(IDX1,IDX2,M)  = M2;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>MMの(IDX1+1)行(IDX2+1)列に</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>ピース行列Mを使ってM2を代入</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>MM(0,IDX2,M)     = M2;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>MMの1行(IDX2+1)列に</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>ピース行列Mを使ってM2を代入</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><code>MM(IDX1,0,M)     = M2;</code></TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>MMの(IDX1+1)行1列に</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283>ピース行列Mを使ってM2を代入</TD>
+</TR>
+</TABLE></DIV><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html2858"
+ HREF="node179.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2854"
+ HREF="node169.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2848"
+ HREF="node177.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2856"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2857"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2859"
+ HREF="node179.htm">行列の配列(ピース行列の利用)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2855"
+ HREF="node169.htm">行列成分の操作</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2849"
+ HREF="node177.htm">行列の大きさの変更</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

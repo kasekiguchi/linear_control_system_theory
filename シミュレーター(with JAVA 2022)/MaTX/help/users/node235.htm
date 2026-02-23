@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>メモリ管理</TITLE>
+<META NAME="description" CONTENT="メモリ管理">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node236.htm">
+<LINK REL="previous" HREF="node228.htm">
+<LINK REL="up" HREF="node222.htm">
+<LINK REL="next" HREF="node236.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3582"
+ HREF="node236.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3578"
+ HREF="node222.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3572"
+ HREF="node234.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3580"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3581"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3583"
+ HREF="node236.htm">リアルタイム処理用関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3579"
+ HREF="node222.htm">リアルタイム処理(RTMATX)</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3573"
+ HREF="node234.htm">入出力カード(D/A,カウンタ)のインターフェース関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002650000000000000000">&#160;</A>
+<A NAME="13190">&#160;</A>
+<BR>
+メモリ管理
+</H1><FONT SIZE="-1">
+リアルタイム処理を実現にはメモリ管理に工夫が必要である。
+なぜなら，リアルタイム処理は高速に行なわれなければならないだけでなく，
+割り込み処理中はメモリ確保するためのシステムコールを呼び出せないからである。
+</FONT>
+<P>
+<FONT SIZE="-1">MATXのメモリ管理機構は，この問題を解決するのに適している。その方法は，
+リアルタイム処理を始める前に一度だけ，リアルタイム処理関数を呼び出すこと
+によって，リアルタイム処理中に必要なメモリをメモリ管理リストに登録するの
+である。<A NAME="13192">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="13402">&#160;</A>
+具体的には，関数<TT>rtStart()</TT>が実行されると，サンプリング時間毎の割り込み
+処理が始まる前に1回だけ<TT>on_task()</TT>が実行される。この1回目の実行中
+かどうかは関数<TT>rtIsTesting()</TT>によって調べることができる。
+このテスト中はアクチュエータから出力を出さないようにしなければならない。
+<A NAME="13403">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="13404">&#160;</A>
+<A NAME="13405">&#160;</A>
+関数<TT>on_task()</TT>に条件分岐あると，1回のテスト実行だけでは
+<TT>on_task()</TT>の実行に必要なメモリを正確に調べることができない。
+このような場合，全ての条件に関するテスト実行を</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  rtStartRehearsal()
+
+  条件1;
+  on_task();
+
+  条件2;
+  on_task();
+
+  条件3;
+  on_task();
+
+  rtStopRehearsal()
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>のように<TT>rtStartRehearsal()</TT>と<TT>rtStopRehearsal()</TT>で囲んで行えば，
+<TT>on_task()</TT>の実行に必要なメモリをメモリ管理リストに登録できる。
+ただし，メモリ管理リストには無駄なメモリも登録されてしまう。
+</FONT>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

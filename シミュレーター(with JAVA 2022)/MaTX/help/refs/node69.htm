@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>fft_row</TITLE>
+<META NAME="description" CONTENT="fft_row">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node70.htm">
+<LINK REL="previous" HREF="node68.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node70.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1528"
+ HREF="node70.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1525"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1519"
+ HREF="node68.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1527"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1529"
+ HREF="node70.htm">fgets</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1526"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1520"
+ HREF="node68.htm">fft_col</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000465000000000000000">&#160;</A><A NAME="man_fft_row">&#160;</A>
+<BR>
+fft_row
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>fft_row - 行毎の高速フーリエ変換
+<DT>【形式】
+<DD><PRE>
+Y = fft_row(X)               Y = fft_row(X,k)
+   (CoMatrix|CoArray) Y;        (CoMatrix|CoArray) Y;
+   (Matrix|Array) X;            (Matrix|Array) X;
+                                Integer k;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>fft_row(X)は，2 のべき乗の長さのベクトル X について，基底が 2 の
+高速フーリエ変換を計算する。fft_row(X,k) は k 点の高速フーリエ変換
+をする。X の長さが k より短いとき，ゼロが後ろに付け加えられ，
+X の長さが k より長いとき，k 番目以降が切り捨てられる。
+X が行列のとき，行毎に高速フーリエ変換を求める。
+<DT>【例題】
+<DD>正規白色雑音の中に隠された50</FONT><FONT SIZE="-1">Hzと120</FONT><FONT SIZE="-1">Hzの信号を見つけ出す。</FONT><PRE>
+t = [0:0.001:0.6];
+x = Array([[sin(2*PI*50*t)][sin(2*PI*120*t)]]);
+y = x + randn(2,length(t));
+Y = fft_row(y,512);
+Pyy = Re(Y * conj(Y))/512;
+f = 1000*[0:255]/512;
+mgplot(1,f,Pyy(:,1:256));
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>fft(<A HREF="node67.htm#man_fft">2.66</A>), fft_col(<A HREF="node68.htm#man_fft_col">2.67</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

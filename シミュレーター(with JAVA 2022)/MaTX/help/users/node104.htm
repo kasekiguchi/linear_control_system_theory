@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>Forループ, Whileループ</TITLE>
+<META NAME="description" CONTENT="Forループ, Whileループ">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node105.htm">
+<LINK REL="previous" HREF="node103.htm">
+<LINK REL="up" HREF="node102.htm">
+<LINK REL="next" HREF="node105.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1890"
+ HREF="node105.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1886"
+ HREF="node102.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1880"
+ HREF="node103.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1888"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1889"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1891"
+ HREF="node105.htm">Do-whileループ</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1887"
+ HREF="node102.htm">制御の流れ</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1881"
+ HREF="node103.htm">If-Else</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001220000000000000000">&#160;</A>
+<A NAME="5671">&#160;</A>
+<BR>
+Forループ, Whileループ
+</H1><FONT SIZE="-1">
+<A NAME="5755">&#160;</A>
+<A NAME="5756">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  while (expr) {
+      statements;
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+では，まず<TT>expr</TT>が計算される。
+<TT>expr</TT>が0でないとき，<TT>statement</TT>が実行され，<TT>expr</TT>が再度評価
+される。このサイクルは<TT>expr</TT>が0になるまで続けられ，その時点で実行
+は<TT>statement</TT>の次に移る。<TT>for</TT>文</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  for (expr1; expr2; expr3) {
+      statements;
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+は以下に等しい。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  expr1;
+  while (expr2) {
+      statements;
+      expr3;
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+文法的には<TT>for</TT>の三つの要素は式である。
+一般的には式1と式3は代入または関数呼び出しであり，式2は関係式である。
+三つのどの部分のどれを省略してもよいが，セミコロンは省力してはならない。
+テスト部(式2)が省略されたら，それは永久に真とみなされる。
+したがって</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  for (;;) {
+      statements;
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+は``無限''ループであり，脱出は，他の手段(例えば<TT>break</TT>や<TT>return</TT>)に
+よることになる。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

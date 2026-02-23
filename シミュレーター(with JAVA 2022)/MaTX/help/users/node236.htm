@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>リアルタイム処理用関数</TITLE>
+<META NAME="description" CONTENT="リアルタイム処理用関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node237.htm">
+<LINK REL="previous" HREF="node235.htm">
+<LINK REL="up" HREF="node222.htm">
+<LINK REL="next" HREF="node237.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3594"
+ HREF="node237.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3590"
+ HREF="node222.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3584"
+ HREF="node235.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3592"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3593"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3595"
+ HREF="node237.htm">シミュレーションからリアルタイム処理へ</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3591"
+ HREF="node222.htm">リアルタイム処理(RTMATX)</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3585"
+ HREF="node235.htm">メモリ管理</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002660000000000000000">
+リアルタイム処理用関数</A>
+</H1><FONT SIZE="-1">
+RTMATXのサポートするリアルタイム処理用の関数を以下に示す。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="13407">&#160;</A>
+<A NAME="13408">&#160;</A>
+<A NAME="13409">&#160;</A>
+<A NAME="13410">&#160;</A>
+<A NAME="13411">&#160;</A>
+<A NAME="13412">&#160;</A>
+<A NAME="13413">&#160;</A>
+<A NAME="13414">&#160;</A>
+<A NAME="13415">&#160;</A>
+<A NAME="13416">&#160;</A>
+<A NAME="13417">&#160;</A>
+<A NAME="13418">&#160;</A>
+<A NAME="13419">&#160;</A>
+<A NAME="13420">&#160;</A>
+</FONT><PRE>
+void rtStart();               サンプリング時間毎にrtSetTask()
+                              で設定された関数を実行する。
+
+void rtStop();                サンプリング時間毎の関数の実行
+                              を停止する。
+
+void rtSetTask(on_task);      サンプリング時間毎に実行される
+     void on_task();          関数を設定する。
+
+void rtSetBreak(break_task);  CTRL-Cなどの割り込みキーが押された
+     void break_task();       ときに，実行される関数を設定する。
+
+Real rtSetClock(stime);     サンプリング時間を秒単位で設定する。
+     Real stime;
+
+void rtStartRehearsal();    on_task()の実行に必要なメモリを調
+                            べるためon_task()をテスト実行する
+                            前に呼び出す。
+
+void rtStopRehearsal();     on_task()のテスト実行を終了する。
+                            on_task()の実行に必要なメモリが
+                            メモリ管理リストへ追加される。
+
+Integer rtIsTimeOut();      サンプリング時間内にリアルタイム
+                            処理が終わったか調べる。終わらな
+                            ければ1が，終われば0が戻り値となる。
+Integer rtIsRunning();      リアルタイム処理中かどうか調べる。
+                            リアルタイム処理中なら1，そうで
+                            なければ0が戻り値となる。
+Integer rtIsTesting();      リアルタイム処理のテスト中かどうか
+                            調べる。テスト中なら1が，そうで
+                            なければ0が戻り値となる。
+
+Integer Inport(portid);     portidで指定したハードウェアポート
+    Integer portid;         から1ワードを読み込む。
+    
+Integer Inportb(portid);    portidで指定したハードウェアポート
+    Integer portid;         から1バイトを読み込む。
+    
+void Outport(portid, value);  portidで指定したハードウェア
+    Integer portid;           ポートにvalueが指定する1ワード
+    Integer value;            を出力する。
+
+void Outportb(portid, value); portidで指定したハードウェア
+    Integer portid;           ポートにvalueが指定する1バイト
+    Integer value;            を出力する。
+</PRE>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

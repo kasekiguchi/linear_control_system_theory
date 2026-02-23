@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>ラベル，タイトル，グリッド，テキスト，他のコマンド</TITLE>
+<META NAME="description" CONTENT="ラベル，タイトル，グリッド，テキスト，他のコマンド">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node76.htm">
+<LINK REL="previous" HREF="node74.htm">
+<LINK REL="up" HREF="node69.htm">
+<LINK REL="next" HREF="node76.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1528"
+ HREF="node76.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1524"
+ HREF="node69.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1518"
+ HREF="node74.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1526"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1527"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1529"
+ HREF="node76.htm">(ポストスクリプト|FIGコード)ファイルに出力</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1525"
+ HREF="node69.htm">gnuplot</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1519"
+ HREF="node74.htm">ウィンドウのクリアと消去</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00916000000000000000">
+ラベル，タイトル，グリッド，テキスト，他のコマンド</A>
+</H2>
+<P>
+<FONT SIZE="-1">次の関数を使ってラベル，タイトル，グリッド，テキストを描くことができる。
+</FONT>
+<P>
+<FONT SIZE="-1">関数<TT>gplot_grid()</TT>や関数<TT>mgplot_grid()</TT>の引数<TT>onoff</TT>
+に<TT>1</TT>を設定するとグリッド線が表示され，<TT>0</TT>を指定すると
+グリッド線が表示されない。また，引数<TT>onoff</TT>を指定しないと，
+オンオフがトグルとなる。
+</FONT>
+<P>
+<FONT SIZE="-1">関数<TT>gplot_key()</TT>や関数<TT>mgplot_key()</TT>の引数<TT>onoff</TT>
+に<TT>1</TT>を設定すると線のタイトル(キー)が表示され，<TT>0</TT>を指定すると
+線のタイトル(キー)が表示されない。また，引数<TT>onoff</TT>を指定しないと，
+オンオフがトグルとなる。
+</FONT>
+<P>
+<FONT SIZE="-1">関数<TT>gplot_cmd()</TT>や<TT>mgplot_cmg()</TT>を使って任意の
+(<I>gnuplot</I>の)コマンドを<I>gnuplot</I>に送ることができる。
+複数のコマンドを一度に送るには，コマンドを改行``<TT>n</TT>''で
+区切ればよい。関数<TT>gplot_replot()</TT>や<TT>mgplot_replot()</TT>を
+呼ぶと，ウィンドウが再表示される。
+関数<TT>gplot_options()</TT>や<TT>mgplot_options()</TT>によって，
+<I>gnuplot</I>の起動時のオプションを指定できる。
+例えば，<TT>mgplot_options(1, "-geometry 400x300")</TT>のように指定する。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="4258">&#160;</A>
+<A NAME="4259">&#160;</A>
+<A NAME="4260">&#160;</A>
+<A NAME="4261">&#160;</A>
+<A NAME="4262">&#160;</A>
+<A NAME="4263">&#160;</A>
+<A NAME="4264">&#160;</A>
+<A NAME="4265">&#160;</A>
+<A NAME="4266">&#160;</A>
+<A NAME="4267">&#160;</A>
+<A NAME="4268">&#160;</A>
+<A NAME="4269">&#160;</A>
+<A NAME="4270">&#160;</A>
+<A NAME="4271">&#160;</A>
+</FONT>
+<BR>
+<DIV ALIGN="CENTER">
+
+<A NAME="tbl:gnuplot_seven">&#160;</A>
+<DIV ALIGN="CENTER">
+<A NAME="4272">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 6.7:</STRONG>
+グラフィック関数7(<I> gnuplot</I>)</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>関数名</TD>
+<TD ALIGN="CENTER" COLSPAN=1>引数</TD>
+<TD ALIGN="CENTER" COLSPAN=1>
+機能</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_title(text)</TD>
+<TD ALIGN="LEFT">String text</TD>
+<TD ALIGN="LEFT">グラフタイトル</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_xlabel(text)</TD>
+<TD ALIGN="LEFT">String text</TD>
+<TD ALIGN="LEFT">X軸ラベル</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_ylabel(text)</TD>
+<TD ALIGN="LEFT">String text</TD>
+<TD ALIGN="LEFT">Y軸ラベル</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_grid()</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">グリッド(トグル)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_grid(onoff)</TD>
+<TD ALIGN="LEFT">Integer onoff</TD>
+<TD ALIGN="LEFT">グリッド線</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_key()</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">線のタイトル(トグル)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_key(onoff)</TD>
+<TD ALIGN="LEFT">Integer onoff</TD>
+<TD ALIGN="LEFT">線のタイトル</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_replot()</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">ウィンドウの再表示</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_cmd(cmd)</TD>
+<TD ALIGN="LEFT">String cmd</TD>
+<TD ALIGN="LEFT">任意のコマンド</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_text(text,x,y)</TD>
+<TD ALIGN="LEFT">String text</TD>
+<TD ALIGN="LEFT">任意のテキスト</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">Integer x, y</TD>
+<TD ALIGN="LEFT">x, y 座標</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_options(options)</TD>
+<TD ALIGN="LEFT">String options</TD>
+<TD ALIGN="LEFT">gnuplotのオプション</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_title(win, text)</TD>
+<TD ALIGN="LEFT">Integer win</TD>
+<TD ALIGN="LEFT">グラフタイトル</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">String text</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_xlabel(win, text)</TD>
+<TD ALIGN="LEFT">Integer win</TD>
+<TD ALIGN="LEFT">X軸ラベル</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">String text</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_ylabel(win, text)</TD>
+<TD ALIGN="LEFT">Integer win</TD>
+<TD ALIGN="LEFT">Y軸ラベル</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">String text</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_grid(win)</TD>
+<TD ALIGN="LEFT">Integer win</TD>
+<TD ALIGN="LEFT">グリッド線(トグル)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_grid(win, onoff)</TD>
+<TD ALIGN="LEFT">Integer onoff</TD>
+<TD ALIGN="LEFT">グリッド線</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_key(win)</TD>
+<TD ALIGN="LEFT">Integer win</TD>
+<TD ALIGN="LEFT">線のタイトル(トグル)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_key(win, onoff)</TD>
+<TD ALIGN="LEFT">Integer onoff</TD>
+<TD ALIGN="LEFT">線のタイトル</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_replot(win)</TD>
+<TD ALIGN="LEFT">Integer win</TD>
+<TD ALIGN="LEFT">ウィンドウの再表示</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_cmd(win, cmd)</TD>
+<TD ALIGN="LEFT">String cmd</TD>
+<TD ALIGN="LEFT">任意のコマンド</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_text(win,text,x,y)</TD>
+<TD ALIGN="LEFT">String text</TD>
+<TD ALIGN="LEFT">任意のコマンド</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">Integer x,y</TD>
+<TD ALIGN="LEFT">x, y 座標</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_options(win,options)</TD>
+<TD ALIGN="LEFT">String options</TD>
+<TD ALIGN="LEFT">gnuplotのオプション</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html1528"
+ HREF="node76.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1524"
+ HREF="node69.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1518"
+ HREF="node74.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1526"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1527"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1529"
+ HREF="node76.htm">(ポストスクリプト|FIGコード)ファイルに出力</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1525"
+ HREF="node69.htm">gnuplot</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1519"
+ HREF="node74.htm">ウィンドウのクリアと消去</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>スタートアップファイル</TITLE>
+<META NAME="description" CONTENT="スタートアップファイル">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node49.htm">
+<LINK REL="previous" HREF="node44.htm">
+<LINK REL="up" HREF="node18.htm">
+<LINK REL="next" HREF="node49.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1169"
+ HREF="node49.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1165"
+ HREF="node18.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1159"
+ HREF="node47.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1167"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1168"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1170"
+ HREF="node49.htm">クイットファイル(matxのみ)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1166"
+ HREF="node18.htm">コマンドと便利な機能</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1160"
+ HREF="node47.htm">条件つきコンパイル</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION006270000000000000000">&#160;</A>
+<A NAME="1866">&#160;</A>
+<BR>
+スタートアップファイル
+</H1><FONT SIZE="-1">
+<A NAME="1990">&#160;</A>
+<A NAME="1991">&#160;</A>
+<A NAME="1992">&#160;</A>
+<A NAME="1993">&#160;</A>
+<A NAME="1994">&#160;</A>
+<A NAME="1872">&#160;</A>
+matx及びmatcを起動すると，以下の順序でスタートアップファイルが検索されて，
+ファイルが存在していれば，読み込まれる。
+ただし，どれか１つのファイルが検出されると，ファイルの検索はその時点で
+中止される。つまり，スタートアップファイルは，１つしか読み込まれない。
+</FONT><DL COMPACT>
+<DT>1.
+<DD>カレントディレクトリの<TT>.matxrc</TT>
+<BR>
+(MS-DOSバージョンでは，<TT>_matxrc</TT>)
+<DT>2.
+<DD>ホームディレクトリ(環境変数<TT>HOME</TT>に登録されているディレクトリ)の
+      <TT>.matxrc</TT>(MS-DOSバージョンでは，<TT>_matxrc</TT>)
+<DT>3.
+<DD><DL COMPACT>
+<DT>(a)
+<DD>カレントディレクトリの<TT>MaTXRC.mm</TT>
+<DT>(b)
+<DD>環境変数<TT>MATXINPUTS</TT>で定義されているディレクトリ
+        の<TT>MaTXRC.mm</TT>
+        <BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\left(\begin{array}{l}
+\mbox{\rm コロン``\mbox{\tt :}''で区切って複数のディレクトリを指定
+        できる。}\\
+        \mbox{\rm MS-DOSバ−ジョンでは，セミコロン``\mbox{\tt ;}''で区切る。}
+        \end{array}\right)
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="426" HEIGHT="54"
+ SRC="img12.gif"
+ ALT="\begin{displaymath}\left(\begin{array}{l}
+\mbox{\rm コロン\lq\lq \mbox{\tt :}''で区..
+...は，セミコロン\lq\lq \mbox{\tt ;}''で区切る。}
+\end{array}\right)
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+  <DT>(c)
+<DD>デフォルト<TT>mmファイル</TT>ディレクトリ(コンパイル時に決定される)
+        の<TT>MaTXRC.mm</TT>
+  </DL></DL>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

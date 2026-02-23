@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>多項式行列の評価</TITLE>
+<META NAME="description" CONTENT="多項式行列の評価">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node161.htm">
+<LINK REL="previous" HREF="node159.htm">
+<LINK REL="up" HREF="node158.htm">
+<LINK REL="next" HREF="node161.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2631"
+ HREF="node161.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2627"
+ HREF="node158.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2621"
+ HREF="node159.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2629"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2630"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2632"
+ HREF="node161.htm">多項式行列の微分と積分</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2628"
+ HREF="node158.htm">多項式行列</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2622"
+ HREF="node159.htm">多項式行列の記述方法</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001832000000000000000">&#160;</A>
+<A NAME="8045">&#160;</A>
+<BR>
+多項式行列の評価
+</H2><FONT SIZE="-1">
+<A NAME="9002">&#160;</A>
+関数<TT>eval()</TT>を用いて，多項式行列の変数にいろいろなクラスの値を
+代入した結果を求めることができる。
+配列は，多項式行列の各成分の変数に代入されるので，
+評価結果はブロック行列になる。
+例えば，変数に行列を代入して</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  s = $;
+  RM1 = [[(s+1) (s+2)]
+         [(s+3) (s+4)]];
+
+  A = [[1 2][3 4]];
+
+  B = eval(RM1, A);
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+の結果，
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\mbox{\tt B} =
+\left[\begin{array}{cc}
+\mbox{\tt eval(s+1, A)} & \mbox{\tt eval(s+2, A)}\\
+\mbox{\tt eval(s+3, A)} & \mbox{\tt eval(s+4, A)}
+\end{array}\right] = 
+\left[
+\begin{array}{cccc}
+2 & 2 & 3 & 2\\
+3 & 5 & 3 & 6\\
+4 & 2 & 5 & 2\\
+3 & 7 & 3 & 8
+\end{array}
+\right]
+
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="414" HEIGHT="102"
+ SRC="img28.gif"
+ ALT="\begin{displaymath}\mbox{\tt B} =
+\left[\begin{array}{cc}
+\mbox{\tt eval(s+1, A...
+...5 & 3 & 6\\
+4 & 2 & 5 & 2\\
+3 & 7 & 3 & 8
+\end{array}\right]
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+となるが，配列を用いると</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  s = $;
+  RM1 = [[(s+1) (s+2)]
+         [(s+3) (s+4)]];
+
+  A = [[1 2][3 4]];
+
+ B = eval(RM1, Array(A));
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+の結果，
+</FONT>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH: \begin{displaymath}
+\mbox{\tt B} =
+\left[\begin{array}{cc}
+\mbox{\tt eval(RM1, 1)} & \mbox{\tt eval(RM1, 2)}\\
+\mbox{\tt eval(RM1, 3)} & \mbox{\tt eval(RM1, 4)}
+\end{array}\right] =
+\left[
+\begin{array}{cccc}
+2 & 3 & 3 & 4 \\
+4 & 5 & 5 & 6 \\
+4 & 5 & 5 & 6 \\
+6 & 7 & 7 & 8 
+\end{array}
+\right]
+
+\end{displaymath} -->
+
+
+<IMG
+ WIDTH="414" HEIGHT="102"
+ SRC="img29.gif"
+ ALT="\begin{displaymath}\mbox{\tt B} =
+\left[\begin{array}{cc}
+\mbox{\tt eval(RM1, 1)...
+... 5 & 6 \\
+4 & 5 & 5 & 6 \\
+6 & 7 & 7 & 8
+\end{array}\right]
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P><FONT SIZE="-1">
+となる。多項式行列の評価に伴うクラス変換の規則を以下に示す。
+</FONT>
+<P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">実行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   実数)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   複素数)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 実数)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 複素数)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   実多項式)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 実多項式)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   複素多項式)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実有理多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   実有理多項式)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 実有理多項式)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   複素有理多項式)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 複素有理多項式)</TD>
+</TR>
+</TABLE></DIV>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">実行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   実行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   複素行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 実行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 複素行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   実多項式行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 実多項式行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   複素多項式行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実有理多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   実有理多項式行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 実有理多項式行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   複素有理多項式行列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 複素有理多項式行列)</TD>
+</TR>
+</TABLE></DIV>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">実配列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   実配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素配列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   複素配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素配列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 実配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素配列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 複素配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実多項式配列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   実多項式配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素多項式配列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 実多項式配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素多項式配列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   複素多項式配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実有理多項式配列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   実有理多項式配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式配列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 実有理多項式配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式配列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(実多項式行列,   複素有理多項式配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式配列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">eval(複素多項式行列, 複素有理多項式配列)</TD>
+</TR>
+</TABLE></DIV>
+<P><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html2631"
+ HREF="node161.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2627"
+ HREF="node158.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2621"
+ HREF="node159.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2629"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2630"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2632"
+ HREF="node161.htm">多項式行列の微分と積分</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2628"
+ HREF="node158.htm">多項式行列</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2622"
+ HREF="node159.htm">多項式行列の記述方法</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

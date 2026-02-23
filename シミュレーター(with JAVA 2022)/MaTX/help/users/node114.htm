@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>複素数の記述方法</TITLE>
+<META NAME="description" CONTENT="複素数の記述方法">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node115.htm">
+<LINK REL="previous" HREF="node113.htm">
+<LINK REL="up" HREF="node113.htm">
+<LINK REL="next" HREF="node115.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2013"
+ HREF="node115.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2009"
+ HREF="node113.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2003"
+ HREF="node113.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2011"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2012"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2014"
+ HREF="node115.htm">複素数の比較</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2010"
+ HREF="node113.htm">複素数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2004"
+ HREF="node113.htm">複素数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001410000000000000000">
+複素数の記述方法</A>
+</H1><FONT SIZE="-1">
+一対の実数をコンマ <TT>,</TT> で区切って丸括弧 <code>(</code> と <code>)</code> で
+囲むことによって複素数を記述することができる。
+実部または虚部だけを指定し，もう一方に <TT>*</TT> を指定して
+複素数を記述することもできる。
+成分が整数の時，自動的に実数に変換される。
+丸括弧 <code>(</code> と <code>)</code> とコンマ ``<TT>,</TT>'' を合わせて
+<B>複素オペレータ</B>と呼ぶ。
+<BR>
+<A NAME="6419">&#160;</A>
+複素オペレータを用いた複素値の記述方法については，複素値の章を参照。
+<A NAME="6491">&#160;</A><A NAME="6492">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  c1 = (r1,r2)  // c1 = r1 + r2*i;  (r1とr2は，実数)
+  c1 = (r1, *)  // c1 = r1 + 0*i;   (r1は，実数)
+  c1 = (*, r1)  // c1 = 0  + ri*i;  (r1は，実数)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+複素数の実部と虚部は，関数<TT>Re()</TT>と<TT>Im()</TT>
+を用いて取り出すことができる。
+<A NAME="6494">&#160;</A>
+<A NAME="6495">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  r1 = Re((r1, r2));  // 実部 = Re(複素数)
+  r2 = Im((r1, r2));  // 虚部 = Im(複素数)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR><A NAME="6434">&#160;</A>
+
+虚数単位(Imaginary Unit)は以下の2つの方法で定義することができる。
+<A NAME="6497">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  i = (0, 1);
+  i = sqrt(-1);
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

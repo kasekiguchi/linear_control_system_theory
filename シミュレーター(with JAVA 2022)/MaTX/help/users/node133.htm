@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>多項式関数</TITLE>
+<META NAME="description" CONTENT="多項式関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node132.htm">
+<LINK REL="up" HREF="node125.htm">
+<LINK REL="next" HREF="node134.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2250"
+ HREF="node134.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2246"
+ HREF="node125.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2242"
+ HREF="node132.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2248"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2249"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2251"
+ HREF="node134.htm">有理多項式</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2247"
+ HREF="node125.htm">多項式</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2243"
+ HREF="node132.htm">多項式の比較</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001680000000000000000">
+多項式関数</A>
+</H1><FONT SIZE="-1">
+多項式関数の一覧を以下に示す。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="7091">&#160;</A>
+<A NAME="7092">&#160;</A>
+<A NAME="7093">&#160;</A>
+<A NAME="7094">&#160;</A>
+<A NAME="7095">&#160;</A>
+<A NAME="7096">&#160;</A>
+<A NAME="7097">&#160;</A>
+<A NAME="7098">&#160;</A>
+<A NAME="7099">&#160;</A>
+<A NAME="7100">&#160;</A>
+<A NAME="7101">&#160;</A>
+<A NAME="7102">&#160;</A>
+<A NAME="7103">&#160;</A>
+<A NAME="7104">&#160;</A>
+</FONT>
+<P><PRE>
+Polynomial P1;
+Integer i1;
+Real tol;
+
+Matrix  roots(P1);          多項式の根
+Integer degree(P1);         多項式の次数
+Integer isreal(P1);         実多項式の有無
+                            (真 = 1, 偽 = 0)    
+Integer iscomplex(P1);      複素多項式の有無
+                            (真 = 1, 偽 = 0)
+
+Polynomial floor(P1)        係数の最低値の整数への丸め
+Polynomial ceil(P1)         係数の最高値の整数への丸め
+Polynomial fix(P1)          係数の 0 方向の整数への丸め
+Polynomial round(P1)        係数の最も近い整数への丸め
+Polynomial round2z(P1)      係数の 0 への丸め(tol = EPS)
+Polynomial round2z(P1, tol) 係数の絶対値がtolより小なら0
+Polynomial pow(P1, i1)      P1^i1
+Polynomial trans(P1)        P1'
+Polynomial conj(P1)         P1 の共役
+Polynomial conjtrans(P1)    P1#
+Rational   inv(P1)          P1~
+</PRE>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

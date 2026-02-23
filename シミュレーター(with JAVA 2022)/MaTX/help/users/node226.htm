@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>リアルモードRTMATX(Borland C版)</TITLE>
+<META NAME="description" CONTENT="リアルモードRTMATX(Borland C版)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node225.htm">
+<LINK REL="up" HREF="node224.htm">
+<LINK REL="next" HREF="node227.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3470"
+ HREF="node227.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3466"
+ HREF="node224.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3462"
+ HREF="node225.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3468"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3469"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3471"
+ HREF="node227.htm">動作環境</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3467"
+ HREF="node224.htm">リアルタイム処理プログラムの作成</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3463"
+ HREF="node225.htm">プロテクトモードRTMATX(DJGPP版)</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002622000000000000000">
+リアルモードRTMATX(Borland C版)</A>
+</H2><FONT SIZE="-1">
+Borland Cを用いるRTMATXのリアルタイム処理プログラムの
+作成手順は次の3段階からなる。
+<A NAME="13356">&#160;</A>
+<A NAME="13357">&#160;</A><A NAME="13358">&#160;</A>
+</FONT><DL COMPACT>
+<DT>1.
+<DD><I>rtmatc</I>で<TT>.mm</TT>ファイルから<TT>.c</TT>ファイルを作成
+<DT>2.
+<DD><I>rtmatccc</I>で<TT>.c</TT>ファイルから<TT>.obj</TT>ファイルを作成
+<DT>3.
+<DD><I>rtmatcc</I>で<TT>.obj</TT>ファイルから<TT>.exe</TT>ファイルを作成
+</DL>
+<P>
+<FONT SIZE="-1">MS-DOSのメモリ制約のため，<I>rtmatc</I>はCプリプロセッサを内部から
+呼び出せないので，<TT>#define</TT>や<TT>#include</TT>などのプリプロセス機能を
+使うには，手順1の前に，
+<I>cpp</I>で<TT>.mmm</TT>(ソース)ファイルから<TT>.mm</TT>ファイルを作成
+しておく。<I>matc</I>はBorland C付属の<I>cpp</I>が出力するコードを
+扱えないので，RTMATXと一緒に配布されている
+(<TT>util/bin</TT>ディレクトリにある)GNUの<I>cpp</I>を使う。
+また，MS-DOSのメモリ制約のため，<TT>config.sys</TT>から必要性の低い
+ドライバを削除しないと，<I>rtmatc</I>や<I>cpp</I>が起動できない
+ことがある。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="13359">&#160;</A>
+</FONT>
+<P><P>
+<BR>
+<P>
+<FONT SIZE="-1">リアルタイム処理プログラムを作成する手順例を次に示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+ A:&gt; cpp sample.mmm &gt; sample.mm
+ A:&gt; rtmatc sample.mm
+ A:&gt; rtmatccc sample.c
+ A:&gt; rtmatcc sample
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR><A NAME="13028">&#160;</A><A NAME="13029">&#160;</A>
+コンパイル，リンクを行なうコマンド<I>rtmatccc</I>や<I>rtmatcc</I>は
+バッチファイルであり，Borland Cを使う場合を次に示す。
+<A NAME="13032">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+ A:&gt; type rtmatccc.bat
+
+ bcc @\rtmatx\bin\matx.rsp %1 %2 %3 %4 %5 %6 %7 %8 %9
+
+ A:&gt; type rtmatcc.bat
+
+ tlink /c /s c0h %1 %2 %3 %4 %5,%1,%1,@\rtmatx\bin\libs.rsp
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>また，<TT>matx.rsp</TT>や<TT>libs.rsp</TT>にはコンパイルスイッチとリンクスイッチが
+記述されている。<A NAME="13362">&#160;</A><A NAME="13363">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+A:&gt; type matx.rsp
+
+-c -mh -w-pro -w-par* -DMSDOS -DBRC20 -I. -I\rtmatx\include -DLST
+
+A:&gt; type libs.rsp
+
+c:\rtmatx\lib\libmatx +
+c:\borlandc\lib\emu +
+c:\borlandc\lib\mathh +
+c:\borlandc\lib\ch
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR><A NAME="13365">&#160;</A>
+以下のような<TT>Makefile</TT>を作成しておくと便利である。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+sample.exe: sample.obj 
+  tlink /c /s c0h sample,sample,sample,@\rtmatx\bin\libs.rsp
+
+sample.obj: sample.c
+  bcc @\rtmatx\bin\matx.rsp sample.c
+
+sample.c: sample.mm
+  rtmatc sample.mm
+
+sample.mm: sample.mmm
+  cpp -traditional sample.mmm &gt; sample.mm
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

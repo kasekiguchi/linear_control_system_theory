@@ -1,0 +1,29 @@
+\begin{picture}(0,0)%
+\epsfig{file=figure/expenv.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3149sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(5042,5222)(90,-4472)
+\put(3466,-4111){\makebox(0,0)[b]{\smash{\SetFigFont{8}{9.6}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}端子箱}%
+}}}
+\put(3691,-1771){\makebox(0,0)[rb]{\smash{\SetFigFont{8}{9.6}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}倒立振子}%
+}}}
+\put(2251,-3481){\makebox(0,0)[b]{\smash{\SetFigFont{5}{6.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}DA}%
+}}}
+\put(2251,-3301){\makebox(0,0)[b]{\smash{\SetFigFont{5}{6.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}AD}%
+}}}
+\put(361,-1816){\makebox(0,0)[lb]{\smash{\SetFigFont{8}{9.6}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}開発用端末PC(Windows2000)}%
+}}}
+\put(2566,434){\makebox(0,0)[b]{\smash{\SetFigFont{8}{9.6}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}イーサネット}%
+}}}
+\put(3961,-691){\makebox(0,0)[b]{\smash{\SetFigFont{8}{9.6}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}開発用ホストＷＳ(Solaris)}%
+}}}
+\put(1531,-4336){\makebox(0,0)[b]{\smash{\SetFigFont{8}{9.6}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}実時間実験用ＰＣ(VxWorks)}%
+}}}
+\end{picture}

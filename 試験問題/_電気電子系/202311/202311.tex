@@ -1,0 +1,324 @@
+\documentclass[fleqn]{article} 
+\usepackage[a3paper,landscape,vmargin=1.0cm,hmargin=1.5cm]{geometry} 
+
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{latexsym}
+
+\usepackage{multicol}
+
+\usepackage{epsfig}
+\usepackage[dvips,xdvi]{color}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%--------------------------------------------------------------
+	\setlength{\textwidth}{1120pt}
+	\setlength{\textheight}{790pt}
+%--------------------------------------------------------------
+	\setlength{\oddsidemargin}{-50pt}
+	\setlength{\evensidemargin}{-50pt}
+%--------------------------------------------------------------
+	\setlength{\topmargin}{-70pt}
+	\setlength{\headheight}{0pt}
+	\setlength{\topskip}{0pt}
+%--------------------------------------------------------------
+	\setlength{\columnseprule}{0.5pt}
+	\setlength{\columnsep}{10pt}
+%--------------------------------------------------------------
+	\renewcommand{\baselinestretch}{1}
+%--------------------------------------------------------------
+	\setlength{\mathindent}{0.5cm}
+	\setlength{\parindent}{7pt}
+%--------------------------------------------------------------
+	\renewcommand{\bottomfraction}{0.99}
+	\renewcommand{\topfraction}{0.99}
+	\renewcommand{\textfraction}{0.01}
+%--------------------------------------------------------------
+	\pagestyle{empty}
+%--------------------------------------------------------------
+
+
+%----------------------------------------------------------------
+%	definition
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+%   equation 環境
+%----------------------------------------------------------------
+%		\def\topmat{\ \\ \vspace{-4mm}}
+%		\def\botmat{\ \\ \vspace{-2mm}}
+%		\def\bes{\vspace*{2mm}}
+%		\def\ees{\ \\[-2mm]}
+	%........................................................
+	% equationの環境設定(\be,\ee)
+	%      例 \bea 式 & 式 & 式 \nonumber\\ 式 & 式 & 式 \eea
+	%........................................................
+%		\def\be{\\ \ \\[-12mm] \begin{equation}}
+%		\def\ee{\end{equation} \ \\[-11mm]}
+		\newcommand{\be}{\begin{equation}}
+		\newcommand{\ee}{\end{equation}}
+	%........................................................
+	% eqnarrayの環境設定(\bea,\eea)
+	%      例 \bea 式 & 式 & 式 \nonumber\\ 式 & 式 & 式 \eea
+	%........................................................
+%		\def\bea{\\ \ \\[-16mm] \begin{eqnarray}}
+%		\def\eea{\end{eqnarray} \ \\[-13mm]}
+		\newcommand{\bea}{\begin{eqnarray}}
+		\newcommand{\eea}{\end{eqnarray}}
+	%........................................................
+	% 番号なしeqnの環境設定(\nbe,\nee)
+	%      例 \nbe 式 \\ 式  \nee
+	%........................................................
+%		\def\nbe{\\ \ \\[-12mm] \[}
+%		\def\nee{\] \ \\[-11mm]}
+		\newcommand{\nbe}{\[}
+		\newcommand{\nee}{\]}
+	%........................................................
+	% matrixの入力(\bmatrix,\ematrix)
+	%	例 \bmatrix{cc} 1&2\\3&4 \ematrix
+	%........................................................
+		\renewcommand{\bmatrix}{\left[\begin{array}}
+		\newcommand{\ematrix}{\end{array}\right]}
+	%........................................................
+	% Greek character
+	%........................................................
+		\def\gggm{\mu}
+		\def\ggge{\varepsilon}
+		\def\gggw{\omega}
+		\def\gggh{\theta}
+		\def\ggga{\alpha}
+		\def\gggb{\beta}
+		\def\gggc{\gamma}
+		\def\gggd{\delta}
+		\def\gggp{\phi}
+	%........................................................
+	% others
+	%........................................................
+%		\def\half{\frac{1}{2}}
+		\def\defeq{\stackrel{\rm def}{=}}
+
+
+\renewcommand{\baselinestretch}{0.8}
+
+
+
+%================================================================
+\begin{document}
+%================================================================
+\rightline{
+線形制御理論（2023.12.01)
+\hspace{3cm}
+\underline{学籍番号：　　　　　　　　　　　}
+\hspace{1cm}
+\underline{氏名：　　　　　　　　　　　　　}
+\hspace{2cm}
+}
+%================================================================
+\begin{multicols}{4}
+%================================================================
+\begin{enumerate}
+%================================================================
+
+
+
+
+
+%================================================================
+\item
+次の状態方程式
+\begin{align}
+	\frac{dx}{dt} 
+	& =	\bmatrix{rr}
+			0 & 1 \\
+			1 & 2
+		\ematrix
+		x
+		+
+		\bmatrix{c}
+			0 \\
+			1
+		\ematrix
+		u 
+\nonumber
+\end{align}
+に対して次の状態フィードバックを考える．
+\begin{align}
+	u & = \bmatrix{cc} f_1 & f_2 \ematrix x
+\nonumber
+\end{align}
+
+以下の問に答えよ．
+\begin{enumerate}
+\item
+閉ループ系の状態方程式を示せ．
+\vspace{4cm}
+
+\item
+閉ループ系の状態方程式の特性多項式を求めよ．
+\vspace{5cm}
+
+\item
+閉ループ系の極が$-3$, $-4$となる状態フィードバックを求めよ．
+\vspace{6cm}
+
+\end{enumerate}
+
+
+
+
+%================================================================
+%================================================================
+\item
+
+図の３質量系を考える．
+\begin{center}
+　\epsfig{file=car3.eps,scale=0.4}
+\end{center}
+
+%================================================================
+\vfill\null
+\columnbreak
+%================================================================
+
+
+
+この３質量系の状態方程式は
+{\footnotesize
+\begin{align*} 
+\hspace*{-10mm}
+ \frac{d}{dt} \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+		    \end{array}\right)
+ =&
+ \left(\begin{array}{cccccc}
+        0 & 0 & 0 & 1 & 0 & 0      \\
+        0 & 0 & 0 & 0 & 1 & 0      \\
+        0 & 0 & 0 & 0 & 0 & 1      \\
+	-\frac{k_1}{m_0} -\frac{k_2}{m_0}&  \frac{k_1}{m_0} &  \frac{k_2}{m_0} & 0 & 0 & 0 \\
+	 \frac{k_1}{m_1}                & -\frac{k_1}{m_1} &  0               & 0 & 0 & 0 \\
+	 \frac{k_2}{m_2}                &  0               & -\frac{k_2}{m_2} & 0 & 0 & 0 
+       \end{array}\right)
+ \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+       \end{array}\right)
+\\
+ &\hspace*{10mm} +
+ \left(\begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+	    \frac{1}{m_0} \\
+	    0 \\
+	    0 
+       \end{array}\right)
+        F
+\end{align*}
+}
+となる．以下の問いに答えよ．
+
+\begin{enumerate}
+\item 
+$(m_0, m_1, m_2, k_1, k_2)=(1,1,2,2,1)$の場合，可制御であるか否かを判断せよ．
+\vspace{9cm}
+
+\item
+$(m_0, m_1, m_2, k_1, k_2)=(1,1,2,1,2)$の場合，可制御であるか否かを判断せよ．
+\vspace{
+9cm}
+
+\end{enumerate}。
+%================================================================
+\vfill\null
+\columnbreak
+%================================================================
+
+
+%================================================================
+\item
+次の微分方程式で表されるシステムを考える．
+\[
+	 \ddot{\theta} = a \sin \theta + b (\dot{\theta})^2 + (\cos \theta)u
+\]
+ここで$\theta$は機械系のリンク角に相当するもの，$u$は入力，$a,b$は定数とする．
+
+\begin{enumerate}
+\item 
+このシステムを$(\theta, \dot{\theta})^T$を状態とする非線形状態方程式であらわせ．
+\vspace{6cm}
+
+\item
+状態方程式をテーラー展開の１次近似線形化せよ．
+\vspace{10cm}
+
+\item
+微分方程式を厳密に線形化するフィードバックを設計し，厳密に線形化された状態方程式を示せ．ただし，$-\pi/2 < \theta < \pi/2$と仮定する．
+\vspace{5cm}
+
+\end{enumerate}
+
+%================================================================
+\vfill\null
+\columnbreak
+%================================================================
+
+
+
+%================================================================
+\item
+次の１次元の離散システム($x \in R^1$)を考える．
+\vspace{-1mm}
+\begin{align}
+	x_{k+1} &= a \cdot x_k + 1 \cdot u_k
+	\ \ \ \  (A=a, B=1) 
+\nonumber
+\vspace{-4mm}
+\end{align}
+以下の問に答えよ。
+\vspace{-1mm}
+
+
+\begin{enumerate}
+
+\item
+初期値を$x_0$，入力系列が$u_0,u_1,u_2$であるときの$x_3$を求めよ．
+\vspace{5.5cm}
+
+\item
+初期値を$x_0$，入力が$u_i=0$, $i=0,1,2,\cdots$の時の$x_k$を求めよ．
+\vspace{5.5cm}
+
+
+\item
+入力が$u_i=0$, $i=0,1,2,\cdots$の時，$k \rightarrow \infty$で$x_k \rightarrow 0$となる$a$の条件を求めよ．
+\vspace{5.5cm}
+
+\item
+$a$は離散システムの極（$A$行列の固有値）に対応する。今までの考察から離散システムが安定であるための条件を示せ．
+\vspace{5.5cm}
+
+
+
+\end{enumerate}
+%================================================================
+
+
+
+
+%================================================================
+\end{enumerate}
+%================================================================
+\end{multicols}
+%================================================================
+\end{document}
+%================================================================

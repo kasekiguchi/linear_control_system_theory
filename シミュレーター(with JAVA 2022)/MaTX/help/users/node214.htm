@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>商 (Division)</TITLE>
+<META NAME="description" CONTENT="商 (Division)">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node215.htm">
+<LINK REL="previous" HREF="node213.htm">
+<LINK REL="up" HREF="node208.htm">
+<LINK REL="next" HREF="node215.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3311"
+ HREF="node215.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3307"
+ HREF="node208.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3301"
+ HREF="node213.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3309"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3310"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3312"
+ HREF="node215.htm">累乗 (Power)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3308"
+ HREF="node208.htm">演算</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3302"
+ HREF="node213.htm">逆 (Inverse)</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002560000000000000000">&#160;</A>
+<A NAME="12420">&#160;</A>
+<BR>
+商 (Division)
+</H1><FONT SIZE="-1">
+<A NAME="12628">&#160;</A><A NAME="12629">&#160;</A>
+整数の割算では小数部は切捨てられる。
+行列と行列の商
+``<TT>X = A <code>\</code> B</TT>''は，``<TT>A * X = B</TT>''の解で，
+``<TT>X = A / B</TT>''は，``<TT>X * B = A</TT>''の解である。
+<TT>A</TT>が正方行列の時，LU分解を用いて解が求められ，<TT>A</TT>が正方行列で
+ない時，最小二乗解が求められる。
+</FONT>
+<P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">OP3</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">OP1 / OP2 --&gt; (OP3 = OP1 * OP2<code>~</code>)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">OP3</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">OP1 <code>\</code> OP2 --&gt; (OP3 = OP1<code>~</code> * OP2)</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+</FONT><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">整数</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">整数 / 整数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実数</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実数 / 実数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素数</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素数 / 複素数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER">&nbsp;</TD><TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実多項式 / (整数|実数)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実多項式 / 複素数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素多項式 / (整数|実数)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素多項式 / 複素数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER">&nbsp;</TD><TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実有理多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実多項式 / 実多項式</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素多項式 / 複素多項式</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実有理多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実有理多項式 / 実有理多項式</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素有理多項式 / 複素有理多項式</TD>
+</TR>
+</TABLE><FONT SIZE="-1"></FONT></DIV>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+</FONT><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">実(行列|配列)</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実(行列|配列) / 実(行列|配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素(行列|配列)</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素(行列|配列) / 複素(行列|配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実多項式(行列|配列)</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実多項式(行列|配列) / (整数|実数)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素多項式(行列|配列)</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実多項式(行列|配列) / 複素数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素多項式(行列|配列)</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素多項式(行列|配列) / (整数|実数)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素多項式(行列|配列)</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素多項式(行列|配列) / 複素数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実有理多項式(行列|配列)</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実有理多項式(行列|配列) / (整数|実数)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式(行列|配列)</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実有理多項式(行列|配列) / 複素数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式(行列|配列)</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素有理多項式(行列|配列) / (整数|実数)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式(行列|配列)</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素有理多項式(行列|配列) / 複素数</TD>
+</TR>
+</TABLE><FONT SIZE="-1"></FONT></DIV>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+</FONT><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">実行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実行列 ./ 実行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素行列 ./ 複素行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">有理多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">(実|複素|多項式|有理多項式)行列 ./ 多項式行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER">&nbsp;</TD><TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">整数</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">整数 <code>\</code> 整数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実数</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実数 <code>\</code> 実数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素数</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素数 <code>\</code> 複素数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER">&nbsp;</TD><TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実有理多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実多項式 <code>\</code> (整数|実数)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実多項式 <code>\</code> 複素数</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素多項式 <code>\</code> (整数|実数)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素多項式 <code>\</code> 複素数</TD>
+</TR>
+</TABLE><FONT SIZE="-1"></FONT></DIV>
+<DIV ALIGN="CENTER"><FONT SIZE="-1">
+</FONT><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">実有理多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実多項式 <code>\</code> 実多項式</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素多項式 <code>\</code> 複素多項式</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実有理多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実有理多項式 <code>\</code> 実有理多項式</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素有理多項式</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素有理多項式 <code>\</code> 複素有理多項式</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER">&nbsp;</TD><TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実(行列|配列)</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実(行列|配列) <code>\</code> 実(行列|配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素(行列|配列)</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素(行列|配列) <code>\</code> 複素(行列|配列)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER">&nbsp;</TD><TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">実行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">実行列 .<code>\</code> 実行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">複素行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">複素行列 .<code>\</code> 複素行列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">有理多項式行列</TD><TD ALIGN="CENTER">=</TD><TD ALIGN="LEFT">多項式行列 .<code>\</code> (実|複素|多項式|有理多項式)行列</TD>
+</TR>
+</TABLE><FONT SIZE="-1"></FONT></DIV><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html3311"
+ HREF="node215.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3307"
+ HREF="node208.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3301"
+ HREF="node213.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3309"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3310"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3312"
+ HREF="node215.htm">累乗 (Power)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3308"
+ HREF="node208.htm">演算</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3302"
+ HREF="node213.htm">逆 (Inverse)</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>一般データの保存と読み込み</TITLE>
+<META NAME="description" CONTENT="一般データの保存と読み込み">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node56.htm">
+<LINK REL="up" HREF="node53.htm">
+<LINK REL="next" HREF="node58.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1288"
+ HREF="node58.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1284"
+ HREF="node53.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1280"
+ HREF="node56.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1286"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1287"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1289"
+ HREF="node58.htm">ファイル入出力</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1285"
+ HREF="node53.htm">データのファイル入出力</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1281"
+ HREF="node56.htm">バイナリデータのファイル入出力</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00724000000000000000">
+一般データの保存と読み込み</A>
+</H2><FONT SIZE="-1">
+<A NAME="2995">&#160;</A>
+<A NAME="2996">&#160;</A>
+<A NAME="2878">&#160;</A>
+<A NAME="2879">&#160;</A>
+値を保存するには，クラスの区別なく<TT>save</TT>コマンドを使用する。
+保存する値をコンマで区切って並べ，最後にファイル名を指定する。
+データは，<B>mmファイル</B>と同じ形式で保存される。
+拡張子を省略すると，拡張子は<TT>mm</TT>となる。
+</FONT>
+<P>
+<FONT SIZE="-1">インタプリタ(<I>matx</I>)の場合，
+ファイル名だけを指定すると全ての広域変数が保存され，何も指定しないと
+ファイル<TT>MaTX.mm</TT>に全ての広域変数が保存される。
+<A NAME="2997">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+save M1, r1, P1, [[1 2][3 4]], "Hello", "file.mm";
+save "file"; // 全変数は"file.mm"に保存される。(matxのみ)
+save;        // 全変数は"MaTX.mm"に保存される。(matxのみ)
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>インタプリタ(<I>matx</I>)の場合，<TT>save</TT>コマンドでファイルに保存した
+データを<TT>load</TT>コマンドで読み込むことができる。
+ただし，データは広域変数として読み込まれるので，
+関数の内側で<TT>load</TT>コマンドを実行してはならない。
+拡張子を省略すると，拡張子は<TT>mm</TT>となる。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+load "filename1.mm", "filename2.mm";
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

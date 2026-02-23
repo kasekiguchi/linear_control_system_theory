@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>概要</TITLE>
+<META NAME="description" CONTENT="概要">
+<META NAME="keywords" CONTENT="appendixa">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=EUC-JP">
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="appendixa.css">
+
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="node1.html">
+<LINK REL="next" HREF="node4.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html75"
+  HREF="node4.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="next.gif"></A> 
+<A NAME="tex2html73"
+  HREF="node1.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="up.gif"></A> 
+<A NAME="tex2html67"
+  HREF="node2.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="prev.gif"></A>   
+<BR>
+<B> :</B> <A NAME="tex2html76"
+  HREF="node4.html">プルダウンメニューの機能</A>
+<B> :</B> <A NAME="tex2html74"
+  HREF="node1.html">三輪車とトレーラーのシミュレータ について</A>
+<B> :</B> <A NAME="tex2html68"
+  HREF="node2.html">動作環境</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00120000000000000000">
+概要</A>
+</H1>
+本シミュレータは4つのパネルから構成され，それぞれ，アニメーションパネル，
+ログパネル，2Dプロットパネル，および設定パネルと呼ばれる．シミュレータの
+全画面を
+Fig.<A HREF="#fig:fullscreen">A.1</A>に示す．ウィンドウの一番上には，プログラム，設定，
+描画，グラフ，ヘルプの5つのプルダウンメニューが用意されており，このメニュー
+を選ぶことによって様々な形でシミュレーション結果を見ることが出来る．
+
+<DIV ALIGN="CENTER"><A NAME="fig:fullscreen"></A><A NAME="71"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Fig. A.1:</STRONG>
+シミュレータの全画面</CAPTION>
+<TR><TD><IMG
+ WIDTH="719" HEIGHT="539" BORDER="0"
+ SRC="img1.gif"
+ ALT="\begin{figure}\begin{center}
+\epsfig{file=figure/fullscreen.eps,scale=0.45}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Fig.<A HREF="#fig:animpanel">A.2</A>, Fig.<A HREF="#fig:snappanel">A.3</A>に示すように，アニメーショ
+ンパネルでは三輪車またはトレーラーのシミュレーション結果を，アニメーショ
+ンまたはスナップショットの形で描くことができる．
+
+<DIV ALIGN="CENTER"><A NAME="fig:animpanel"></A><A NAME="80"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Fig. A.2:</STRONG>
+アニメーション用の画面</CAPTION>
+<TR><TD><IMG
+ WIDTH="356" HEIGHT="202" BORDER="0"
+ SRC="img2.gif"
+ ALT="\begin{figure}\begin{center}
+\epsfig{file=figure/animpanel.ps,scale=0.3}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<DIV ALIGN="CENTER"><A NAME="fig:snappanel"></A><A NAME="87"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Fig. A.3:</STRONG>
+スナップショット用の画面</CAPTION>
+<TR><TD><IMG
+ WIDTH="356" HEIGHT="202" BORDER="0"
+ SRC="img3.gif"
+ ALT="\begin{figure}\begin{center}
+\epsfig{file=figure/snappanel.ps,scale=0.3}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+また，Fig.<A HREF="#fig:logpanel">A.4</A>に示すように，ログパネルでは現在実行されてい
+る状況が表示される．
+エラーやシミュレータの実行記録に関する情報もこのパネルに表示される．
+さまざまなメニューを実行する度に，必ずこのパネルにメッセージが出力される．
+
+<P>
+Fig.<A HREF="#fig:plotpanel">A.5</A>に示す2Dプロットパネルでは，シミュレーション結果
+の時系列グラフを表示することができる．表示するデータの種類はグラフメニュー
+から選択することができる．
+
+<P>
+最後に，Fig.<A HREF="#fig:setpanel">A.6</A>に示すように，設定パネルでは三輪車やトレー
+ラーに関するシミュレーションの種類を選択するボタンが置かれている．
+どのようなシミュレーションを行うかを必ず先に選択しなけ
+ればならない．
+例えば，三輪車の LQ 最適制御のシミュレーションを行う場合には，
+まず三輪車での LQ 最適制御のボタンを選択する．
+また，数値シミュレーションを開始する計算開始ボタンや，開始ボタン，一時停
+止ボタン，停止ボタンのようなシミュレーション結果の可視化を制御するボタン
+，2Dプロットを実行するボタンもこのパネルに置かれている．
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:logpanel"></A><A NAME="97"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Fig. A.4:</STRONG>
+ログ表示の画面</CAPTION>
+<TR><TD><IMG
+ WIDTH="406" HEIGHT="172" BORDER="0"
+ SRC="img4.gif"
+ ALT="\begin{figure}\begin{center}
+\epsfig{file=figure/logpanel.eps,scale=0.85}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<DIV ALIGN="CENTER"><A NAME="fig:plotpanel"></A><A NAME="104"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Fig. A.5:</STRONG>
+2Dプロットの画面</CAPTION>
+<TR><TD><IMG
+ WIDTH="407" HEIGHT="172" BORDER="0"
+ SRC="img5.gif"
+ ALT="\begin{figure}\begin{center}
+\epsfig{file=figure/plotpanel.eps,scale=0.85}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<DIV ALIGN="CENTER"><A NAME="fig:setpanel"></A><A NAME="111"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Fig. A.6:</STRONG>
+各シミュレーション用の設定画面</CAPTION>
+<TR><TD><IMG
+ WIDTH="499" HEIGHT="169" BORDER="0"
+ SRC="img6.gif"
+ ALT="\begin{figure}\begin{center}
+\epsfig{file=figure/setpanel.eps,scale=0.85}
+\end{center}\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+<BR><HR>
+<ADDRESS>
+Shigeki Nakaura
+平成15年3月17日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>eig</TITLE>
+<META NAME="description" CONTENT="eig">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node56.htm">
+<LINK REL="previous" HREF="node54.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node56.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1374"
+ HREF="node56.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1371"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1365"
+ HREF="node54.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1373"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1375"
+ HREF="node56.htm">eigvec</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1372"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1366"
+ HREF="node54.htm">do</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000451000000000000000">&#160;</A><A NAME="man_eig">&#160;</A>
+<BR>
+eig
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>eig - 固有値分解
+<DT>【形式】
+<DD><PRE>
+{D,X} = eig(A)       {D,X} = eig(A,B)
+   CoMatrix D,X;        CoMatrix D,X;
+   Matrix A;            Matrix A,B;
+</PRE><FONT SIZE="-1"><DT>【説明】
+<DD>{D,X} = eig(A)は，正方行列 A の固有値を対角成分とする対角行列 D
+と，対応する固有ベクトルを列とする行列 X を返す。そして，A X = X D 
+が成り立つ。固有ベクトルは個々のノルムが 1.0 にスケーリングされる。
+固有値は，実部の降順に並べられる。
+  
+{D,X} = eig(A,B)は，正方行列 A と B の一般化された固有値を対角成分
+とする対角行列 D と，対応する固有ベクトルを列とする行列 X を返す。
+そして，A X = B X D が成り立つ。固有ベクトルは個々のノルムが 1.0 
+にスケーリングされる。固有値は，実部の降順に並べられる。
+<DT>【算法】
+<DD>関数 eig(A) は，</FONT><FONT SIZE="-1">Eispackのルーチンの balanc, balbak, ortran, 
+orthes, hqr2 を使う。balanc と blabak は引数の行列をバランス化
+する。orthes は直行相似変換で実行列をヘッセンベルグ型に変換する。
+hqr2 は </FONT><FONT SIZE="-1">QR 法で実数のヘッセンベルグ行列の固有値，固有ベクトルを
+求める。
+関数 eig(A,B) は，</FONT><FONT SIZE="-1">Eispackルーチンの qzhes, qzit, qzval, qzvec
+を使う。
+<DT>【注意】
+<DD>繰り返し計算で固有値が求まらない場合は，次のメッセージが表示される。
+</FONT>
+<P>
+<FONT SIZE="-1">Solution will not converge
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; {D,X} = eig([[1 2][3 4]])
+&gt;&gt; print D,X;
+=== [D] : (  2,  2) ===
+       [ (  1)-Real  (  1)-Imag ]  [ (  2)-Real  (  2)-Imag ]
+(  1)  5.372281E+00  0.000000E+00  0.000000E+00  0.000000E+00
+(  2)  0.000000E+00  0.000000E+00 -3.722813E-01  0.000000E+00
+=== [X] : (  2,  2) ===
+       [ (  1)-Real  (  1)-Imag ]  [ (  2)-Real  (  2)-Imag ]
+(  1) -4.222291E-01  0.000000E+00 -8.245648E-01  0.000000E+00
+(  2) -9.230523E-01  0.000000E+00  5.657674E-01  0.000000E+00
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>eigval(<A HREF="#man_eigval">2.54</A>), eigvec(<A HREF="node56.htm#man_eigvec">2.55</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

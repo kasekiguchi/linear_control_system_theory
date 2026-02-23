@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>gnuplot</TITLE>
+<META NAME="description" CONTENT="gnuplot">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node79.htm">
+<LINK REL="previous" HREF="node68.htm">
+<LINK REL="up" HREF="node68.htm">
+<LINK REL="next" HREF="node70.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1447"
+ HREF="node70.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1443"
+ HREF="node68.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1437"
+ HREF="node68.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1445"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1446"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1448"
+ HREF="node70.htm">基本的なプロット</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1444"
+ HREF="node68.htm">グラフィックス</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1438"
+ HREF="node68.htm">グラフィックス</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00910000000000000000">
+<I>gnuplot</I></A>
+</H1><FONT SIZE="-1">
+<I>gnuplot</I>を使ってデータをプロットするには以下の関数を使う。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="4224">&#160;</A>
+<A NAME="4225">&#160;</A>
+</FONT>
+<BR>
+<DIV ALIGN="CENTER">
+
+<A NAME="tbl:gnuplot_one">&#160;</A>
+<DIV ALIGN="CENTER">
+<A NAME="4226">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 6.1:</STRONG>
+グラフィック関数1(<I> gnuplot</I>)</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>関数名</TD>
+<TD ALIGN="CENTER" COLSPAN=1>引数</TD>
+<TD ALIGN="CENTER" COLSPAN=1>
+機能</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot(Y)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot(X, Y)</TD>
+<TD ALIGN="LEFT">Array X, Y</TD>
+<TD ALIGN="LEFT">線形 x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot(X, Y, titles)</TD>
+<TD ALIGN="LEFT">List titles</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot(X, Y, titles, cmd)</TD>
+<TD ALIGN="LEFT">String cmd</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot(win, Y)</TD>
+<TD ALIGN="LEFT">Integer win</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot(win, X, Y)</TD>
+<TD ALIGN="LEFT">Array X, Y</TD>
+<TD ALIGN="LEFT">線形 x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot(win, X, Y, titles)</TD>
+<TD ALIGN="LEFT">List titles</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot(win, X, Y, titles, cmds)</TD>
+<TD ALIGN="LEFT">List cmds</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+<P>
+<FONT SIZE="-1"><A NAME="4227">&#160;</A>
+グラフィック関数 (<TT>gplot()</TT>, <TT>mgplot()</TT>)使うと，
+自動的に<I>gnuplot</I>が起動され，データがプロットされる。
+X-Windowで<I>gnuplot</I>を使うには，MATXを起動する前に環境変数
+<TT>DISPLAY</TT>に使っている端末の名前を設定しておく必要がある。
+<A NAME="3633">&#160;</A>
+<A NAME="4228">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  % setenv DISPLAY hostname:0.0
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>また，環境変数<TT>MATXGNUPLOT</TT>に使用したい<I>gnuplot</I>を指定できる。
+<A NAME="4229">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  (UNIXの場合の例)
+  % setenv MATXGNUPLOT /usr/local/MaTX/bin/gnuplot
+
+  (Windowsの場合の例)
+  % set MATXGNUPLOT=c:\app\MaTX\bin\gnuplot
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1">関数<TT>gplot()</TT>と関数<TT>mgplot()</TT>の違いは，<TT>gplot()</TT>では
+1個のウィンドウ(<B>カレントウィンドウ</B>)にしかデータをプロットできないの
+に対して，<TT>mgplot()</TT>を使えば，複数の任意のウィンドウにデータを
+プロットできることである。
+つまり，データをプロットしたいウィンドウの番号を第1引数に指定する。
+<A NAME="3651">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1">関数<TT>mgplot()</TT>によって最後にデータをプロットされたウィンドウは，
+<B>カレントウィンドウ</B>となるので，そのウィンドウにデータをプロット
+するには，ウィンドウ番号を省略して関数<TT>gplot()</TT>を使えばよい。
+</FONT>
+<P>
+<FONT SIZE="-1">ただし，関数<TT>gplot()</TT>や関数<TT>mgplot()</TT>を使うと，ウィンドウ上
+の線がクリアされて，新しいデータのみがプロットされる。
+古いデータに新しいデータを重ねてプロットするには，後で述べる
+関数<TT>greplot()</TT>や関数<TT>mgreplot()</TT>を使う。
+</FONT>
+<P>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html1449"
+ HREF="node70.htm">基本的なプロット</A>
+<LI><A NAME="tex2html1450"
+ HREF="node71.htm">複数の線</A>
+<LI><A NAME="tex2html1451"
+ HREF="node72.htm">対数プロット</A>
+<LI><A NAME="tex2html1452"
+ HREF="node73.htm">1個のウィンドウに複数のグラフ</A>
+<LI><A NAME="tex2html1453"
+ HREF="node74.htm">ウィンドウのクリアと消去</A>
+<LI><A NAME="tex2html1454"
+ HREF="node75.htm">ラベル，タイトル，グリッド，テキスト，他のコマンド</A>
+<LI><A NAME="tex2html1455"
+ HREF="node76.htm">(ポストスクリプト|FIGコード)ファイルに出力</A>
+<LI><A NAME="tex2html1456"
+ HREF="node77.htm">Windows95/NTで<I>mgplot</I>を使う</A>
+<LI><A NAME="tex2html1457"
+ HREF="node78.htm">Xウィンドウを必要としないグラフィック表示</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html1447"
+ HREF="node70.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1443"
+ HREF="node68.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1437"
+ HREF="node68.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1445"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1446"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1448"
+ HREF="node70.htm">基本的なプロット</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1444"
+ HREF="node68.htm">グラフィックス</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1438"
+ HREF="node68.htm">グラフィックス</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

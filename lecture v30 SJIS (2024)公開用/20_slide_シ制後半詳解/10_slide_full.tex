@@ -1,0 +1,170 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 本文を修正した時には
+%    %%ver%%（フッターのver番号を管理）
+%    %%変更履歴%%（変更履歴を管理）
+% を修正すること
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\documentclass[dvipdfmx,cjk,10pt]{beamer}	%% オプションは環境や利用するプログラムに
+%\documentclass[dvips,cjk]{beamer}		%% よって変える
+
+%%%% スライドの見た目 %%%%%
+\usetheme{Madrid}
+% \usetheme{Copenhagen}
+% \usetheme{Boadilla}
+% \usetheme{Warsaw}
+
+\usefonttheme{structurebold} 		%% タイトル部を太字
+\usefonttheme{professionalfonts}	%% 数式の文字を通常の LaTeX と同じにする
+\setbeamercovered{transparent}		%% 消えている文字をうっすらと表示する
+\setbeamertemplate{navigation symbols}{} %% ナビゲーションの非表示
+% \setbeamertemplate{blocks}[rounded] % Blockの影を消す
+
+% \useinnertheme{circles} % 箇条書きをシンプルに
+% \setbeamertemplate{footline}[frame number] % フッターはスライド番号のみ
+
+\AtBeginDvi{\special{pdf:tounicode 90ms-RKSJ-UCS2}} %% SJIS しおりが文字化けしないように
+%\AtBeginDvi{\special{pdf:tounicode EUC-UCS2}} %% EUC しおりが文字化けしないように
+
+
+%%%%
+\usepackage{custom}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{color}
+\usepackage{boxedminipage}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{subfigure}
+
+
+\graphicspath{{../}}		%% LECTURE.tex がある場所
+
+\newcounter{eqncountersave}       %% 式番号を保存するためのカウンター
+\newcounter{countersave}       %% 式番号を保存するためのカウンター
+\parindent=0pt                    %% 字下げをしない
+
+% \setlength{\parskip}{3mm}
+
+%-------------------------------------------------------------
+\title[線形制御理論]
+{\LARGE{線形制御理論}}
+\author[Sampei (Science Tokyo) ver.3.0]{}  %%ver%% フッターのver番号を管理
+\institute[]{}
+\date{}
+%-------------------------------------------------------------
+
+
+%-------------------------------------------------------------
+\begin{document}
+%-------------------------------------------------------------
+
+%-------------------------------------------------------------
+\begin{frame}[t] 
+
+%\vspace*{1.5cm}
+
+\vspace*{\stretch{1}}
+
+\begin{center}
+\Huge \bf
+\colorbox{blue}{\textcolor{white}{　　線形制御理論　　}}\\[5mm]
+\Large
+  三平満司\\
+  システム制御系/東京科学大学
+\end{center}
+
+\hspace*{0.15\textwidth}
+\begin{minipage}{0.7\textwidth}
+{\footnotesize
+変更履歴 %%変更履歴%%　変更履歴を管理
+
+ver.3.0 (2024.11.13) By 三平満司（東工大システム制御系）修正／公開
+
+　　　　　準正定を半正定に修正，2重線のノルムを1重線に修正
+
+　　　　　リアプノフを用いた安定性証明のタイポ修正
+
+ver.2.5 (2024.04.05) By 三平満司（東工大システム制御系）修正／公開
+
+　　　　　不具合の微修正
+
+　　　　　不可制御・不可観測の考察で前半と重複するものを削除
+
+ver.2.4 (2023.04.04) By 三平満司（東工大システム制御系）修正／公開
+
+　　　　　前半部分の修正
+
+ver.2.3 (2018.04.04) By 三平満司（東工大システム制御系）修正／公開
+
+　　　　　不具合の微修正
+
+
+ver.2.2 (2017.09.20) By 三平満司（東工大システム制御系）修正／公開
+
+　　　　　不具合の微修正
+
+
+ver.2.0 (2017.06.29) By 三平満司（東工大システム制御系）修正／公開
+
+　　　　　ver.1.0の授業後，全体の見直しと改定
+
+ver.1.0 (2016.11.19) By 三平満司（東工大システム制御系）作成
+
+}
+\end{minipage}
+
+\end{frame}
+%-------------------------------------------------------------
+
+%-------------------------------------------------------------
+\begin{frame}[t] 
+
+
+\begin{center}
+\vspace*{\stretch{1}}
+\Huge \bf
+\colorbox{blue}{\textcolor{white}{　　線形制御理論　　}}
+\vspace*{\stretch{1}}
+\end{center}
+
+\end{frame}
+%-------------------------------------------------------------
+
+% \begin{frame}[t]                  %% 目次 (必要なければ省略)
+% \tableofcontents
+% \end{frame}
+
+%-------------------------------------------------------------
+
+\chap{線形システム制御論の基礎}
+
+\chap{線形システム制御論の詳解}
+\input{chapD.tex}
+
+%\chap{線形システム論（連続時間系）}
+%\input{chap1.tex}
+%
+%\chap{非線形システムの線形化}
+%\input{chap2.tex}
+%
+%\chap{連続システムの離散化}
+%\input{chap3.tex}
+%
+%\chap{線形システム論（離散系）}
+%\input{chap4.tex}
+%
+%\appendix
+%
+%\chap{三輪車とトレーラーのモデリングと線形化}
+%\include{simulator/appendixa}
+%-------------------------------------------------------------
+
+\end{document}
+

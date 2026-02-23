@@ -1,0 +1,172 @@
+------------------------------------------------------------------
+
+                MaTX ver. 4.227 (1995/11/17)
+
+                     Masanobu Koga
+
+                     koga@matx.org
+
+             Tokyo Institute of Technology, JAPAN
+
+          Copyright 1995 Masanobu Koga, T.I.T., JAPAN
+
+------------------------------------------------------------------
+
+INTRODUCTION
+
+  MaTX is a high-performance programming language for scientific
+and engineering numerical and symbolic comupation. MaTX has been
+developed by Masanobu Koga with help of Prof. Katsuhisa Furuta
+at department of control and system engineering in Tokyo
+Institute of Technology, and at department of mechanical and
+environmental informatics, graduate school of information
+science and engineering in Tokyo Institute of Technology.
+It has been used for analysis, design, and simulation
+of control systems for six years.
+
+  MaTX interpreter (matx) and MaTX compiler (matc) are available.
+All the package including libraries and tools is called MaTX in
+order to distinguish it from the interpreter (matx). The
+compiler generates a C language file from a source file of MaTX,
+which is called mm-file because of its file extension (mm).  We
+can make an executable module by compiling the generated C files
+and by linking them with run-time libraries.  It is also
+possible to link them with other C files written by users. The
+executable module is superior to the interpreter in speed of
+computation and efficiency of memory allocation.
+
+Since MaTX is written in C language keeping portability in mind,
+it may run on almost all workstation (for example Sun, HP, MIPC, NEWS),
+PC with PC-UNIX (such as BSD/OS, 386BSD, FreeBSD, and Linux), and 
+PC with DOS and memory extender. It also runs on a super computer
+CRAY C916/12256.
+
+FEATURES OF MaTX
+
+1)  MaTX is equipped to recognize several useful data type
+    such as matrix, polynomial, rational polynomial, polynomial
+    matrix, rational polynomial matrix, and list. The problem
+    solution are expressed almost exactly as they are written
+    mathematically.
+
+2) Since the syntax of MaTX is very similar to that of C
+   language, it takes short time to be familiar to it.
+   For example MaTX has the same control-flow as C language
+   such as if, else, for, while, do, and switch.
+
+3) Not only interpreter but also compiler is available, the user 
+   can choose either of them for his purpose. Interpreter for
+   simple calculations, and compiler for long-time simulations.
+
+4) C files which have been developed by users can be reused
+   by linking them with MaTX files.
+
+5) There are many efficient and accurate functions for matrix
+   calculation and integration using EISPACK and LINPACK.
+   For example, QR, QZ, SVD, FFT, and RKF45.
+
+6) A window-independent matrix editor is provided.
+
+7) Simulations for continuous-time linear and nonlinear systems,
+   and sampled-data (continuous + discrete) systems can be easily done.
+
+8) RTMaTX (Real-time MaTX) enables us to use simulation programs
+   for real-time control. This feature reduces the gap between
+   simulation and experiment.
+
+9) There is a translator which converts MATLAB m-files to MaTX
+   mm-files. (Under development)
+
+RUNNING ENVIRONMENT
+
+  CRAY C916/12256:       Cray UNICOS
+  JP4 (PowerPC604):      JCC_BSD+ 1.0
+  NEWS5000X:             NEWS-OS 4.2.1R
+  HP 9000/755:           HP-UX
+  DEC Alpha:             Digital UNIX V3.2G
+  Mips RC6280:           UMIPS 4.52C
+  Sun4 series:           SunOS 4.1.x, Solaris 2.5.x
+  Sun3 series:           SunOS 4.0.x,
+  IBM-PC/AT:             Linux (1.2.x, 2.0.x)
+  IBM-PC/AT:             Solaris 2.5.1 x86
+  IBM-PC/AT:             BSD/OS 2.0
+  IBM-PC/AT:             BSD on Windows
+  IBM-PC/AT:             FreeBSD 2.1.x, FreeBSD 2.1.x
+  IBM-PC/AT:             Windows 95/NT, (Watcom C/C++ 10.5J)
+  IBM-PC/AT:             Windows 95/NT, (djgpp 2.01)
+  IBM-PC/AT:             MS-DOS, PC-DOS, (djgpp 2.01)
+  PC9801(NEC):           MS-DOS (djgpp-2.01)
+  X68000(SHARP):         Human68k (gcc + libc)
+
+HOW TO OBTAIN NEWEST VERSION
+
+   The newest version of MaTX is available by anonymous ftp from
+
+   matx.ds.mei.titech.ac.jp:/pub/MaTX
+
+   by WWW from
+
+   http://www.ds.mei.titech.ac.jp/~koga/MaTX.html
+
+   If you have no access to Internet, send a mail with a word
+   'HELP' to
+
+   ftpmail@ds.mei.titech.ac.jp
+
+   , you will get a help file, which tells you how to obtain
+   MaTX package by e-mail.
+
+
+MAILING ADDRESS OF MATX
+
+   For discussion and exchange of information about MaTX,
+   a mailing list is running. The e-mail address is
+
+   matx@ds.mei.titech.ac.jp.
+
+   If you want to join the mailing list, send a mail to   
+
+   matx-request@ds.mei.titech.ac.jp
+
+ACKNOWLEDGMENT
+
+   I would link to thank many people who have developed free
+softwares, which I used for development of MaTX. I should like
+to thank Prof. Katsuhisa Furuta in Tokyo Institute of Technology
+for his advice and support.
+
+DOCUMENTS
+
+    The following documents are available by anonymous ftp from
+
+    matx.ds.mei.titech.ac.jp:/pub/MaTX/doc
+
+   1) MaTX Reference manual: Masanobu Koga, 1995.
+        (matx-eg.ps.gz:        for one-side book)
+        (matx-book-eg-1.ps.gz: for odd pages)
+        (matx-book-eg-2.ps.gz: for even pages)
+
+   2) Matlib Reference Manual: Masanobu Koga, 1995.
+        (matlib.ps.gz)
+
+   3) MaTX: A High-Performance Interactive software package for Scientific
+      and Engineering Computation: Masanobu Koga and Katsuhisa Furuta,
+      5TH IFAC/IMACS Symposium on Computer Aided Design in Control Systems,
+      39-44, 1991.
+      (cadcs91.ps.gz)
+
+   4) MaTX: A High-Performance Programming Language (Interpreter and
+      Compiler) for Scientific and Engineering Computation: Masanobu Koga
+      and Katsuhisa Furuta, 1992 IEEE Symposium on Computer-Aided Control
+      System Design, 15-22, 1992.
+      (cacsd92.ps.gz)
+
+   5) Programming Language MaTX for Scientific and Engineering
+      Computation: CAD for CONTROL SYSTEMS, Masanobu Koga and
+      Katsuhisa Furuta, "Marcel Dekker,Inc.", 287-317, July 1993.
+
+   6) A Compiler of MATLAB to MaTX: Compiling and Linking of m-files to
+      an Executable Program: Masanobu Koga and Katsuhisa Furuta,
+      IEEE/IFAC Joint Symposium on Computer-Aided Control System Design,
+      137-142, 1994.
+      (cacsd94.ps.gz)

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>case</TITLE>
+<META NAME="description" CONTENT="case">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node31.htm">
+<LINK REL="previous" HREF="node29.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node31.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1099"
+ HREF="node31.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1096"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1090"
+ HREF="node29.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1098"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1100"
+ HREF="node31.htm">ceil</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1097"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1091"
+ HREF="node29.htm">bit_xor</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000426000000000000000">&#160;</A><A NAME="man_case">&#160;</A>
+<BR>
+case
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>case - 場合
+<DT>【形式】
+<DD><PRE>
+  case int_1: statement;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>case 文は，switch 文の選択を設定する。case には，整数定数の
+式でラベルをつける。switch 文で，case は単にラベルとして働き，
+1 つの case 文が終了したのち，抜け出すための明示的な動作が
+なければ，実行は次の case へ移る。
+<DT>【例題】
+<DD>整数型の変数 num をチェックし，num が -1, 0, 1
+のいずれかのとき，対応する case 文の文字列を表示し，
+これらの値のどれとも一致しないとき，default 文が実行される。</FONT><PRE>
+switch (num) {
+  case -1: print "minus one\n";
+           break;
+  case  0: print "zero\n";
+           break;
+  case  1: print "plus one\n";
+           break;
+  default: print "other value\n";
+           break;
+}
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>switch(<A HREF="node231.htm#man_switch">2.232</A>), break(<A HREF="#man_break">2.26</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

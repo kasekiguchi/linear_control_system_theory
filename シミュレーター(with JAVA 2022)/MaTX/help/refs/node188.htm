@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>round2z</TITLE>
+<META NAME="description" CONTENT="round2z">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node189.htm">
+<LINK REL="previous" HREF="node187.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node189.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2837"
+ HREF="node189.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2834"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2828"
+ HREF="node187.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2836"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2838"
+ HREF="node189.htm">Rows</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2835"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2829"
+ HREF="node187.htm">round</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004184000000000000000">&#160;</A><A NAME="man_round2z">&#160;</A>
+<BR>
+round2z
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>round2z - ゼロへの丸め
+<DT>【形式】
+<DD><PRE>
+y = round2z(x)
+   (Integer|Real|Complex|Polynomial|Rational) y;
+   (Integer|Real|Complex|Polynomial|Rational) x;
+  
+y = round2z(x,tol)
+   (Integer|Real|Complex|Polynomial|Rational) y;
+   (Integer|Real|Complex|Polynomial|Rational) x;
+   Real tol;
+  
+Y = round2z(X)                 Y = round2z(X,tol)
+   (Matrix|Array|Index) Y;        (Matrix|Array|Index) Y;
+   (Matrix|Array|index) X;        (Matrix|Array|index) X;
+                                  Real tol;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>実数 x について，round2z(x,tol)は，x の絶対値が tol より小さければ，
+ゼロに丸める。複素数 x について，round2z(x,tol) は，x の実部と虚部
+の絶対値がそれぞれ tol より小さければ，ゼロに丸める。(多項式|有理
+多項式) x にについて，round2z(x,tol) は，x の各係数の絶対値が tol 
+より小さければ，ゼロに丸める。tol を省略すると，tol = EPS となる。
+round2z(X,tol)は，(行列|配列|指数)Xの各成分にround2z(X(i,j),tol)
+を作用した 結果からなる(行列|配列|指数) を求める。Y の大きさは X の
+大きさと同じになる。tol を省略すると，tol = EPS となる。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; y = round2z(1E-5, 1E-4)
+y = 0
+&gt;&gt; y = round2z(1E-5, 1E-5)
+y = 1E-5
+&gt;&gt; y = round2z((3.14, 1E-5), 1E-4)
+y = (3.14, 0)
+&gt;&gt; s = Polynomial("s");
+&gt;&gt; y = round2z(2.1*s + 1E-5, 1E-4)
+y = 2.1 s
+&gt;&gt; Y = round2z([1.2, 1E-5, 5.6], 1E-4)
+=== [Y] : (  1,  3) ===
+           (  1)           (  2)           (  3)     
+(  1)  1.20000000E+00  0.00000000E+00  5.60000000E+00
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>fix(<A HREF="#man_fix">2.71</A>), floor(<A HREF="#man_floor">2.74</A>), ceil(<A HREF="node31.htm#man_ceil">2.28</A>), round(<A HREF="node187.htm#man_round">2.188</A>),
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

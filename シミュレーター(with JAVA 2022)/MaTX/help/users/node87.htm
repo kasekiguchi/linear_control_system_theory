@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>静的変数</TITLE>
+<META NAME="description" CONTENT="静的変数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node88.htm">
+<LINK REL="previous" HREF="node86.htm">
+<LINK REL="up" HREF="node84.htm">
+<LINK REL="next" HREF="node88.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1674"
+ HREF="node88.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1670"
+ HREF="node84.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1664"
+ HREF="node86.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1672"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1673"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1675"
+ HREF="node88.htm">暗黙の型変換</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1671"
+ HREF="node84.htm">変数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1665"
+ HREF="node86.htm">通用範囲に関する規則</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001030000000000000000">&#160;</A>
+<A NAME="5160">&#160;</A>
+<BR>
+静的変数
+</H1><FONT SIZE="-1">
+<A NAME="5182">&#160;</A>
+静的(static)変数は外部変数や自動変数に続く第３の記憶クラスである。
+MATXにはC言語と異なり局所static変数のみ存在し，大域static変数は
+存在しない。なぜなら，インタプリタにとって大域static変数を通常の
+大域変数と区別することに意味がないからである。
+</FONT>
+<P>
+<FONT SIZE="-1">static変数は自動変数と異なり，関数が起動される毎に初期化されることなく，
+ずっと存在し続ける。これは，static変数が関数内で私的な永久記憶をもつを
+ことを意味する。
+</FONT>
+<P>
+<FONT SIZE="-1">static変数は</FONT>0<FONT SIZE="-1">に初期化されることが保証されるので，ユーザが陽に初期化
+する必要はない。リストは成分が0個のリストとして初期化される。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void afo()
+{
+  static Integer i;    // 0 に初期化される
+  static Real r;       // 0.0 に初期化される
+  static Complex c;    // (0,0) に初期化される
+  static Polynomial P; // 0 に初期化される
+  static Rational R;   // 0 に初期化される
+  static List l;       // {} に初期化される
+
+  i = i + 1;
+  r = r + 1;
+  c = c + (1,0);
+  P = P + 1;
+  R = R + 1;
+  appendlist(l, 1);
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>ただし，行列は0 x 0の行列として初期化されるので，
+<TT>length()</TT>関数を用い大きさを調べるなどして，陽に初期化する必要がある。
+<A NAME="5183">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void afo()
+{
+  static Matrix A;
+
+  if (length(A) == 0) {
+    A = [1];
+  } else {
+    A = A + [1];
+  }
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

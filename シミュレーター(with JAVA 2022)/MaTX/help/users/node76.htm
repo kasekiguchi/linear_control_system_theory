@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>(ポストスクリプト|FIGコード)ファイルに出力</TITLE>
+<META NAME="description" CONTENT="(ポストスクリプト|FIGコード)ファイルに出力">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node77.htm">
+<LINK REL="previous" HREF="node75.htm">
+<LINK REL="up" HREF="node69.htm">
+<LINK REL="next" HREF="node77.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1540"
+ HREF="node77.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1536"
+ HREF="node69.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1530"
+ HREF="node75.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1538"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1539"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1541"
+ HREF="node77.htm">Windows95/NTでmgplotを使う</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1537"
+ HREF="node69.htm">gnuplot</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1531"
+ HREF="node75.htm">ラベル，タイトル，グリッド，テキスト，他のコマンド</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00917000000000000000">&#160;</A>
+<A NAME="3950">&#160;</A>
+<A NAME="3951">&#160;</A>
+<A NAME="3952">&#160;</A>
+<BR>
+(ポストスクリプト|FIGコード)ファイルに出力
+</H2><FONT SIZE="-1">
+<A NAME="4273">&#160;</A>
+<A NAME="4274">&#160;</A>
+<A NAME="4275">&#160;</A>
+<A NAME="4276">&#160;</A>
+関数<TT>gplot_psout()</TT>や<TT>mgplot_psout()</TT>を使えば，
+ウィンドウに表示されたグラフを簡単にポストスクリプトファイル
+(EPSフォーマット)に保存できる。例えば，正弦波と余弦波をウィンドウ
+に表示した後，ポストスクリプトファイル(<TT>sin_cos.ps</TT>)
+に出力するには次のようにする。
+</FONT>
+<P><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  gplot(sin([0.0:0.1:2*PI]));
+  gplot_replot(cos([0.0:0.1:2*PI]));
+  gplot_psout("sin_cos.ps");
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<FONT SIZE="-1">関数<TT>gplot_figcode()</TT>や<TT>mgplot_figcode()</TT>を使えば，
+ウィンドウに表示されたグラフを簡単にFIGコードファイル
+に保存できる。例えば，正弦波と余弦波をウィンドウ
+に表示した後，FIGコードファイル(<TT>sin_cos.fig</TT>)
+に出力するには次のようにする。
+</FONT>
+<P><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  gplot(sin([0.0:0.1:2*PI]));
+  gplot_replot(cos([0.0:0.1:2*PI]));
+  gplot_figcode("sin_cos.fig");
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<A NAME="tbl:gnuplot_eight">&#160;</A>
+<DIV ALIGN="CENTER">
+<A NAME="4277">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 6.8:</STRONG>
+グラフィック関数8(<I> gnuplot</I>)</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>関数名</TD>
+<TD ALIGN="CENTER" COLSPAN=1>引数</TD>
+<TD ALIGN="CENTER" COLSPAN=1>
+機能</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_psout(file, cmd)</TD>
+<TD ALIGN="LEFT">String file</TD>
+<TD ALIGN="LEFT">ポストスクリプト</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">String cmd</TD>
+<TD ALIGN="LEFT">ファイルに保存</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_psout(win, file, cmd)</TD>
+<TD ALIGN="LEFT">Integer win</TD>
+<TD ALIGN="LEFT">ポストスクリプト</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">String file</TD>
+<TD ALIGN="LEFT">ファイルに保存</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">String cmd</TD>
+<TD ALIGN="LEFT">cmd = オプション</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gplot_figcode(file, cmd)</TD>
+<TD ALIGN="LEFT">String file</TD>
+<TD ALIGN="LEFT">FIGコード</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">String cmd</TD>
+<TD ALIGN="LEFT">ファイルに保存</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgplot_figcode(win, file, cmd)</TD>
+<TD ALIGN="LEFT">Integer win</TD>
+<TD ALIGN="LEFT">FIGコード</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">String file</TD>
+<TD ALIGN="LEFT">ファイルに保存</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">String cmd</TD>
+<TD ALIGN="LEFT">cmd = オプション</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,12 @@
+三輪車・トレーラーシミュレーター
+
+三輪車・トレーラーのシミュレータ「シミュレーター(with JABA 2022)」
+
+・起動法
+　　Simulator/Simulator.batをダブルクリック
+
+・マニュアル
+　　Documents/pdf/appendixa.pdfを参照
+
+
+

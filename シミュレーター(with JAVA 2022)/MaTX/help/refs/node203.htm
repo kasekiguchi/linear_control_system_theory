@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>schur</TITLE>
+<META NAME="description" CONTENT="schur">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node204.htm">
+<LINK REL="previous" HREF="node202.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node204.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3002"
+ HREF="node204.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2999"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2993"
+ HREF="node202.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3001"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3003"
+ HREF="node204.htm">settimer</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3000"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2994"
+ HREF="node202.htm">scanf</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004199000000000000000">&#160;</A><A NAME="man_schur">&#160;</A>
+<BR>
+schur
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>schur - シュア分解
+<DT>【形式】
+<DD><PRE>
+{U,T} = schur(A)
+   Matrix U,T;
+   Matrix A;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>schur()は，行列 A の</FONT><FONT SIZE="-1">Schur型を求める。行列の複素</FONT><FONT SIZE="-1">Schur型は，対角成分
+に行列の固有値をもつ上三角行列であり，実</FONT><FONT SIZE="-1">Schur型は，対角成分に行列
+の実固有値と複素固有値をもつ 2 x 2 のブロックをもつブロック上三角
+行列である。
+  
+{U,T} = schur(A)は，</FONT><FONT SIZE="-1">Schur行列 T と直交行列(ユニタリ行列) U
+を求める。これらの行列の間には，A = U * T * U#，U# * U = I(A) の
+関係がある。shcur(A)は，A が実行列なら，実</FONT><FONT SIZE="-1">Schur型を，A が複素行列
+なら，複素</FONT><FONT SIZE="-1">Schur型を求める。
+<DT>【算法】
+<DD>schur(A) は，実行列に対して</FONT><FONT SIZE="-1">Eispackのルーチンの ortran, orthes,
+hqr2 を使う。orthes は直交相似変換を使って実行列をヘッセンベルグ型
+に変換。hqr2 は，</FONT><FONT SIZE="-1">QR法でヘッセンベルグ行列の固有値を求める。
+schur(A)は，複素行列に対して</FONT><FONT SIZE="-1">Eispackのqzhes, qzit, qzval, qzvec を
+使って，</FONT><FONT SIZE="-1">QZ法で計算する。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; {U,T} = schur([[1 2 3][4 5 6][7 8 9]]);
+&gt;&gt; print U,T;
+=== [U] : (  3,  3) ===
+           (  1)           (  2)           (  3)     
+(  1)  2.31970687E-01  8.82905960E-01  4.08248290E-01
+(  2)  5.25322093E-01  2.39520420E-01 -8.16496581E-01
+(  3)  8.18673499E-01 -4.03865120E-01  4.08248290E-01
+=== [T] : (  3,  3) ===
+           (  1)           (  2)           (  3)     
+(  1)  1.61168440E+01  4.89897949E+00  5.68558108E-16
+(  2) -4.99901156E-27 -1.11684397E+00  2.27776519E-16
+(  3)  0.00000000E+00 -3.06646861E-20 -1.28803904E-16
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>hess(<A HREF="node90.htm#man_hess">2.91</A>), qr(<A HREF="node167.htm#man_qr">2.168</A>), qz(<A HREF="node170.htm#man_qz">2.171</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

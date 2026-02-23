@@ -1,0 +1,1219 @@
+<HTML>
+<HEAD>
+<TITLE> MaTXの更新情報 </TITLE>
+<LINKREV="made" HREF="mailto:matx-support@matx.org">
+</HEAD>
+
+<BODY BGCOLOR=FloralWhite>
+
+<! ----------------------------------------------------------------------->
+　<BR>
+
+<H1><FONT COLOR="blue">更新情報</FONT></A></H1>
+
+<TABLE CELLSPACING="10">
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.13</FONT></TD>
+<TD><FONT COLOR="green">(2003年3月5日)</TD>
+<TD>
+バージョン5.3.9で行った配列型とスカラ型の加算と減算を配列演算子
+「.+」と「.-」に関する修正の結果生じたmatcのバグ(coredump)を修正した。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.12</FONT></TD>
+<TD><FONT COLOR="green">(2003年1月18日)</TD>
+<TD>
+Windows MEで関数 accept() を使用すると，失敗する問題に対処しました。
+(岩瀬＠電機大さんに感謝)
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.11</FONT></TD>
+<TD><FONT COLOR="green">(2003年1月18日)</TD>
+<TD>
+Borland C++版で数値(実数)を入力すると，文字列から数値に変換されるとき，
+単精度で変換される問題を修正したとき(5.3.8)，Visual C++版の精度に
+影響を与えてしまった問題を修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.10</FONT></TD>
+<TD><FONT COLOR="green">(2003年1月10日)</TD>
+<TD>
+Windows ME/2000/XPでは，ソケットディスクリプタの数字が1024以上に
+なることがあり，その場合，util.h で定義されている MAX_FILE_NUMBER より
+値が大きくなるので，ソケットのオープンに失敗します。
+そこで，util.h の MAX_FILE_NUMBER を1024から4096に変更しました。
+(西村@東芝さんに感謝)
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.9</FONT></TD>
+<TD><FONT COLOR="green">(2003年1月9日)</TD>
+<TD>
+配列型とスカラ型の加算と減算を配列演算子「.+」と「.-」を用いなくても
+通常の加算演算子「+」と減算演算子「-」で計算できるようになりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.8</FONT></TD>
+<TD><FONT COLOR="green">(2003年1月7日)</TD>
+<TD>
+Borland C++版で数値(実数)を入力すると，文字列から数値に変換されるとき，
+単精度で変換される問題を修正しました。(西村@東芝さんに感謝)<BR><BR>
+実シュア分解された結果から複素シュア分解を行う関数rsf2csf()を改良し，
+分解の精度が向上しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.7</FONT></TD>
+<TD><FONT COLOR="green">(2002年11月28日)</TD>
+<TD>
+行列の成分を行毎にソートする関数sort_row()および
+行列の成分を列毎にソートする関数sort_col()で複素行列を
+ソートすると，0x0の指数が返されるバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.6</FONT></TD>
+<TD><FONT COLOR="green">(2002年11月22日)</TD>
+<TD>
+
+QR分解<BR><BR>
+
+<FONT COLOR="blue">{Q,R,P} = qr_p(A);</FONT><BR><BR>
+
+について，行列Pの0であるべき成分が0でない値となるバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.5</FONT></TD>
+<TD><FONT COLOR="green">(2002年10月4日)</TD>
+<TD>
+浮動小数点数演算に関する，IEEE754の規格に従う現在の丸めのモードを
+取得する関数を追加しました。<BR><BR>
+
+<FONT COLOR="blue">int fpu_round_state(void);</FONT><BR>
+
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.4</FONT></TD>
+<TD><FONT COLOR="green">(2002年7月4日)</TD>
+<TD>
+複素行列の特異値分解を関数svd()で求めると，誤った値が返されるバグを
+修正しました。このバグは，5.2.25～5.3.3に存在します。
+なお，実行列の特異値分解には，関係ありません。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.3</FONT></TD>
+<TD><FONT COLOR="green">(2002年6月22日)</TD>
+<TD>
+Visual C++版およびBorland C++版のmatx(インタプリタ)で，プログラムの
+実行中にCtrl-Cを入力しても処理を中断できない問題が見つかりました。
+signal()関数で設定された処理が別スレッドで実行されるためです。
+とりあえず，Ctrl-Cが入力されると，matx本体を終了するようにしました。
+残念ながら、matxのコマンドラインに実行を戻せません。
+</TD>
+</TR>
+
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.2</FONT></TD>
+<TD><FONT COLOR="green">(2002年5月11日)</TD>
+<TD>
+mgplotに，以下の関数を追加しました。
+
+<TABLE>
+<TR><TD>mgplot_ps()</TD><TD>グラフをpsコードで保存</TD></TR>
+<TR><TD>mgplot_psplus()</TD><TD>グラフをps plusコードで保存
+(<A HREF="http://www.h2.dion.ne.jp/~yamaga/gnuplot/">gnupot+</A>)</TD><TD>
+<TR><TD>mgplot_eps()</TD><TD>グラフをepsコードで保存</TD><TD>
+<TR><TD>mgplot_epsplus()</TD><TD>グラフをeps plusコードで保存
+(<A HREF="http://www.h2.dion.ne.jp/~yamaga/gnuplot/">gnupot+</A>)</TD><TD>
+<TR><TD>mgplot_fig()</TD><TD>グラフをFIGコードで保存</TD><TD>
+</TABLE><BR>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.1</FONT></TD>
+<TD><FONT COLOR="green">(2002年2月12日)</TD>
+<TD>
+共有ライブラリ中の関数を install で登録するとき，
+3番目の引数に install("afo.so", "foo", "global")のように
+"global"を指定することで、ライブラリ中の外部シンボルを
+他の共有ライブラリから参照できるように設定できるようになりました。
+デフォルトでは、外部シンボルは他の共有ライブラリから参照できません。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.3.0</FONT></TD>
+<TD><FONT COLOR="green">(2002年2月10日)</TD>
+<TD>
+gcc を使用する環境で，共有ライブラリの動的読み込みができるようになりました。
+共有ライブラリは，MM-ファイルから簡単に作成できます。
+MM-ファイルをインタプリタで実行するより、共有ライブラリを作成して
+実行する方が，高速に処理できます。
+つまり，インタプリタの手軽さとコンパイラの高速処理の両方を合わせもつ
+環境ができました。
+簡単なゲートウェイ関数を準備することで、いろいろな共有ライブラリ中の
+関数をMaTXのインタプリタから呼び出せます。
+<BR><BR>
+MM-ファイルafo.mmから共有ライブラリafo.soを作成するには，-so オプションを
+次のように使用します。
+<BR><BR>
+matc  -so  -c  afo.mm<BR><BR>
+作成した共有ライブラリをインタプリタに読み込むには，<BR><BR>
+load "afo.so"<BR><BR>
+を実行します。ファイルが読み込まれたことは，<BR><BR>
+which afo<BR><BR>
+または<BR><BR>
+what<BR><BR>
+で確かめられます。
+<BR><BR>
+共有ライブラリファイルが読み込まれると，自動的に
+関数 afo() がインタプリタに登録され，組み込み関数と同様に使用できます。
+<BR><BR>
+1つの共有ライブラリに複数の関数が定義されている場合、関数 install()
+を用いて，選択的に関数をインタプリタに登録できます。例えば、
+ファイル libafo.mm 中で定義されている関数 foo() と bar() をインタ
+プリタに登録したい場合，共有ライブラリファイル libafo.so を作成した
+後で，次のようにします。<BR><BR>
+install("libafo.so", "foo");<BR>
+install("libafo.so", "bar");<BR><BR>
+共有ライブラリへのゲートウェイ関数は「matc -so -mm」で生成される
+C言語のファイルを参照すれば、簡単に作成できます。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.28</FONT></TD>
+<TD><FONT COLOR="green">(2002年1月6日)</TD>
+<TD>
+完全ガンマ関数の値を計算する関数gammac()，
+不完全ガンマ関数の値を計算する関数gammai()，
+引数の値に応じて(完全|不完全)ガンマ関数の値を計算する関数gammaf()，
+誤差関数の値を計算する関数erf()，誤差関数の逆関数の値を計算する関数
+inverf()が追加されました。<BR><BR>
+DJGPP版の開発環境を DJGPP-2.03 に移行しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.27</FONT></TD>
+<TD><FONT COLOR="green">(2001年12月22日)</TD>
+<TD>
+同時にオープンできるファイルの数を100から1024へ変更しました。
+ソケットのオープンに関するチェックを厳しくしました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.26</FONT></TD>
+<TD><FONT COLOR="green">(2001年12月21日)</TD>
+<TD>
+可変個引数をとる関数内でエラーが発生したとき、va_end()を呼び出していない
+関数があったので，修正しました。(MaTXライブラリ内部の問題修正)<BR><BR>
+
+不整合な大きさの行列を連結しようとしてエラーが発生すると、
+動作が不安定になる問題を修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.25</FONT></TD>
+<TD><FONT COLOR="green">(2001年12月19日)</TD>
+<TD>
+RtMaTXを用いて複素行列の逆行列などを計算すると、ComplexValueDef()
+に関するエラーが発生する問題を解決するため
+行列ライブラリの中で使用していたComplexValueDef()とComplexValueDestroy()
+を削除しました。
+control/TFinv.mm と control/canon.mm を修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.24</FONT></TD>
+<TD><FONT COLOR="green">(2001年11月1日)</TD>
+<TD>
+メモリ管理の仕組みが改良され、メモリの再利用率が上がりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.23</FONT></TD>
+<TD><FONT COLOR="green">(2001年10月30日)</TD>
+<TD>
+多項式のその次数以上の係数に値を代入すると，自動的に多項式の次数が
+増加するようになりました。ただし，自動拡大機能を繰り返し用いると，
+処理時間が長くなり、メモリ効率も悪くなるので，各係数に値を代入する場合は，
+最大次数の係数から値を代入する方が良いです。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.22</FONT></TD>
+<TD><FONT COLOR="green">(2001年9月25日)</TD>
+<TD>
+環境変数 STRING_TABLE_MAX, POLYNOMIAL_TABLE_MAX, COMPLEX_TABLE_MAX, 
+RATIONAL_TABLE_MAX, MATRIX_TABLE_MAX, LIST_TABLE_MAX, 
+によってガーベージコレクション表のサイズを設定しない場合、
+ハードウェアやOSによる限界までオブジェクト(行列など)を
+登録できるようになりました。たくさんの行列を含む関数の計算時間が
+短くなるかもしれません。また，RtMaTXで長いコードを含む関数on_task()
+が実行可能になります。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.21</FONT></TD>
+<TD><FONT COLOR="green">(2001年9月24日)</TD>
+<TD>
+RtMaTXのクリティカルセクションの管理を厳しく行うようになりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.20</FONT></TD>
+<TD><FONT COLOR="green">(2001年9月7日)</TD>
+<TD>
+matc に -withlog オプションを指定すると，コンパイル中のエラー
+メッセージがログファイル MaTX.log (Windows の場合 MaTX_log.txt)
+に保存されるようになりました。これまでは，コンパイルで生成された
+実行ファイルの実行中に発生するエラーメッセージのみがログファイルに
+保存されていました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.19</FONT></TD>
+<TD><FONT COLOR="green">(2001年9月6日)</TD>
+<TD>
+環境変数設定のためのメモリバッファが足りなかったため，
+環境変数MATXDIRやINCLUDEが長すぎると，プログラムが停止するバグ
+が修正されました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.18</FONT></TD>
+<TD><FONT COLOR="green">(2001年9月6日)</TD>
+<TD>
+オプション -v を指定すると、環境変数の設定状況も表示するように
+なりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.17</FONT></TD>
+<TD><FONT COLOR="green">(2001年9月5日)</TD>
+<TD>
+Windows版について，Windows NT/2000 のレジストリの読み込みに関する
+バグが修正され，Visual C++ のインストールパス等が正しく設定される
+ようになりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.16</FONT></TD>
+<TD><FONT COLOR="green">(2001年8月2日)</TD>
+<TD>
+行列を型変換関数Polynomial()で多項式に変換するとき、
+ゼロ係数を消去するようになりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.15</FONT></TD>
+<TD><FONT COLOR="green">(2001年8月1日)</TD>
+<TD>
+matcにオプション<FONT COLOR="red">-MM</FONT>でMM-fileのパスを
+指定しても，有効に機能しないバグが修正されました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.14</FONT></TD>
+<TD><FONT COLOR="green">(2001年7月28日)</TD>
+<TD>
+環境変数<FONT COLOR="red">MATXCC</FONT>で，
+matcが呼び出すCコンパイラを指定できるようになりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.13</FONT></TD>
+<TD><FONT COLOR="green">(2001年7月20日)</TD>
+<TD>
+<A HREF="http://www.linuxppc.ne.jp/"> LinuxPPC 2000 </A>に対応しました。
+LinuxPPC版の開発では，田島世貴様とアミュレット様
+にお世話になりました。感謝致します。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.12</FONT></TD>
+<TD><FONT COLOR="green">(2001年7月18日)</TD>
+<TD>成分毎の差を求める演算子 .- のオペレータの順が逆になるバグを
+修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.11</FONT></TD>
+<TD><FONT COLOR="green">(2001年6月6日)</TD>
+<TD>matcがCコンパイラに渡す情報を入れるレスポンスファイルmatc.rsp
+を生成するとき，"matc is generating matc.rsp"というメッセージを
+出力するようにしました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.10</FONT></TD>
+<TD><FONT COLOR="green">(2001年4月9日)</TD>
+<TD>最高次の係数が1でない複素多項式の根を関数 roots() で求めると，
+誤った結果が得られるバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.9</FONT></TD>
+<TD><FONT COLOR="green">(2001年3月26日)</TD>
+<TD>定義済みマクロシンボルを無効化するオプション"-U"を追加しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.8</FONT></TD>
+<TD><FONT COLOR="green">(2001年3月18日)</TD>
+<TD>オプション -checkarg をつけて実行し，関数内で引数が書き換えられたとき，
+その引数だけでなく関数の名前も表示されるようになりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.7</FONT></TD>
+<TD><FONT COLOR="green">(2001年3月13日)</TD>
+<TD>read <- で0×0の行列をファイルから読み込むと，efree(0)というエラーが
+発生する問題を修正しました。
+</TD>
+</TR>
+
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.6</FONT></TD>
+<TD><FONT COLOR="green">(2001年2月27日)</TD>
+<TD>シミュレーション中に過去のデータを参照するための関数 OdeXY() の
+機能が拡張されました。<BR><BR>
+
+<TABLE>
+<TR><TD>OdeXY()</TD><TD>過去の全てのデータ</TD></TR>
+<TR><TD>OdeXY(t)</TD><TD>(過去の)時刻tのデータ</TD><TD>
+<TR><TD>OdeXY(t1,t2)</TD><TD>(過去の)時刻t1～t2のデータ</TD><TD>
+</TABLE><BR>
+
+<FONT COLOR="red">ただし，OdeXY()を多用すると計算時間が長くなり，
+メモリが大量に消費されます。</FONT>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.5</FONT></TD>
+<TD><FONT COLOR="green">(2001年2月18日)</TD>
+<TD>行列データをファイルから<BR><BR>
+
+<FONT COLOR="blue"> read　a　<<　"file.mat"</FONT><BR><BR>
+
+で読み込むとき，ファイルが<FONT COLOR="blue">MATフォーマット</FONT>
+(１行目が「# 行数 列数」で始まる)でないとき，ファイル中のテキストと
+同一の行列が生成されるようになりました。例えば<BR>
+
+--------------<BR>
+1　2　3<BR>
+4　5　6<BR>
+--------------<BR>
+
+という内容のファイルを読み込むと<BR>
+
+ ===　a　(　 2　x　 3)　Matrix　===<BR>
+　　　　　　(  1)　　　　　　(  2)　　　　　(  3)     <BR>
+ (  1)　1.00000000E+00　2.00000000E+00　3.00000000E+00<BR>
+ (  2)　4.00000000E+00　5.00000000E+00　6.00000000E+00<BR><BR>
+
+が生成され<BR>
+
+--------------<BR>
+#　3　2<BR>
+1　2　3<BR>
+4　5　6<BR>
+--------------<BR>
+
+という内容のファイルを読み込むと<BR>
+
+ ===　a　(　 3　x　 2)　Matrix　===<BR>
+　　　　　　(  1)　　　　　(  2)     <BR>
+ (  1)　1.00000000E+00　4.00000000E+00<BR>
+ (  2)　2.00000000E+00　5.00000000E+00<BR>
+ (  3)　3.00000000E+00　6.00000000E+00<BR><BR>
+
+が生成されます。<FONT COLOR="red">ただし，MATフォーマットでない
+ファイルの読み込みには，多少時間がかかります。特別な理由が無い限り，
+MATフォーマットを使用して下さい。</FONT>
+
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.4</FONT></TD>
+<TD><FONT COLOR="green">(2001年2月15日)</TD>
+<TD>Windows 版について，エラーメッセージや警告メッセージを出力する
+ファイルの名前が<FONT COLOR="blue">MaTX.log</FONT>から
+<FONT COLOR="blue">MaTX_log.txt</FONT>に変更されました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.3</FONT></TD>
+<TD><FONT COLOR="green">(2001年2月5日)</TD>
+<TD>関数fread()でデータを読み込むとき，1個もデータを読み込まずに，
+ファイルの終り(EOF)に達した場合は，警告メッセージを表示しない
+ようになりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.2</FONT></TD>
+<TD><FONT COLOR="green">(2001年2月2日)</TD>
+<TD>Borland C++ 版で，cpp32 の代わりに cpp を呼び出したとき，
+発生するエラー「Can't open srcfile」に関するバグを修正しました。<BR><BR>
+
+Windows版に収録しているgnuplot を gnuplot-3.7+1.2.0 に更新しました。<BR><BR>
+
+デモ(demo.mm)に３次元プロットの例を追加しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.1</FONT></TD>
+<TD><FONT COLOR="green">(2001年2月1日)</TD>
+<TD>appendlist()を実行すると発生する「core dump」あるいは 
+「不正な処理をしました」に関するバグを修正しました。
+</TD>
+</TR>
+
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.2.0</FONT></TD>
+<TD><FONT COLOR="green">(2001年1月30日)</TD>
+<TD><FONT COLOR="blue">ソケット</FONT>を
+用いたネットワーク通信ができるようになりました。
+UNIXでもWindowsでも同じ操作で，簡単にネットワーク通信ができます。
+基本的には，C言語のソケットプログラミングと同じ手順です。
+<FONT COLOR="blue">tcp_demo.mm</FONT>，
+<FONT COLOR="blue">udp_demo.mm</FONT>，
+<FONT COLOR="blue">http_get.mm</FONT>が参考になります。<BR><BR>
+
+  load "http_get.mm"<BR>
+  http_get("http://www.matx.org/MaTX.html")<BR><BR>
+
+で MaTX の Web ページのファイルを入手できます。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.20</FONT></TD>
+<TD><FONT COLOR="green">(2001年1月18日)</TD>
+<TD> 3次元空間に点または線をプロットする関数
+<FONT COLOR="blue">mgplot3()</FONT>と
+3次元空間に平面を描く関数
+<FONT COLOR="blue">mgplot3_surface()</FONT>を追加しました。<BR><BR>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.19</FONT></TD>
+<TD><FONT COLOR="green">(2001年1月16日)</TD>
+<TD> 一般化固有値問題を解く関数eig(A,B)とQZ分解をする関数qz(A,B)
+に非正則な行列Bを与えたとき，正しい固有値を返すが，誤った固有ベクトル
+を返すバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.18</FONT></TD>
+<TD><FONT COLOR="green">(2001年1月6日)</TD>
+<TD> Visual C++ のコンパイラへのオプション -TC を -Tc に
+変更しました。これは，Visual C++ 4.0 に対応するための変更です。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.17</FONT></TD>
+<TD><FONT COLOR="green">(2000年12月8日)</TD>
+<TD> Ode関数に渡す引数について，diff_eqs関数が行列型で，
+link_eqs関数を省略したとき，発生する問題を修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.16</FONT></TD>
+<TD><FONT COLOR="green">(2000年12月6日)</TD>
+<TD> パイプ(popen)による双方向通信に関するバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.15</FONT></TD>
+<TD><FONT COLOR="green">(2000年11月19日)</TD>
+<TD> 浮動小数点数演算において，IEEE754の規格に従う丸めのモードを
+指定する関数を追加しました。<BR><BR>
+
+<FONT COLOR="blue">void fpu_round_down(void);</FONT> 下向きの丸め<BR>
+<FONT COLOR="blue">void fpu_round_near(void);</FONT> 最近点への丸め<BR>
+<FONT COLOR="blue">void fpu_round_up(void);</FONT>   上向きの丸め<BR>
+<FONT COLOR="blue">void fpu_round_zero(void);</FONT> ゼロへの丸め(切り捨て)<BR>
+
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.14</FONT></TD>
+<TD><FONT COLOR="green">(2000年11月12日)</TD>
+<TD> 
+行列 A に対して，<BR><BR>
+
+   norm(A,Inf)   で最大ノルム<BR>
+   norm(A,"fro") でフロベニウスノルム<BR><BR>
+
+を計算できるようになりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.13</FONT></TD>
+<TD><FONT COLOR="green">(2000年11月11日)</TD>
+<TD> 
+save コマンドに関する matc のバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.12</FONT></TD>
+<TD><FONT COLOR="green">(2000年11月10日)</TD>
+<TD> 
+フリーなコンパイラ <FONT COLOR="blue">Borland C++ 5.5.1</FONT>
+に対応しました。<BR><BR>
+
+Borland C++ 5.5.1 は，
+<A HREF="http://www.inprise.co.jp/cppbuilder/freecompiler/index.html">
+インプライズ社のWebページ</A>から入手できます。<BR><BR>
+
+また，C マガジン (2000年5月号)の付録CD-ROMに収録されています。
+(インストール方法も説明されています)<BR><BR>
+
+<A HREF="http://www.neco.nu/gohodoji/bccfaq.html">
+「Borland C++ Compiler 5.5　FAQ」</A>に詳しい説明があります。
+
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.11.1</FONT></TD>
+<TD><FONT COLOR="green">(2000年11月9日)</TD>
+<TD> 
+orth.mm に非正方の行列を引数に与えるエラーとなる問題を修正しました。
+以下のファイルに置き換えてください。<BR><BR>
+
+<A HREF="ftp://ftp.matx.org/pub/MaTX/PATCH-unix/patch-5.1.11/MaTX/inputs/matrix/orth.mm">MaTX/inputs/matrix/orth.mm</A><BR>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.11</FONT></TD>
+<TD><FONT COLOR="green">(2000年11月4日)</TD>
+<TD> 
+Ode関数群関係のプロトタイプを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.10</FONT></TD>
+<TD><FONT COLOR="green">(2000年10月31日)</TD>
+<TD> 関数 Z(), I(), ONE() に適当でない引数を渡すと，プログラムが暴走
+する問題を修正しました。<BR><BR>
+
+リファレンスマニュアルとユーザーズマニュアルのhtmlファイルを
+参照する関数  void <FONT COLOR="blue">man</FONT>() を追加しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.9</FONT></TD>
+<TD><FONT COLOR="green">(2000年10月28日)</TD>
+<TD> mgplotが起動する gnuplot へのオプションを環境変数
+<FONT COLOR="red">MGPLOT_OPTIONS</FONT>で
+設定できるようになりました。オプションを設定する関数 mgplot_options
+を併用すると，両方のオプションが gnuplot へ渡されます。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.8</FONT></TD>
+<TD><FONT COLOR="green">(2000年10月27日)</TD>
+<TD> MaTXのソースコードの関数定義をK&R型からANSI型に変更しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.7</FONT></TD>
+<TD><FONT COLOR="green">(2000年10月24日)</TD>
+<TD> 関数呼び出しに関連するメモリリークの問題を解決しました。<BR><BR>
+
+野中＠武蔵工業大学さんの提案で，MaTXに関連するファイル
+(.mm ファイルと .mat ファイル)にいくつかの関連付けを行いました。<BR><BR>
+
+この機能を使えば，DOS窓を開いて，コマンドラインでコマンドを
+入力しなくても，MaTXのプログラミングができます。<BR><BR>
+
+関連付けされる機能は以下の通りです。<BR><BR>
+
+<OL>
+<FONT COLOR="blue"><LI></FONT>
+<FONT COLOR="red">.mm ファイル</FONT>
+の右クリックで，以下のメニューが選択できます。<BR><BR>
+
+<TABLE>
+<TR><TD><FONT COLOR="blue">「matxで実行」</FONT>
+</TD><TD>(これはダブルクリックと同じ)</TD></TR>
+<TR><TD><FONT COLOR="blue">「エディタで編集」</FONT></TD><TD>
+(環境変数 <FONT COLOR="red">MATXEDITOR</FONT>
+で指定されたエディタが起動)</TD></TR>
+<TR><TD><FONT COLOR="blue">「matcでコンパイル」</FONT></TD><TD>
+(1個のファイルしかコンパイルできません)</TD></TR>
+</TABLE>
+
+<FONT COLOR="blue"><LI></FONT>
+<FONT COLOR="red">.mat ファイル</FONT>
+の右クリックで，以下のメニューが選択できます。<BR><BR>
+
+<TABLE>
+<TR><TD><FONT COLOR="blue">「matedで編集」</FONT>
+</TD><TD>(これはダブルクリックと同じ)</TD></TR>
+<TR><TD><FONT COLOR="blue">「エディタで編集」</FONT></TD><TD>
+(環境変数 <FONT COLOR="red">MATXEDITOR</FONT>
+ で指定されたエディタが起動)</TD></TR>
+</TABLE>
+<BR>
+
+   「エディタので編集」を選択したとき，DOS窓がオープンされる場合があり
+    ます。その場合は，DOS窓のプロパティの「プログラム」の設定で<BR><BR>
+
+<TABLE>
+<TR><TD>(a) 実行時の大きさ</TD><TD> ---></TD><TD>最小化の状態</TD></TR>
+<TR><TD>(b) プログラム終了時にウィンドウを閉じる</TD><TD>---></TD><TD>
+チェック</TD></TR>
+</TABLE>
+<BR>
+
+    のように設定してください。<BR><BR>
+</OL>
+
+また，以下の変更を行いました。<BR><BR>
+
+<OL>
+<LI>スタートメニューからmatxを実行した場合の，作業フォルダは
+    環境変数<FONT COLOR="red"> MATXHOME </FONT>で指定されたフォルダになります。
+    デフォルトの値は以下の通りです。
+<PRE>
+    Windows95/98:
+      MATXHOME=<WINSYSDISK>\My Documents
+
+    WindowsNT:
+      MATXHOME=%USERPROFILE%\Personal
+</PRE>
+
+<LI>インストール時，デスクトップに、"matx"へのショートカットが
+    置かれます。<BR><BR>
+
+    ※アンインストールすると，このショートカットは削除されます。
+</OL>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.6.3</FONT></TD>
+<TD><FONT COLOR="green">(2000年10月23日)</TD>
+<TD> Windows版に含まれる bench.mm の文字コードが EUC
+となっていたので，SJIS に変更しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.6.2</FONT></TD>
+<TD><FONT COLOR="green">(2000年10月23日)</TD>
+<TD> MaTX/inputs/control/lyap.mm の計算に誤りがありました。
+バージョン 5.1.0 以降に含まれる lyap.mm を以下の修正版に置き換えてくだ
+さい。<BR><BR>
+
+<A HREF="ftp://ftp.matx.org/pub/MaTX/PATCH-unix/patch-5.1.6.2/MaTX/inputs/control/lyap.mm">MaTX/inputs/control/lyap.mm</A><BR>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.6.1</FONT></TD>
+<TD><FONT COLOR="green">(2000年10月22日)</TD>
+<TD> bench.mm に全角のスペースが含まれていたので削除しました。
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.6</FONT></TD>
+<TD><FONT COLOR="green">(2000年10月19日)</TD>
+<TD> fread がデータの読込みに失敗すると，警告を出力するようになりまし
+た。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.5</FONT></TD>
+<TD><FONT COLOR="green">(2000年10月4日)</TD>
+<TD> VC++版について，環境変数 MATXCPP に 'cl' が設定されている場合は，
+cl を Cプリプロセッサとして使用するようにしました。MaTX本に書かれてい
+る仕様に合わせました。(5.1.3で生じた仕様とのギャップを修正しました。)
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.4</FONT></TD>
+<TD><FONT COLOR="green">(2000年10月2日)</TD>
+<TD>複素数の代入文をmatcでコンパイルすると正しいコードが生成されない
+問題を修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.3</FONT></TD>
+<TD><FONT COLOR="green">(2000年9月15日)</TD>
+<TD>WindowsのVC++版のデフォルトのCプリプロセッサをclにしました。
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.2</FONT></TD>
+<TD><FONT COLOR="green">(2000年9月14日)</TD>
+<TD>Ode関数群の引数として Matrix 型の diff_eqs や link_eqs を渡すと，
+関数の実行後に，無名シンボルが残る問題を修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.1</FONT></TD>
+<TD><FONT COLOR="green">(2000年8月30日)</TD>
+<TD>WindowsのVC++版でCプリプロセッサとして，clを正しく
+呼び出せるようになりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.1.0</FONT></TD>
+<TD><FONT COLOR="green">(2000年8月29日)</TD>
+<TD>ディレクトリ MaTX/inputs 以下のMM-ファイルを大幅に整理し，
+バージョンを5.1.0に変更しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.27</FONT></TD>
+<TD><FONT COLOR="green">(2000年8月22日)</TD>
+<TD>関数diag()に正方でない行列も渡せるようになりました。
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.26</FONT></TD>
+<TD><FONT COLOR="green">(2000年8月4日)</TD>
+<TD>文字列中の文字を位置を後ろから調べる関数strrchr()を追加
+しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.25</FONT></TD>
+<TD><FONT COLOR="green">(2000年7月26日)</TD>
+<TD>関数isinf()がmatcで，正しく動作しないバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.24</FONT></TD>
+<TD><FONT COLOR="green">(2000年7月22日)</TD>
+<TD>Cプリプロセッサが出力した付加情報行の次の行で parse エラーが
+発生すると，付加情報行もいっしょに表示されるバグを修正しました。
+<BR><BR>
+
+matc のインタラクティブモードで，tab のコードが含まれると
+動作がおかしくなる問題を修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.23</FONT></TD>
+<TD><FONT COLOR="green">(2000年7月21日)</TD>
+<TD>実行列の成分に，(複素数|多項式|有理多項式)を代入できるように
+なりました。また，複素行列への(多項式|有理多項式)の代入，
+多項式行列への有理多項式の代入もできるようになりました。
+なお，実行列のある成分に(複素数|多項式|有理多項式)を代入すると，
+その行列は(複素|多項式|有理多項式)行列に変換されます。<BR><BR>
+
+A = Z(2,2);<BR>
+s = Polynomial("s");<BR>
+A(1,1) = 1;　　　　　　　　　// A は実行列<BR>
+A(1,2) = (0,1);　　　　　　　// A は複素行列に変換される<BR>
+A(2,1) = s;　　　　　　　　　// A は多項式行列に変換される<BR>
+A(2,2) = 1/s;　　　　　　　　// A は有理多項式行列に変換される<BR>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.22</FONT></TD>
+<TD><FONT COLOR="green">(2000年7月20日)</TD>
+<TD>MaTXに関連するファイルを 1 個も指定しないで matc を起動すると，
+エラーメッセージを出力し，終了するようになりました。
+ただし，引数が 0 個のとき，プロンプトを出力し，
+インタラクティブモードで起動します。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.21</FONT></TD>
+<TD><FONT COLOR="green">(2000年7月19日)</TD>
+<TD>(行列|配列|指数)の出力フォーマットを改良し，
+型(行列|配列|指数)を表示するようになりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.20</FONT></TD>
+<TD><FONT COLOR="green">(2000年7月2日)</TD>
+<TD>マイナス無限大が  -Inf  と表示されるようになりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.19</FONT></TD>
+<TD><FONT COLOR="green">(2000年6月30日)</TD>
+<TD>mgplot内部の文字列管理を改良し，mgplotの高速化を行いました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.18</FONT></TD>
+<TD><FONT COLOR="green">(2000年6月29日)</TD>
+<TD>インタープリタ matx において，関数 error() の引数に
+長さが0の文字列を渡しても，プログラムが停止するバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.17</FONT></TD>
+<TD><FONT COLOR="green">(2000年6月29日)</TD>
+<TD>インタープリタ matx において，関数 error() で
+プログラムを停止できないバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.16</FONT></TD>
+<TD><FONT COLOR="green">(2000年6月29日)</TD>
+<TD>ブロック行列の参照
+AA(区間,整数,ピース行列)とAA(整数,区間,ピース行列) で，
+正しい大きさの行列が得られないバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.15</FONT></TD>
+<TD><FONT COLOR="green">(2000年6月28日)</TD>
+<TD>
+LaTeX ライクな文字や日本語をラベルとして含むグラフをポスト
+スクリプトファイルに出力する関数 mgplot_psplus()を追加しました。
+(<A HREF="http://www.h2.dion.ne.jp/~yamaga/gnuplot/">gnuplot+</A>
+の機能を用いる)
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.14</FONT></TD>
+<TD><FONT COLOR="green">(2000年6月26日)</TD>
+<TD>
+行列 A を<BR><BR>
+
+read A <- "A.mx";
+<BR><BR>
+
+で読み込むコード含むファイルを matc でコンパイルすると，<BR><BR>
+
+file.c:123: `<FONT COLOR="blue">MAT_T</FONT>' undeclared (first use in this function)
+<BR><BR>
+
+というエラーが発生するバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.13</FONT></TD>
+<TD><FONT COLOR="green">(2000年6月23日)</TD>
+<TD>
+行列 A を<BR><BR>
+
+print A -> "A.mx";
+<BR><BR>
+
+で保存するコード含むファイルを matc でコンパイルすると，<BR><BR>
+
+file.c:123: `<FONT COLOR="blue">MAT_T</FONT>' undeclared (first use in this function)
+<BR><BR>
+
+というエラーが発生するバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.12</FONT></TD>
+<TD><FONT COLOR="green">(2000年6月4日)</TD>
+<TD>
+fopen()のモードに文字<FONT COLOR="blue"> b </FONT>を付けると，
+「テキスト」ではなく「バイナリ」モードでファイルをオープン
+できるようになりました。
+<BR><BR>
+
+【例題】<BR>
+ 5 個の int 型のバイナリデータを読み込む。<BR>
+<BR>
+ fd = fopen("data", "rb");<BR>
+ B = fread(fd, 5, "int");<BR>
+ fclose(fd);<BR>
+<BR>
+ 行列 A を int 型のバイナリデータとして保存する。<BR>
+<BR> 
+ A = [1 2 3 4 5];<BR>
+ fd = fopen("data", "wb");<BR>
+ fwrite(fd, A, "int");<BR>
+ fclose(fd);<BR>
+<BR>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.11b</FONT></TD>
+<TD><FONT COLOR="green">(2000年5月21日)</TD>
+<TD>
+fsolve()で連立非線形方程式を解くと<BR><BR>
+
+pm(2x1)((1x2)) : Index is out of range in MatGetVecSubMatrix().
+Error was found in neconest() from nemodel() from fsolve() from main().
+<BR><BR>
+
+のようなエラーが発生するバグを修正しました。具体的には，
+関数 neconest() で使用するベクトル pm の大きさを考慮するように
+しました。
+
+以下のファイルを修正版に置き換えてください。<BR><BR>
+
+<A HREF="ftp://ftp.matx.org/pub/MaTX/PATCH-unix/patch-5.0.11/MaTX/inputs/matrix/fsolve.mm">MaTX/inputs/matrix/fsolve.mm</A><BR>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.11a</FONT></TD>
+<TD><FONT COLOR="green">(2000年5月21日)</TD>
+<TD>
+gammac()の引数が実数のとき，大きな誤差が生じる。<BR><BR>
+
+というバグを修正しました。これは，実数で割り算をすべきなのに
+整数で割り算をしていた箇所があったためです。
+
+以下のファイルを修正版に置き換えてください。<BR><BR>
+
+<A HREF="ftp://ftp.matx.org/pub/MaTX/PATCH-unix/patch-5.0.11/MaTX/inputs/matrix/gammac.mm">MaTX/inputs/matrix/gammac.mm</A><BR>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.11</FONT></TD>
+<TD><FONT COLOR="green">(2000年5月7日)</TD>
+<TD>
+行列のメモリ管理に関するバグを修正しました。<BR><BR>
+
+行列の計算中に core dump する場合は，このバージョンをお試し下さい。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.10</FONT></TD>
+<TD><FONT COLOR="green">(2000年5月3日)</TD>
+<TD>
+関数 error() を引数無しで呼び出すと動作が
+おかしくなるバグを修正しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.9a</FONT></TD>
+<TD><FONT COLOR="green">(2000年3月22日)</TD>
+<TD>
+fsolve.mmの例題を実行すると，<BR><BR>
+
+"file.mm", nelnsrch(List), Incorrect arguments
+Error was found in fsolve().<BR><BR>
+
+というエラーが発生するバグを修正しました。これは，
+fsolve から呼ばれる nelnsrch の呼び出しの時，
+btrack という行列が未定義なところから起きていたからです。
+
+以下のファイルを修正版に置き換えてください。<BR><BR>
+
+<A HREF="ftp://ftp.matx.org/pub/MaTX/PATCH-unix/patch-5.0.9/MaTX/inputs/matrix/fsolve.mm">MaTX/inputs/matrix/fsolve.mm</A><BR>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.9</FONT></TD>
+<TD><FONT COLOR="green">(2000年3月18日)</TD>
+<TD>
+複素数型の関数を定義すると，<BR><BR>
+
+"func(Undefine)", Redeclaration of function (Class)<BR><BR>
+
+というエラーが発生するバグを修正しました。これは，
+ダイナミックリンク導入準備で混入したバグであり，
+ver. 5.0.7 と ver. 5.0.8 に存在します。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.8</FONT></TD>
+<TD><FONT COLOR="green">(2000年3月15日)</TD>
+<TD>
+Windowsで，mgplotが環境変数MATXGNUPLOTを参照する代りに
+gnuplotを呼び出すためのラッパーpgnuplotが環境変数
+MATXGNUPLOTを参照するように変更しました。
+以下のファイルを修正版に置き換えてください。<BR><BR>
+
+<A HREF="ftp://ftp.matx.org/pub/MaTX/PATCH-windows/patch-5.0.7-5.0.8/MaTX/bin/pgnuplot.exe">MaTX/bin/pgnuplot.exe</A><BR>
+
+<A HREF="ftp://ftp.matx.org/pub/MaTX/PATCH-windows/patch-5.0.7-5.0.8/MaTX/inputs/graph/mgplot.mm">MaTX/inputs/graph/mgplot.mm</A>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.7</FONT></TD>
+<TD NOWRAP><FONT COLOR="green">(2000年3月14日)</TD>
+<TD>
+相関係数を求める関数corrcoef_col()とcorrcoef_row()
+が正しい結果を返すよう修正しました。
+以下のファイルを修正版に置き換えてください。<BR><BR>
+
+(Windows用)<BR>
+<A HREF="ftp://ftp.matx.org/pub/MaTX/PATCH-windows/patch-5.0.6-5.0.7/MaTX/inputs/matrix/corrcoef.mm">MaTX/inputs/matrix/corrcoef.mm</A><BR>
+
+<A HREF="ftp://ftp.matx.org/pub/MaTX/PATCH-windows/patch-5.0.6-5.0.7/MaTX/inputs/ja/matrix/corrcoef.mm">MaTX/inputs/ja/matrix/corrcoef.mm</A><BR><BR>
+
+(Unix用)<BR>
+<A HREF="ftp://ftp.matx.org/pub/MaTX/PATCH-unix/patch-5.0.6-5.0.7/MaTX/inputs/matrix/corrcoef.mm">MaTX/inputs/matrix/corrcoef.mm</A><BR>
+
+<A HREF="ftp://ftp.matx.org/pub/MaTX/PATCH-unix/patch-5.0.6-5.0.7/MaTX/inputs/ja/matrix/corrcoef.mm">MaTX/inputs/ja/matrix/corrcoef.mm</A><BR><BR>
+
+標準偏差を求める関数 std(), std_col(), std_row()
+について，データの個数 N ではなく，N-1 で平均偏差の和を
+割るよう修正しました。標本分散から不偏分散に変更しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.6</FONT></TD>
+<TD><FONT COLOR="green">(2000年2月19日)</TD>
+<TD>
+ヘッダファイルのディレクトリを指定するオプション
+-MM をWindows版で指定したとき，ロングファイル名
+からショートファイル名への変換が正しくできない
+場合があったので修正しました。<BR><BR>
+
+大きな行列などを作成しようとしてメモリが足り
+無い場合でも，プログラムを終了せず，エラー
+リカバリーするようになりました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.5</FONT></TD>
+<TD><FONT COLOR="green">(2000年1月28日)</FONT></TD>
+<TD>
+ファイルを削除する関数 remove() とファイルの名前を
+変更する関数 rename() を追加しました。
+ディレクトリを作成する関数 mkdir()，ディレクトリを
+削除する関数 rmdir() を追加し，ディレクトリを変更する
+コマンド chdir を関数 chdir() に変更しました。
+mgplot.mmのsystem("rm " + file)をremove()を使うよう
+修正しました。データファイルの削除が高速化されたはず？
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.4</FONT></TD>
+<TD><FONT COLOR="green">(2000年1月25日)</FONT></TD>
+<TD>
+ユーティリティ関数の名前を統一するため組み込み関数の
+内部関数の名前をmatx_name()からfunc_name()に変更しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.3</FONT></TD>
+<TD><FONT COLOR="green">(2000年1月18日)</FONT></TD>
+<TD>
+(VC++版) Windows NT で一般ユーザがレジストリにアクセス
+できるようにするため，レジストリをオープンする際の
+lpClassをKEY_ALL_ACCESSからKEY_QUERY_VALUEに変更しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.2</FONT></TD>
+<TD><FONT COLOR="green">(2000年1月18日)</FONT></TD>
+<TD>
+DJGPP版の開発環境を DJGPP-2.02 に移行しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0.1</FONT></TD>
+<TD><FONT COLOR="green">(2000年1月14日)</FONT></TD>
+<TD>
+Visual C++ 6.0に対応。matxとmatcのバージョンを統一。
+バージョン番号を3桁で表すことにしました。
+Solaris版のパッケージのインストール時に大量の警告が出る問題を
+解決しました。
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD><FONT COLOR="blue">5.0</FONT></TD>
+<TD><FONT COLOR="green">(2000年1月6日)</FONT></TD>
+<TD>
+MaTX本の発売に合わせて，バージョンを5.0としました。
+</TD>
+</TR>
+
+</TABLE>
+
+<! ----------------------------------------------------------------------->
+
+</BODY></HTML>

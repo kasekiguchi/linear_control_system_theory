@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>一般的な可変長引数関数</TITLE>
+<META NAME="description" CONTENT="一般的な可変長引数関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node95.htm">
+<LINK REL="up" HREF="node94.htm">
+<LINK REL="next" HREF="node97.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1791"
+ HREF="node97.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1787"
+ HREF="node94.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1783"
+ HREF="node95.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1789"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1790"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1792"
+ HREF="node97.htm">関数呼び出し (matx)</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1788"
+ HREF="node94.htm">可変長引数関数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1784"
+ HREF="node95.htm">リストを利用した可変長引数関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001142000000000000000">
+一般的な可変長引数関数</A>
+</H2><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  Func void foo()
+  {
+    Matrix a, b, c;
+    Matrix afo(...);
+
+    read a, b, c;
+
+    print afo();
+    print afo(a);
+    print afo(a, b);
+    print afo(a, b, c);
+  }
+
+  Func Matrix afo(a, b, c, ...)
+    Matrix a, b, c;
+  {
+    if (nargs == 0) {
+      return Z(0);
+    } else if (nargs == 1) {
+      return a;
+    } else if (nargs == 2) {
+      return a + b;
+    } else if (nargs == 3) {
+      return a + b + c;
+    }
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>可変長引数関数の定義は，引数リストの最後に``<code>...</code>''を追加することを除いて
+普通の関数の定義と変わらない。また，可変長引数関数を呼び出す側では，普通の
+関数を呼び出す時と同じように，関数を定義しなければならない。宣言の方法は，
+関数の型に続いて``関数名<code>(...)</code>''を書く。可変長引数関数が呼び出されると，
+呼出時に渡された引数の個数が，特別な変数 <code>nargs</code> にセットされる。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

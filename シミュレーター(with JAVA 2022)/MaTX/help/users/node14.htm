@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>コマンドライン履歴・編集</TITLE>
+<META NAME="description" CONTENT="コマンドライン履歴・編集">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node15.htm">
+<LINK REL="previous" HREF="node13.htm">
+<LINK REL="up" HREF="node9.htm">
+<LINK REL="next" HREF="node15.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html730"
+ HREF="node15.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html726"
+ HREF="node9.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html720"
+ HREF="node13.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html728"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html729"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html731"
+ HREF="node15.htm">matedを用いた行列の入力・編集</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html727"
+ HREF="node9.htm">プログラムの作り方とその実行方法</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html721"
+ HREF="node13.htm">matcのオプション</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00550000000000000000">&#160;</A>
+<A NAME="790">&#160;</A>
+<A NAME="791">&#160;</A>
+<BR>
+コマンドライン履歴・編集
+</H1>
+MATXはコマンドラインの編集機能や履歴機能を提供する。
+インタプリタ<I>matx</I>を対話的に使う場合，
+この機能を用いると入力編集がとても簡単に行なえる。
+
+<P>
+コマンドライン編集機能のキーバインディングを以下の表に示す。
+記号 <code>^</code> は，
+<!-- MATH: $\fbox{\tt Ctrl}$ -->
+<IMG
+ WIDTH="45" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.gif"
+ ALT="\fbox{\tt Ctrl}">キーを押しながら続く文字
+を同時に押すことを表す。
+例えば， <code>^</code>C は，
+<!-- MATH: $\fbox{\tt Ctrl}$ -->
+<IMG
+ WIDTH="45" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.gif"
+ ALT="\fbox{\tt Ctrl}">キーを押したまま
+
+<!-- MATH: $\fbox{\tt C}$ -->
+<IMG
+ WIDTH="20" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.gif"
+ ALT="\fbox{\tt C}">キーを同時に押すことを意味する。
+<A NAME="797">&#160;</A>
+
+<P>
+<BR>
+<DIV ALIGN="CENTER">
+
+<A NAME="tbl:cmdline_keybnd">&#160;</A>
+<DIV ALIGN="CENTER">
+<A NAME="799">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 2.3:</STRONG>
+コマンドライン編集機能のキーバインディング</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>機能</TD>
+<TD ALIGN="CENTER" COLSPAN=1>キー1</TD>
+<TD ALIGN="CENTER" COLSPAN=1>
+キー2</TD>
+</TR>
+<TR><TD ALIGN="LEFT">左移動</TD>
+<TD ALIGN="LEFT"><code>^</code>B</TD>
+<TD ALIGN="LEFT">←</TD>
+</TR>
+<TR><TD ALIGN="LEFT">右移動</TD>
+<TD ALIGN="LEFT"><code>^</code>F</TD>
+<TD ALIGN="LEFT">→</TD>
+</TR>
+<TR><TD ALIGN="LEFT">前のコマンド</TD>
+<TD ALIGN="LEFT"><code>^</code>P</TD>
+<TD ALIGN="LEFT">↑</TD>
+</TR>
+<TR><TD ALIGN="LEFT">後のコマンド</TD>
+<TD ALIGN="LEFT"><code>^</code>N</TD>
+<TD ALIGN="LEFT">↓</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行の始め</TD>
+<TD ALIGN="LEFT"><code>^</code>A</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行の終り</TD>
+<TD ALIGN="LEFT"><code>^</code>E</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">1 文字を削除</TD>
+<TD ALIGN="LEFT"><code>^</code>D</TD>
+<TD ALIGN="LEFT"><TT> DEL</TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT">前の 1 文字を削除</TD>
+<TD ALIGN="LEFT"><code>^</code>H</TD>
+<TD ALIGN="LEFT"><TT> BS</TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT">履歴を表示(行の先頭で)</TD>
+<TD ALIGN="LEFT"><code>^</code>H</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行末まで削除</TD>
+<TD ALIGN="LEFT"><code>^</code>K</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">削除した文字列を出力</TD>
+<TD ALIGN="LEFT"><code>^</code>Y</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">画面のクリア</TD>
+<TD ALIGN="LEFT"><code>^</code>L</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">画面の再表示</TD>
+<TD ALIGN="LEFT"><code>^</code>R</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+<P>
+<A NAME="931">&#160;</A>
+<A NAME="932">&#160;</A>
+<I>matx</I>の終了時に，履歴は作業ディレクトリの
+ファイル(<TT>.matx_history</TT>)に保存され，起動時に自動的に読み込まれる。
+すなわち，前回のセッションの履歴を利用できる。
+<TT>-nohist</TT>オプションで履歴機能を無効にできる。また，コマンドライン
+の先頭で
+<!-- MATH: $\fbox{\tt Ctrl+H}$ -->
+<IMG
+ WIDTH="62" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.gif"
+ ALT="\fbox{\tt Ctrl+H}">を入力すると，全ての履歴が番号と共に表示される。
+<TT>!番号</TT>のようにすれば，履歴を直接利用できる。
+履歴の長さなどを設定する環境変数を表<A HREF="node14.htm#tbl:history">2.4</A>に示す。
+<BR>
+<DIV ALIGN="CENTER">
+
+<A NAME="tbl:history">&#160;</A>
+<DIV ALIGN="CENTER">
+<A NAME="827">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 2.4:</STRONG>
+履歴の設定</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>環境変数名</TD>
+<TD ALIGN="CENTER" COLSPAN=1>目的</TD>
+<TD ALIGN="CENTER" COLSPAN=1>デフォルト</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> MATX_HISTSIZE</TT></TD>
+<TD ALIGN="LEFT">履歴の長さ</TD>
+<TD ALIGN="CENTER">50</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> MATX_HISTFILE</TT></TD>
+<TD ALIGN="LEFT">履歴を保存するファイル</TD>
+<TD ALIGN="CENTER"><TT> .matx_history</TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT> MATX_HISTFILESIZE</TT></TD>
+<TD ALIGN="LEFT">ファイルに保存する履歴の長さ</TD>
+<TD ALIGN="CENTER">50</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR>
+<P>
+<HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html730"
+ HREF="node15.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html726"
+ HREF="node9.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html720"
+ HREF="node13.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html728"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html729"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html731"
+ HREF="node15.htm">matedを用いた行列の入力・編集</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html727"
+ HREF="node9.htm">プログラムの作り方とその実行方法</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html721"
+ HREF="node13.htm">matcのオプション</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

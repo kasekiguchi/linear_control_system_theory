@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>ファイルのアクセス権を調べる</TITLE>
+<META NAME="description" CONTENT="ファイルのアクセス権を調べる">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node62.htm">
+<LINK REL="previous" HREF="node60.htm">
+<LINK REL="up" HREF="node51.htm">
+<LINK REL="next" HREF="node62.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1336"
+ HREF="node62.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1332"
+ HREF="node51.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1326"
+ HREF="node60.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1334"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1335"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1337"
+ HREF="node62.htm">ディレクトリを変更する</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1333"
+ HREF="node51.htm">ファイル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1327"
+ HREF="node60.htm">プロセス間通信</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00760000000000000000">
+ファイルのアクセス権を調べる</A>
+</H1><FONT SIZE="-1">
+<A NAME="3007">&#160;</A>
+<A NAME="2944">&#160;</A>
+ファイルが存在しているか(<TT>mode==0</TT>)，
+そのファイルを実行できるか(<TT>mode==1</TT>)，
+そのファイルに書き込めるか(<TT>mode==2</TT>)，
+そのファイルを読み込めるか(<TT>mode==4</TT>)，
+ファイルのアクセス権を調べるには，ファイルのパス(ファイル名)を
+引数として関数<TT>access()</TT>を呼ぶ。アクセス権がある場合，</FONT>0<FONT SIZE="-1">が返され，
+アクセス権がない場合，</FONT>0<FONT SIZE="-1">以外の値が返される。
+第２引数に調べたいアクセス権を整数の論理和で指定できる。
+モードを省略した場合，読み込みできるかを調べる。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  i = access("afo.mm");
+  if (i == 0)
+    print "afo.mm exists.";
+  } else {
+    print "afo.mm doesn't exist.";
+  }
+
+  i = access("afo.mm", 2);
+  if (i == 0)
+    print "afo.mm can be changed";
+  } else {
+    print "afo.mm cann't be changed.";
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

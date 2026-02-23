@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>はじめに</TITLE>
+<META NAME="description" CONTENT="はじめに">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node9.htm">
+<LINK REL="previous" HREF="node3.htm">
+<LINK REL="up" HREF="MaTX.htm">
+<LINK REL="next" HREF="node5.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html600"
+ HREF="node5.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html596"
+ HREF="MaTX.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html590"
+ HREF="node3.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html598"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html599"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html601"
+ HREF="node5.htm">プログラミング言語 MATX</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html597"
+ HREF="MaTX.htm">無題</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html591"
+ HREF="node3.htm">図目次</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00400000000000000000">
+はじめに</A>
+</H1>
+
+<P>
+MATXは科学や工学に必要な数値及び数式計算をサポートする
+記述性に優れたプログラミング言語である[<A
+ HREF="node201.htm#Koga:91:mah">9</A>,<A
+ HREF="node201.htm#Koga:92:mah">10</A>]。
+<A NAME="223">&#160;</A><A NAME="224">&#160;</A>
+MATXは数値解析，行列計算，数式処理を使い易い形に統合化しているので，
+ノ−トに書いた数学的表現をほとんどそのままプログラムとして記述できる。
+このためユーザは他の計算機言語(Fortran，Pascal，C，Basic)でプログラムを
+記述するのに比べてずっと短い時間で多くの計算問題を解くことができる。
+インタラクティビティと(FortranやC言語の最適化されたライブラリの)
+パフォーマンスを結合したいユーザは，MATXの柔軟性と便利さを非常に重要な
+ものと考えるでしょう。
+
+<P>
+システム理論や信号処理の研究において，多項式や有理式
+そしてそれらを成分としてもつ多項式行列や有理多項式行列などの
+数式表現は，重要な役割を果たす。
+MATXを使えば，これらのデータの定義や操作を自然な表現で
+記述することができる。
+これにより，システム理論に必須である数値行列のさまざまな演算や，
+多項式，有理多項式，などの数式の処理を理論中の表記とほとんど同じ形式で
+記述でき，制御系の解析・設計だけでなく，システム理論の新しい設計
+アルゴリズムの開発や検証などの支援にも役立つ。
+
+<P>
+システム理論，プロセス同定，制御系設計などの研究には，
+対話型処理が有効な場合と一括型処理が威力を発揮する場合がある。
+対話型処理系は，解析や設計のためにコマンドライン上でいろいろなコマンドを
+組み合わせて使うためだけでなく，プログラムを作成する場合，開発時間を大幅に
+節約するのに役立つ。
+一方，一括型処理系はプログラムが完成した後で，計算時間を短縮するのに役立つ。
+特に，シミュレーションのように計算量の多い処理は，
+一括型処理によって飛躍的に計算速度を向上させることができる。
+MATXは，対話型処理を行なう<B>インタプリタ</B>(<I>matx</I>)
+と<B>コンパイラ</B>(<I>matc</I>)を提供する。
+
+<P>
+行列の大きさが大きくなればなるほど，行列の入力・編集作業は難しくなる。
+入力中にちょっとした間違いを犯しても，もう一度最初からやり
+直さなければならないのは大変な苦痛である。
+<B>行列エディタ</B>(Matrix Editor)を使えば，
+そういった面倒な作業から解放される。
+<A NAME="234">&#160;</A>
+行列エディタは，ウィンドウシステムやグラフィック端末上ではもちろん，
+<B>curses</B><A NAME="236">&#160;</A>がサポートする文字端末，エスケープ
+シーケンスをサポートする文字端末で使用可能である。
+零行列や単位行列等の行列を簡単に入力することができ，実行列から複素行列への
+変換や行列の転置を簡単に行える。
+
+<P>
+MATXで生成したデータをグラフィック表示するには，
+<I>gnuplot</I>やグラフィック描画・編集環境<I>xplot</I>を使う[<A
+ HREF="node201.htm#Koga:90:sks">19</A>]。
+MATXの環境から直接<I>gnuplot</I>や<I>xplot</I>を呼び出すことができ，
+1次元プロット，2次元プロット，片対数プロットなどを簡単に表示できる。
+<A NAME="383">&#160;</A>
+<A NAME="384">&#160;</A>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html602"
+ HREF="node5.htm">プログラミング言語 MATX</A>
+<LI><A NAME="tex2html603"
+ HREF="node6.htm">MATXの構造</A>
+<LI><A NAME="tex2html604"
+ HREF="node7.htm">プログラム作成手順</A>
+<LI><A NAME="tex2html605"
+ HREF="node8.htm">MATXの動作環境</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

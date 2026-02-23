@@ -1,0 +1,30 @@
+.\" Copyright (c) 1989-1995 by Masanobu Koga, Tokyo Institute of Technology
+.\" All rights reserved.
+.\" Do not modified without permission.
+.\"
+.TH MaTX 1 "1995.04.01"
+.SH NAME
+matx \- A High-Performance Programming Language for CACSD
+.SH SYNOPSIS
+.B matx [-nocpp] [mm-files] [-] [--] (Interpreter)
+
+.B matc [-nocpp] [-nomm] [mm-files] (Compiler)
+
+.SH DESCRIPTION
+.B matx
+is a high-performance programming language for scientific and engineering
+numerical and symbolic computation developed by Masanobu Koga in Tokyo
+Institute of Technology.
+All the documents, samples, and mm-files are stored under /usr/local/MaTX.
+.br
+Exit matx is done by (exit) command.
+When matx is invoked, the matx loads
+/usr/local/MaTX/inputs/MaTXRC.mm.
+When matc is invoked, the matc loads
+/usr/local/MaTX/include/MaTXRC.h.
+.SH ENVIRONMENT
+.nf
+$DISPLAY      to connect X server via xplot and gnuplot.
+.fi
+.SH AUTHOR
+Masanobu Koga

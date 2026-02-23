@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>eval</TITLE>
+<META NAME="description" CONTENT="eval">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node60.htm">
+<LINK REL="previous" HREF="node58.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node60.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1418"
+ HREF="node60.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1415"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1409"
+ HREF="node58.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1417"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1419"
+ HREF="node60.htm">exist</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1416"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1410"
+ HREF="node58.htm">error</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION000455000000000000000">&#160;</A><A NAME="man_eval">&#160;</A>
+<BR>
+eval
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>eval - 多項式，有理多項式，文字列の評価
+<DT>【形式】
+<DD><PRE>
+y = eval(p,x)
+   (Real|Complex|Polynomial|Rational|Matrix|Array) y;
+   Polynomial p;
+   (Integer|Real|Complex|Polynomial|Rational|Matrix|Array) x;
+  
+y = eval(r,x)
+   (Real|Complex|Rational|Matrix|Array) y;
+   Rational r;
+   (Integer|Real|Complex|Polynomial|Rational|Matrix|Array) x;
+  
+Y = eval(R,x)
+   (Matrix|Array) Y;
+   (PoMatrix|RaMatrix|PoArray|RaArray) R;
+   (Integer|Real|Complex|Polynomial|Rational|Matrix) x;
+  
+Y = eval(R,x)
+   (Matrix|Array) Y;
+   (PoMatrix|RaMatrix|PoArray|RaArray) R;
+    Array x;
+  
+y = eval(s)
+   (評価結果の型) y;
+   String s;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>p が(多項式|有理多項式)，x が(整数|実数|複素数|多項式|有理多項式|
+行列|配列)のとき，eval(p,x)は，多項式 p の変数に x 代入した結果を
+返す。
+  
+R が(多項式行列|多項式配列|有理多項式行列|有理多項式配列)，x が
+(整数|実数|複素数|多項式|有理多項式|行列) のとき，R の各成分 R(i,j)
+の変数に x を代入して評価した結果 eval(R(i,j),x) からなる行列を返す。
+一方，x が配列のとき，eval(R,X(i,j)) を成分とする配列になる。
+  
+s が文字列のとき，eval(s)は，文字列 s をMaTXの式あるいは文として
+評価(実行)し，結果を返す。結果は，与えられた文字列 s によって変る。
+ただし，この機能は，インタプリタでのみ使用できる。
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; s = Polynomial("s");
+&gt;&gt; p = s^2 + 2*s + 3;
+&gt;&gt; y = eval(p, s+1)
+y = s^2 + 4 s + 6
+&gt;&gt; R = [[s+1, s+2][s+3, s+4]];
+&gt;&gt; A = [[1 2][3 4]];
+&gt;&gt; Y = eval(R, A)
+=== [Y] : (  4,  4) ===
+           (  1)         (  2)         (  3)         (  4)     
+(  1)  2.000000E+00  2.000000E+00  3.000000E+00  2.000000E+00
+(  2)  3.000000E+00  5.000000E+00  3.000000E+00  6.000000E+00
+(  3)  4.000000E+00  2.000000E+00  5.000000E+00  2.000000E+00
+(  4)  3.000000E+00  7.000000E+00  3.000000E+00  8.000000E+00
+&gt;&gt; Y = eval(R, Array(A))
+=== [Y] : (  4,  4) ===
+           (  1)         (  2)         (  3)         (  4)     
+(  1)  2.000000E+00  3.000000E+00  3.000000E+00  4.000000E+00
+(  2)  4.000000E+00  5.000000E+00  5.000000E+00  6.000000E+00
+(  3)  4.000000E+00  5.000000E+00  5.000000E+00  6.000000E+00
+(  4)  6.000000E+00  7.000000E+00  7.000000E+00  8.000000E+00
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>system(<A HREF="node232.htm#man_system">2.233</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>実験装置のインターフェース関数</TITLE>
+<META NAME="description" CONTENT="実験装置のインターフェース関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node233.htm">
+<LINK REL="previous" HREF="node231.htm">
+<LINK REL="up" HREF="node228.htm">
+<LINK REL="next" HREF="node233.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3548"
+ HREF="node233.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3544"
+ HREF="node228.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3538"
+ HREF="node231.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3546"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3547"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3549"
+ HREF="node233.htm">センサとアクチュエータのインターフェース関数</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3545"
+ HREF="node228.htm">プログラムの動作</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3539"
+ HREF="node231.htm">画面表示／コマンド入力ループ関数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION002644000000000000000">
+実験装置のインターフェース関数</A>
+</H2>
+<P>
+<FONT SIZE="-1">
+実験装置(電源など)の準備をする関数<TT>machine_ready()</TT>は
+<A NAME="13379">&#160;</A>
+<A NAME="13380">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void machine_ready()
+{
+  void sensor_init(), actuator_init();
+
+  sensor_init();      // センサの初期化
+  actuator_init();    // アクチュエータの初期化
+
+  pause "リターンキーを押すと、制御を開始します。";
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+のようにセンサの初期化とアクチュエータの初期化を行なう。
+</FONT>
+<P></P>
+<P>
+<FONT SIZE="-1">
+実験装置を停止する関数<TT>machine_stop()</TT>は
+<A NAME="13382">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void machine_stop()
+{
+  void actuator_stop();
+
+  actuator_stop();
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+のようにアクチュエータを停止する。
+</FONT>
+<P></P>
+<P>
+<FONT SIZE="-1">
+割り込みキーが押された時に実行される関数<TT>break_task()</TT>は
+<A NAME="13384">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+Func void break_task()
+{
+  void machine_stop();
+
+  rtStop();
+  machine_stop();
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+のようにリアルタイム処理を停止して，実験装置を停止する。
+</FONT>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

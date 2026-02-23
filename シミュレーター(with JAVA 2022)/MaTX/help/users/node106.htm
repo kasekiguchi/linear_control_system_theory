@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>Switch文</TITLE>
+<META NAME="description" CONTENT="Switch文">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node107.htm">
+<LINK REL="previous" HREF="node105.htm">
+<LINK REL="up" HREF="node102.htm">
+<LINK REL="next" HREF="node107.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1914"
+ HREF="node107.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1910"
+ HREF="node102.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1904"
+ HREF="node105.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1912"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1913"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1915"
+ HREF="node107.htm">Break文とContinue文</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1911"
+ HREF="node102.htm">制御の流れ</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1905"
+ HREF="node105.htm">Do-whileループ</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001240000000000000000">
+Switch文</A>
+</H1><FONT SIZE="-1">
+<A NAME="5763">&#160;</A>
+<A NAME="5764">&#160;</A>
+<A NAME="5765">&#160;</A>
+<A NAME="5766">&#160;</A>
+<TT>switch</TT>文は，ある式が複数の値の1つと一致しているかどうかテストし，
+それに応じて分岐する特別の多分岐判断機構である。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  switch (exp) {
+   case int_1: statements;
+   case int_2: statements;
+   ......................
+   case int_n: statements;
+   default: statements;
+  }
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+<TT>switch</TT>文は，括弧内の整数式を計算し，その値を全ての<TT>case</TT>と比較する。
+各<TT>case</TT>には，整数定数の式で名札をつけなければならない。
+ある<TT>case</TT>が式の値と一致すれば，実行はその<TT>case</TT>で始められる。
+<TT>default</TT>のラベルのついた<TT>case</TT>は，
+他のいずれの<TT>case</TT>も満足されない時に実行される。
+</FONT>
+<P>
+<FONT SIZE="-1"><TT>break</TT>文スイッチから直接抜け出る手段である。
+<TT>case</TT>は単に名札として働くから，
+1つの<TT>case</TT>プログラムが終了したのち，
+抜け出すための明示的な動作がなければ，実行は次の<TT>case</TT>へ移る。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,64 @@
+\documentclass[a4paper,11pt]{jreport}
+\input{head.tex}
+
+\def\mcnumber{SCE.C301}
+\def\mctitle{線形システム制御論}
+\def\mcdept{東京科学大学/システム制御系}
+\def\mcdepts{東京科学大学/システム制御系}
+\def\mcfname{三平}
+\def\mcgname{満司}
+\def\mcyear{Ver.3.0}
+\def\mcquoter{3年1Q}
+%\def\mcmathcomment{問合先：ocw@sc.ctrl.titech.ac.jp}
+
+\pagestyle{myheadings}
+\markboth{\small \hspace*{5cm} \mcdept/\mctitle(\mcfname)/\mcyear}{\small \hspace*{5cm} \mcdept/\mctitle(\mcfname)/\mcyear}
+
+	%........................................................
+	% matrixの入力(\bmatrix,\ematrix)
+	%	例 \bmatrix{cc} 1&2\\3&4 \ematrix
+	%........................................................
+		\renewcommand{\bmatrix}{\left(\begin{array}}
+		\newcommand{\ematrix}{\end{array}\right)}
+
+%--------------------------------------------------------------------------------
+
+\begin{document}
+%--------------------------------------------------------------------------------
+\thispagestyle{empty}
+\vspace*{5cm}
+\begin{center}
+ \bfseries {\LARGE \mcnumber }\\[0.5cm]
+ \bfseries {\Huge \mctitle }\\[0.5cm]
+ \bfseries {\LARGE (\mcyear)}\\[0.5cm]
+\vspace*{0.5cm}
+ \bfseries {\LARGE \mcdept}\\[0.3cm]
+ \bfseries {\LARGE \mcquoter}
+\end{center}
+\vspace*{7cm}
+\begin{center}
+ \Huge \bfseries  \mcfname \ \ \mcgname
+\end{center}
+
+\renewcommand{\thepage}{\roman{page}}  %sampei
+
+\tableofcontents{-1cm}
+
+\newpage  %sampei
+
+\setcounter{page}{1}  %sampei
+\renewcommand{\thepage}{\arabic{page}}  %sampei
+
+\include{chap1} % 連続時間コントローラの概要
+\include{chapD} % 連続時間コントローラの詳解
+%\include{chap2} % 非線形システムの制御
+%\include{chap3} % 連続時間状態方程式の離散化・連続時間コントローラの離散化
+%\include{chap4} % 離散時間コントローラの設計
+\include{chap8D} % 参考文献
+\appendix
+\include{simulator/appendixa}
+%\include{appendixb}
+
+
+
+\end{document}

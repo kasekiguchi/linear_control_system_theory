@@ -1,0 +1,807 @@
+\batchmode
+\documentclass[a4paper,11pt]{jreport}
+\RequirePackage{ifthen}
+
+
+
+\setlength{\topmargin}{0cm} 
+
+\setlength{\headheight}{0cm} 
+
+\setlength{\headsep}{0cm} 
+
+\setlength{\oddsidemargin}{0cm} 
+
+\setlength{\evensidemargin}{0cm} 
+
+\setlength{\textheight}{24.62cm} 
+
+\setlength{\textwidth}{15.92cm} 
+
+\setlength{\footskip}{1.0cm} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage[dvips,xdvi]{color}
+\usepackage{wrapfig}
+\usepackage{cite}
+\usepackage{float}
+%
+\renewcommand{\figurename}{Fig.}
+%
+\renewcommand{\tablename}{Table}
+
+%
+\newenvironment{mytheorem}{\vspace{1zw}\noindent {\gtfamily 定理} \itshape}
+{\vspace{1zw}} 
+\makeatletter
+%
+\renewcommand{\bibname}{参考文献}
+\renewenvironment{thebibliography}[2]{\csname section*\endcsname{#2に関する\bibname \@mkboth{\bibname }{\bibname }}%
+   \list{\@biblabel{\@arabic\c@enumiv}}%
+        {\settowidth\labelwidth{\@biblabel{#1}}%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand \theenumiv{\@arabic\c@enumiv}}%
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000 \sfcode`\.\@m}
+  {\def \@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+\let\@openbib@code\@empty
+\makeatother
+\makeatletter
+%
+\renewcommand{\tableofcontents}[1]{%
+  \if@twocolumn\@restonecoltrue\onecolumn
+  \else\@restonecolfalse\fi
+  \chapter*{\contentsname
+    \@mkboth{\contentsname}{\contentsname}%
+  }\vspace*{#1}\@starttoc{toc}%
+  \if@restonecol\twocolumn\fi
+}
+\makeatother
+
+
+
+\pagecolor[gray]{.7}
+
+\usepackage[]{inputenc}
+
+
+
+\makeatletter
+
+\makeatletter
+\count@=\the\catcode`\_ \catcode`\_=8 
+\newenvironment{tex2html_wrap}{}{}%
+\catcode`\<=12\catcode`\_=\count@
+\newcommand{\providedcommand}[1]{\expandafter\providecommand\csname #1\endcsname}%
+\newcommand{\renewedcommand}[1]{\expandafter\providecommand\csname #1\endcsname{}%
+  \expandafter\renewcommand\csname #1\endcsname}%
+\newcommand{\newedenvironment}[1]{\newenvironment{#1}{}{}\renewenvironment{#1}}%
+\let\newedcommand\renewedcommand
+\let\renewedenvironment\newedenvironment
+\makeatother
+\let\mathon=$
+\let\mathoff=$
+\ifx\AtBeginDocument\undefined \newcommand{\AtBeginDocument}[1]{}\fi
+\newbox\sizebox
+\setlength{\hoffset}{0pt}\setlength{\voffset}{0pt}
+\addtolength{\textheight}{\footskip}\setlength{\footskip}{0pt}
+\addtolength{\textheight}{\topmargin}\setlength{\topmargin}{0pt}
+\addtolength{\textheight}{\headheight}\setlength{\headheight}{0pt}
+\addtolength{\textheight}{\headsep}\setlength{\headsep}{0pt}
+\setlength{\textwidth}{349pt}
+\newwrite\lthtmlwrite
+\makeatletter
+\let\realnormalsize=\normalsize
+\global\topskip=2sp
+\def\preveqno{}\let\real@float=\@float \let\realend@float=\end@float
+\def\@float{\let\@savefreelist\@freelist\real@float}
+\def\liih@math{\ifmmode$\else\bad@math\fi}
+\def\end@float{\realend@float\global\let\@freelist\@savefreelist}
+\let\real@dbflt=\@dbflt \let\end@dblfloat=\end@float
+\let\@largefloatcheck=\relax
+\let\if@boxedmulticols=\iftrue
+\def\@dbflt{\let\@savefreelist\@freelist\real@dbflt}
+\def\adjustnormalsize{\def\normalsize{\mathsurround=0pt \realnormalsize
+ \parindent=0pt\abovedisplayskip=0pt\belowdisplayskip=0pt}%
+ \def\phantompar{\csname par\endcsname}\normalsize}%
+\def\lthtmltypeout#1{{\let\protect\string \immediate\write\lthtmlwrite{#1}}}%
+\newcommand\lthtmlhboxmathA{\adjustnormalsize\setbox\sizebox=\hbox\bgroup\kern.05em }%
+\newcommand\lthtmlhboxmathB{\adjustnormalsize\setbox\sizebox=\hbox to\hsize\bgroup\hfill }%
+\newcommand\lthtmlvboxmathA{\adjustnormalsize\setbox\sizebox=\vbox\bgroup %
+ \let\ifinner=\iffalse \let\)\liih@math }%
+\newcommand\lthtmlboxmathZ{\@next\next\@currlist{}{\def\next{\voidb@x}}%
+ \expandafter\box\next\egroup}%
+\newcommand\lthtmlmathtype[1]{\gdef\lthtmlmathenv{#1}}%
+\newcommand\lthtmllogmath{\lthtmltypeout{l2hSize %
+:\lthtmlmathenv:\the\ht\sizebox::\the\dp\sizebox::\the\wd\sizebox.\preveqno}}%
+\newcommand\lthtmlfigureA[1]{\let\@savefreelist\@freelist
+       \lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmlpictureA{\bgroup\catcode`\_=8 \lthtmlpictureB}%
+\newcommand\lthtmlpictureB[1]{\lthtmlmathtype{#1}\egroup
+       \let\@savefreelist\@freelist \lthtmlhboxmathB}%
+\newcommand\lthtmlpictureZ[1]{\hfill\lthtmlfigureZ}%
+\newcommand\lthtmlfigureZ{\lthtmlboxmathZ\lthtmllogmath\copy\sizebox
+       \global\let\@freelist\@savefreelist}%
+\newcommand\lthtmldisplayA{\bgroup\catcode`\_=8 \lthtmldisplayAi}%
+\newcommand\lthtmldisplayAi[1]{\lthtmlmathtype{#1}\egroup\lthtmlvboxmathA}%
+\newcommand\lthtmldisplayB[1]{\edef\preveqno{(\theequation)}%
+  \lthtmldisplayA{#1}\let\@eqnnum\relax}%
+\newcommand\lthtmldisplayZ{\lthtmlboxmathZ\lthtmllogmath\lthtmlsetmath}%
+\newcommand\lthtmlinlinemathA{\bgroup\catcode`\_=8 \lthtmlinlinemathB}
+\newcommand\lthtmlinlinemathB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA
+  \vrule height1.5ex width0pt }%
+\newcommand\lthtmlinlineA{\bgroup\catcode`\_=8 \lthtmlinlineB}%
+\newcommand\lthtmlinlineB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA}%
+\newcommand\lthtmlinlineZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetinline}
+\newcommand\lthtmlinlinemathZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetmath}
+\newcommand\lthtmlindisplaymathZ{\egroup %
+  \centerinlinemath\lthtmllogmath\lthtmlsetmath}
+\def\lthtmlsetinline{\hbox{\vrule width.1em \vtop{\vbox{%
+  \kern.1em\copy\sizebox}\ifdim\dp\sizebox>0pt\kern.1em\else\kern.3pt\fi
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\lthtmlsetmath{\hbox{\vrule width.1em\kern-.05em\vtop{\vbox{%
+  \kern.1em\kern0.8 pt\hbox{\hglue.17em\copy\sizebox\hglue0.8 pt}}\kern.3pt%
+  \ifdim\dp\sizebox>0pt\kern.1em\fi \kern0.8 pt%
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\centerinlinemath{%
+  \dimen1=\ifdim\ht\sizebox<\dp\sizebox \dp\sizebox\else\ht\sizebox\fi
+  \advance\dimen1by.5pt \vrule width0pt height\dimen1 depth\dimen1 
+ \dp\sizebox=\dimen1\ht\sizebox=\dimen1\relax}
+
+\def\lthtmlcheckvsize{\ifdim\ht\sizebox<\vsize 
+  \ifdim\wd\sizebox<\hsize\expandafter\hfill\fi \expandafter\vfill
+  \else\expandafter\vss\fi}%
+\providecommand{\selectlanguage}[1]{}%
+\makeatletter \tracingstats = 1 
+\providecommand{\Beta}{\textrm{B}}
+\providecommand{\Mu}{\textrm{M}}
+\providecommand{\Kappa}{\textrm{K}}
+\providecommand{\Rho}{\textrm{R}}
+\providecommand{\Epsilon}{\textrm{E}}
+\providecommand{\Chi}{\textrm{X}}
+\providecommand{\Iota}{\textrm{J}}
+\providecommand{\omicron}{\textrm{o}}
+\providecommand{\Zeta}{\textrm{Z}}
+\providecommand{\Eta}{\textrm{H}}
+\providecommand{\Omicron}{\textrm{O}}
+\providecommand{\Nu}{\textrm{N}}
+\providecommand{\Tau}{\textrm{T}}
+\providecommand{\Alpha}{\textrm{A}}
+
+
+\begin{document}
+\pagestyle{empty}\thispagestyle{empty}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hsize=\the\hsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength vsize=\the\vsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hoffset=\the\hoffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength voffset=\the\voffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topmargin=\the\topmargin}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topskip=\the\topskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headheight=\the\headheight}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headsep=\the\headsep}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength parskip=\the\parskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength oddsidemargin=\the\oddsidemargin}\lthtmltypeout{}%
+\makeatletter
+\if@twoside\lthtmltypeout{latex2htmlLength evensidemargin=\the\evensidemargin}%
+\else\lthtmltypeout{latex2htmlLength evensidemargin=\the\oddsidemargin}\fi%
+\lthtmltypeout{}%
+\makeatother
+\setcounter{page}{1}
+\onecolumn
+
+% !!! IMAGES START HERE !!!
+
+\appendix
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlfigureA{figure68}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/fullscreen.eps,scale=0.45}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{figure77}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/animpanel.ps,scale=0.3}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{figure84}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/snappanel.ps,scale=0.3}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{figure94}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/logpanel.eps,scale=0.85}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{figure101}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/plotpanel.eps,scale=0.85}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{figure108}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/setpanel.eps,scale=0.85}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlfigureA{figure120}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/program.eps,scale=0.8}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1319}%
+$ Q$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1321}%
+$ R$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{figure133}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/setting.eps,scale=0.8}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{figure140}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/setframe.eps,scale=0.8}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{figure147}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/speed.eps,scale=0.8}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlfigureA{figure158}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/anim.eps,scale=0.8}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlfigureA{figure170}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/graph.eps,scale=0.8}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlfigureA{figure177}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/setplot.eps,scale=0.8}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlfigureA{figure188}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/help.eps,scale=0.8}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+
+\renewcommand{\labelitemi}{}
+
+\renewcommand{\labelitemii}{}
+
+\renewcommand{\labelitemiii}{}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline906}%
+\fbox{\tt Simulator}%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1353}%
+$ \cdots$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline926}%
+\fbox{\tt src}%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline928}%
+\fbox{\tt trailer}%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline942}%
+\fbox{\tt tricycle}%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline956}%
+\fbox{\tt j2re1.4.1\_02}%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlfigureA{figure239}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/tricycle.eps,scale=0.9}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1422}%
+$ P$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1424}%
+$ O$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1428}%
+$ (OP \perp PQ)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1430}%
+$ L$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1432}%
+$ PQ$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1434}%
+$ \theta$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1436}%
+$ \alpha$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1438}%
+$ z$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1454}%
+$\displaystyle \frac{d}{dt}  \left(   \begin{array}{c}    x \\y \\\theta    \end{array}  \right) =  \left(   \begin{array}{c}    \cos \theta \\\sin \theta \\0   \end{array}  \right) \dot{z} +  \left(   \begin{array}{c}    0 \\0 \\\frac{1}{L}   \end{array}  \right) \dot{z} \tan \alpha$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1456}%
+$ x$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1458}%
+$\displaystyle \left\{   \begin{array}{rcl}    \displaystyle \frac{d}{dx}     \left(      \begin{array}{c}       y \\\theta       \end{array}     \right) &=&     \left(      \begin{array}{c}       \tan \theta \\0       \end{array}     \right) +     \left(      \begin{array}{c}       0 \\\frac{1}{L \cos \theta}      \end{array}     \right) \tan \alpha \\\displaystyle \frac{dx}{dt} &=& \cos \theta \dot{z}   \end{array}\right.$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1462}%
+$ X$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1466}%
+$ \frac{dx}{dt}$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1468}%
+$ (y, \theta)^T = ($%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1469}%
+$ )^T$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1471}%
+$ y, \theta \rightarrow 0$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1475}%
+$ L = 0.4$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath1479}%
+\begin{displaymath}\begin{array}{lclclcl}  f(x) &\stackrel{\rm def}{=}&  \left(  \begin{array}{c}   \tan \theta \\0  \end{array}  \right) &\Rightarrow&  A &\stackrel{\rm def}{=}&  \left(  \begin{array}{cc}   \frac{\partial f_1}{\partial y} & \frac{\partial f_1}{\partial \theta} \\\frac{\partial f_2}{\partial y} & \frac{\partial f_2}{\partial \theta}   \end{array}  \right) \\& & & & &=&  \left. \left(  \begin{array}{cc}   0 & \frac{1}{\cos ^2 \theta} \\0 & 0  \end{array}  \right) \right|_{(y,\theta) = (0, 0)} =  \left(  \begin{array}{cc}   0 & 1.0 \\0 & 0  \end{array}  \right) \\g(x) &\stackrel{\rm def}{=}&  \left(  \begin{array}{c}   0 \\\frac{1}{L \cos \theta}  \end{array}  \right) &\Rightarrow&  B &\stackrel{\rm def}{=}&  \left(  \begin{array}{c}   0 \\\frac{1}{L}  \end{array}  \right) \end{array}\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1481}%
+$ \tan \alpha$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1483}%
+$\displaystyle \frac{d}{dx}\left(\begin{array}{c}      y \\\theta     \end{array} \right) = \left(\begin{array}{cc}      0 & 1.0 \\0 & 0    \end{array} \right) \left(\begin{array}{c}      y \\\theta     \end{array} \right) + \left(\begin{array}{c}      0 \\\frac{1}{0.4}    \end{array} \right) \tan \alpha$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1485}%
+$ \phi$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1487}%
+$ v$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1489}%
+$\displaystyle \left\{  \begin{array}{rcl}   \phi &=&    \left(     \begin{array}{c}      \phi_1 \\\phi_2     \end{array}    \right) =     \left(     \begin{array}{c}      y \\\tan \theta     \end{array}    \right) \\\tan \alpha &=& L \cos ^3 \theta v  \end{array}  \right.$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1491}%
+$\displaystyle \frac{d \phi}{dt} =   \left(    \begin{array}{cc}     0 & 1.0 \\0 & 0    \end{array}   \right) \phi +   \left(    \begin{array}{c}     0 \\1.0    \end{array}   \right) v$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{section}
+{\newpage\clearpage
+\lthtmlfigureA{figure381}%
+\begin{figure} \begin{center}
+  \epsfig{file=figure/trailer.eps,scale=0.9}
+  
+ \end{center}
+\end{figure}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1500}%
+$ P_1$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1502}%
+$ O_1$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1506}%
+$ (O_1 P_1 \perp P_1 Q)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1508}%
+$ L_1$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1510}%
+$ P_1 Q$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1512}%
+$ \theta_1$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1535}%
+$ P_2$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1537}%
+$ O_2$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1545}%
+$ L_2$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1547}%
+$ P_1 P_2$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1549}%
+$ \theta_2$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1551}%
+$ \eta$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1564}%
+$\displaystyle \frac{d(\theta_1 + \theta_2)}{dt}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1565}%
+$\displaystyle = \dot{z} \frac{\tan \alpha}{L_1}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1566}%
+$\displaystyle \frac{d\theta_2}{dt}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1567}%
+$\displaystyle = \dot{\eta} \frac{\tan \theta_1}{L_2}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1568}%
+$\displaystyle \frac{d x_2}{dt}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1569}%
+$\displaystyle = \dot{\eta} \cos \theta_2$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1570}%
+$\displaystyle \frac{d y_2}{dt}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1571}%
+$\displaystyle = \dot{\eta} \sin \theta_2$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1572}%
+$\displaystyle \frac{d \eta}{dt}$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1573}%
+$\displaystyle = \dot{z} \cos \theta_1$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1575}%
+$ x_2$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1577}%
+$\displaystyle \left\{   \begin{array}{rcl}    \displaystyle \frac{d}{dx_2}     \left(      \begin{array}{c}       y_2 \\\theta_1 \\\theta_2      \end{array}     \right) &=&     \left(      \begin{array}{c}       \tan \theta_2 \\-\frac{\tan \theta_1}{L_2 \cos \theta_2} \\\frac{\tan \theta_1}{L_2 \cos \theta_2}       \end{array}     \right) +     \left(      \begin{array}{c}       0 \\\frac{1}{L_1 \cos \theta_1 \cos \theta_2} \\0      \end{array}     \right) \tan \alpha \\\displaystyle \frac{dx_2}{dt} &=& \dot{\eta} \cos \theta_2   \end{array}\right.$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1579}%
+$ (y_2, \theta_1, \theta_2)^T = ($%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1582}%
+$ y_2, \theta_1,
+\theta_2 \rightarrow 0$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1584}%
+$ L_1 = 0.4$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1586}%
+$ L_2 = 1.2$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath1590}%
+\begin{displaymath}\begin{array}{lclclcl}   f(x) &\stackrel{\rm def}{=}&    \left(     \begin{array}{c}      \tan \theta_2 \\-\frac{\tan \theta_1}{L_2 \cos \theta_2} \\\frac{\tan \theta_1}{L_2 \cos \theta_2}      \end{array}    \right) &\Rightarrow&    A &\stackrel{\rm def}{=}&    \left(     \begin{array}{ccc}      \frac{\partial f_1}{\partial y_2} &       \frac{\partial f_1}{\partial \theta_1} &       \frac{\partial f_1}{\partial \theta_2} \\\frac{\partial f_2}{\partial y_2} &       \frac{\partial f_2}{\partial \theta_1} &       \frac{\partial f_2}{\partial \theta_2} \\\frac{\partial f_3}{\partial y_2} &       \frac{\partial f_3}{\partial \theta_1} &       \frac{\partial f_3}{\partial \theta_2}      \end{array}   \right) \\& & & & &=&   \left. \left(   \begin{array}{ccc}    0 & 0 & \frac{1}{\cos ^2 \theta_2} \\0 & \frac{-1}{L_2\cos ^2 \theta_1 \cos \theta_2} &     \frac{\tan \theta_1}{L_2 \cos ^2 \theta_2} \\0 & \frac{1}{L_2\cos ^2 \theta_1 \cos \theta_2} &     \frac{-\tan \theta_1}{L_2 \cos ^2 \theta_2} \\\end{array}   \right) \right|_{(y_2,\theta_1, \theta_2) = (0, 0, 0)} \\& & & & &=&   \left(    \begin{array}{ccc}     0 & 0  & 1.0 \\0 & \frac{-1}{L_2} & 0 \\0 & \frac{1}{L_2}  & 0    \end{array}   \right) \\g(x) &\stackrel{\rm def}{=}&   \left(    \begin{array}{c}     0 \\\frac{1}{L_1 \cos \theta_1 \cos \theta_2} \\0    \end{array}   \right) &\Rightarrow&   B &\stackrel{\rm def}{=}&   \left(    \begin{array}{c}     0 \\\frac{1}{L_1} \\0    \end{array}  \right)  \end{array}\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1594}%
+$\displaystyle \frac{d}{dx_2}\left(\begin{array}{c}      y_2 \\\theta_1 \\\theta_2    \end{array} \right) = \left(\begin{array}{ccc}      0 & 0  & 1.0 \\0 & -\frac{1}{1.2} & 0 \\0 & \frac{1}{1.2}  & 0     \end{array} \right) \left(\begin{array}{c}      y_2 \\\theta_1 \\\theta_2    \end{array} \right) + \left(\begin{array}{c}      0 \\\frac{1}{0.4} \\0    \end{array} \right) \tan \alpha$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline1596}%
+$ x_2' = -x_2$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1598}%
+$\displaystyle \frac{d}{dx_2'}\left(\begin{array}{c}      y_2 \\\theta_1 \\\theta_2    \end{array} \right) = \left(\begin{array}{ccc}      0 & 0  & -1.0 \\0 & \frac{1}{1.2} & 0 \\0 & -\frac{1}{1.2} & 0     \end{array} \right) \left(\begin{array}{c}      y_2 \\\theta_1 \\\theta_2    \end{array} \right) + \left(\begin{array}{c}      0 \\-\frac{1}{0.4} \\0    \end{array} \right) \tan \alpha$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmldisplayA{displaymath1605}%
+\begin{displaymath}\left\{
+\begin{array}{rcl}
+\phi &=& \left(
+\begin{array}{c}
+\phi_1 \\
+\phi_2 \\
+\phi_3
+\end{array}
+\right) =
+\left(
+\begin{array}{c}
+y_2 \\
+\tan \theta_2 \\
+\frac{\tan \theta_1}{L_2 \cos ^3 \theta_2} \\
+\end{array}
+\right) \\
+\tan \alpha &=& \displaystyle
+-\frac{L_1 \cos \theta_1(3\sin ^2 \theta_1 \tan \theta_2 - \tan \theta_1)}
+{L_2} + L_1L_2 \cos ^3 \theta_1 \cos ^4 \theta_2 v
+\end{array}\right.\end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1607}%
+$\displaystyle \frac{d \phi}{dt} = \left(\begin{array}{ccc}      0 & 1.0 & 0 \\0 & 0 & 1.0 \\0 & 0 & 0    \end{array} \right) \phi + \left(\begin{array}{c}      0 \\0 \\1.0    \end{array} \right) v$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_indisplay1611}%
+$\displaystyle \frac{d \phi}{dt} = \left(\begin{array}{ccc}      0 & -1.0 & 0 \\0 & 0 & -1.0 \\0 & 0 & 0    \end{array} \right) \phi + \left(\begin{array}{c}      0 \\0 \\-1.0    \end{array} \right) v$%
+\lthtmlindisplaymathZ
+\lthtmlcheckvsize\clearpage}
+
+
+\end{document}

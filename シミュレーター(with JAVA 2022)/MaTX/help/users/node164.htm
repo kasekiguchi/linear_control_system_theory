@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>有理多項式行列の記述方法</TITLE>
+<META NAME="description" CONTENT="有理多項式行列の記述方法">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node165.htm">
+<LINK REL="previous" HREF="node163.htm">
+<LINK REL="up" HREF="node163.htm">
+<LINK REL="next" HREF="node165.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2682"
+ HREF="node165.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2678"
+ HREF="node163.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2672"
+ HREF="node163.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2680"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2681"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2683"
+ HREF="node165.htm">有理多項式行列の評価</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2679"
+ HREF="node163.htm">有理多項式行列</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2673"
+ HREF="node163.htm">有理多項式行列</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION001841000000000000000">
+有理多項式行列の記述方法</A>
+</H2><FONT SIZE="-1">
+有理多項式行列は，有理多項式を成分とする行列である。
+有理多項式行列の操作は実行列や複素行列といった数値行列と同じである。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  s = $;
+
+  RM1 = [[(s+1)/(s+2)  (s+3)/(s+4)]
+         [(s+5)/(s+6)  (s+7)/(s+8)]];
+
+  RM2 = diag((s+1)/(s+2), (s+3)/(s+4), (s+5)/(s+6));
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>有理多項式行列を記述するには，陽に有理多項式を行列の成分として用いる。
+例えば，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  s = $;
+  A = [[(s+1)/(s+2) , (s+3)/(s+4)]
+       [(s+5)/(s+6) , (s+7)/(s+8)]];
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+の結果，
+</FONT><PRE>
+   === [A] : (  2,  2) ===
+
+         [     (  1)     ]  [     (  2)     ]
+               s + 1              s + 3
+   (  1) ----------------   ----------------
+               s + 2              s + 4
+
+               s + 5              s + 7
+   (  2) ----------------   ----------------
+               s + 6              s + 8
+</PRE><FONT SIZE="-1">
+
+となる。また，配列オペレータを使うことによって，有理多項式行列を簡単に
+記述することができ，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  s = $;
+  X = [[1 3][5 7]];  Y = [[2 4][6 8]];
+  B = (ONE(2)*s + X) ./ (ONE(2)*s + Y);
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+によって，有理多項式行列<TT>B</TT>は，<TT>A</TT>と一致する。
+ただし，記号 <TT>./</TT> は，行列の成分毎の割算を行なう配列オペレータを意味し，
+<TT>ONE(2)</TT>は，全ての成分が1である 2 x 2 の行列である。
+</FONT>
+<P>
+<FONT SIZE="-1">複素有理多項式行列の入力方法には，複素有理多項式を成分として記述する方法と
+一対の実有理多項式行列をコンマ ``<TT>,</TT>'' で区切って
+丸括弧 <TT>(</TT> と <TT>)</TT> で囲む方法がある。
+実部または虚部だけを指定し，もう一方に <TT>*</TT> を指定して
+複素有理多項式行列を記述することもできる。
+<A NAME="9014">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+CRM1 = (RM1,RM2); // CRM1 = RM1 + RM2 i,
+                  // RM1とRM2は，実有理多項式行列
+CRM1 = (RM1,*);   // CRM1 = RM1 + Z(RM1) i,
+                  // RM1は，実有理多項式行列
+CRM1 = (*,RM1);   // CRM1 = Z(RM1) + RM1 i,
+                  // RM1は，実有理多項式行列
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>実部有理多項式行列と虚部有理多項式行列は，
+関数<TT>Re()</TT>と<TT>Im()</TT>を用いて取り出すことができる。
+<A NAME="9015">&#160;</A>
+<A NAME="9016">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+RM1 = Re((RM1, RM2));  // 実部有理多項式行列
+RM2 = Im((RM1, RM2));  // 虚部有理多項式行列
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+［例］2個の実有理多項式行列RM1とRM2から複素有理多項式行列CRM1を作る。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+    s = $;
+    RM1 = [[(s+1)/(s+2)  (s+3)/(s+4)]
+           [(s+5)/(s+6)  (s+7)/(s+8)]];
+
+    RM2 = [[(s+3)/(s+2)  (s+5)/(s+4)]
+           [(s+7)/(s+6)  (s+1)/(s+8)];
+
+    CRM1 = (RM1, RM2);
+
+    CRM2 = [[((1,1)*s+(1,3))/(s+2) ((1,1)*s+(3,5))/(s+4)]
+            [((1,1)*s+(5,7))/(s+6) ((1,1)*s+(7,1))/(s+8)]];
+</PRE><FONT SIZE="-1"></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

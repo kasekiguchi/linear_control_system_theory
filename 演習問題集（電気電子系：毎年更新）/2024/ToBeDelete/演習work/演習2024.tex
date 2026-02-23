@@ -1,0 +1,2675 @@
+\documentclass[a4paper,11pt,fleqn]{jreport}
+%--------------------------------------------------------------------------------
+
+%--------------------------------------------------------------------------------
+%
+% Page setting
+%
+\setlength{\topmargin}{-1cm}
+\setlength{\headheight}{0cm}
+\setlength{\headsep}{0cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\textheight}{26.62cm}
+\setlength{\textwidth}{15.92cm}
+\setlength{\footskip}{1.0cm}
+%
+% package
+%
+\usepackage{amsmath}
+\usepackage[dvipdfmx]{graphicx} %%%%
+\usepackage{amssymb}
+\usepackage{epsfig}
+%	\usepackage[dvips,xdvi]{color} %%
+\usepackage[dvipdfmx]{color} %%%%
+\usepackage{wrapfig}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{color}
+%\usepackage{cite}
+%\usepackage{matx}
+%\usepackage{eclclass}
+%
+% Figure & Table caption
+%
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Table}
+%
+% Local definition
+%
+\def\defeq{\stackrel{\rm def}{=}}
+\def\rank{\mathop{\rm rank}\nolimits}
+\def\Re{\mathop{\rm Re}\nolimits}
+\def\Im{\mathop{\rm Im}\nolimits}
+\def\det{\mathop{\rm det}\nolimits}
+\def\adj{\mathop{\rm adj}\nolimits}
+\def\Span{\mathop{\rm span}\nolimits}
+\newenvironment{mytheorem}
+{\vspace{1zw}\noindent {\gtfamily 定理} \itshape}
+{\vspace{1zw}}
+%
+%
+%
+\makeatletter
+\renewcommand{\tableofcontents}[1]{%
+  \if@twocolumn\@restonecoltrue\onecolumn
+  \else\@restonecolfalse\fi
+  \chapter*{\contentsname
+    \@mkboth{\contentsname}{\contentsname}%
+  }\vspace*{#1}\@starttoc{toc}%
+  \if@restonecol\twocolumn\fi
+}
+\makeatother
+	%........................................................
+	% matrixの入力(\bmatrix,\ematrix)
+	%	例 \bmatrix{cc} 1&2\\3&4 \ematrix
+	%........................................................
+		\renewcommand{\bmatrix}{\left(\begin{array}}
+		\newcommand{\ematrix}{\end{array}\right)}
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%授業実施年
+	\def\exyear{2024}
+%ヘッダー
+	\def\exheader
+		{
+		\begin{tabular}{cl}
+		{\large 線形制御論（電気電子系）　演習問題 (\exyear)}
+		\hspace{1cm}
+		&
+		\underline{系・学科：\hspace{3cm}}
+		\\[2mm]
+		&\underline{学籍番号：\hspace{3cm}}
+		\\[2mm]
+		&\underline{氏名：\hspace{5cm}}
+		\end{tabular}
+		\ \\
+		}
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+\pagestyle{empty}
+
+\begin{document}
+
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+\begin{center}
+	{\Large \bf 変更履歴}
+\end{center}
+	
+
+%---------------
+\noindent
+{\bf 三質量系の状態方程式}
+
+変更なし
+
+%---------------
+\ \\ \noindent
+{\bf LCR回路の状態方程式}
+
+変更なし
+
+%---------------
+\ \\ \noindent
+{\bf 三質量系の可制御性}
+
+(original) 可制御なパラメータ：$k_1=1$, $k_2=2$
+
+(2022) 可制御なパラメータ:{\color{red} $k_1=2$, $k_2=1$}
+
+(2023) 可制御なパラメータ:{\color{red} $k_1=1$, $k_2=3$}
+
+(2024) 可制御なパラメータ:{\color{red} $k_1=3$, $k_2=1$}
+
+%---------------
+\ \\ \noindent
+{\bf 三質量系の可観測性}
+
+(original) 可観測なパラメータ：$k_1=1$, $k_2=2$
+
+(2022) 可観測なパラメータ:{\color{red} $k_1=2$, $k_2=1$}
+
+(2023) 可観測なパラメータ:{\color{red} $k_1=1$, $k_2=3$}
+
+(2023) 可観測なパラメータ:{\color{red} $k_1=3$, $k_2=1$}
+
+%---------------
+\ \\ \noindent
+{\bf 不可制御なシステムの分解}
+
+(original)
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 -1 & 2
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+\\
+	y 
+	&=
+	\left (
+	\begin{array}{cc}
+	 1 & 1  
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\end{align*}
+
+(2022)
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 \color{red} 2 & \color{red} 1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ \color{red} 2
+	\end{array}
+	\right )
+	u
+\\
+	y 
+	&=
+	\left (
+	\begin{array}{cc}
+	 1 & 1  
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\end{align*}
+
+(2023)
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 \color{red} -2 & \color{red} 3
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ \color{red} 2
+	\end{array}
+	\right )
+	u
+\\
+	y 
+	&=
+	\left (
+	\begin{array}{cc}
+	 1 & 1  
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\end{align*}
+
+(2024)
+
+\def\chrA{\left(\begin{array}{rr} 0 &  \color{red} 3\\  \color{red} 1 &  \color{red} -2 \end{array}\right)}
+\def\chrB{\left(\begin{array}{r} 1\\  \color{red} -1 \end{array}\right)}
+\def\chrC{\left(\begin{array}{rr} 1 & 1 \end{array}\right)}
+\def\statev{
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+}
+
+\begin{align*}
+	\frac{d}{dt} \statev 
+	&= \chrA \statev + \chrB u
+\\
+	y 
+	&= \chrC \statev
+\end{align*}
+
+%---------------
+\ \\ \noindent
+{\bf 遷移行列}
+
+(original)
+\[
+	A= \left(\begin{array}{cc}
+		2 & 3 \\
+		0 & -1
+	   \end{array} \right )
+\]
+
+(2020,2021) $A=[0,1];[-2,-3]$
+
+(2022)
+\[
+	A= \left(\begin{array}{cc}
+		2 & \color{red} 2 \\
+		0 & \color{red} 1
+	   \end{array} \right )
+\]
+
+
+
+(2023)
+\[
+	A= \left(\begin{array}{cc}
+		2 & \color{red} 3 \\
+		0 & \color{red} 1
+	   \end{array} \right )
+\]
+
+(2024)
+\[
+    A= \left(\begin{array}{cc} \color{red}3 & \color{red}2\\ 0 & 1 \end{array}\right)
+\]
+
+%---------------
+\ \\ \noindent
+{\bf 極配置}
+
+(original)
+閉ループ系の極が$-4,-5$
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 0 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	u
+\end{align*}
+
+(2020) $(A=[0, 1][2, 4], B=[0, 2]^T, 指定極：-2,-4)：解答なし(2020) $
+
+(2021) $(A=[0, 1][1, -1], B=[0, 1]^T, 指定極：-2,-3)：解答なし(2021)$
+
+(2022)
+閉ループ系の極が{\color{red}$-2,-3$}
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 \color{red} 2 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	u
+\end{align*}
+
+(2023) (2022)のシステムで極を{\color{red}$-4,-5$}
+
+
+
+%---------------
+\ \\ \noindent
+{\bf 最適制御：不安定極}
+
+(original)
+$A=1$, $B=1$, $Q=1$, $R=r$
+
+(2022)
+{\color{red}$A=2$}, $B=1$, $Q=1$, $R=r$
+
+(2023)
+{\color{red}$A=3$}, $B=1$, $Q=1$, $R=r$
+
+%---------------
+\ \\ \noindent
+{\bf 最適制御：安定極}
+
+(original)
+$A=-1$, $B=1$, $Q=1$, $R=r$
+
+(2022)
+{\color{red}$A=-2$}, $B=1$, $Q=1$, $R=r$
+
+(2023)
+{\color{red}$A=-3$}, $B=1$, $Q=1$, $R=r$
+
+%---------------
+\ \\ \noindent
+{\bf サーボ系}
+
+(original)
+$A=1$, $B=1$, $C=1$,　すべての極は$-1$
+
+(2022)
+{\color{red}$A=2$}, $B=1$, $C=1$,　すべての極は{\color{red}$-2$}
+
+(2023)
+{\color{red}$A=2$}, $B=1$, $C=1$,　すべての極は{\color{red}$-1$}
+
+%---------------
+\ \\ \noindent
+{\bf オブザーバ}
+
+(original) 極は$-1, -2$
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 2 \\
+	 1 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+\\
+	y&=
+	\left ( \begin{array}{cc}
+		0 & 2 
+	\end{array} \right )
+	\left (	\begin{array}{c}
+		x_1 \\ x_2 
+	\end{array} \right )
+\end{align*}
+
+(2021) $A=[0,4;1,2] C=[0,2], 極=-2,-4$
+
+(2022) 極は{\color{red}$-2, -3$}
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & {\color{red}4} \\
+	 1 & {\color{red}3}
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+\\
+	y&=
+	\left ( \begin{array}{cc}
+		0 & 2 
+	\end{array} \right )
+	\left (	\begin{array}{c}
+		x_1 \\ x_2 
+	\end{array} \right )
+\end{align*}
+
+(2023) (2022)のシステムで極は{\color{red}$-3, -4$}
+
+%---------------
+\ \\ \noindent
+{\bf 線形化}
+
+変更なし
+
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+
+\newpage
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf ３質量系}　次の３質量系の状態方程式を求めよ．
+
+\begin{minipage}{90mm}
+　\epsfig{file=car3.eps,scale=0.55}
+\end{minipage}
+\begin{minipage}{100mm}
+\begin{align}
+	m_0 \ddot{y}_0 & = F + k_1 (y_1 - y_0) + k_2 (y_2-y_0)
+\nonumber \\
+	m_1 \ddot{y}_1 & = - k_1 (y_1 - y_0)
+\nonumber \\
+	m_2 \ddot{y}_2 & = - k_2 (y_2 - y_0)
+\nonumber
+\end{align}
+\end{minipage}
+
+
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf ３質量系}
+
+次の３質量系の状態方程式を求めよ．
+\begin{figure}[htbp]
+ \begin{center}
+　\epsfig{file=car3.eps,scale=0.7}
+ \end{center}
+\end{figure}
+\begin{align}
+	m_0 \ddot{y}_0 & = F + k_1 (y_1 - y_0) + k_2 (y_2-y_0)
+\nonumber \\
+	m_1 \ddot{y}_1 & = - k_1 (y_1 - y_0)
+\nonumber \\
+	m_2 \ddot{y}_2 & = - k_2 (y_2 - y_0)
+\nonumber
+\end{align}
+よって状態方程式は
+\begin{align}
+ \frac{d}{dt} \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+		    \end{array}\right)
+ &=
+ \left(\begin{array}{cccccc}
+        0 & 0 & 0 & 1 & 0 & 0      \\
+        0 & 0 & 0 & 0 & 1 & 0      \\
+        0 & 0 & 0 & 0 & 0 & 1      \\
+	-\frac{k_1}{m_0} -\frac{k_2}{m_0}&  \frac{k_1}{m_0} &  \frac{k_2}{m_0} & 0 & 0 & 0 \\
+	 \frac{k_1}{m_1}                & -\frac{k_1}{m_1} &  0               & 0 & 0 & 0 \\
+	 \frac{k_2}{m_2}                &  0               & -\frac{k_2}{m_2} & 0 & 0 & 0 
+       \end{array}\right)
+ \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+       \end{array}\right)
+ +
+ \left(\begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+	    \frac{1}{m_0} \\
+	    0 \\
+	    0 
+       \end{array}\right)
+        F
+\nonumber
+\\
+ \left(\begin{array}{c}
+	    y_0 \\
+		y_1 \\
+		y_2
+       \end{array}\right)
+ &=
+ \left(\begin{array}{cccccc}
+         1 & 0 & 0 & 0 & 0 & 0  \\
+         0 & 1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & 1 & 0 & 0 & 0 \\
+       \end{array}\right)
+ \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+       \end{array}\right)
+\nonumber
+\end{align}
+
+
+\newpage
+%---------------------------------------------------------------------------
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+\noindent
+{\bf 電気回路　$LCR$回路}　電気回路は$C$の電圧，$L$の電流を状態とすると状態方程式が求められる．以下の回路の状態方程式を求めよ．
+
+\begin{minipage}{100mm}
+　\epsfig{file=LCR.eps,scale=1.3}
+\end{minipage}
+\begin{minipage}{50mm}
+回路の基本方程式
+\begin{align*}
+	v_L & = L \frac{d i}{dt} \\
+	i & = C \frac{d v_C}{dt} \\
+	v_R &= i R \\
+	v_i & = v_L + v_C + v_R \\
+	v_o & = v_C
+\end{align*}
+\end{minipage}
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 電気回路　$LCR$回路}　電気回路は$C$の電圧，$L$の電流を状態とすると状態方程式が求められる．以下の回路の状態方程式を求めよ．
+
+\begin{minipage}{100mm}
+　\epsfig{file=LCR.eps,scale=1.3}
+\end{minipage}
+\begin{minipage}{50mm}
+回路の基本方程式
+\begin{align*}
+	v_L & = L \frac{d i}{dt} \\
+	i & = C \frac{d v_C}{dt} \\
+	v_R &= i R \\
+	v_i & = v_L + v_C + v_R \\
+	v_o & = v_C
+\end{align*}
+\end{minipage}
+\ \\[1cm]
+
+状態を$i$, $v_C$とするとその微分が必要だから
+\begin{align*}
+	\frac{d i}{dt} 
+	&= \frac{v_L}{L} 
+	= \frac{v_i - v_C - v_R}{L} 
+	= - \frac{1}{L} v_R - \frac{1}{L} v_C + \frac{1}{L} v_i 
+\\ &
+	= - \frac{1}{L} R i - \frac{1}{L} v_C + \frac{1}{L} v_i 
+	= - \frac{R}{L} i - \frac{1}{L} v_C + \frac{1}{L} v_i \\
+	\frac{d v_C}{dt}
+	&= \frac{i}{C} 
+	= \frac{1}{C} i \\
+	v_o &= v_C 
+\end{align*}
+よって状態方程式は
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+		i \\
+		v_C
+	\end{array}
+	\right )
+	&=
+	\left (
+	\begin{array}{cc}
+		-\frac{R}{L} & -\frac{1}{L} \\
+		\frac{1}{C} & 0 \\
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+		i \\
+		v_C
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+		\frac{1}{L} \\
+		0
+	\end{array}
+	\right )
+	v_i
+\\
+	v_o 
+	&=
+	\left (
+	\begin{array}{cc}
+		0 & 1 
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+		i \\
+		v_C
+	\end{array}
+	\right )
+\end{align*}
+
+\newpage
+
+
+%--------------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%=================================================
+	\def\statev
+	{
+	\left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+	\end{array}\right)
+	}
+%
+%$\statev$
+%
+%=================================================
+
+\noindent
+{\bf 可制御性の例題}　演習で用いた３質量系の状態方程式は
+\begin{align}
+ \frac{d}{dt} \statev
+ &=
+ \left(\begin{array}{cccccc}
+        0 & 0 & 0 & 1 & 0 & 0      \\
+        0 & 0 & 0 & 0 & 1 & 0      \\
+        0 & 0 & 0 & 0 & 0 & 1      \\
+	-\frac{k_1}{m_0} -\frac{k_2}{m_0}&  \frac{k_1}{m_0} &  \frac{k_2}{m_0} & 0 & 0 & 0 \\
+	 \frac{k_1}{m_1}                & -\frac{k_1}{m_1} &  0               & 0 & 0 & 0 \\
+	 \frac{k_2}{m_2}                &  0               & -\frac{k_2}{m_2} & 0 & 0 & 0 
+       \end{array}\right)
+ \statev
+ +
+ \left(\begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+	    \frac{1}{m_0} \\
+	    0 \\
+	    0 
+       \end{array}\right)
+        F
+\nonumber
+\\
+ \left(\begin{array}{c}
+	    y_0 \\
+		y_1 \\
+		y_2
+       \end{array}\right)
+ &=
+ \left(\begin{array}{cccccc}
+         1 & 0 & 0 & 0 & 0 & 0  \\
+         0 & 1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & 1 & 0 & 0 & 0 \\
+       \end{array}\right)
+ \statev
+\nonumber
+\end{align}
+となる．このシステムについて以下を確認せよ．
+
+・$m_0=m_1=m_2=1$, $k_1=k_2=1$のとき，システムは不可制御
+
+・$m_0=m_1=m_2=1$, $k_1=3$, $k_2=1$のとき，システムは可制御
+
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf 可制御性の例題}
+
+\begin{itemize}
+\item $m_0=m_1=m_2=1$, $k_1=k_2=1$のとき
+\end{itemize}
+
+%================================
+%	P030_controllability11.mを利用
+%	m0=1, m1=1, m2=1, k1=1, k2=1
+%	matAをchrAで定義
+%	matBをchrBで定義
+%	matCoをchrCoで定義
+%	array環境で中ぞろえ(c)を右揃え(r)に変更
+
+
+	\def\matA
+	{
+    \left(\begin{array}{rrrrrr} 0 & 0 & 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 & 1\\ -2 & 1 & 1 & 0 & 0 & 0\\ 1 & -1 & 0 & 0 & 0 & 0\\ 1 & 0 & -1 & 0 & 0 & 0 \end{array}\right)
+	}
+
+
+	\def\matB
+	{
+	\left(\begin{array}{r} 0\\ 0\\ 0\\ 1\\ 0\\ 0 \end{array}\right)
+	}
+
+
+	\def\matCo
+	{
+	\left(\begin{array}{rrrrrr} 0 & 1 & 0 & -2 & 0 & 6\\ 0 & 0 & 0 & 1 & 0 & -3\\ 0 & 0 & 0 & 1 & 0 & -3\\ 1 & 0 & -2 & 0 & 6 & 0\\ 0 & 0 & 1 & 0 & -3 & 0\\ 0 & 0 & 1 & 0 & -3 & 0 \end{array}\right)
+	}
+
+%check時はコメントを外す
+%	$\matA$
+%
+%	$\matB$
+%
+%	$\matCo$
+
+%================================
+
+
+\begin{align}
+ \frac{d}{dt} \statev
+ &= \matA \statev + \matB F
+\nonumber
+\\
+ \left(\begin{array}{c}
+	    y_0 \\
+		y_1 \\
+		y_2
+       \end{array}\right)
+ &=
+ \left(\begin{array}{rrrrrr}
+         1 & 0 & 0 & 0 & 0 & 0  \\
+         0 & 1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & 1 & 0 & 0 & 0 \\
+       \end{array}\right)
+ \statev
+\nonumber
+\end{align}
+
+可制御性のチェック
+
+\begin{align}
+ (B,AB, A^2B, A^3B, A^4B, A^5B)
+ &=
+ (B,AB, A(AB), A(A^2B), A(A^3B), A(A^4B))
+\nonumber \\
+ &=
+ \matCo
+\nonumber
+\end{align}
+不可制御
+
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf 可制御性の例題}
+
+\begin{itemize}
+\item $m_0=m_1=m_2=1$, $k_1=3$, $k_2=1$のとき
+\end{itemize}
+
+%================================
+%	P031_controllability11.mを利用
+%	m0=1, m1=1, m2=1, k1=3, k2=1
+%	matAをchrAで定義
+%	matBをchrBで定義
+%	matCoをchrCoで定義
+%	array環境で中ぞろえ(c)を右揃え(r)に変更
+
+
+	\def\matA
+	{
+	\left(\begin{array}{rrrrrr} 0 & 0 & 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 & 1\\ -4 & 3 & 1 & 0 & 0 & 0\\ 3 & -3 & 0 & 0 & 0 & 0\\ 1 & 0 & -1 & 0 & 0 & 0 \end{array}\right)
+	}
+
+
+	\def\matB
+	{
+	\left(\begin{array}{r} 0\\ 0\\ 0\\ 1\\ 0\\ 0 \end{array}\right)
+	}
+
+
+	\def\matCo
+	{
+	\left(\begin{array}{rrrrrr} 0 & 1 & 0 & -4 & 0 & 26\\ 0 & 0 & 0 & 3 & 0 & -21\\ 0 & 0 & 0 & 1 & 0 & -5\\ 1 & 0 & -4 & 0 & 26 & 0\\ 0 & 0 & 3 & 0 & -21 & 0\\ 0 & 0 & 1 & 0 & -5 & 0 \end{array}\right)
+	}
+
+%check時はコメントを外す
+%	$\matA$
+%
+%	$\matB$
+%
+%	$\matCo$
+
+%================================
+
+
+\begin{align}
+ \frac{d}{dt} \statev
+ &= \matA \statev + \matB F
+\nonumber
+\\
+ \left(\begin{array}{c}
+	    y_0 \\
+		y_1 \\
+		y_2
+       \end{array}\right)
+ &=
+ \left(\begin{array}{rrrrrr}
+         1 & 0 & 0 & 0 & 0 & 0  \\
+         0 & 1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & 1 & 0 & 0 & 0 \\
+       \end{array}\right)
+ \statev
+\nonumber
+\end{align}
+
+可制御性のチェック
+
+\begin{align}
+ (B,AB, A^2B, A^3B, A^4B, A^5B)
+ &=
+ (B,AB, A(AB), A(A^2B), A(A^3B), A(A^4B))
+\nonumber \\
+ &=
+ \matCo
+\nonumber
+\end{align}
+可制御
+
+\newpage
+%---------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf 可観測性の例題}　演習の３質量系で，出力が$y=y_0$の場合，状態方程式と出力方程式は
+\begin{align}
+ \frac{d}{dt} \statev
+ &=
+ \left(\begin{array}{cccccc}
+        0 & 0 & 0 & 1 & 0 & 0      \\
+        0 & 0 & 0 & 0 & 1 & 0      \\
+        0 & 0 & 0 & 0 & 0 & 1      \\
+	-\frac{k_1}{m_0} -\frac{k_2}{m_0}&  \frac{k_1}{m_0} &  \frac{k_2}{m_0} & 0 & 0 & 0 \\
+	 \frac{k_1}{m_1}                & -\frac{k_1}{m_1} &  0               & 0 & 0 & 0 \\
+	 \frac{k_2}{m_2}                &  0               & -\frac{k_2}{m_2} & 0 & 0 & 0 
+       \end{array}\right)
+ \statev
+ +
+ \left(\begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+	    \frac{1}{m_0} \\
+	    0 \\
+	    0 
+       \end{array}\right)
+        F
+\nonumber
+\\
+y &=
+ \left(\begin{array}{cccccc}
+         1 & 0 & 0 & 0 & 0 & 0
+       \end{array}\right)
+ \statev
+\nonumber
+\end{align}
+となる．このシステムについて以下を確認せよ．
+
+・$m_0=m_1=m_2=1$, $k_1=k_2=1$のとき，システムは不可観測
+
+・$m_0=m_1=m_2=1$, $k_1=3$, $k_2=1$のとき，システムは可観測
+
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf 可観測性の例題}
+
+\begin{itemize}
+\item $m_0=m_1=m_2=1$, $k_1=k_2=1$のとき
+\end{itemize}
+
+%================================
+%	P040_observability11.mを利用
+%	m0=1, m1=1, m2=1, k1=1, k2=1
+%	matAをchrAで定義
+%	matBをchrBで定義
+%	matCは(100000)で固定
+%	matCoをchrCoで定義
+%	array環境で中ぞろえ(c)を右揃え(r)に変更
+
+
+	\def\matA
+	{
+	\left(\begin{array}{rrrrrr} 0 & 0 & 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 & 1\\ -2 & 1 & 1 & 0 & 0 & 0\\ 1 & -1 & 0 & 0 & 0 & 0\\ 1 & 0 & -1 & 0 & 0 & 0 \end{array}\right)
+	}
+
+
+	\def\matB
+	{
+	\left(\begin{array}{r} 0\\ 0\\ 0\\ 1\\ 0\\ 0 \end{array}\right)
+	}
+
+
+	\def\matC
+	{
+    \left(\begin{array}{rrrrrr} 1 & 0 & 0 & 0 & 0 & 0 \end{array}\right)
+	}
+
+	\def\matOb
+	{
+	\left(\begin{array}{rrrrrr} 1 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 1 & 0 & 0\\ -2 & 1 & 1 & 0 & 0 & 0\\ 0 & 0 & 0 & -2 & 1 & 1\\ 6 & -3 & -3 & 0 & 0 & 0\\ 0 & 0 & 0 & 6 & -3 & -3 \end{array}\right)
+	}
+
+%check時はコメントを外す
+%	$\matA$
+%
+%	$\matB$
+%
+%	$\matC$
+%
+%	$\matOb$
+
+%================================
+
+\begin{align}
+ \frac{d}{dt} \statev  
+ &=
+ \matA \statev + \matB F
+\nonumber
+\\
+ y 
+ &= \matC \statev 
+\nonumber
+\end{align}
+
+可観測性のチェック
+
+\begin{align}
+ \left(\begin{array}{l}
+        C \\
+        CA \\
+        CA^2  \\
+	CA^3 \\
+	CA^4 \\
+	CA^5
+       \end{array}\right)
+ &=
+ \left(\begin{array}{l}
+        C \\
+        CA \\
+        (CA)A  \\
+	(CA^2)A \\
+	(CA^3)A \\
+	(CA^4)A
+       \end{array}\right)
+ =
+ \matOb
+\nonumber
+\end{align}
+不可観測
+
+
+
+
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf 可観測性の例題}
+
+\begin{itemize}
+\item $m_0=m_1=m_2=1$, $k_1=3, k_2=1$のとき
+\end{itemize}
+
+%================================
+%	P041_observability31.mを利用
+%	m0=1, m1=1, m2=1, k1=3, k2=1
+%	matAをchrAで定義
+%	matBをchrBで定義
+%	matCは(100000)で固定
+%	matCoをchrCoで定義
+%	array環境で中ぞろえ(c)を右揃え(r)に変更
+
+
+	\def\matA
+	{
+	\left(\begin{array}{rrrrrr} 0 & 0 & 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 & 1\\ -4 & 3 & 1 & 0 & 0 & 0\\ 3 & -3 & 0 & 0 & 0 & 0\\ 1 & 0 & -1 & 0 & 0 & 0 \end{array}\right)
+	}
+
+
+	\def\matB
+	{
+	\left(\begin{array}{r} 0\\ 0\\ 0\\ 1\\ 0\\ 0 \end{array}\right)
+	}
+
+
+	\def\matC
+	{
+    \left(\begin{array}{rrrrrr} 1 & 0 & 0 & 0 & 0 & 0 \end{array}\right)
+	}
+
+	\def\matOb
+	{
+	\left(\begin{array}{rrrrrr} 1 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 1 & 0 & 0\\ -4 & 3 & 1 & 0 & 0 & 0\\ 0 & 0 & 0 & -4 & 3 & 1\\ 26 & -21 & -5 & 0 & 0 & 0\\ 0 & 0 & 0 & 26 & -21 & -5 \end{array}\right)
+	}
+
+%check時はコメントを外す
+%	$\matA$
+%
+%	$\matB$
+%
+%	$\matC$
+%
+%	$\matOb$
+
+%================================
+
+\begin{align}
+ \frac{d}{dt} \statev  
+ &=
+ \matA \statev + \matB F
+\nonumber
+\\
+ y 
+ &= \matC \statev 
+\nonumber
+\end{align}
+
+可観測性のチェック
+
+\begin{align}
+ \left(\begin{array}{l}
+        C \\
+        CA \\
+        CA^2  \\
+	CA^3 \\
+	CA^4 \\
+	CA^5
+       \end{array}\right)
+ &=
+ \left(\begin{array}{l}
+        C \\
+        CA \\
+        (CA)A  \\
+	(CA^2)A \\
+	(CA^3)A \\
+	(CA^4)A
+       \end{array}\right)
+ =
+ \matOb
+\nonumber
+\end{align}
+可観測
+
+
+
+
+\newpage
+%--------------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf 不可制御なシステムの分解（演習）}
+
+%================================
+%	P050_decompxxxx.mを利用
+%	A,B,C行列をmファイルで定義
+%	carXXをそのまま\defで定義
+%	array環境で中ぞろえ(c)を右揃え(r)に変更
+
+\def\chrA
+{
+    \left(\begin{array}{rr} 0 & 3\\ 1 & -2 \end{array}\right)
+}
+
+\def\chrB
+{
+    \left(\begin{array}{r} 1\\ -1 \end{array}\right)
+}
+
+\def\chrC
+{
+    \left(\begin{array}{rr} 1 & 1 \end{array}\right)
+}
+
+\def\chrCo
+{
+    \left(\begin{array}{rr} 1 & -3\\ -1 & 3 \end{array}\right)
+}
+
+\def\chrT
+{
+    \left(\begin{array}{rr} 1 & 0\\ -1 & 1 \end{array}\right)
+}
+
+\def\chrTI
+{
+    \left(\begin{array}{rr} 1 & 0\\ 1 & 1 \end{array}\right)
+}
+
+\def\chrbA
+{
+    \left(\begin{array}{rr} -3 & 3\\ 0 & 1 \end{array}\right)
+}
+
+\def\chrbB
+{
+    \left(\begin{array}{r} 1\\ 0 \end{array}\right)
+}
+
+\def\chrbC
+{
+    \left(\begin{array}{rr} 0 & 1 \end{array}\right)
+}
+%================================
+
+
+\def\statev
+{
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+}
+
+次のシステムが不可制御であることを確認し，可制御な部分と不可制御な部分に分けよ．
+\begin{align*}
+	\frac{d}{dt} \statev 
+	&= \chrA \statev + \chrB u
+\\
+	y 
+	&= \chrC \statev
+\end{align*}
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 不可制御なシステムの分解（演習）}
+
+次のシステムが不可制御であることを確認し，可制御な部分と不可制御な部分に分けよ．
+\begin{align*}
+	\frac{d}{dt} \statev 
+	&= \chrA \statev + \chrB u
+\\
+	y 
+	&= \chrC \statev
+\end{align*}
+
+
+%-----
+
+\begin{align*}
+	(B, AB) & = \chrCo
+\\
+	T &= \chrT
+\\
+	T^{-1} &= \chrTI
+\\
+	\bar{A} &= T^{-1} A T
+	= \chrTI \chrA \chrT
+	= \chrbA
+\\
+	\bar{B}
+	&= T^{-1} B
+	= \chrTI \chrB
+	= \chrbB
+\\
+	\bar{C}
+	&= 	C T
+	= \chrC \chrT
+	= \chrbC
+\end{align*}
+
+\newpage
+
+%---------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf 遷移行列（演習）} \nopagebreak
+
+次の行列$A$の遷移行列$e^{At}$を求めよ．
+\[
+	A= \left(\begin{array}{cc}
+		2 & 3 \\
+		0 & 1
+	   \end{array} \right )
+\]
+hint: 行列$A$を$\Lambda = T^{-1}AT$と対角化し，$e^{\Lambda t}$が解析的に求まることを利用する．
+
+
+\newpage
+
+%---------------------------------------------------------------------------
+%================================
+%	P060_transitionMxxxx.mを利用
+%	パラメータの定義
+%		A行列
+%		p1,p2それぞれ第１，第２固有ベクトルをわかりやすい値にするために乗ずる係数
+%
+%	chrA:A行列
+%	chrM0: lambda I -A
+%	chrlambda1, charlambda2: 固有値
+%	chreqn: 特性多項式
+%	chrM1: 第１固有値を代入した lambda I - A
+%	chrV1: 第１固有ベクトル（第１要素を１とした後 p1を乗じたもの）
+%	chrM2: 第２固有値を代入した lambda I - A
+%	chrV2: 第２固有ベクトル（第１要素を１とした後 p2を乗じたもの）
+%	chrT: 対角化のための行列T
+%	chrTI: Tの逆行列
+%	chreberA: 対角化した後の遷移行列
+%	chreA: 遷移行列
+%
+%	秀丸にコピー後
+%		置換　chr -> \\def\\chr
+%		置換　\s=\n -> \n\{
+%		置換　' -> 
+%		置換　\n\n ->\n\}
+%		最後に } があるか確認
+%
+%	\def\chrxxx{....}, 最初と最後の ' は消去
+
+\def\chrA
+{
+    \left(\begin{array}{cc} 3 & 2\\ 0 & 1 \end{array}\right)
+}
+\def\chrMo
+{
+    \left(\begin{array}{cc} \lambda -3 & -2\\ 0 & \lambda -1 \end{array}\right)
+}
+\def\chrMoa
+{
+    \lambda -3
+}
+\def\chrMob
+{
+    -2
+}
+\def\chrMoc
+{
+    0
+}
+\def\chrMod
+{
+    \lambda -1
+}
+\def\chrlambdaa
+{
+    1
+}
+\def\chrlambdab
+{
+    3
+}
+\def\chreqno
+{
+    \left(\lambda -1\right)\,\left(\lambda -3\right)
+}
+\def\chreqn
+{
+    \lambda ^2-4\,\lambda +3
+}
+\def\chrMa
+{
+    \left(\begin{array}{cc} -2 & -2\\ 0 & 0 \end{array}\right)
+}
+\def\chrVa
+{
+    \left(\begin{array}{c} 1\\ -1 \end{array}\right)
+}
+\def\chrMb
+{
+    \left(\begin{array}{cc} 0 & -2\\ 0 & 2 \end{array}\right)
+}
+\def\chrVb
+{
+    \left(\begin{array}{c} 1\\ 0 \end{array}\right)
+}
+\def\chrT
+{
+    \left(\begin{array}{cc} 1 & 1\\ -1 & 0 \end{array}\right)
+}
+\def\chrTI
+{
+    \left(\begin{array}{cc} 0 & -1\\ 1 & 1 \end{array}\right)
+}
+\def\chrbarA
+{
+    \left(\begin{array}{cc} 1 & 0\\ 0 & 3 \end{array}\right)
+}
+\def\chrebarA
+{
+    \left(\begin{array}{cc} e^t & 0\\ 0 & e^{3\,t} \end{array}\right)
+}
+\def\chreA
+{
+    \left(\begin{array}{cc} e^{3\,t} & e^{3\,t}-e^t\\ 0 & e^t \end{array}\right)
+}
+
+%================================
+
+
+
+\noindent
+{\bf 遷移行列（演習）} \nopagebreak
+
+次の行列$A$の遷移行列$e^{At}$を求めよ．
+\[
+	A= \chrA
+\]
+hint: 行列$A$を$\Lambda = T^{-1}AT$と対角化し，$e^{\Lambda t}$が解析的に求まることを利用する．\\
+
+$A$の固有値は，
+$\det(\lambda I - A) = 0$を満たす$\lambda$，すなわち
+\begin{align*}
+ \det(\lambda I - A)
+ & = 
+ \det \chrMo
+ =
+ (\chrMoa)(\chrMod)-(\chrMob)(\chrMoc)
+\\
+ &=
+ \chreqn
+ =
+ \chreqno
+\end{align*}
+より，$\lambda = \chrlambdaa または \chrlambdab$である．
+
+$\lambda = \chrlambdaa$のとき，
+\[
+ \begin{array}{ccc}
+ (\lambda I - A) v = 0 
+ &\Leftrightarrow&
+ \chrMa v = 0 
+ \end{array}
+\]
+であるから，$\lambda = \chrlambdaa$に対する固有ベクトルは
+$v_1 = \chrVa$．
+
+同様に
+$\lambda = \chrlambdab$のとき，
+\[
+ \begin{array}{ccc}
+ (\lambda I - A) v = 0
+ &\Leftrightarrow&
+ \chrMb v = 0 
+ \end{array}
+\]
+であるから，$\lambda = \chrlambdab$に対する固有ベクトル.\
+$v_2 = \chrVb$.
+
+$A$を対角化する行列は
+\[
+ T=(v_1, v_2)
+  =
+ \chrT
+ , \ \ 
+ T^{-1}= \chrTI
+\]
+となる．$A$を対角化すれば
+\[
+ \Lambda = T^{-1}AT 
+ = \chrTI \chrA \chrT
+ = \chrbarA
+\]
+となる．よって
+\begin{align*}
+ e^{At} &= T e^{T^{-1}AT t} T^{-1}
+ = T e^{\Lambda t} T^{-1}
+\\
+ &= \chrT \chrebarA \chrTI
+ = \chreA
+\end{align*}
+
+\newpage
+
+%---------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf 極配置（演習）}
+
+次の状態方程式
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 2 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	u
+\end{align*}
+に対して閉ループ系の極が$-4,-5$となるような状態フィードバック
+\begin{align*}
+	u 
+	&=
+	\left (
+	\begin{array}{cc}
+	 f_1 & f_2
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\end{align*}
+を求めよ．
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 極配置（演習）}
+
+次の状態方程式
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 2 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	u
+\end{align*}
+に対して閉ループ系の極が$-4,-5$となるような状態フィードバック
+\begin{align*}
+	u 
+	&=
+	\left (
+	\begin{array}{cc}
+	 f_1 & f_2
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\end{align*}
+を求めよ．
+\\
+
+閉ループ系は
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 2 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{cc}
+	 f_1 & f_2
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\\
+	&=
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 2 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{cc}
+	 0   & 0   \\
+	 f_1 & f_2
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\\
+	&=
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 f_1+2 & f_2-1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\end{align*}
+特性多項式は
+\begin{align*}
+	\mbox{det}[sI-(A+BF)]
+	& =
+	\mbox{det}
+	\left (
+	\begin{array}{cc}
+	 s & - 1 \\
+	 - f_1 -2 & s- (f_2-1)
+	\end{array}
+	\right )
+\\
+	&= s [s-(f_2-1)] - f_1 -2
+\\
+	&= s^2 - (f_2-1) s - f_1 -2
+\end{align*}
+望ましい特性多項式は望ましい極が$-4,-5$であることより
+\begin{align*}
+	(s+4)(s+5) = s^2 + 9s + 20
+\end{align*}
+よって係数を比較して
+\begin{align*}
+	-(f_2-1)=9, \ \ \ -f_1-2 =20
+\end{align*}
+よって
+\begin{align*}
+	f_2=-8, \ \ \ f_1=-22
+\end{align*}
+
+\newpage
+%---------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf 最適制御：不安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & = 3 \cdot x + 1 \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=3,B=1\\
+	J & = \int_0^{\infty} x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=1,R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 最適制御：不安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & = 3 \cdot x + 1 \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=3,B=1\\
+	J & = \int_0^{\infty} x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=1,R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+\\
+
+Riccati方程式
+\begin{align*}
+	& A^T P + P A - P B R^{-1} B^T P + Q = 0 \\
+	& 3 \cdot p + p \cdot 3 - p \cdot 1 \cdot \frac{1}{r} \cdot 1 \cdot p + 1 = 0 \\
+	& \frac{-1}{r} p^2 + 6p + 1 = 0 \\
+	& p^2 -6rp - r = 0
+\end{align*}
+よって
+\begin{align*}
+	p = 3 r \pm \sqrt{9 r^2 + r}
+\end{align*}
+$p>0$より
+\begin{align*}
+	p = 3 r + \sqrt{9 r^2+r}
+\end{align*}
+最適制御は
+\begin{align*}
+	u &= -R^{-1}B^T P x \\
+	&= -\frac{1}{r} \cdot 1 \cdot (3 r + \sqrt{9 r^2+r})\  x \\
+	&= (-3 - \sqrt{9 + (1/r)}) \ x
+\end{align*}
+閉ループ系は
+\begin{align*}
+	\frac{dx}{dt} & = 3 \cdot x + 1 \cdot u \\
+	&= 3 \cdot x + 1 \cdot (-3 - \sqrt{9 + (1/r)}) \ x \\
+	&= - \sqrt{9 + (1/r)} \  x
+\end{align*}
+となる．
+
+$r\rightarrow 0$と$r\rightarrow \infty$の場合...
+
+\begin{align*}
+	\mbox{入力: }&
+	\left \{
+	\begin{array}{lccl}
+		r \rightarrow 0 & : && u= - \infty \cdot x \\
+		r \rightarrow \infty & : && u= \hspace{3.5mm} -6 \ x  \\
+	\end{array}
+	\right .
+\\
+	\mbox{閉ループ系の極: }&
+	\left \{
+	\begin{array}{lccr}
+		r \rightarrow 0 & : && - \infty \\
+		r \rightarrow \infty & : && -3 \\
+	\end{array}
+	\right .
+\end{align*}
+となる．これは...
+\begin{description}
+\item[]・$R$を小さくすると入力$u$に対する重みが小さくなるので，入力をいっぱい使って速く状態を収束させる制御系が設計される．
+\item[]・$R$を大きくすると，システムを安定化するだけの最低限の入力を加える．このときの閉ループ系の極は元のシステムの安定極と，不安定極の実部を負としたものとなることが知られている．
+\end{description}
+を例示している．
+
+\newpage
+%---------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf 最適制御：安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & = \underline{-3} \cdot x + 1 \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=\underline{-3},B=1\\
+	J & = \int_0^{\infty} x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=1,R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 最適制御：安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & =\underline{-3} \cdot x + 1 \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=\underline{-3},B=1\\
+	J & = \int_0^{\infty} x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=1,R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+\\
+
+Riccati方程式
+\begin{align*}
+	& A^T P + P A - P B R^{-1} B^T P + Q = 0 \\
+	& \underline{-3} \cdot p + p \cdot(\underline{-3}) - p \cdot 1 \cdot \frac{1}{r} \cdot 1 \cdot p + 1 = 0 \\
+	& \frac{-1}{r} p^2 +(\underline{-6}) p + 1 = 0 \\
+	& p^2 \  \underline{+6} \ rp - r = 0
+\end{align*}
+よって
+\begin{align*}
+	p = \underline{-3 r} \pm \sqrt{9 r^2 + r}
+\end{align*}
+$p>0$より
+\begin{align*}
+	p = \underline{-3 r} + \sqrt{9 r^2+r}
+\end{align*}
+最適制御は
+\begin{align*}
+	u &= -R^{-1}B^T P x \\
+	&= -\frac{1}{r} \cdot 1 \cdot (\underline{-3 r} + \sqrt{9 r^2+r}) \  x \\
+	&= (\underline{+3} - \sqrt{9 + (1/r)}) \ x
+\end{align*}
+閉ループ系は
+\begin{align*}
+	\frac{dx}{dt} & = \underline{-3} \cdot x + 1 \cdot u \\
+	&= \underline{-3} \cdot x + 1 \cdot (\underline{+3} - \sqrt{9 + (1/r)}) \  x \\
+	&= - \sqrt{9 + (1/r)} \ x
+\end{align*}
+となる．
+
+$r\rightarrow 0$と$r\rightarrow \infty$の場合...
+
+\begin{align*}
+	\mbox{入力: }&
+	\left \{
+	\begin{array}{lccl}
+		r \rightarrow 0 & : && u= - \infty \cdot x \\
+		r \rightarrow \infty & : && u= \hspace{5mm} 0 \cdot x  \\
+	\end{array}
+	\right .
+\\
+	\mbox{閉ループ系の極: }&
+	\left \{
+	\begin{array}{lccr}
+		r \rightarrow 0 & : && - \infty \\
+		r \rightarrow \infty & : && -3 \\
+	\end{array}
+	\right .
+\end{align*}
+となる．これは...
+\begin{description}
+\item[]・$R$を小さくすると入力$u$に対する重みが小さくなるので，入力をいっぱい使って速く状態を収束させる制御系が設計される．
+\item[]・$R$を大きくすると，システムを安定化するだけの最低限の入力を加える．このときの閉ループ系の極は元のシステムの安定極と，不安定極の実部を負としたものとなることが知られている．
+\end{description}
+を例示している．
+
+\newpage
+%---------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf サーボ系（演習）}　次のシステムに対して，一定目標値$r$に対して定常偏差なく追従するコントローラを設計せよ．ただし，閉ループ系のすべての極を$-1$とせよ．
+\begin{align*}
+	\frac{dx}{dt} &= 2 \cdot x + 1 \cdot u, \hspace{0cm} &A=2,\  B=1
+\\
+	y &= 1 \cdot x , &C=1, \ D=0
+\end{align*}
+
+
+%---------------------------------------------------------------------------
+\newpage
+\noindent
+{\bf サーボ系（演習）}　次のシステムに対して，一定目標値$r$に対して定常偏差なく追従するコントローラを設計せよ．ただし，閉ループ系のすべての極を$-1$とせよ．
+\begin{align*}
+	\frac{dx}{dt} &= 2 \cdot x + 1 \cdot u, \hspace{0cm} &A=2,\  B=1
+\\
+	y &= 1 \cdot x , &C=1, \ D=0
+\end{align*}
+
+積分器
+\begin{align*}
+	\frac{d \eta}{dt}&= \ e \ = \ r-y \ = \ r-Cx \ = \ r-x
+\end{align*}
+
+拡大系
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 A & 0 \\
+	 -C& 0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 B \\ 0 
+	\end{array}
+	\right )
+	u
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ I 
+	\end{array}
+	\right )
+	r
+\\
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 2 & 0 \\
+	 -1& 0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 0 
+	\end{array}
+	\right )
+	u
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	r
+\end{align*}
+
+状態フィードバック
+\begin{align*}
+	u = \left ( \begin{array}{cc}
+			F & K \end{array} \right )
+		\left (
+		\begin{array}{c}
+		 x \\ \eta 
+		\end{array}
+		\right )
+\end{align*}
+
+閉ループ系
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 A & 0 \\
+	 -C& 0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 B \\ 0 
+	\end{array}
+	\right )
+	\left ( \begin{array}{cc}
+			F & K \end{array} \right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ I 
+	\end{array}
+	\right )
+	r
+\\
+	& = 
+	\left (
+	\begin{array}{cc}
+	 A & 0 \\
+	 -C& 0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{cc}
+	 B F & BK \\ 0 &0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	\left (
+	+
+	\begin{array}{c}
+	 0 \\ I 
+	\end{array}
+	\right )
+	r
+\\
+	& = 
+	\left (
+	\begin{array}{cc}
+	 A+BF & BK \\
+	 -C& 0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ I 
+	\end{array}
+	\right )
+	r
+\\
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 2+F & K \\
+	 -1& 0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	r
+\end{align*}
+
+閉ループ系の特性多項式
+\begin{align*}
+	\det
+	\left \{
+		sI- 
+		\left ( 
+		\begin{array}{cc}
+		 2+F & K \\
+		 -1& 0
+		\end{array}
+		\right )
+	\right \}
+	&=
+	\det
+	\left ( 
+	\begin{array}{cc}
+	 s-(2+F) & -K \\
+	 1& s
+	\end{array}
+	\right )
+\\
+	&=
+	\{ s-(2+F) \} \cdot s + K
+	=
+	s^2 -(2+F)s + K
+\end{align*}
+
+これは$s$に関する二次方程式なので根（極）は２個.
+$\therefore$すべての極が$-1$となる特性多項式は
+\begin{align*}
+	(s+1)(s+1) = s^2+2s+1
+\end{align*}
+
+係数を比較して
+\begin{align*}
+	-(2+F)=2, \ K=1 \ \ \Rightarrow \ \ F=-4, \ K=1
+\end{align*}
+
+コントローラーは
+\begin{align*}
+	\frac{d \eta}{dt}&= \ r-y 
+\\
+	u &= \left ( \begin{array}{cc}
+			-4 & 1 \end{array} \right )
+		\left (
+		\begin{array}{c}
+		 x \\ \eta 
+		\end{array}
+		\right )
+\end{align*}
+
+\newpage
+%---------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf オブザーバ（演習）}　次のシステムに対して，オブザーバを設計せよ．ただし，オブザーバの極は$-3,-4$とせよ．
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 4 \\
+	 1 & 3
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+\\
+	y&=
+	\left ( \begin{array}{cc}
+		0 & 2 
+	\end{array} \right )
+	\left (	\begin{array}{c}
+		x_1 \\ x_2 
+	\end{array} \right )
+\end{align*}
+
+
+%---------------------------------------------------------------------------
+\newpage
+\noindent
+{\bf オブザーバ（演習）}　次のシステムに対して，オブザーバを設計せよ．ただし，オブザーバの極は$-3,-4$とせよ．
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 4 \\
+	 1 & 3
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+\\
+	y&=
+	\left ( \begin{array}{cc}
+		0 & 2 
+	\end{array} \right )
+	\left (	\begin{array}{c}
+		x_1 \\ x_2 
+	\end{array} \right )
+\end{align*}
+
+$A+KC$の極配置をするために次の仮想システムを考える．
+\begin{align*}
+ \frac{d \xi}{dt} & = A^T \xi + C^T \eta, 
+\hspace{1cm}
+	A^T =
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 4 & 3
+	\end{array}
+	\right )
+	, \ 
+	C^T = 
+	\left (
+	\begin{array}{c}
+	 0 \\ 2 
+	\end{array}
+	\right )
+\end{align*}
+
+この仮想システムの閉ループ極を$-3$, $-4$とする仮想フィードバックを設計
+\begin{align*}
+ \eta =  K^T \xi
+	=
+	\left ( \begin{array}{cc}
+		k_1 & k_2 
+	\end{array} \right )
+	\xi
+\end{align*}
+
+仮想システムの閉ループ系
+\begin{align*}
+ \frac{d \xi}{dt} & = A^T \xi + C^T K^T \xi
+\\
+	&=
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 4 & 3
+	\end{array}
+	\right )
+	\xi
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 2 
+	\end{array}
+	\right )
+	\left ( \begin{array}{cc}
+		k_1 & k_2 
+	\end{array} \right )
+	\xi
+\\
+	&=
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 4 & 3
+	\end{array}
+	\right )
+	\xi
+	+
+	\left (
+	\begin{array}{cc}
+	 0 & 0 \\ 2k_1 & 2k_2 
+	\end{array}
+	\right )
+	\xi
+\\
+	&=
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 4 + 2k_1 & 3 + 2k_2
+	\end{array}
+	\right )
+	\xi
+\end{align*}
+
+仮想システムの閉ループ系の特性多項式
+\begin{align*}
+	&\det
+	\left \{
+		sI- 
+		\left ( 
+		\begin{array}{cc}
+		 0 & 1 \\
+		 4 + 2k_1 & 3 + 2k_2
+		\end{array}
+		\right )
+	\right \}
+	=
+	\det
+	\left ( 
+	\begin{array}{cc}
+	 s & -1 \\
+	 -(4 + 2k_1) & s-(3 + 2k_2)
+	\end{array}
+	\right )
+\\
+	& \hspace{1cm} =
+	s \cdot \{ s-(3 + 2k_2) \} -(4 + 2k_1)
+	=
+	s^2 -(3 + 2k_2)s -(4 + 2k_1)
+\end{align*}
+
+極が$-3$, $-4$ となる特性多項式は
+\begin{align*}
+	(s+3)(s+4) = s^2+7s+12
+\end{align*}
+
+係数を比較して
+\begin{align*}
+	-(3 + 2k_2)=7, \ -(4 + 2k_1)=12 
+	\ \ \Rightarrow \ \ 
+	k_2=-5, \ k_1=-8
+\end{align*}
+
+よって
+\begin{align*}
+	K&=
+	\left (
+	\begin{array}{c}
+	 k_1 \\ k_2 
+	\end{array}
+	\right )
+	=
+	\left (
+	\begin{array}{c}
+	 -8 \\ -5 
+	\end{array}
+	\right )
+\end{align*}
+
+オブザーバは
+\begin{align*}
+ \frac{d \hat{x}}{dt} &= A \hat{x} + B u - K (y - C \hat{x})
+\\
+ \frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 \hat{x}_1 \\ \hat{x}_2 
+	\end{array}
+	\right )
+	&=
+ 	\left (
+	\begin{array}{cc}
+	 0 & 4 \\
+	 1 & 3
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 \hat{x}_1 \\ \hat{x}_2 
+	\end{array}
+	\right )
+	+ 
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+	-
+	\left (
+	\begin{array}{c}
+	 -8 \\ -5 
+	\end{array}
+	\right )
+	\left \{
+		y -
+		\left ( \begin{array}{cc}
+			0 & 2 
+		\end{array} \right )
+		\left (
+		\begin{array}{c}
+		 \hat{x}_1 \\ \hat{x}_2 
+		\end{array}
+		\right )
+	\right \}
+\end{align*}
+
+
+\newpage
+%---------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf \large 線形化（演習）}
+
+次の１リンク系の運動方程式を考える．
+\[
+	J \ddot{\theta} = -c \dot{\theta} + mLg \sin \theta + \tau
+\]
+ここで$\theta$はリンク角，$\tau$は入力トルクで，のこりは定数である．
+
+\begin{enumerate}
+\item 
+このシステムを状態方程式であらわせ．
+\item
+状態方程式をテーラー展開の１次近似線形化せよ．
+\item
+運動方程式をフィードバック線形化し，線形状態方程式を求めよ．
+\end{enumerate}
+
+
+
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf \large 近似線形化・運動方程式の線形化}
+
+次の１リンク系の運動方程式を考える．
+\[
+	J \ddot{\theta} = -c \dot{\theta} + mLg \sin \theta + \tau
+\]
+ここで$\theta$はリンク角，$\tau$は入力トルクで，のこりは定数である．
+
+\begin{enumerate}
+\item 
+このシステムを状態方程式であらわせ．
+\item
+状態方程式をテーラー展開の１次近似線形化せよ．
+\item
+運動方程式をフィードバック線形化し，線形状態方程式を求めよ．
+\end{enumerate}
+\noindent
+【解答】
+
+\begin{enumerate}
+\item 
+＜非線形状態方程式＞
+\begin{eqnarray*}
+	\frac{d}{dt}
+	\bmatrix{c}
+		\theta \\
+		\dot{\theta}
+	\ematrix
+	& = &
+	\bmatrix{c}
+		\dot{\theta} \\
+		\frac{mLg \sin \theta -c \dot{\theta}}{J}
+	\ematrix
+	+
+	\bmatrix{c}
+		0 \\
+		\frac{1}{J}
+	\ematrix
+	\tau 
+	\ = \ 
+	f(\theta, \dot{\theta}) + g \tau
+\end{eqnarray*}
+\item
+＜テーラー展開の１次近似線形化＞
+\begin{eqnarray*}
+	\left .
+	\frac{\partial f}{\partial (\theta, \dot{\theta})}
+	\right \vert _{(\theta,\dot{\theta})=0} 
+	& = & 
+	\left .
+	\bmatrix{cc}
+		\frac{\partial f_1}{\partial \theta} &
+		  \frac{\partial f_1}{\partial \dot{\theta}} \\
+		\frac{\partial f_2}{\partial \theta} &
+		  \frac{\partial f_2}{\partial \dot{\theta}}
+	\ematrix
+	\right \vert_{(\theta,\dot{\theta})=0} 
+	\ = \ 
+	\left .
+	\bmatrix{cc}
+		0 & 1 \\
+		\frac{mLg \cos \theta}{J} &
+		  \frac{-c}{J}
+	\ematrix
+	\right \vert_{(\theta,\dot{\theta})=0} 
+	\ = \ 
+	\bmatrix{cc}
+		0 & 1 \\
+		\frac{mLg}{J} &
+		  \frac{-c}{J}
+	\ematrix
+\end{eqnarray*}
+より
+\begin{eqnarray*}
+	\frac{d}{dt}
+	\bmatrix{c}
+		\theta \\
+		\dot{\theta}
+	\ematrix
+	& = &
+	\bmatrix{cc}
+		0 & 1 \\
+		\frac{mLg}{J} &
+		  \frac{-c}{J}
+	\ematrix
+	\bmatrix{c}
+		\theta \\
+		\dot{\theta}
+	\ematrix
+	+
+	\bmatrix{c}
+		0 \\
+		\frac{1}{J}
+	\ematrix
+	\tau
+\end{eqnarray*}
+\item
+＜フィードバック線形化＞
+
+線形化するためのフィードバックを
+\[
+	\tau = c \dot{\theta} - mLg \sin \theta + J v
+\]
+とすれば
+\[
+	J \ddot{\theta} = Jv, \ => \ \ddot{\theta}=v
+\]
+となる．これを状態方程式で表せば
+\begin{eqnarray*}
+	\frac{d}{dt}
+	\bmatrix{c}
+		\theta \\
+		\dot{\theta}
+	\ematrix
+	& = &
+	\bmatrix{cc}
+		0 & 1 \\
+		0 & 0
+	\ematrix
+	\bmatrix{c}
+		\theta \\
+		\dot{\theta}
+	\ematrix
+	+
+	\bmatrix{c}
+		0 \\
+		1
+	\ematrix
+	v
+\end{eqnarray*}
+
+\end{enumerate}
+
+
+
+
+
+
+\end{document}
+

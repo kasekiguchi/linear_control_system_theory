@@ -1,0 +1,254 @@
+------------------------------------------------------------------
+
+                 MaTX ver. 4.322 (1997/7/19)
+
+                       for DJGPP
+
+                     Masanobu Koga
+
+                 koga@mei.titech.ac.jp
+
+             Tokyo Institute of Technology, JAPAN
+
+          Copyright 1995 Masanobu Koga, T.I.T., JAPAN
+
+--------------------------------------------------------------------
+
+* RUNNING ENVIRONMENT
+
+   Hardware : IBM-PC/AT, PC9801 ( > 80386)
+   Memory   : 16MByte > (Recommend > 24MByte) 
+   OS       : DOS > 5.0, Windows 95/NT
+
+   DJGPP-2.01 is required for MaTX for DJGPP. Please install DJGPP-2.01
+   package at first. DJGPP-2.01 is availabel from
+
+     matx.ds.mei.titech.ac.jp/pub/djgpp-2.01
+
+   Although there are many files in the djgpp package, the following six
+   files are enough for the use of MaTX
+
+     v2/djdev201.zip
+     v2gnu/gcc272b.zip
+     v2gnu/bnu27b.zip
+     v2gnu/gwk300b.zip
+     v2gnu/mak373b.zip
+     v2misc/csdpmi3b.zip
+
+* INSTALLATION OF DJGPP-2.01
+
+   (0) Copy all files in floppy disks to a directory in the harddisk.
+       Merge djgpp.000, djgpp.001, djgpp.002, and djgpp.003 to a file.
+
+         merge djgpp djgpp.lzh
+
+       Decompress djgpp.lzh there.
+
+         lha x djgpp.lzh
+
+       Then there are six files in the directory djgpp.
+
+   (1) Make the directory for DJGPP and move six files and unzip386.exe
+       there. (unzip386.exe is available from the same directory as DJGPP
+       by FTP)
+
+         mkdir c:\app\djgpp
+         move djdev201.zip c:\app\djgpp
+         move djdev201.zip c:\app\djgpp
+         move gcc272b.zip c:\app\djgpp
+         move bnu27b.zip c:\app\djgpp
+         move gwk300b.zip c:\app\djgpp
+         move mak373b.zip c:\app\djgpp
+         move csdpmi3b.zip c:\app\djgpp
+         move unzip386.exe c:\app\djgpp
+
+   (2) Change the directory to the DJGPP directory and decompress six
+       zip files.
+
+         cd c:\app\djgpp
+         unzip386 djdev201.zip
+         unzip386 gcc272b.zip
+         unzip386 bnu27b.zip
+         unzip386 gwk300b.zip
+         unzip386 mak373b.zip
+         unzip386 csdpmi3b.zip
+
+   (3) Add the following statement to AUTOEXEC.BAT for environment
+       variable for DJGPP and reboot the computer.
+
+         set PATH=c:\app\djgpp\bin;%PATH%
+         set DJGPP=c:\app\djgpp\djgpp.env
+         set TEMP=c:
+
+   (4) Check the installation by
+
+         go32-v2
+
+       If the following messages are displayed on the screen, the
+       installation was succeed.
+
+         DPMI memory available: 8020 Kb
+         DPMI swap space available: 39413 Kb
+
+       The number depends on the computer. If the DPMI memory is
+       less than 4 Mb, read the FAQ of DJGPP.
+
+       make.exe in the package of DJGPP cann't invoke the commands
+       which require 16-bit DPMI server, such as command-line compiler
+       of Borland.  You can change the name make.exe to gmake.exe to
+       distinguish from the other make command.
+
+* INSTALLATION OF MaTX
+
+Required Files:  MaTX-V.xxx+V.yyy.lzh  (MaTX package)
+                 MaTX-util.lzh         (Utility package)
+
+                 ** V.xxx+V.yyy denotes the version.
+                    These files are refered as matx.lzh and util.lzh below.
+
+(0) Copy all files in floppy disks to a directory in the harddisk.
+    Merge MaTX.000 and MaTX.001 to a file.
+
+      merge MaTX MaTX.lzh
+
+(1) Move matx.lzh and util.lzh to the directory where you are going to
+    install MaTX and change the directory there.  Here we assumet that
+    MaTX is installed in the directory c:\app .
+
+      move matx.lzh c:\app
+      move util.lzh c:\app
+      cd c:\app
+
+(2) Decompress matx.lzh and util.lzh.
+
+      lha x matx.lzh
+      lha x util.lzh
+
+(3) Modify matx\bin\matcc.bat, matx\bin\matccc.bat
+    matx\bin\matcc.rsp, and matx\bin\matccc.rsp as follows.
+
+    If MaTX is install in c:\app\matx, modify those files as
+
+    matcc.bat:
+       gcc %1 %2 %3 %4 %5 %6 %7 %8 %9 @c:\app\matx\bin\matcc.rsp
+
+    matccc.bat:
+       gcc @c:\app\matx\bin\matccc.rsp %1 %2 %3 %4 %5 %6 %7 %8 %9
+
+    matcc.rsp:
+       -O -DGCC_GO32 -Ic:/app/matx/include -Lc:/app/matx/lib 
+       -lmxctr -lmxrob -lmxsig -lmxidt -lmxgra -lmxmat -lmatx -lm -lpc
+       (These should be one line in file file)
+
+    matccc.rsp:
+       -c -O -DGCC_GO32 -Ic:/app/matx/include
+
+(4) Modify AUTOEXEC.BAT.
+
+    EXAMPLE:
+
+       set PATH=c:\app\matx\bin;%PATH%
+       set PAGER=less
+       set TERMCAP=c:\app\matx\bin\termcap
+       set TERM=ibmpc
+       set MATXINPUTS=c:\app\matx\inputs
+       set LANG=ja
+       set MATXAWK=gawk
+       set MATXCPP=cpp -traditional
+       set HELP=c:\app\matx\bin
+       set GNUHELP=c:\app\matx\bin\gnuplot.gih
+
+    DESCRIPTION
+
+    (a) Add the MaTX directory to PATH.
+
+        set PATH=c:\app\matx\bin;%PATH%
+
+    (b) Set you favorite pager to PAGER.
+
+        set PAGER=less
+        set TERMCAP=c:\app\matx\bin\termcap
+        set TERM=ibmpc
+   
+    (c) Set mm-file directory of MaTX to MATXINPUTS.
+
+        set MATXINPUTS=c:\app\matx\inputs
+
+    (d) If you want to use other awk or cpp (C preprocessor) which are
+        not in the directories of PATH, set MATXAWK or MATXCPP.
+
+        set MATXAWK=gawk
+        set MATXCPP=cpp -traditional
+
+    (e) Set the help-file for gnuplot
+
+        set GNUHELP=c:\app\matx\bin\gnuplot.gih
+
+
+(5) Invoke matx at the command line of DOS-Window.  When a prompt is
+    displayed, input 'demo' for demonstration as
+
+      MaTX (1) demo
+    
+* INSTALLATION OF WGNUPLOT
+
+   Move wgnuplot.ini to the directory of WINDOWS.
+
+     copy wgnuplot.ini c:\windows
+
+
+* CONTENTS OF MaTX PACKAGE
+
+    MATX\bin      (Executable files)
+                  matx.exe:   Interpreter
+                  matc.exe:   Compilor         (MM-file --> C-file)
+                  matcc.bat:  Link script      (C-file  --> executable)
+                  matcc.rsp:  Response file for matcc.bat
+                  matccc.bat: Compile script   (C-file  --> .o file)
+                  matccc.rsp: Response file for matccc.bat
+                  matp.exe:   Matrix printing command
+                  mated.exe:  Matrix edidotr
+
+        \lib      (Library files)
+                  libMaTX.a:  Fundamental libary for MaTX
+                  libmxmat.a: Matrix operation library
+                  libmxgra.a: Graphics library
+                  libmxctr.a: Control system library
+                  libmxsig.a: Signal processing library
+                  libmxidt.a: Identification library
+                  libmxrob.a: Robust control library
+
+        \include  (Header file for compilation)
+                  matrix.h:     Matrix header file
+                  poly.h:       Polynomial header file
+                  rational.h:   Rational polynomial header file
+                  list.h:       List header file
+                  complex.h:    Complex number header file
+                  estring.h:    String header file
+                  util.h:       Utility header file
+                  matxrc.h:     User function header file
+                  matxgval.h:   Global variable header file
+
+        \inputs   (mm-files)
+                  MaTXRC.mm:     Startup file
+                  matx.hlp:      Help file
+                  demo.mm:       Demonstration program
+                  bench.mm:      Benchmark program
+
+                  /matrix/*.mm:  Matrix operation
+                  /control/*.mm: Control system design
+                  /signal/*.mm:  Signal processing
+                  /graph/*.mm:   Graphics
+                  /robust/*.mm:  Robust control
+
+                  /contrib       Contribution mm-files
+                  /contrib/ga    Genetic Algorithm
+
+* CONTENTS OF UTILIY PACKAGE
+
+    o less                  Pager for on- line manual
+    o gnuplot               Plot command for graphics
+    o caps2ctl              Change CAPS-key and CTRL-key
+    o nulprn.sys            Invalidate Ctrl-P key for print out
+
+-----------------------------------------------------------------------------

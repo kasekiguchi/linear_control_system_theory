@@ -1,0 +1,150 @@
+
+                   MaTXを使ったベンチマーク
+
+
+  以下の表に載っていない計算機でベンチマークを行なわれた方は，
+  ベンチマークを行なった環境
+
+  (1) 計算機のメーカ名，モデル名，型番，CPUなど
+  (2) OS
+  (3) C コンパイラ (コンパイルオプション)
+  (4) その他
+
+  と計算時間を matx-info@ds.mei.titech.ac.jp までお知らせ下さい。
+
+
+  ベンチマークは，3 次の線形システムを Ode() を用いて刻み 1 msec
+  で 10 秒間のシミュレーションするプログラムを使って行ないます。
+
+  具体的には，このディレクトリに入っているmmmark.mmを使い，
+  次のように時間を計測します。
+
+[1] matc を使う場合
+
+  (1) matcc mmmark.mm
+  (2) time ./mmmark
+
+      10.000u 0.060s 0:10.42 96.5% 0+407k 0+0io 0pf+0w
+
+  (3) 1 番目に 2 番目を加えた数値を計算時間とします。
+
+[2] matx を使う場合
+
+   (1) time matx mmmark.mm
+
+       75.270u 0.270s 1:18.38 96.3% 0+645k 4+4io 58pf+0w
+
+   (2) 1 番目に 2 番目を加えた数値を計算時間とします。
+
+[3] DOS 環境での計測方法
+
+    次の 3 行からなるバッチファイルを作り，そのバッチファイルを起動
+    した後，すぐにリターンキーを 2 回連続して入力する。
+
+    (1) matcを使う場合      (2) matxを使う場合
+
+        time                    time
+        mmmark                  matx mmmark.mm
+        time                    time
+
+-----------------------------------------------------------------------------
+ 時間[s] 時間[s]        動作環境
+  (matc)  (matx)
+
+   0.88    5.82  Proside PentiumII 400MHz (Win95, DJGPP)
+   1.18    7.89  DEC AlphaServer 8400 5/440 437MHz
+   1.21    7.36  Gateway2000 G6-333 Pentium-II 333MHz
+   1.27   10.17  MICRON Millennia PR300, Solaris2.5.1x86 (gcc -O2)
+   1.32    7.91  DELL OptiPlex GXa PentiumII 300MHz, Win95 (DJGPP)
+   1.40    7.60  SUN UltraSPARC-II 296MHz, Solaris 2.5.1 (gcc)
+   1.41    9.14  TOSHIBA Equium PentiumII 266MHz, Win95 (DJGPP)
+   1.53   10.74  Ultra10 UPA/PCI (UltraSPARC-IIi 300MHz)
+   1.74   12.94  Gateway2000 G6-200, Linux 2.0.30 (gcc)
+   1.75   13.27  MICRON Millennia PR200, WinNT (Watcom C/C++10.5J)
+   1.87   11.81  TOSHIBA PV5500 PentiumPro 200MHz, Win95 (djgpp-2.0)
+   2.03   14.24  MICRON Millennia PR200, Solaris2.5.1x86 (gcc -O2)
+   2.04   11.31  DELL OptiPlex GXa PentiumII 300MHz, Win95 (Visual C++)
+   2.30   16.09  JCC JP4 PowerPC604-133, JCC_BSD+ 1.0 #101 (cc -O)
+   2.52   15.56  UltraSPARC 167MHz, Solaris 2.5 (gcc -O2 -mv8)
+   2.91   16.65  MICRON Millennia P200, Win95 (Watcom C/C++10.5J)
+   2.96   24.03  Vintage PCI P5-166, Linux-2.0.16 (gcc -m486 -O2)
+   3.02   14.72  MICRON Millennia P200, Win95 (gcc+go32 -O2 -m486)
+   3.04   24.07  MICRON Millennia P200, Solaris2.5.1x86 (gcc -O2)
+   3.08   23.12  JCC JP4 PowerPC604-100, JCC_BSD+ 1.0 #101 (cc -O)
+   3.11   21.08  Vintage PCI P5-166 Linux-2.0.22, (gcc -m486 -O2)
+   3.18   19.90  NEWS5000X, NEWS-OS 4.2.1R (cc -O2)
+   3.40   21.00  DELL OptiPlex GXM5200 Pentium 200MHz, Win95 (DJGPP)
+   3.44   26.36  SS-20 128M memory cpu clock 125 MHz x 2, Solaris
+   3.49   18.53  P5-166, FreeBSD 2.1.0R (gcc -O2)
+   3.50   28.74  Sun SPARCserver1000 (SuperSPARC 50MHz x 8), Solaris 2.5 (gcc)
+   3.52   26.03  JCC JP3e, JCC_BSD+ 1.0 #101
+   3.65   24.11  JCC JH20/M151, SunOS4.1.4 (cc -O, 4.292+4.337)
+   4.20   22.00  FMV-DP TE(P5-133), FreeBSD 2.1.5 (gcc)
+   4.47   26.99  HP9000/755, HP-UX (cc -O)
+   4.50   38.00  GATEWAY 2000 P5-100, WinNT (Watcom C/C++10.5J)
+   4.53   25.14  JCC JS20/M86, SunOS4.1.4 (cc -O)
+   4.62   30.67  SS-20 128M memory cpu clock 60 MHz x 2, Solaris (gcc)
+   4.69   33.93  GATEWAY 2000 P5-120, Solaris 2.5.1
+   5.20   24.60  GATEWAY 2000 P5-133, LINUX (gcc -O2 -m486)
+   5.52   37.52  IBM ThinkPad535 P5-120, FreeBSD 2.2 (gcc -O, 4.274+4.320)
+   5.81   27.64  GATEWAY 2000 P5-120, LINUX (gcc -O2 -m486)
+   5.85   36.70  SS-20 SUNW,S20,501-2324, Solaris (gcc -O2 -mv8)
+   5.88   36.36  SPARC station 10 Model 51, SunOS4.13 (gcc -O2 -mv8)
+   5.97   33.57  JS20/M61 SuperSPARC+ 60MHz 1MCash, SunOS4.1.3 (gcc)
+   6.18   40.93  IBM ThinkPad535 P5-120, FreeBSD 2.2 (gcc -O, 4.279+4.324)
+   6.25   34.73  GATEWAY 2000 P5-100, FreeBSD2.1.0 (gcc -O2 -m486)
+   6.26   34.00  Pentium90 (gcc+go32 -O2 -m486)
+   7.28   52.30  JCC JS5/110, SunOS4.1.3 (cc -O)
+   7.50   72.00  NEC PC-9801BX2 + Cyrix5x86 100MHz (DJGPP-dos)
+   7.75   38.99  Pentium90 , LINUX (gcc-i2.4.5p -O4 -mpentium)
+   7.80   50.15  Compaq Pentium100, FreeBSD 2.1.5
+   8.00   44.00  GATEWAY 2000 P5-60, BSD on Windows (gcc -O2)
+   8.06   49.78  Pentium90 ,LINUX, (gcc -O2 -m486)
+   8.46   61.11  JCC JS5/85, Solaris 2.4 (gcc -O)
+   8.61   44.38  EPSON PC-586RV2 P5-60, FreeBSD 2.0 (cc -m486 -O2)
+   8.73   46.63  GATEWAY 2000 P5-60, DJGPP (gcc -O2 -m486)
+   8.81   47.84  GATEWAY 2000 P5-60, FreeBSD 2.1.5R (gcc -O2)
+   9.36   68.59  GATEWAY 2000 P5-60, Solaris 2.5.1
+   9.41   68.19  JCC JS5/70, SunOS4.1.3 (cc -O)
+   9.50   60.40  SPARC station 10 Model 40, SunOS4.1.3 (cc -O)
+   9.55   45.85  P5-60, LINUX (gcc-i2.4.5p -O4 -mpentium)
+   9.71   72.44  JCC JS5/85, SunOS4.1.3 (gcc -O)
+  10.01   53.49  P5-60, LINUX (gcc-i2.5.8p -O2 -mpentium)
+  10.22   66.99  JCC JS5/70, SunOS4.1.3 (gcc -O2)
+  10.56   53.94  P5-60 LINUX (gcc-i2.4.5p -O2 -m486)
+  10.68   68.77  SPARC station 10 Model 30, SunOS4.1.3 (cc -O)
+  11.88          CRAY C916/12256 (cc -O2)
+  11.91   63.84  Mebius Note 575CD-95, LINUX (gcc -O2 -m486)
+  12.98   78.46  SPARC station 10 Model 30, SunOS4.1.3 (gcc -O2)
+  12.08   52.97  GATEWAY 2000 P5-60, LINUX (gcc -O2 -m486)
+  13.62   71.00  GATEWAY 2000 DX2/66, DJGPP (gcc -O2 -m486)
+  13.84   89.34  DX2/66 BSD/OS 2.0 (cc -O)
+  14.20  100.24  DX2/66 Solaris 2.5.1 x86 (gcc -O)
+  14.53   82.79  SPARC station IPX(double speed), SunOS4.1.3 (cc -O)
+  15.58   86.36  FM/V BIBLO DX4 75MHz, LINUX (gcc -O2 -m486)
+  16.10   129.0  Sun SPARCserver600MP(SPARC 40MHz x 4), SunOS4.1.2, (gcc -O2)
+  17.00  127.00  NEC PC9821Xs DX2/66, DJGPP, DOS 5.0A
+  17.11   87.58  GATEWAY 2000 DX2/66 LINUX (gcc -O2 -m486)
+  17.70   131.6  TOSHIBA Libretto 20 (AMD 486DX4 75MHz), MS-DOS/V 6.2, DJGPP
+  18.18   83.59  DOS/V DX2/66, LINUX (gcc -O2 -m486)
+  18.67  130.62  SPARC station ELC, SunOS4.1.3 (gcc -O2)
+  19.50  115.99  SPARC station 2, SunOS4.1.3 (cc -O)
+  19.51  102.63  SPARC station IPX, SunOS4.1.3 (cc -O)
+  23.87  139.02  SPARC station ELC, SunOS4.1.3 (cc -O)
+         148.35  Dynabook GT475 (486DX4 75M 32M), Win95
+  25.47  166.85  SPARC Classic, SunOS4.1.3 (gcc -O2 -mv8)
+  28.71  180.87  SPARC station IPC, SunOS4.1.3 (gcc -O2)
+  28.35  183.59  JCC Classic, SunOS4.1.3 (gcc -O2)
+  33.47  183.56  SPARC station IPC, SunOS4.1.3 (cc -O)
+  34.55  191.48  JCC Classic, SunOS4.1.3 (cc -O)
+  38.94  225.68  SPARC station 1, SunOS4.1.3 (cc -O)
+  39.11  228.58  Sun4/280, SunOS4.1.3 (cc -O)
+  92.00  365.00  NEC PC9801 RA, DJGPP (gcc -O2)
+ 107.76  545.62  Sun3/260, SunOS4.1.3 (gcc -O)
+ 153.96  788.62  Sun3/60, SunOS4.1.3 (gcc -O)
+ 245.36          IBM ThinkPad 230 C/s (486sx 33MHz, Linux 2.0.30, 487Emu)
+ 256.00  738.00  SHARP X68000 (68000 24MHz + 68882, Human68k)
+ 263.00  772.00  SHARP X68000 (68000 24MHz, Human68k)
+ 322.98          EPSON PC486 AUX2 (486sx 33MHz, 386BSD)
+ 336.00          EPSON PC386 VR (386sx 16MHz), DJGPP, (gcc -O2)
+-----------------------------------------------------------------------------

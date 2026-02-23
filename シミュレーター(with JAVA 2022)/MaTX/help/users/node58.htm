@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>ファイル入出力</TITLE>
+<META NAME="description" CONTENT="ファイル入出力">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node59.htm">
+<LINK REL="previous" HREF="node53.htm">
+<LINK REL="up" HREF="node51.htm">
+<LINK REL="next" HREF="node59.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1300"
+ HREF="node59.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1296"
+ HREF="node51.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1290"
+ HREF="node57.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1298"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1299"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1301"
+ HREF="node59.htm">プロセスの終端の検出</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1297"
+ HREF="node51.htm">ファイル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1291"
+ HREF="node57.htm">一般データの保存と読み込み</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION00730000000000000000">
+ファイル入出力</A>
+</H1><FONT SIZE="-1">
+C言語と同様にファイルをオープン<TT>fopen()</TT>し，
+データをファイルに出力(<TT>fprintf()</TT>)したり，
+データをファイルから読み込む(<TT>fscanf()</TT>)こともできる。
+ファイルを<TT>fopen()</TT>でオープンしたあとは，
+<B>ファイルディスクリプタ</B>によってファイルを指定する。
+不要になったファイルは<TT>fclose()</TT>によって閉じる。
+<A NAME="2998">&#160;</A>
+<A NAME="2999">&#160;</A>
+<A NAME="3000">&#160;</A>
+<A NAME="3001">&#160;</A>
+<A NAME="2910">&#160;</A>
+ファイルディスクリプタを用いたファイル入出力の例を次に示す。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  if ((id1 = fopen("afo", "w")) &lt; 0) {
+      error("Can't open %s", "afo");
+  }
+  fprintf(id1, "%d %lf %s", 10, 3.1415, "Hello");
+  fclose(id1);
+
+  if ((id2 = fopen("afo", "r")) &lt; 0) {
+      error("Can't open %s", "afo");
+  }
+  {a, b, c} = fscanf(id2, "%d %lf %s");
+  fclose(id2);
+
+  print a, b, c;
+}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

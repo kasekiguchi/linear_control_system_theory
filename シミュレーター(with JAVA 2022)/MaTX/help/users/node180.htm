@@ -1,0 +1,396 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>行列の比較と配列の比較</TITLE>
+<META NAME="description" CONTENT="行列の比較と配列の比較">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node181.htm">
+<LINK REL="previous" HREF="node169.htm">
+<LINK REL="up" HREF="node144.htm">
+<LINK REL="next" HREF="node181.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2880"
+ HREF="node181.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2876"
+ HREF="node144.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2870"
+ HREF="node179.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2878"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2879"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2881"
+ HREF="node181.htm">行列とスカラの演算</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2877"
+ HREF="node144.htm">行列と配列と指数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2871"
+ HREF="node179.htm">行列の配列(ピース行列の利用)</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001860000000000000000">
+行列の比較と配列の比較</A>
+</H1><FONT SIZE="-1">
+行列の正定性や2つの行列の比較は，
+関係演算子 <TT>&gt;</TT>, <TT>&gt;=</TT>, <TT>&lt;</TT>, <TT>&lt;=</TT> を
+使って調べることができる。配列を関係演算子を用いて比較した場合，
+各成分毎の比較が行なわれ，結果が(0または1)を成分とする配列として返される。
+この結果は，関数<TT>all()</TT>，<TT>all_col()</TT>，<TT>all_row()</TT>，
+<TT>any()</TT>，<TT>any_col()</TT>，<TT>any_row()</TT>
+の引数として利用できる。
+<A NAME="9040">&#160;</A><A NAME="9041">&#160;</A>
+<A NAME="9042">&#160;</A>
+<A NAME="9043">&#160;</A><A NAME="9044">&#160;</A>
+<A NAME="9045">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="9046">&#160;</A>
+<A NAME="9047">&#160;</A>
+<A NAME="9048">&#160;</A>
+<A NAME="9049">&#160;</A>
+<A NAME="9050">&#160;</A>
+<A NAME="9051">&#160;</A>
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=1>表 記</TD>
+<TD ALIGN="CENTER" COLSPAN=1>意 味</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 &lt; 0</TD>
+<TD ALIGN="LEFT">maxeigval(行列) &lt; 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 &gt; 0</TD>
+<TD ALIGN="LEFT">mineigval(行列) &gt; 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 &lt;= 0</TD>
+<TD ALIGN="LEFT">maxeigval(行列) &lt;= 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 &gt;= 0</TD>
+<TD ALIGN="LEFT">mineigval(行列) &gt;= 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 == 0</TD>
+<TD ALIGN="LEFT">行列は零行列である</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 != 0</TD>
+<TD ALIGN="LEFT">行列は零行列でない</TD>
+</TR>
+<TR><TD ALIGN="LEFT">0 &gt; 行列</TD>
+<TD ALIGN="LEFT">maxeigval(行列) &lt; 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">0 &lt; 行列</TD>
+<TD ALIGN="LEFT">mineigval(行列) &gt; 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">0 &gt;= 行列</TD>
+<TD ALIGN="LEFT">maxeigval(行列) &lt;= 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">0 &lt;= 行列</TD>
+<TD ALIGN="LEFT">mineigval(行列) &gt;= 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">0 == 行列</TD>
+<TD ALIGN="LEFT">行列は零行列である</TD>
+</TR>
+<TR><TD ALIGN="LEFT">0 != 行列</TD>
+<TD ALIGN="LEFT">行列は零行列でない</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 &lt; 行列2</TD>
+<TD ALIGN="LEFT">maxeigval(行列1 - 行列2) &lt; 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 &gt; 行列2</TD>
+<TD ALIGN="LEFT">mineigval(行列1 - 行列2) &gt; 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 &lt;= 行列2</TD>
+<TD ALIGN="LEFT">maxeigval(行列1 - 行列2) &lt;= 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 &gt;= 行列2</TD>
+<TD ALIGN="LEFT">mineigval(行列1 - 行列2) &gt;= 0</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 == 行列2</TD>
+<TD ALIGN="LEFT">行列1は行列2と等しい</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 != 行列2</TD>
+<TD ALIGN="LEFT">行列1は行列2と等しくない</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1"><TT>maxeigval(行列)</TT>は固有値の実部の最大値を，
+<TT>mineigval(行列)</TT>は固有値の実部の最小値を意味する。
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="9052">&#160;</A>
+<A NAME="9053">&#160;</A>
+<A NAME="9054">&#160;</A>
+<A NAME="9055">&#160;</A>
+<A NAME="9056">&#160;</A>
+<A NAME="9057">&#160;</A>
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=1>表 記</TD>
+<TD ALIGN="CENTER" COLSPAN=1>意 味</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 .&lt;  (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 .&gt;  (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 .&lt;= (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 .&gt;= (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 .== (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 .!= (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) .&lt; 行列</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) .&gt; 行列</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) .&lt;= 行列</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) .&gt;= 行列</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) .== 行列</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) .!= 行列</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=1>表 記</TD>
+<TD ALIGN="CENTER" COLSPAN=1>意 味</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 .&lt; 行列2</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 .&gt; 行列2</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 .&lt;= 行列2</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 .&gt;= 行列2</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 .== 行列2</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 .!= 行列2</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 .&lt; 配列1</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 .&gt; 配列1</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 .&lt;= 配列1</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 .&gt;= 配列1</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 .== 配列1</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列1 .!= 配列1</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 .&lt; 行列1</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 .&gt; 行列1</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 .&lt;= 行列1</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 .&gt;= 行列1</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 .== 行列1</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 .!= 行列1</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<FONT SIZE="-1"><A NAME="9058">&#160;</A>
+<A NAME="9059">&#160;</A>
+<A NAME="9060">&#160;</A>
+<A NAME="9061">&#160;</A>
+<A NAME="9062">&#160;</A>
+<A NAME="9063">&#160;</A>
+</FONT>
+<P>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=1>表 記</TD>
+<TD ALIGN="CENTER" COLSPAN=1>意 味</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 &lt; 配列2</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 &gt; 配列2</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 &lt;= 配列2</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 &gt;= 配列2</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 == 配列2</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列1 != 配列2</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 &lt;  (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 &gt;  (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 &lt;= (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 &gt;= (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 == (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 != (整数|実数)</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) &lt; 配列</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) &gt; 配列</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) &lt;= 配列</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) &gt;= 配列</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) == 配列</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">(整数|実数) != 配列</TD>
+<TD ALIGN="LEFT">各成分の比較結果(0|1)の配列</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<FONT SIZE="-1"><A NAME="9064">&#160;</A>
+<A NAME="9065">&#160;</A>
+<A NAME="9066">&#160;</A>
+<A NAME="9067">&#160;</A>
+<A NAME="9068">&#160;</A>
+<A NAME="9069">&#160;</A>
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3 BORDER="1">
+<TR><TD ALIGN="CENTER" COLSPAN=1>表 記</TD>
+<TD ALIGN="CENTER" COLSPAN=1>意 味</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 <code>&amp;&amp;</code> 配列</TD>
+<TD ALIGN="LEFT">論理演算の結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 <code>.&amp;&amp;</code> 行列</TD>
+<TD ALIGN="LEFT">論理演算の結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 <code>.&amp;&amp;</code> 配列</TD>
+<TD ALIGN="LEFT">論理演算の結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 <code>.&amp;&amp;</code> 行列</TD>
+<TD ALIGN="LEFT">論理演算の結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列  || 配列</TD>
+<TD ALIGN="LEFT">論理演算の結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 .|| 行列</TD>
+<TD ALIGN="LEFT">論理演算の結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">行列 .|| 配列</TD>
+<TD ALIGN="LEFT">論理演算の結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">配列 .|| 行列</TD>
+<TD ALIGN="LEFT">論理演算の結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">! 配列</TD>
+<TD ALIGN="LEFT">論理演算の結果(0|1)の配列</TD>
+</TR>
+<TR><TD ALIGN="LEFT">.! 行列</TD>
+<TD ALIGN="LEFT">論理演算の結果(0|1)の配列</TD>
+</TR>
+</TABLE></DIV>
+<P>
+<FONT SIZE="-1">次の式は<TT>-A</TT>の成分が正である(</FONT>0<FONT SIZE="-1">より大きい)かどうか調べる
+意図で書かれているが， <TT>&lt;</TT> と<TT>-</TT> の間にスペースが無いので，
+まとめて <TT>&lt;-</TT> として解釈され，
+文法エラーになる。<TT>&lt;</TT> と<TT>-</TT> の間にスペースを入れると
+意図通りに解釈される。</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+print 0&lt;-A;
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><HR>
+<!-- Navigation Panel -->
+<A NAME="tex2html2880"
+ HREF="node181.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2876"
+ HREF="node144.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2870"
+ HREF="node179.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2878"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2879"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2881"
+ HREF="node181.htm">行列とスカラの演算</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2877"
+ HREF="node144.htm">行列と配列と指数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2871"
+ HREF="node179.htm">行列の配列(ピース行列の利用)</A>
+<!-- End of Navigation Panel -->
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

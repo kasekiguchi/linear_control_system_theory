@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>行列の記述方法</TITLE>
+<META NAME="description" CONTENT="行列の記述方法">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node150.htm">
+<LINK REL="previous" HREF="node144.htm">
+<LINK REL="up" HREF="node144.htm">
+<LINK REL="next" HREF="node146.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2440"
+ HREF="node146.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2436"
+ HREF="node144.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2430"
+ HREF="node144.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2438"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2439"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2441"
+ HREF="node146.htm">行列成分の変換規則</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2437"
+ HREF="node144.htm">行列と配列と指数</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2431"
+ HREF="node144.htm">行列と配列と指数</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001810000000000000000">
+行列の記述方法</A>
+</H1><FONT SIZE="-1">
+小さな行列の最も簡単な記述方法は，行列の成分を
+スペース，タブ，改行，コンマ ``<TT>,</TT>'' のいずれかで区切って書き並べ，
+四角ブラケット <TT>[</TT> と <TT>]</TT> で囲むことである。
+ただし，マイナス単項演算子(</FONT>-<FONT SIZE="-1">)
+を含む成分は，コンマ ``<TT>,</TT>'' で区切るか，括弧で囲まなければならない。
+<TT>A = []</TT>は，<TT>0</TT></FONT><IMG
+ WIDTH="17" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.gif"
+ ALT="$\times$"><FONT SIZE="-1"><TT>0</TT>の行列を意味する。
+四角ブラケット <TT>[</TT> と <TT>]</TT> は，
+行の始まりと終りを示すためにも使われる。
+各成分の間には，任意個のスペースと改行を挿入することができるので，
+プログラムが読み易くなるように記述することができる。
+一方，大きな行列は，小さな行列を成分として構成する。
+<A NAME="8981">&#160;</A><A NAME="8982">&#160;</A>
+<A NAME="8983">&#160;</A>
+<A NAME="9270">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1">例えば，</FONT>
+<!-- MATH: $3 \times 3$ -->
+<IMG
+ WIDTH="40" HEIGHT="28" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.gif"
+ ALT="$3 \times 3$"><FONT SIZE="-1">の実数行列は，次のように</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  A = [[1 2 3][4 5 6][7 8 9]];
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+あるいは，もっと自然な様式</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  A = [[1 2 3]
+       [4 5 6]
+       [7 8 9]];
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>
+で記述でき，結果は
+</FONT><PRE>
+ === [A] : (  3,  3) ===
+            (  1)         (  2)         (  3)
+ (  1)  1.000000E+00  2.000000E+00  3.000000E+00
+ (  2)  4.000000E+00  5.000000E+00  6.000000E+00
+ (  3)  7.000000E+00  8.000000E+00  9.000000E+00
+</PRE><FONT SIZE="-1">
+
+となる。
+</FONT>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html2442"
+ HREF="node146.htm">行列成分の変換規則</A>
+<LI><A NAME="tex2html2443"
+ HREF="node147.htm">行ベクトル</A>
+<LI><A NAME="tex2html2444"
+ HREF="node148.htm">列ベクトル</A>
+<LI><A NAME="tex2html2445"
+ HREF="node149.htm">行列</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

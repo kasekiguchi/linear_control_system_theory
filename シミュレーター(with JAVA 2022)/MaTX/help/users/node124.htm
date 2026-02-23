@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>文字列関数</TITLE>
+<META NAME="description" CONTENT="文字列関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="previous" HREF="node123.htm">
+<LINK REL="up" HREF="node117.htm">
+<LINK REL="next" HREF="node125.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2136"
+ HREF="node125.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2132"
+ HREF="node117.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2128"
+ HREF="node123.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2134"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2135"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2137"
+ HREF="node125.htm">多項式</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2133"
+ HREF="node117.htm">文字列</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2129"
+ HREF="node123.htm">文字列への変換</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001570000000000000000">
+文字列関数</A>
+</H1>
+<P>
+<FONT SIZE="-1">文字列関数の一覧を以下に示す。
+書式付き出力関数<TT>printf()</TT>, <TT>sprintf()</TT>, <TT>fprintf()</TT>を使って，
+整数，実数，文字列を書式を指定して出力することができる。
+書式文字列にはC言語の<TT>printf()</TT>のそれと同じものを使う。
+関数<TT>fprintf()</TT>と<TT>fscanf()</TT>の第１引数は，<TT>fopen()</TT>でオープンした
+ファイルのファイルディスクリプタを用い，<TT>sscanf()</TT>の第1引数は，
+読み取りを行う文字列を指定する。
+<A NAME="6792">&#160;</A>
+<A NAME="6771">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1"><A NAME="6793">&#160;</A>
+<A NAME="6794">&#160;</A>
+<A NAME="6795">&#160;</A>
+<A NAME="6796">&#160;</A>
+<A NAME="6797">&#160;</A>
+<A NAME="6798">&#160;</A>
+<A NAME="6799">&#160;</A>
+<A NAME="6800">&#160;</A>
+<A NAME="6801">&#160;</A>
+</FONT><PRE>
+Integer printf(String format, ...);         画面表示 (matx)
+Integer fprintf(Integer fd, String format, ...); ファイル出力
+                                         fd はfopen()の返り値
+Integer fprintf(String file, String format, ...); ファイル出力
+                                            file に追加される
+List    scanf(String format);               キーボードから入力
+List    fscanf(Integer fd, String format);  ファイル入力
+List    sscanf(String str, String format);  文字列からの読み取
+String  sprintf(String format, ...);        文字列変換
+Integer length(String str);                 文字列の長さ
+String  int2str(Integer c);             ASCIIコード c の文字
+                                        を文字列に変換する。
+Matrix  abs(String str);             ASCIIコードからなる行列
+</PRE>
+<P>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

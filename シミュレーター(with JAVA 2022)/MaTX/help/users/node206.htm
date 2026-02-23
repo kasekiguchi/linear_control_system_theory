@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>行列クラスのメモリ管理</TITLE>
+<META NAME="description" CONTENT="行列クラスのメモリ管理">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node207.htm">
+<LINK REL="previous" HREF="node205.htm">
+<LINK REL="up" HREF="node205.htm">
+<LINK REL="next" HREF="node207.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html3204"
+ HREF="node207.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html3200"
+ HREF="node205.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html3194"
+ HREF="node205.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html3202"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html3203"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html3205"
+ HREF="node207.htm">メモリの状態遷移</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html3201"
+ HREF="node205.htm">メモリ管理</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html3195"
+ HREF="node205.htm">メモリ管理</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION002410000000000000000">
+行列クラスのメモリ管理</A>
+</H1><FONT SIZE="-1">
+図<A HREF="node206.htm#fig:memory">B.1</A>に示すように，メモリ管理はメモリの状態遷移
+という概念に基づいて行なわれる。
+</FONT>
+<BR>
+<DIV ALIGN="CENTER"><A NAME="fig:memory">&#160;</A><A NAME="12070">&#160;</A>
+<TABLE WIDTH="50%">
+<CAPTION><STRONG>図 B.1:</STRONG>
+MATXのメモリ管理</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+
+<!-- MATH: $\includegraphics[width=0.5\linewidth]{Fig/memory.eps}$ -->
+<IMG
+ WIDTH="276" HEIGHT="225" ALIGN="BOTTOM" BORDER="0"
+ SRC="img46.gif"
+ ALT="\includegraphics[width=0.5\linewidth]{Fig/memory.eps}"></DIV></TD></TR>
+</TABLE>
+</DIV>
+<BR><FONT SIZE="-1">メモリは関数呼び出しによって
+</FONT><DL COMPACT>
+<DT>1.
+<DD><TT>SYS</TT>状態 (OSによって管理されている状態)
+<DT>2.
+<DD><TT>TMP</TT>状態 (<TT>malloc()</TT>によってOSからメモリを確保した状態)
+<DT>3.
+<DD><TT>VAR</TT>状態 (変数に代入された状態)
+<DT>4.
+<DD><TT>REV</TT>状態 (メモリ管理リストに登録された状態)
+</DL><FONT SIZE="-1">4つの状態を遷移する。状態遷移に関係する関数について説明する。
+</FONT><UL>
+<LI><TT>MaDef()</TT>は<TT>malloc()</TT>を使ってOSからメモリを確保する。
+      状態は<TT>SYS</TT>から<TT>TMP</TT>に移る。この状態の全てのメモリは，
+      後述する<TT>MatTmpUndef()</TT>が呼び出されると，<TT>REV</TT>状態に
+      移る。
+<LI><TT>MatDestroy()</TT>は<TT>free()</TT>を使って，全ての状態のメモリを
+      解放してOSに戻す。すなわち，状態は<TT>SYS</TT>に移る。
+<LI><TT>MatAssign()</TT>によって<TT>TMP</TT>状態のメモリは<TT>VAR</TT>状態
+      に移る。これは変数に代入されたことを意味し，<TT>VAR</TT>状態の
+      メモリは，<TT>MatTmpUndef()</TT>が呼び出されても，影響されない。
+      <TT>MatAssign()</TT>の後で<TT>MatTmpUndef()</TT>が呼び出され，
+      全ての<TT>TMP</TT>状態のメモリが<TT>REV</TT>状態に移る。
+<LI>数<TT>MatFree()</TT>によって<TT>VAR</TT>状態のメモリが<TT>TMP</TT>状態
+      に移動する。これは変数の値が必要でなくなったことを意味する。
+<LI><TT>MatUndef()</TT>と<TT>MatInstall()</TT>によって<TT>TMP</TT>状態の
+      メモリは<TT>REV</TT>状態に移り，メモリ管理リストに登録される。
+<LI><TT>MatRequest()</TT>により<TT>REV</TT>状態のメモリは<TT>TMP</TT>状態
+      に移る。一般に，関数<TT>MatRequest()</TT>は関数<TT>MatDef()</TT>より高速
+      である。
+</UL>
+<P>
+<FONT SIZE="-1">行列クラスライブラリにおいてメモリが必要になった場合，まず，メモリ管理リス
+トを調べて適当な大きさの行列が登録されていれば，そのメモリを用い，
+適当な大きさの行列が登録されていなければ，OSからメモリを確保する。
+このメモリ管理機構によって，関数<TT>malloc()</TT>と<TT>free()</TT>が呼ばれる
+回数を減らし，内部処理の高速化を行なっている。特に，この方法はシミュレー
+ションのように同じプログラムが繰り返し呼ばれる場合に有効である。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

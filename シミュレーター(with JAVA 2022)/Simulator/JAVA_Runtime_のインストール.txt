@@ -1,0 +1,5 @@
+JAVA Runtime のインストール
+
+portableapps からJportableをダウンロード，インストール
+
+CommonFiles\JAVAをWindowsに移動し，名前をjreに変更

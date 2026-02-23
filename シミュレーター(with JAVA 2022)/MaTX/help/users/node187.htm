@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>リスト成分の付加</TITLE>
+<META NAME="description" CONTENT="リスト成分の付加">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node188.htm">
+<LINK REL="previous" HREF="node186.htm">
+<LINK REL="up" HREF="node184.htm">
+<LINK REL="next" HREF="node188.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2967"
+ HREF="node188.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2963"
+ HREF="node184.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2957"
+ HREF="node186.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2965"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html2966"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2968"
+ HREF="node188.htm">リストの合成と取り出し</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2964"
+ HREF="node184.htm">リスト</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2958"
+ HREF="node186.htm">リスト成分の参照と代入</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001930000000000000000">
+リスト成分の付加</A>
+</H1><FONT SIZE="-1">
+リストに新しい成分を付加するには関数<TT>appendlist()</TT>を使うか，
+</FONT>+<FONT SIZE="-1">オペレータを使う。
+<A NAME="10625">&#160;</A></FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+ x = {sqrt(3.0), ((1.0+2.0)*4.0,:)};
+ appendlist(x, "Hello");
+ // x ---&gt; {sqrt(3.0), ((1.0+2.0)*4.0,:), "Hello"}
+
+ y = {sqrt(3.0), ((1.0+2.0)*4.0,:)};
+ y = y + {"Hello"};
+ // y ---&gt; {sqrt(3.0), ((1.0+2.0)*4.0,:), "Hello"}
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

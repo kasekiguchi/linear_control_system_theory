@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>rngkut4</TITLE>
+<META NAME="description" CONTENT="rngkut4">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node182.htm">
+<LINK REL="previous" HREF="node180.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node182.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html2760"
+ HREF="node182.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html2757"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html2751"
+ HREF="node180.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html2759"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html2761"
+ HREF="node182.htm">roots</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html2758"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html2752"
+ HREF="node180.htm">rkf45</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004177000000000000000">&#160;</A><A NAME="man_rngkut4">&#160;</A>
+<BR>
+rngkut4
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>rngkut4 - 4 次のルンゲクッタ法で常微分方程式を解く
+<DT>【形式】
+<DD><PRE>
+X = rngkut4(t,x,diff_eqs,h)
+   Matrix X;
+   Real t;
+   Matrix x;
+   Matrix diff_eqs(t,x,u); (Real t; Matrix x,u;)
+   Real h;
+  
+X = rngkut4(t,x,diff_eqs,u,h)
+   Matrix X;
+   Real t;
+   Matrix x;
+   Matrix diff_eqs(t,x,u); (Real t; Matrix x,u;)
+   Matrix u;
+   Real h;
+  
+X = rngkut4(t,x,diff_eqs,link_eqs,h)
+   Matrix X;
+   Real t;
+   Matrix x;
+   Matrix diff_eqs(t,x,u); (Real t; Matrix x,u;)
+   Matrix link_eqs(t,x);   (Real t; Matrix x;)
+   Real h;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>rngkut4(t,x,diff_eqs,h)は，関数diff_eqs()で定義される常微分方程式
+を 4 次のルンゲクッタの算法を使い，微少時間 h 後の解を
+求める。打ち切り誤差のオーダーは h5 である。
+  
+rngkut4(t,x,diff_eqs,u,h)は，外部信号 u を，diff_eqs() に渡しながら，
+常微分方程式を解き，微少時間 h 後の解を返す。
+  
+rngkut4(t,x,diff_eqs,link_eqs,h)は，関数 link_eqs() の計算結果を
+外部信号 u として，関数 diff_eqs() に渡しながら，常微分方程式を
+解き，微少時間 h 後の解を返す。
+  
+引数の意味を次に示す。
+</FONT>
+<DIV ALIGN="CENTER"><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">t</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>現在時刻</TD>
+</TR>
+<TR><TD ALIGN="LEFT">x</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>現在状態</TD>
+</TR>
+<TR><TD ALIGN="LEFT">diff_eqs(t,x,u)</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>時刻 t，状態 x，外部信号 u から状態の</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD><TD ALIGN="CENTER">&nbsp;</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>微分を計算</TD>
+</TR>
+<TR><TD ALIGN="LEFT">h</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>刻み幅</TD>
+</TR>
+<TR><TD ALIGN="LEFT">u</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>diff_eqs() に渡される外部信号</TD>
+</TR>
+<TR><TD ALIGN="LEFT">link_eqs(t,x)</TD><TD ALIGN="CENTER">:</TD><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=184>時刻 t，状態 x から外部信号を計算する</TD>
+</TR>
+</TABLE></DIV><FONT SIZE="-1"><DT>【例題】
+<DD></FONT><PRE>
+リファレンスマニュアル参照。
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>rkf45(<A HREF="node180.htm#man_rkf45">2.181</A>), Ode(<A HREF="node142.htm#man_Ode">2.143</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>

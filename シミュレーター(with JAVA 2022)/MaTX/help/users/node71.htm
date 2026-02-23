@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>複数の線</TITLE>
+<META NAME="description" CONTENT="複数の線">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node72.htm">
+<LINK REL="previous" HREF="node70.htm">
+<LINK REL="up" HREF="node69.htm">
+<LINK REL="next" HREF="node72.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1480"
+ HREF="node72.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1476"
+ HREF="node69.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1470"
+ HREF="node70.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1478"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1479"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1481"
+ HREF="node72.htm">対数プロット</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1477"
+ HREF="node69.htm">gnuplot</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1471"
+ HREF="node70.htm">基本的なプロット</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION00912000000000000000">
+複数の線</A>
+</H2><FONT SIZE="-1">
+1つのグラフ上に複数の線をプロットする方法は2つある。
+1つ目の方法は，関数<TT>gplot()</TT>(<TT>mgplot()</TT>)
+に<TT>gplot(X,Y)</TT>(<TT>mgplot(win,X,Y)</TT>)
+のように2個の引数を渡す方法である。ただし，<TT>X</TT>と<TT>Y</TT>の行の長さは
+同じでなければならない。<TT>X</TT>と<TT>Y</TT>がベクトルか行列かに応じて以下の
+ようにプロットされる線が異なる。
+</FONT><UL>
+<LI>もし<TT>Y</TT>が行列で<TT>X</TT>がベクトルなら，
+      <TT>gplot(X,Y)</TT>は，
+      ベクトル<TT>X</TT>に対して<TT>Y</TT>の各行を対応させて異なった線種で線を描く。
+<LI>もし<TT>X</TT>が行列で<TT>Y</TT>がベクトルなら，
+      <TT>gplot(X,Y)</TT>は，
+      ベクトル<TT>Y</TT>に対して<TT>X</TT>の各行を対応させて異なった線種で線を描く。
+<LI>もし<TT>X</TT>と<TT>Y</TT>の両方が行列なら，
+      <TT>gplot(X,Y)</TT>(<TT>mgplot(win,X,Y)</TT>)は，
+      <TT>Y</TT>の各行に対して<TT>X</TT>の各行を対応させて異なった線種で線を描く。
+<LI>もし<TT>gplot(Y)</TT>(<TT>mgplot(win,Y)</TT>)
+      のように<TT>X</TT>が指定されなかったら，<TT>Y</TT>の各成分とその成分の
+      指数を対応させて異なった線種で線を描く。
+</UL>
+<P>
+<FONT SIZE="-1">1つのグラフ上に複数の線をプロットする2つ目の方法は，
+関数<TT>greplot()</TT>，関数<TT>mgreplot()</TT>を使う方法である。
+これらの関数を使うと，古い線に新しい線が重ねてプロットされる。
+<A NAME="4230">&#160;</A>
+<A NAME="4231">&#160;</A>
+</FONT>
+<BR>
+<DIV ALIGN="CENTER">
+
+<A NAME="tbl:gnuplot_two">&#160;</A>
+<DIV ALIGN="CENTER">
+<A NAME="4232">&#160;</A>
+<TABLE CELLPADDING=3 BORDER="1">
+<CAPTION><STRONG>表 6.2:</STRONG>
+グラフィック関数2(<I> gnuplot</I>)</CAPTION>
+<TR><TD ALIGN="CENTER" COLSPAN=1>関数名</TD>
+<TD ALIGN="CENTER" COLSPAN=1>引数</TD>
+<TD ALIGN="CENTER" COLSPAN=1>
+機能</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot()</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">gplot_replot()</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot(Y)</TD>
+<TD ALIGN="LEFT">Array X, Y</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot(X, Y)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">線形 x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot(X, Y, titles)</TD>
+<TD ALIGN="LEFT">List titles</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">greplot(X, Y, titles, cmds)</TD>
+<TD ALIGN="LEFT">List cmds</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot(win)</TD>
+<TD ALIGN="LEFT">Integer win</TD>
+<TD ALIGN="LEFT">mgplot_replot(win)</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot(win, Y)</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot(win, X, Y)</TD>
+<TD ALIGN="LEFT">Array X, Y</TD>
+<TD ALIGN="LEFT">線形 x-y プロット</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot(win, X, Y, titles)</TD>
+<TD ALIGN="LEFT">List titles</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mgreplot(win, X, Y, titles, cmds)</TD>
+<TD ALIGN="LEFT">List cmds</TD>
+<TD ALIGN="LEFT">&nbsp;</TD>
+</TR>
+</TABLE></DIV>
+</DIV>
+<BR><FONT SIZE="-1">例えば，</FONT><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR></FONT><PRE>
+  gplot(X1, Y1);
+  greplot(X2, Y2);
+  ...............;
+  greplot(X5, Y5);
+</PRE><FONT SIZE="-1">
+<BR CLEAR="ALL">
+<HR>変数<TT>X1</TT>,<TT>Y1</TT>,<TT>X2</TT>,<TT>Y2</TT>などは，行列の対である。
+それぞれの<TT>x-y</TT>対が1つのグラフ上にプロットされる。
+この方法を使えば，異なった長さの線を同一グラフ上にプロットすることができる。
+</FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

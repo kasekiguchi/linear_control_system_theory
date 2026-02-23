@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>関数</TITLE>
+<META NAME="description" CONTENT="関数">
+<META NAME="keywords" CONTENT="MaTX">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="MaTX.css">
+<LINK REL="next" HREF="node102.htm">
+<LINK REL="previous" HREF="node84.htm">
+<LINK REL="up" HREF="MaTX.htm">
+<LINK REL="next" HREF="node90.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1696"
+ HREF="node90.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1692"
+ HREF="MaTX.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1686"
+ HREF="node88.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1694"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A> 
+<A NAME="tex2html1695"
+ HREF="node247.htm">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index_motif.gif"></A> 
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1697"
+ HREF="node90.htm">関数の宣言</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1693"
+ HREF="MaTX.htm">無題</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1687"
+ HREF="node88.htm">暗黙の型変換</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H1><A NAME="SECTION001100000000000000000">&#160;</A>
+<A NAME="5251">&#160;</A>
+<BR>
+関数
+</H1>
+<P>
+<FONT SIZE="-1">関数には，行なうべき計算の過程を指示する文，および計算で使われる値を
+格納する変数が含まれる。MATXの関数は，C言語の関数と似ている。
+普通は，関数には自分の好きな名前を付けてもよいが，<TT>main</TT>は特別な
+名前である。コンパイラ(<I>matc</I>)を使って実行可能型ファイルを作成した時，
+プログラムの実行は関数<TT>main()</TT>の先頭から始まる。
+これは，プログラムにはどこかに関数<TT>main()</TT>がなければならないことを
+意味する。 <A NAME="5411">&#160;</A>
+ただし，インタプリタ(matx)を使ってプログラムを実行する時は，
+プログラムのどこからでも実行を始めることができ，関数
+<TT>main()</TT>をプログラムの中に作る必要はない。
+</FONT>
+<P>
+<FONT SIZE="-1"><TT>main()</TT>の型は，<TT>Integer</TT>あるいは<TT>void</TT>である。
+関数<TT>main()</TT>の型が
+<TT>Integer</TT>の時，他の関数と同様にその呼び出し側に対して値を返すことができる。
+この場合，呼び出し側とは，そのプログラムが実行される環境である。
+通常，戻り値が0であれば正常終了，0でない値は異常な，あるいはエラ−の
+終了状況を表す。 <A NAME="5412">&#160;</A>
+</FONT>
+<P>
+<FONT SIZE="-1">MATXの関数は，再帰的に使用できる。
+つまり，関数は自分自身を直接または間接に呼び出してよい。
+そして，関数の局所変数は，その関数が呼び出される毎に新しく作られる。
+関数の定義は，入れ子(ネスト)にできない。
+また，関数はいくつかのファイルに分けて定義でき，
+コンパイルをファイル毎に行なえる。 <A NAME="5266">&#160;</A>
+</FONT>
+<BR><HR>
+<!-- Table of Child-Links -->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html1698"
+ HREF="node90.htm">関数の宣言</A>
+<UL>
+<LI><A NAME="tex2html1699"
+ HREF="node91.htm"><TT>require</TT>修飾子付き関数宣言</A>
+</UL>
+<LI><A NAME="tex2html1700"
+ HREF="node92.htm">関数の定義</A>
+<LI><A NAME="tex2html1701"
+ HREF="node93.htm">複数の値を返す関数</A>
+<LI><A NAME="tex2html1702"
+ HREF="node94.htm">可変長引数関数</A>
+<UL>
+<LI><A NAME="tex2html1703"
+ HREF="node95.htm">リストを利用した可変長引数関数</A>
+<LI><A NAME="tex2html1704"
+ HREF="node96.htm">一般的な可変長引数関数</A>
+</UL>
+<LI><A NAME="tex2html1705"
+ HREF="node97.htm">関数呼び出し (matx)</A>
+<LI><A NAME="tex2html1706"
+ HREF="node98.htm">関数の引数渡し</A>
+<LI><A NAME="tex2html1707"
+ HREF="node99.htm">return文</A>
+<LI><A NAME="tex2html1708"
+ HREF="node100.htm">関数の参照</A>
+<LI><A NAME="tex2html1709"
+ HREF="node101.htm">コマンドラインの引数</A>
+</UL>
+<!-- End of Table of Child-Links -->
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成10年8月19日
+</ADDRESS>
+</BODY>
+</HTML>

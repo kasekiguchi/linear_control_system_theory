@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- Converted with jLaTeX2HTML 98.1p1 release (March 2nd, 1998) + JP patch 2.0 (March 16th, 1998)
+patched by Kenshi Muto (mutou@three-a.co.jp), Three-A Systems,Co.,Ltd.
+LaTeX2HTML 98.1p1 release (March 2nd, 1998)
+originally by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others  -->
+<HTML>
+<HEAD>
+<TITLE>kernel</TITLE>
+<META NAME="description" CONTENT="kernel">
+<META NAME="keywords" CONTENT="REFS">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-2022-jp">
+<LINK REL="STYLESHEET" HREF="REFS.css">
+<LINK REL="next" HREF="node111.htm">
+<LINK REL="previous" HREF="node109.htm">
+<LINK REL="up" HREF="node4.htm">
+<LINK REL="next" HREF="node111.htm">
+</HEAD>
+<BODY BGCOLOR=NavajoWhite>
+<!-- Navigation Panel -->
+<A NAME="tex2html1979"
+ HREF="node111.htm">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next_motif.gif"></A> 
+<A NAME="tex2html1976"
+ HREF="node4.htm">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up_motif.gif"></A> 
+<A NAME="tex2html1970"
+ HREF="node109.htm">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="previous_motif.gif"></A> 
+<A NAME="tex2html1978"
+ HREF="node1.htm">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents_motif.gif"></A>  
+<BR>
+<STRONG> Next:</STRONG> <A NAME="tex2html1980"
+ HREF="node111.htm">length</A>
+<STRONG> Up:</STRONG> <A NAME="tex2html1977"
+ HREF="node4.htm">リファレンスマニュアル</A>
+<STRONG> Previous:</STRONG> <A NAME="tex2html1971"
+ HREF="node109.htm">kbhit</A>
+<BR>
+<BR>
+<!-- End of Navigation Panel -->
+
+<H2><A NAME="SECTION0004106000000000000000">&#160;</A><A NAME="man_kernel">&#160;</A>
+<BR>
+kernel
+</H2><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT><DL COMPACT>
+
+<DT>【目的】
+<DD>kernel - カーネル(零空間)
+<DT>【形式】
+<DD><PRE>
+K = kernel(A)     K = kernel(A,tol)
+   Matrix K;          Matrix K;
+   Matrix A;          Matrix A;
+                      Real tol;
+</PRE><FONT SIZE="-1"><DT>【詳細】
+<DD>S = kernel(A)は，行列 A のカーネル(零空間)を張るベクトルからなる
+行列を求める。Cols(A) - rank(A) = Cols(S) の関係が成り立つ。
+kernel(A,tol) は，tol より小さい A の特異値をゼロと見なし，
+カーネルを求める。
+<DT>【算法】
+<DD>特異値分解を利用する。
+<DT>【注意】
+<DD>繰り返し計算で特異値が求まらない場合は，次のメッセージが表示される。
+</FONT>
+<P>
+<FONT SIZE="-1">Solution will not converge
+<DT>【例題】
+<DD></FONT><PRE>
+&gt;&gt; A = [[1 2 3][4 5 6]];
+&gt;&gt; S = kernel(A)
+=== [S] : (  3,  1) ===
+           (  1)     
+(  1)  4.08248290E-01
+(  2) -8.16496581E-01
+(  3)  4.08248290E-01
+&gt;&gt; A * S
+=== [ans] : (  2,  1) ===
+           (  1)     
+(  1) -5.55111512E-16
+(  2) -6.66133815E-16
+</PRE><FONT SIZE="-1"><FONT SIZE="-1"><DT>【参照】
+<DD></FONT></FONT>
+<DIV><TT>svd(<A HREF="node230.htm#man_svd">2.231</A>)
+<BR></TT></DIV><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></DL><FONT SIZE="-1"><FONT SIZE="-1"><FONT SIZE="-1"></FONT></FONT></FONT></FONT></FONT></FONT>
+<BR><HR>
+<ADDRESS>
+Masanobu KOGA
+平成11年10月2日
+</ADDRESS>
+</BODY>
+</HTML>
