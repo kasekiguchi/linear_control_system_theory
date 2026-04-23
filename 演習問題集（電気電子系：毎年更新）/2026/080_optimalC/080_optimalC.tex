@@ -1,0 +1,249 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%　最適制御問題
+%　MATLAB mファイルでA,B,Q行列を指定してフィードバック(f1,f2)を求める
+%  A=A（不安定極），A=-A（安定極）の両方を求める
+%
+%　mファイルの使い方
+%　　　まず A,B,Q,R 行列を定義する
+%　　　R=rは変数とする
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%================================
+%	matlab080.mを利用
+
+
+\input{085_def_file.txt}
+
+%================================
+
+\renewcommand{\baselinestretch}{0.7}
+\setlength{\abovedisplayskip}{2pt}
+\setlength{\belowdisplayskip}{2pt}
+
+\noindent
+{\bf 最適制御：不安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & = \chrA \cdot x + \chrB \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=\chrA,B=\chrB\\
+	J & = \int_0^{\infty} \chrQ x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=\chrQ, R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+
+\vfill
+
+\begin{tabular}{ll}
+	\hspace*{8cm} &
+	\begin{tabular}{|l|}
+		\hline 
+		最適フィードバック\\
+		\hspace*{8cm} \\[1cm]
+		\hline
+		\hline 
+		閉ループ系の状態方程式\\
+		\hspace*{8cm} \\[1cm]
+		\hline
+		\hline 
+		$r \rightarrow 0$の場合\\
+		　入力： \hspace{1.5cm} 極：　\\
+		\hline
+		\hline
+		$r \rightarrow \infty$の場合\\
+		　入力： \hspace{1.5cm} 極：　\\
+		\hline
+	\end{tabular}
+\end{tabular}
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 最適制御：不安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & = \chrA \cdot x + \chrB \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=\chrA,B=\chrB\\
+	J & = \int_0^{\infty} \chrQ x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=\chrQ, R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+\\
+
+Riccati方程式
+\begin{align*}
+	& A^T P + P A - P B R^{-1} B^T P + Q = 0 \\
+	& \chrA \cdot p + p \cdot \chrA - p \cdot \chrB \cdot \frac{1}{r} \cdot \chrB \cdot p + \chrQ = 0 \\
+	& \chrReqna p^2 + \chrReqnb p + \chrReqnc = 0 \\
+	& p^2 - \chrReqnsb p - \chrReqnsc = 0
+\end{align*}
+よって
+\begin{align*}
+	p = \chrSRa \pm \sqrt{\chrSRb + \chrSRc}
+\end{align*}
+$p>0$より
+\begin{align*}
+	p = \chrSRa + \sqrt{\chrSRb + \chrSRc}
+\end{align*}
+最適制御は
+\begin{align*}
+	u &= -R^{-1}B^T P x \\
+	&= -\frac{1}{r} \cdot \chrB \cdot (\chrSRa + \sqrt{\chrSRb + \chrSRc})\  x \\
+	&= \left( \chrUa - \chrUsq \right) \  x  
+\end{align*}
+閉ループ系は
+\begin{align*}
+	\frac{dx}{dt} & = \chrA \cdot x + \chrB \cdot u \\
+	&= \chrA \cdot x + \chrB \cdot \left( \chrUa - \chrUsq \right) \ x \\
+	&= \left( \chrABF \right) x
+\end{align*}
+となる．
+
+$r\rightarrow 0$と$r\rightarrow \infty$の場合...
+
+\begin{align*}
+	\mbox{入力: }&
+	\left \{
+	\begin{array}{lccl}
+		r \rightarrow 0 & : && u= - \infty \cdot x \\
+		r \rightarrow \infty & : && u= \hspace{3.5mm} \chrUi \ x  \\
+	\end{array}
+	\right .
+\\
+	\mbox{閉ループ系の極: }&
+	\left \{
+	\begin{array}{lccr}
+		r \rightarrow 0 & : && - \infty \\
+		r \rightarrow \infty & : && \chrABFi \\
+	\end{array}
+	\right .
+\end{align*}
+となる．これは...
+\begin{description}
+\item[]・$R$を小さくすると入力$u$に対する重みが小さくなるので，入力をいっぱい使って速く状態を収束させる制御系が設計される．
+\item[]・$R$を大きくすると，システムを安定化するだけの最低限の入力を加える．このときの閉ループ系の極は元のシステムの安定極と，不安定極の実部を負としたものとなることが知られている．
+\end{description}
+を例示している．
+
+\newpage
+%---------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+\noindent
+{\bf 最適制御：安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & = \underline{-\chrA} \cdot x + \chrB \cdot u 
+	\ \ \ \ \ \ \ \ \ \ \ \ A=\underline{-\chrA},B=\chrB\\
+	J & = \int_0^{\infty} \chrQ x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=\chrQ, R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+
+\vfill
+
+\begin{tabular}{ll}
+	\hspace*{8cm} &
+	\begin{tabular}{|l|}
+		\hline 
+		最適フィードバック\\
+		\hspace*{8cm} \\[1cm]
+		\hline
+		\hline 
+		閉ループ系の状態方程式\\
+		\hspace*{8cm} \\[1cm]
+		\hline
+		\hline 
+		$r \rightarrow 0$の場合\\
+		　入力： \hspace{1.5cm} 極：　\\
+		\hline
+		\hline
+		$r \rightarrow \infty$の場合\\
+		　入力： \hspace{1.5cm} 極：　\\
+		\hline
+	\end{tabular}
+\end{tabular}
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 最適制御：安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & = \underline{-\chrA} \cdot x + \chrB \cdot u 
+	\ \ \ \ \ \ \ \ \ \ \ \ A=\underline{-\chrA},B=\chrB\\
+	J & = \int_0^{\infty} \chrQ x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=\chrQ, R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+\\
+
+Riccati方程式
+\begin{align*}
+	& A^T P + P A - P B R^{-1} B^T P + Q = 0 \\
+	& \underline{(-\chrA)} \cdot p + p \cdot \underline{(-\chrA)} 
+		- p \cdot \chrB \cdot \frac{1}{r} \cdot \chrB \cdot p + \chrQ = 0 \\
+	& \chrReqna p^2 + \underline{(-\chrReqnb)} p + \chrReqnc = 0 \\
+	& p^2 \underline{+ \chrReqnsb} p - \chrReqnsc = 0
+\end{align*}
+よって
+\begin{align*}
+	p = \underline{-\chrSRa} \pm \sqrt{\chrSRb + \chrSRc}
+\end{align*}
+$p>0$より
+\begin{align*}
+	p = \underline{-\chrSRa} + \sqrt{\chrSRb + \chrSRc}
+\end{align*}
+最適制御は
+\begin{align*}
+	u &= -R^{-1}B^T P x \\
+	&= -\frac{1}{r} \cdot \chrB \cdot (\underline{-\chrSRa} + \sqrt{\chrSRb + \chrSRc})\  x \\
+	&= \left( \underline{+\chrUas} - \chrUsq \right) \  x  
+\end{align*}
+閉ループ系は
+\begin{align*}
+	\frac{dx}{dt} & = \underline{-\chrA} \cdot x + \chrB \cdot u \\
+	&= \underline{-\chrA} \cdot x + \chrB \cdot \left( \underline{+\chrUas} - \chrUsq \right) \ x \\
+	&= \left( \chrABF \right) x
+\end{align*}
+となる．
+
+$r\rightarrow 0$と$r\rightarrow \infty$の場合...
+
+\begin{align*}
+	\mbox{入力: }&
+	\left \{
+	\begin{array}{lccl}
+		r \rightarrow 0 & : && u= - \infty \cdot x \\
+		r \rightarrow \infty & : && u= \hspace{3.5mm} \underline{\chrUis} \ x  \\
+	\end{array}
+	\right .
+\\
+	\mbox{閉ループ系の極: }&
+	\left \{
+	\begin{array}{lccr}
+		r \rightarrow 0 & : && - \infty \\
+		r \rightarrow \infty & : && \chrABFi \\
+	\end{array}
+	\right .
+\end{align*}
+となる．これは...
+\begin{description}
+\item[]・$R$を小さくすると入力$u$に対する重みが小さくなるので，入力をいっぱい使って速く状態を収束させる制御系が設計される．
+\item[]・$R$を大きくすると，システムを安定化するだけの最低限の入力を加える．このときの閉ループ系の極は元のシステムの安定極と，不安定極の実部を負としたものとなることが知られている．
+\end{description}
+を例示している．
+
+\end{document}
+

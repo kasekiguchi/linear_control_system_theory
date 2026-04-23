@@ -1,0 +1,2 @@
+\def\chrebarA{\left(\begin{array}{cc} e^t & 0\\ 0 & e^{3\,t} \end{array}\right)}
+\def\chreA{\left(\begin{array}{cc} e^{3\,t} & e^{3\,t}-e^t\\ 0 & e^t \end{array}\right)}

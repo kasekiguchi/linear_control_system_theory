@@ -1,0 +1,290 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf サーボ系（演習）}　次のシステムに対して，一定目標値$r$に対して定常偏差なく追従するコントローラを設計せよ．ただし，閉ループ系のすべての極を$-1$とせよ．
+\begin{align*}
+	\frac{dx}{dt} &= 2 \cdot x + 1 \cdot u, \hspace{0cm} &A=2,\  B=1
+\\
+	y &= 1 \cdot x , &C=1, \ D=0
+\end{align*}
+
+
+%---------------------------------------------------------------------------
+\newpage
+\noindent
+{\bf サーボ系（演習）}　次のシステムに対して，一定目標値$r$に対して定常偏差なく追従するコントローラを設計せよ．ただし，閉ループ系のすべての極を$-1$とせよ．
+\begin{align*}
+	\frac{dx}{dt} &= 2 \cdot x + 1 \cdot u, \hspace{0cm} &A=2,\  B=1
+\\
+	y &= 1 \cdot x , &C=1, \ D=0
+\end{align*}
+
+積分器
+\begin{align*}
+	\frac{d \eta}{dt}&= \ e \ = \ r-y \ = \ r-Cx \ = \ r-x
+\end{align*}
+
+拡大系
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 A & 0 \\
+	 -C& 0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 B \\ 0 
+	\end{array}
+	\right )
+	u
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ I 
+	\end{array}
+	\right )
+	r
+\\
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 2 & 0 \\
+	 -1& 0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 0 
+	\end{array}
+	\right )
+	u
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	r
+\end{align*}
+
+状態フィードバック
+\begin{align*}
+	u = \left ( \begin{array}{cc}
+			F & K \end{array} \right )
+		\left (
+		\begin{array}{c}
+		 x \\ \eta 
+		\end{array}
+		\right )
+\end{align*}
+
+閉ループ系
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 A & 0 \\
+	 -C& 0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 B \\ 0 
+	\end{array}
+	\right )
+	\left ( \begin{array}{cc}
+			F & K \end{array} \right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ I 
+	\end{array}
+	\right )
+	r
+\\
+	& = 
+	\left (
+	\begin{array}{cc}
+	 A & 0 \\
+	 -C& 0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{cc}
+	 B F & BK \\ 0 &0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	\left (
+	+
+	\begin{array}{c}
+	 0 \\ I 
+	\end{array}
+	\right )
+	r
+\\
+	& = 
+	\left (
+	\begin{array}{cc}
+	 A+BF & BK \\
+	 -C& 0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ I 
+	\end{array}
+	\right )
+	r
+\\
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 2+F & K \\
+	 -1& 0
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x \\ \eta 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	r
+\end{align*}
+
+閉ループ系の特性多項式
+\begin{align*}
+	\det
+	\left \{
+		sI- 
+		\left ( 
+		\begin{array}{cc}
+		 2+F & K \\
+		 -1& 0
+		\end{array}
+		\right )
+	\right \}
+	&=
+	\det
+	\left ( 
+	\begin{array}{cc}
+	 s-(2+F) & -K \\
+	 1& s
+	\end{array}
+	\right )
+\\
+	&=
+	\{ s-(2+F) \} \cdot s + K
+	=
+	s^2 -(2+F)s + K
+\end{align*}
+
+これは$s$に関する二次方程式なので根（極）は２個.
+$\therefore$すべての極が$-1$となる特性多項式は
+\begin{align*}
+	(s+1)(s+1) = s^2+2s+1
+\end{align*}
+
+係数を比較して
+\begin{align*}
+	-(2+F)=2, \ K=1 \ \ \Rightarrow \ \ F=-4, \ K=1
+\end{align*}
+
+コントローラーは
+\begin{align*}
+	\frac{d \eta}{dt}&= \ r-y 
+\\
+	u &= \left ( \begin{array}{cc}
+			-4 & 1 \end{array} \right )
+		\left (
+		\begin{array}{c}
+		 x \\ \eta 
+		\end{array}
+		\right )
+\end{align*}
+
+
+
+\end{document}
+

@@ -1,0 +1,219 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf 極配置（演習）}
+
+次の状態方程式
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 2 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	u
+\end{align*}
+に対して閉ループ系の極が$-4,-5$となるような状態フィードバック
+\begin{align*}
+	u 
+	&=
+	\left (
+	\begin{array}{cc}
+	 f_1 & f_2
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\end{align*}
+を求めよ．
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 極配置（演習）}
+
+次の状態方程式
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 2 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	u
+\end{align*}
+に対して閉ループ系の極が$-4,-5$となるような状態フィードバック
+\begin{align*}
+	u 
+	&=
+	\left (
+	\begin{array}{cc}
+	 f_1 & f_2
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\end{align*}
+を求めよ．
+\\
+
+閉ループ系は
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 2 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{cc}
+	 f_1 & f_2
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\\
+	&=
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 2 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{cc}
+	 0   & 0   \\
+	 f_1 & f_2
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\\
+	&=
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 f_1+2 & f_2-1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\end{align*}
+特性多項式は
+\begin{align*}
+	\mbox{det}[sI-(A+BF)]
+	& =
+	\mbox{det}
+	\left (
+	\begin{array}{cc}
+	 s & - 1 \\
+	 - f_1 -2 & s- (f_2-1)
+	\end{array}
+	\right )
+\\
+	&= s [s-(f_2-1)] - f_1 -2
+\\
+	&= s^2 - (f_2-1) s - f_1 -2
+\end{align*}
+望ましい特性多項式は望ましい極が$-4,-5$であることより
+\begin{align*}
+	(s+4)(s+5) = s^2 + 9s + 20
+\end{align*}
+よって係数を比較して
+\begin{align*}
+	-(f_2-1)=9, \ \ \ -f_1-2 =20
+\end{align*}
+よって
+\begin{align*}
+	f_2=-8, \ \ \ f_1=-22
+\end{align*}
+
+
+\end{document}
+

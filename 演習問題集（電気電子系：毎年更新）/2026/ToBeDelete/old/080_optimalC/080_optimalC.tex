@@ -1,0 +1,179 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf 最適制御：不安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & = 3 \cdot x + 1 \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=3,B=1\\
+	J & = \int_0^{\infty} x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=1,R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 最適制御：不安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & = 3 \cdot x + 1 \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=3,B=1\\
+	J & = \int_0^{\infty} x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=1,R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+\\
+
+Riccati方程式
+\begin{align*}
+	& A^T P + P A - P B R^{-1} B^T P + Q = 0 \\
+	& 3 \cdot p + p \cdot 3 - p \cdot 1 \cdot \frac{1}{r} \cdot 1 \cdot p + 1 = 0 \\
+	& \frac{-1}{r} p^2 + 6p + 1 = 0 \\
+	& p^2 -6rp - r = 0
+\end{align*}
+よって
+\begin{align*}
+	p = 3 r \pm \sqrt{9 r^2 + r}
+\end{align*}
+$p>0$より
+\begin{align*}
+	p = 3 r + \sqrt{9 r^2+r}
+\end{align*}
+最適制御は
+\begin{align*}
+	u &= -R^{-1}B^T P x \\
+	&= -\frac{1}{r} \cdot 1 \cdot (3 r + \sqrt{9 r^2+r})\  x \\
+	&= (-3 - \sqrt{9 + (1/r)}) \ x
+\end{align*}
+閉ループ系は
+\begin{align*}
+	\frac{dx}{dt} & = 3 \cdot x + 1 \cdot u \\
+	&= 3 \cdot x + 1 \cdot (-3 - \sqrt{9 + (1/r)}) \ x \\
+	&= - \sqrt{9 + (1/r)} \  x
+\end{align*}
+となる．
+
+$r\rightarrow 0$と$r\rightarrow \infty$の場合...
+
+\begin{align*}
+	\mbox{入力: }&
+	\left \{
+	\begin{array}{lccl}
+		r \rightarrow 0 & : && u= - \infty \cdot x \\
+		r \rightarrow \infty & : && u= \hspace{3.5mm} -6 \ x  \\
+	\end{array}
+	\right .
+\\
+	\mbox{閉ループ系の極: }&
+	\left \{
+	\begin{array}{lccr}
+		r \rightarrow 0 & : && - \infty \\
+		r \rightarrow \infty & : && -3 \\
+	\end{array}
+	\right .
+\end{align*}
+となる．これは...
+\begin{description}
+\item[]・$R$を小さくすると入力$u$に対する重みが小さくなるので，入力をいっぱい使って速く状態を収束させる制御系が設計される．
+\item[]・$R$を大きくすると，システムを安定化するだけの最低限の入力を加える．このときの閉ループ系の極は元のシステムの安定極と，不安定極の実部を負としたものとなることが知られている．
+\end{description}
+を例示している．
+
+\newpage
+%---------------------------------------------------------------------------
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf 最適制御：安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & = \underline{-3} \cdot x + 1 \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=\underline{-3},B=1\\
+	J & = \int_0^{\infty} x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=1,R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 最適制御：安定極（演習）}　次のシステムと評価関数に対する最適制御を求めよ．
+\begin{align*}
+	\frac{dx}{dt} & =\underline{-3} \cdot x + 1 \cdot u \ \ \ \ \ \ \ \ \ \ \ \ A=\underline{-3},B=1\\
+	J & = \int_0^{\infty} x^2 + r u^2 dt \ \ \ \ \ \ \ \ Q=1,R=r
+\end{align*}
+また，$r\rightarrow 0$と$r\rightarrow \infty$の場合の入力とフィードバック系の極を求めよ．
+\\
+
+Riccati方程式
+\begin{align*}
+	& A^T P + P A - P B R^{-1} B^T P + Q = 0 \\
+	& \underline{-3} \cdot p + p \cdot(\underline{-3}) - p \cdot 1 \cdot \frac{1}{r} \cdot 1 \cdot p + 1 = 0 \\
+	& \frac{-1}{r} p^2 +(\underline{-6}) p + 1 = 0 \\
+	& p^2 \  \underline{+6} \ rp - r = 0
+\end{align*}
+よって
+\begin{align*}
+	p = \underline{-3 r} \pm \sqrt{9 r^2 + r}
+\end{align*}
+$p>0$より
+\begin{align*}
+	p = \underline{-3 r} + \sqrt{9 r^2+r}
+\end{align*}
+最適制御は
+\begin{align*}
+	u &= -R^{-1}B^T P x \\
+	&= -\frac{1}{r} \cdot 1 \cdot (\underline{-3 r} + \sqrt{9 r^2+r}) \  x \\
+	&= (\underline{+3} - \sqrt{9 + (1/r)}) \ x
+\end{align*}
+閉ループ系は
+\begin{align*}
+	\frac{dx}{dt} & = \underline{-3} \cdot x + 1 \cdot u \\
+	&= \underline{-3} \cdot x + 1 \cdot (\underline{+3} - \sqrt{9 + (1/r)}) \  x \\
+	&= - \sqrt{9 + (1/r)} \ x
+\end{align*}
+となる．
+
+$r\rightarrow 0$と$r\rightarrow \infty$の場合...
+
+\begin{align*}
+	\mbox{入力: }&
+	\left \{
+	\begin{array}{lccl}
+		r \rightarrow 0 & : && u= - \infty \cdot x \\
+		r \rightarrow \infty & : && u= \hspace{5mm} 0 \cdot x  \\
+	\end{array}
+	\right .
+\\
+	\mbox{閉ループ系の極: }&
+	\left \{
+	\begin{array}{lccr}
+		r \rightarrow 0 & : && - \infty \\
+		r \rightarrow \infty & : && -3 \\
+	\end{array}
+	\right .
+\end{align*}
+となる．これは...
+\begin{description}
+\item[]・$R$を小さくすると入力$u$に対する重みが小さくなるので，入力をいっぱい使って速く状態を収束させる制御系が設計される．
+\item[]・$R$を大きくすると，システムを安定化するだけの最低限の入力を加える．このときの閉ループ系の極は元のシステムの安定極と，不安定極の実部を負としたものとなることが知られている．
+\end{description}
+を例示している．
+
+
+\end{document}
+

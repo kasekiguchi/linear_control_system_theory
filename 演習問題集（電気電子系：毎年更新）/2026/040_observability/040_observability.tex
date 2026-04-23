@@ -1,0 +1,208 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%　3mass系の可観測性を調べる問題
+%     m0,m1,m2,k1,k2を指定して可観測性を調べる
+%     パラメータは２種類でベクトルで定める
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{040_def_file.txt}
+
+%================================
+
+
+%=================================================
+	\def\statev
+	{
+	\left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+	\end{array}\right)
+	}
+%
+%$\statev$
+%
+%=================================================
+
+
+\noindent
+{\bf 可観測性の例題}　演習の３質量系で，出力が$y=y_0$の場合，状態方程式と出力方程式は
+\begin{align}
+ \frac{d}{dt} \statev
+ &=
+ \left(\begin{array}{cccccc}
+        0 & 0 & 0 & 1 & 0 & 0      \\
+        0 & 0 & 0 & 0 & 1 & 0      \\
+        0 & 0 & 0 & 0 & 0 & 1      \\
+	-\frac{k_1}{m_0} -\frac{k_2}{m_0}&  \frac{k_1}{m_0} &  \frac{k_2}{m_0} & 0 & 0 & 0 \\
+	 \frac{k_1}{m_1}                & -\frac{k_1}{m_1} &  0               & 0 & 0 & 0 \\
+	 \frac{k_2}{m_2}                &  0               & -\frac{k_2}{m_2} & 0 & 0 & 0 
+       \end{array}\right)
+ \statev
+ +
+ \left(\begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+	    \frac{1}{m_0} \\
+	    0 \\
+	    0 
+       \end{array}\right)
+        F
+\nonumber
+\\
+y &=
+ \left(\begin{array}{cccccc}
+         1 & 0 & 0 & 0 & 0 & 0
+       \end{array}\right)
+ \statev
+\nonumber
+\end{align}
+\vspace*{-1cm}
+
+となる．
+
+次のパラメータについて可観測性行列を求めよ.（可観測の場合と不可観測の場合がある）．
+
+・$m_0=\chrmaa$, $m_1=\chrmbb$, $m_2=\chrmca$, $k_1=\chrkaa$, $k_2=\chrkba$
+
+・$m_0=\chrmab$, $m_1=\chrmbb$, $m_2=\chrmcb$, $k_1=\chrkab$, $k_2=\chrkbb$
+
+（計算用に裏面利用可）
+
+\vfill
+
+\begin{tabular}{ll}
+	\begin{tabular}{|l|}
+		\hline 
+		$m_0=\chrmaa$, $m_1=\chrmbb$, $m_2=\chrmca$, $k_1=\chrkaa$, $k_2=\chrkba$の\\
+		可観測性行列$N^T$\\
+		\hspace*{8cm} \\[3.5cm]
+		可観測性：\\
+		\hline
+	\end{tabular}
+	\begin{tabular}{|l|}
+		\hline 
+		$m_0=\chrmab$, $m_1=\chrmbb$, $m_2=\chrmcb$, $k_1=\chrkab$, $k_2=\chrkbb$の\\
+		可観測性行列$N^T$\\
+		\hspace*{8cm} \\[3.5cm]
+		可観測性：\\
+		\hline
+	\end{tabular}
+\end{tabular}
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf 可観測性の例題}
+
+\begin{itemize}
+\item $m_0=\chrmaa$, $m_1=\chrmbb$, $m_2=\chrmca$, $k_1=\chrkaa$, $k_2=\chrkba$のとき
+\end{itemize}
+
+\begin{align}
+ \frac{d}{dt} \statev  
+ &=
+ \chrAa \statev + \chrBa F
+\nonumber
+\\
+ y 
+ &= \chrCa \statev 
+\nonumber
+\end{align}
+
+可観測性のチェック
+
+\begin{align}
+ \left(\begin{array}{l}
+        C \\
+        CA \\
+        CA^2  \\
+	CA^3 \\
+	CA^4 \\
+	CA^5
+       \end{array}\right)
+ &=
+ \left(\begin{array}{l}
+        C \\
+        CA \\
+        (CA)A  \\
+	(CA^2)A \\
+	(CA^3)A \\
+	(CA^4)A
+       \end{array}\right)
+ =
+ \chrOba
+\nonumber
+\end{align}
+不可観測
+
+
+
+
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf 可観測性の例題}
+
+\begin{itemize}
+\item $m_0=\chrmab$, $m_1=\chrmbb$, $m_2=\chrmcb$, $k_1=\chrkab$, $k_2=\chrkbb$のとき
+\end{itemize}
+
+\begin{align}
+ \frac{d}{dt} \statev  
+ &=
+ \chrAb \statev + \chrBb F
+\nonumber
+\\
+ y 
+ &= \chrCb \statev 
+\nonumber
+\end{align}
+
+可観測性のチェック
+
+\begin{align}
+ \left(\begin{array}{l}
+        C \\
+        CA \\
+        CA^2  \\
+	CA^3 \\
+	CA^4 \\
+	CA^5
+       \end{array}\right)
+ &=
+ \left(\begin{array}{l}
+        C \\
+        CA \\
+        (CA)A  \\
+	(CA^2)A \\
+	(CA^3)A \\
+	(CA^4)A
+       \end{array}\right)
+ =
+ \chrObb
+\nonumber
+\end{align}
+可観測
+
+
+
+
+\end{document}
+

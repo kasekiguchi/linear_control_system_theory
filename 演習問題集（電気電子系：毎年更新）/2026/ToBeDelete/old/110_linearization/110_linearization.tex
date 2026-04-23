@@ -1,0 +1,178 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf \large 線形化（演習）}
+
+次の１リンク系の運動方程式を考える．
+\[
+	J \ddot{\theta} = -c \dot{\theta} + mLg \sin \theta + \tau
+\]
+ここで$\theta$はリンク角，$\tau$は入力トルクで，のこりは定数である．
+
+\begin{enumerate}
+\item 
+このシステムを状態方程式であらわせ．
+\item
+状態方程式をテーラー展開の１次近似線形化せよ．
+\item
+運動方程式をフィードバック線形化し，線形状態方程式を求めよ．
+\end{enumerate}
+
+
+
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf \large 近似線形化・運動方程式の線形化}
+
+次の１リンク系の運動方程式を考える．
+\[
+	J \ddot{\theta} = -c \dot{\theta} + mLg \sin \theta + \tau
+\]
+ここで$\theta$はリンク角，$\tau$は入力トルクで，のこりは定数である．
+
+\begin{enumerate}
+\item 
+このシステムを状態方程式であらわせ．
+\item
+状態方程式をテーラー展開の１次近似線形化せよ．
+\item
+運動方程式をフィードバック線形化し，線形状態方程式を求めよ．
+\end{enumerate}
+\noindent
+【解答】
+
+\begin{enumerate}
+\item 
+＜非線形状態方程式＞
+\begin{eqnarray*}
+	\frac{d}{dt}
+	\bmatrix{c}
+		\theta \\
+		\dot{\theta}
+	\ematrix
+	& = &
+	\bmatrix{c}
+		\dot{\theta} \\
+		\frac{mLg \sin \theta -c \dot{\theta}}{J}
+	\ematrix
+	+
+	\bmatrix{c}
+		0 \\
+		\frac{1}{J}
+	\ematrix
+	\tau 
+	\ = \ 
+	f(\theta, \dot{\theta}) + g \tau
+\end{eqnarray*}
+\item
+＜テーラー展開の１次近似線形化＞
+\begin{eqnarray*}
+	\left .
+	\frac{\partial f}{\partial (\theta, \dot{\theta})}
+	\right \vert _{(\theta,\dot{\theta})=0} 
+	& = & 
+	\left .
+	\bmatrix{cc}
+		\frac{\partial f_1}{\partial \theta} &
+		  \frac{\partial f_1}{\partial \dot{\theta}} \\
+		\frac{\partial f_2}{\partial \theta} &
+		  \frac{\partial f_2}{\partial \dot{\theta}}
+	\ematrix
+	\right \vert_{(\theta,\dot{\theta})=0} 
+	\ = \ 
+	\left .
+	\bmatrix{cc}
+		0 & 1 \\
+		\frac{mLg \cos \theta}{J} &
+		  \frac{-c}{J}
+	\ematrix
+	\right \vert_{(\theta,\dot{\theta})=0} 
+	\ = \ 
+	\bmatrix{cc}
+		0 & 1 \\
+		\frac{mLg}{J} &
+		  \frac{-c}{J}
+	\ematrix
+\end{eqnarray*}
+より
+\begin{eqnarray*}
+	\frac{d}{dt}
+	\bmatrix{c}
+		\theta \\
+		\dot{\theta}
+	\ematrix
+	& = &
+	\bmatrix{cc}
+		0 & 1 \\
+		\frac{mLg}{J} &
+		  \frac{-c}{J}
+	\ematrix
+	\bmatrix{c}
+		\theta \\
+		\dot{\theta}
+	\ematrix
+	+
+	\bmatrix{c}
+		0 \\
+		\frac{1}{J}
+	\ematrix
+	\tau
+\end{eqnarray*}
+\item
+＜フィードバック線形化＞
+
+線形化するためのフィードバックを
+\[
+	\tau = c \dot{\theta} - mLg \sin \theta + J v
+\]
+とすれば
+\[
+	J \ddot{\theta} = Jv, \ => \ \ddot{\theta}=v
+\]
+となる．これを状態方程式で表せば
+\begin{eqnarray*}
+	\frac{d}{dt}
+	\bmatrix{c}
+		\theta \\
+		\dot{\theta}
+	\ematrix
+	& = &
+	\bmatrix{cc}
+		0 & 1 \\
+		0 & 0
+	\ematrix
+	\bmatrix{c}
+		\theta \\
+		\dot{\theta}
+	\ematrix
+	+
+	\bmatrix{c}
+		0 \\
+		1
+	\ematrix
+	v
+\end{eqnarray*}
+
+\end{enumerate}
+
+
+
+
+
+
+\end{document}
+

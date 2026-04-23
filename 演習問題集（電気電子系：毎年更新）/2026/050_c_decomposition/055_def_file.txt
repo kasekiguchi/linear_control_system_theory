@@ -1,0 +1,9 @@
+\def\chrA{\left(\begin{array}{cc} 0 & 1\\ 2 & 1 \end{array}\right)}
+\def\chrB{\left(\begin{array}{c} 1\\ 2 \end{array}\right)}
+\def\chrC{\left(\begin{array}{cc} 1 & 1 \end{array}\right)}
+\def\chrCo{\left(\begin{array}{cc} 1 & -3\\ -1 & 3 \end{array}\right)}
+\def\chrT{\left(\begin{array}{cc} 1 & 0\\ -1 & 1 \end{array}\right)}
+\def\chrTI{\left(\begin{array}{cc} 1 & 0\\ 1 & 1 \end{array}\right)}
+\def\chrbA{\left(\begin{array}{cc} -3 & 3\\ 0 & 1 \end{array}\right)}
+\def\chrbB{\left(\begin{array}{c} 1\\ 0 \end{array}\right)}
+\def\chrbC{\left(\begin{array}{cc} 0 & 1 \end{array}\right)}

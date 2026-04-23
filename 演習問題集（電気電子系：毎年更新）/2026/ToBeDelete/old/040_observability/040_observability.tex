@@ -1,0 +1,255 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+%=================================================
+	\def\statev
+	{
+	\left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+	\end{array}\right)
+	}
+%
+%$\statev$
+%
+%=================================================
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf 可観測性の例題}　演習の３質量系で，出力が$y=y_0$の場合，状態方程式と出力方程式は
+\begin{align}
+ \frac{d}{dt} \statev
+ &=
+ \left(\begin{array}{cccccc}
+        0 & 0 & 0 & 1 & 0 & 0      \\
+        0 & 0 & 0 & 0 & 1 & 0      \\
+        0 & 0 & 0 & 0 & 0 & 1      \\
+	-\frac{k_1}{m_0} -\frac{k_2}{m_0}&  \frac{k_1}{m_0} &  \frac{k_2}{m_0} & 0 & 0 & 0 \\
+	 \frac{k_1}{m_1}                & -\frac{k_1}{m_1} &  0               & 0 & 0 & 0 \\
+	 \frac{k_2}{m_2}                &  0               & -\frac{k_2}{m_2} & 0 & 0 & 0 
+       \end{array}\right)
+ \statev
+ +
+ \left(\begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+	    \frac{1}{m_0} \\
+	    0 \\
+	    0 
+       \end{array}\right)
+        F
+\nonumber
+\\
+y &=
+ \left(\begin{array}{cccccc}
+         1 & 0 & 0 & 0 & 0 & 0
+       \end{array}\right)
+ \statev
+\nonumber
+\end{align}
+となる．このシステムについて以下を確認せよ．
+
+・$m_0=m_1=m_2=1$, $k_1=k_2=1$のとき，システムは不可観測
+
+・$m_0=m_1=m_2=1$, $k_1=3$, $k_2=1$のとき，システムは可観測
+
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf 可観測性の例題}
+
+\begin{itemize}
+\item $m_0=m_1=m_2=1$, $k_1=k_2=1$のとき
+\end{itemize}
+
+%================================
+%	P040_observability11.mを利用
+%	m0=1, m1=1, m2=1, k1=1, k2=1
+%	matAをchrAで定義
+%	matBをchrBで定義
+%	matCは(100000)で固定
+%	matCoをchrCoで定義
+%	array環境で中ぞろえ(c)を右揃え(r)に変更
+
+
+	\def\matA
+	{
+	\left(\begin{array}{rrrrrr} 0 & 0 & 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 & 1\\ -2 & 1 & 1 & 0 & 0 & 0\\ 1 & -1 & 0 & 0 & 0 & 0\\ 1 & 0 & -1 & 0 & 0 & 0 \end{array}\right)
+	}
+
+
+	\def\matB
+	{
+	\left(\begin{array}{r} 0\\ 0\\ 0\\ 1\\ 0\\ 0 \end{array}\right)
+	}
+
+
+	\def\matC
+	{
+    \left(\begin{array}{rrrrrr} 1 & 0 & 0 & 0 & 0 & 0 \end{array}\right)
+	}
+
+	\def\matOb
+	{
+	\left(\begin{array}{rrrrrr} 1 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 1 & 0 & 0\\ -2 & 1 & 1 & 0 & 0 & 0\\ 0 & 0 & 0 & -2 & 1 & 1\\ 6 & -3 & -3 & 0 & 0 & 0\\ 0 & 0 & 0 & 6 & -3 & -3 \end{array}\right)
+	}
+
+%check時はコメントを外す
+%	$\matA$
+%
+%	$\matB$
+%
+%	$\matC$
+%
+%	$\matOb$
+
+%================================
+
+\begin{align}
+ \frac{d}{dt} \statev  
+ &=
+ \matA \statev + \matB F
+\nonumber
+\\
+ y 
+ &= \matC \statev 
+\nonumber
+\end{align}
+
+可観測性のチェック
+
+\begin{align}
+ \left(\begin{array}{l}
+        C \\
+        CA \\
+        CA^2  \\
+	CA^3 \\
+	CA^4 \\
+	CA^5
+       \end{array}\right)
+ &=
+ \left(\begin{array}{l}
+        C \\
+        CA \\
+        (CA)A  \\
+	(CA^2)A \\
+	(CA^3)A \\
+	(CA^4)A
+       \end{array}\right)
+ =
+ \matOb
+\nonumber
+\end{align}
+不可観測
+
+
+
+
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf 可観測性の例題}
+
+\begin{itemize}
+\item $m_0=m_1=m_2=1$, $k_1=3, k_2=1$のとき
+\end{itemize}
+
+%================================
+%	P041_observability31.mを利用
+%	m0=1, m1=1, m2=1, k1=3, k2=1
+%	matAをchrAで定義
+%	matBをchrBで定義
+%	matCは(100000)で固定
+%	matCoをchrCoで定義
+%	array環境で中ぞろえ(c)を右揃え(r)に変更
+
+
+	\def\matA
+	{
+	\left(\begin{array}{rrrrrr} 0 & 0 & 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 & 1\\ -4 & 3 & 1 & 0 & 0 & 0\\ 3 & -3 & 0 & 0 & 0 & 0\\ 1 & 0 & -1 & 0 & 0 & 0 \end{array}\right)
+	}
+
+
+	\def\matB
+	{
+	\left(\begin{array}{r} 0\\ 0\\ 0\\ 1\\ 0\\ 0 \end{array}\right)
+	}
+
+
+	\def\matC
+	{
+    \left(\begin{array}{rrrrrr} 1 & 0 & 0 & 0 & 0 & 0 \end{array}\right)
+	}
+
+	\def\matOb
+	{
+	\left(\begin{array}{rrrrrr} 1 & 0 & 0 & 0 & 0 & 0\\ 0 & 0 & 0 & 1 & 0 & 0\\ -4 & 3 & 1 & 0 & 0 & 0\\ 0 & 0 & 0 & -4 & 3 & 1\\ 26 & -21 & -5 & 0 & 0 & 0\\ 0 & 0 & 0 & 26 & -21 & -5 \end{array}\right)
+	}
+
+%check時はコメントを外す
+%	$\matA$
+%
+%	$\matB$
+%
+%	$\matC$
+%
+%	$\matOb$
+
+%================================
+
+\begin{align}
+ \frac{d}{dt} \statev  
+ &=
+ \matA \statev + \matB F
+\nonumber
+\\
+ y 
+ &= \matC \statev 
+\nonumber
+\end{align}
+
+可観測性のチェック
+
+\begin{align}
+ \left(\begin{array}{l}
+        C \\
+        CA \\
+        CA^2  \\
+	CA^3 \\
+	CA^4 \\
+	CA^5
+       \end{array}\right)
+ &=
+ \left(\begin{array}{l}
+        C \\
+        CA \\
+        (CA)A  \\
+	(CA^2)A \\
+	(CA^3)A \\
+	(CA^4)A
+       \end{array}\right)
+ =
+ \matOb
+\nonumber
+\end{align}
+可観測
+
+
+
+
+\end{document}
+

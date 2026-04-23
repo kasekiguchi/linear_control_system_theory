@@ -1,0 +1,207 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%　3mass系の可制御性を調べる問題
+%     m0,m1,m2,k1,k2を指定して可制御性を調べる
+%     パラメータは２種類でベクトルで定める
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{030_def_file.txt}
+
+%================================
+
+
+%=================================================
+	\def\statev
+	{
+	\left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+	\end{array}\right)
+	}
+%
+%$\statev$
+%
+%=================================================
+
+\noindent
+{\bf 可制御性の例題}　演習で用いた３質量系の状態方程式は
+\begin{align}
+ \frac{d}{dt} \statev
+ &=
+ \left(\begin{array}{cccccc}
+        0 & 0 & 0 & 1 & 0 & 0      \\
+        0 & 0 & 0 & 0 & 1 & 0      \\
+        0 & 0 & 0 & 0 & 0 & 1      \\
+	-\frac{k_1}{m_0} -\frac{k_2}{m_0}&  \frac{k_1}{m_0} &  \frac{k_2}{m_0} & 0 & 0 & 0 \\
+	 \frac{k_1}{m_1}                & -\frac{k_1}{m_1} &  0               & 0 & 0 & 0 \\
+	 \frac{k_2}{m_2}                &  0               & -\frac{k_2}{m_2} & 0 & 0 & 0 
+       \end{array}\right)
+ \statev
+ +
+ \left(\begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+	    \frac{1}{m_0} \\
+	    0 \\
+	    0 
+       \end{array}\right)
+        F
+\nonumber
+\\
+ \left(\begin{array}{c}
+	    y_0 \\
+		y_1 \\
+		y_2
+       \end{array}\right)
+ &=
+ \left(\begin{array}{cccccc}
+         1 & 0 & 0 & 0 & 0 & 0  \\
+         0 & 1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & 1 & 0 & 0 & 0 \\
+       \end{array}\right)
+ \statev
+\nonumber
+\end{align}
+\vspace*{-1cm}
+
+となる．
+
+次のパラメータについて可制御性行列を求めよ.（可制御の場合と不可制御の場合がある）．
+
+・$m_0=\chrmaa$, $m_1=\chrmbb$, $m_2=\chrmca$, $k_1=\chrkaa$, $k_2=\chrkba$
+
+・$m_0=\chrmab$, $m_1=\chrmbb$, $m_2=\chrmcb$, $k_1=\chrkab$, $k_2=\chrkbb$
+
+（計算用に裏面利用可）
+
+\vfill
+
+\begin{tabular}{ll}
+	\begin{tabular}{|l|}
+		\hline 
+		$m_0=\chrmaa$, $m_1=\chrmbb$, $m_2=\chrmca$, $k_1=\chrkaa$, $k_2=\chrkba$の\\
+		可制御性行列$V$\\
+		\hspace*{8cm} \\[3.5cm]
+		可制御性：\\
+		\hline
+	\end{tabular}
+	\begin{tabular}{|l|}
+		\hline 
+		$m_0=\chrmab$, $m_1=\chrmbb$, $m_2=\chrmcb$, $k_1=\chrkab$, $k_2=\chrkbb$の\\
+		可制御性行列$V$\\
+		\hspace*{8cm} \\[3.5cm]
+		可制御性：\\
+		\hline
+	\end{tabular}
+\end{tabular}
+
+
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf 可制御性の例題}
+
+\begin{itemize}
+\item $m_0=\chrmaa$, $m_1=\chrmbb$, $m_2=\chrmca$, $k_1=\chrkaa$, $k_2=\chrkba$のとき
+\end{itemize}
+
+
+
+
+\begin{align}
+ \frac{d}{dt} \statev
+ &= \chrAa \statev + \chrBb F
+\nonumber
+\\
+ \left(\begin{array}{c}
+	    y_0 \\
+		y_1 \\
+		y_2
+       \end{array}\right)
+ &=
+ \left(\begin{array}{rrrrrr}
+         1 & 0 & 0 & 0 & 0 & 0  \\
+         0 & 1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & 1 & 0 & 0 & 0 \\
+       \end{array}\right)
+ \statev
+\nonumber
+\end{align}
+
+可制御性のチェック
+
+\begin{align}
+ (B,AB, A^2B, A^3B, A^4B, A^5B)
+ &=
+ (B,AB, A(AB), A(A^2B), A(A^3B), A(A^4B))
+\nonumber \\
+ &=
+ \chrCoa
+\nonumber
+\end{align}
+
+\newpage
+%--------------------------------------------------------------------------------
+
+\noindent
+{\bf 可制御性の例題}
+
+\begin{itemize}
+\item $m_0=\chrmab$, $m_1=\chrmbb$, $m_2=\chrmcb$, $k_1=\chrkab$, $k_2=\chrkbb$のとき
+\end{itemize}
+
+
+
+
+\begin{align}
+ \frac{d}{dt} \statev
+ &= \chrAb \statev + \chrBb F
+\nonumber
+\\
+ \left(\begin{array}{c}
+	    y_0 \\
+		y_1 \\
+		y_2
+       \end{array}\right)
+ &=
+ \left(\begin{array}{rrrrrr}
+         1 & 0 & 0 & 0 & 0 & 0  \\
+         0 & 1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & 1 & 0 & 0 & 0 \\
+       \end{array}\right)
+ \statev
+\nonumber
+\end{align}
+
+可制御性のチェック
+
+\begin{align}
+ (B,AB, A^2B, A^3B, A^4B, A^5B)
+ &=
+ (B,AB, A(AB), A(A^2B), A(A^3B), A(A^4B))
+\nonumber \\
+ &=
+ \chrCob
+\nonumber
+\end{align}
+
+\end{document}
+

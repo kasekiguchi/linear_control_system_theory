@@ -1,0 +1,235 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%=================================================
+	\def\statev
+	{
+	\left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+	\end{array}\right)
+	}
+%
+%$\statev$
+%
+%=================================================
+
+\noindent
+{\bf 可制御性の例題}　演習で用いた３質量系の状態方程式は
+\begin{align}
+ \frac{d}{dt} \statev
+ &=
+ \left(\begin{array}{cccccc}
+        0 & 0 & 0 & 1 & 0 & 0      \\
+        0 & 0 & 0 & 0 & 1 & 0      \\
+        0 & 0 & 0 & 0 & 0 & 1      \\
+	-\frac{k_1}{m_0} -\frac{k_2}{m_0}&  \frac{k_1}{m_0} &  \frac{k_2}{m_0} & 0 & 0 & 0 \\
+	 \frac{k_1}{m_1}                & -\frac{k_1}{m_1} &  0               & 0 & 0 & 0 \\
+	 \frac{k_2}{m_2}                &  0               & -\frac{k_2}{m_2} & 0 & 0 & 0 
+       \end{array}\right)
+ \statev
+ +
+ \left(\begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+	    \frac{1}{m_0} \\
+	    0 \\
+	    0 
+       \end{array}\right)
+        F
+\nonumber
+\\
+ \left(\begin{array}{c}
+	    y_0 \\
+		y_1 \\
+		y_2
+       \end{array}\right)
+ &=
+ \left(\begin{array}{cccccc}
+         1 & 0 & 0 & 0 & 0 & 0  \\
+         0 & 1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & 1 & 0 & 0 & 0 \\
+       \end{array}\right)
+ \statev
+\nonumber
+\end{align}
+となる．このシステムについて以下を確認せよ．
+
+・$m_0=m_1=m_2=1$, $k_1=k_2=1$のとき，システムは不可制御
+
+・$m_0=m_1=m_2=1$, $k_1=3$, $k_2=1$のとき，システムは可制御
+
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf 可制御性の例題}
+
+\begin{itemize}
+\item $m_0=m_1=m_2=1$, $k_1=k_2=1$のとき
+\end{itemize}
+
+%================================
+%	P030_controllability11.mを利用
+%	m0=1, m1=1, m2=1, k1=1, k2=1
+%	matAをchrAで定義
+%	matBをchrBで定義
+%	matCoをchrCoで定義
+%	array環境で中ぞろえ(c)を右揃え(r)に変更
+
+
+	\def\matA
+	{
+    \left(\begin{array}{rrrrrr} 0 & 0 & 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 & 1\\ -2 & 1 & 1 & 0 & 0 & 0\\ 1 & -1 & 0 & 0 & 0 & 0\\ 1 & 0 & -1 & 0 & 0 & 0 \end{array}\right)
+	}
+
+
+	\def\matB
+	{
+	\left(\begin{array}{r} 0\\ 0\\ 0\\ 1\\ 0\\ 0 \end{array}\right)
+	}
+
+
+	\def\matCo
+	{
+	\left(\begin{array}{rrrrrr} 0 & 1 & 0 & -2 & 0 & 6\\ 0 & 0 & 0 & 1 & 0 & -3\\ 0 & 0 & 0 & 1 & 0 & -3\\ 1 & 0 & -2 & 0 & 6 & 0\\ 0 & 0 & 1 & 0 & -3 & 0\\ 0 & 0 & 1 & 0 & -3 & 0 \end{array}\right)
+	}
+
+%check時はコメントを外す
+%	$\matA$
+%
+%	$\matB$
+%
+%	$\matCo$
+
+%================================
+
+
+\begin{align}
+ \frac{d}{dt} \statev
+ &= \matA \statev + \matB F
+\nonumber
+\\
+ \left(\begin{array}{c}
+	    y_0 \\
+		y_1 \\
+		y_2
+       \end{array}\right)
+ &=
+ \left(\begin{array}{rrrrrr}
+         1 & 0 & 0 & 0 & 0 & 0  \\
+         0 & 1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & 1 & 0 & 0 & 0 \\
+       \end{array}\right)
+ \statev
+\nonumber
+\end{align}
+
+可制御性のチェック
+
+\begin{align}
+ (B,AB, A^2B, A^3B, A^4B, A^5B)
+ &=
+ (B,AB, A(AB), A(A^2B), A(A^3B), A(A^4B))
+\nonumber \\
+ &=
+ \matCo
+\nonumber
+\end{align}
+不可制御
+
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf 可制御性の例題}
+
+\begin{itemize}
+\item $m_0=m_1=m_2=1$, $k_1=3$, $k_2=1$のとき
+\end{itemize}
+
+%================================
+%	P031_controllability11.mを利用
+%	m0=1, m1=1, m2=1, k1=3, k2=1
+%	matAをchrAで定義
+%	matBをchrBで定義
+%	matCoをchrCoで定義
+%	array環境で中ぞろえ(c)を右揃え(r)に変更
+
+
+	\def\matA
+	{
+	\left(\begin{array}{rrrrrr} 0 & 0 & 0 & 1 & 0 & 0\\ 0 & 0 & 0 & 0 & 1 & 0\\ 0 & 0 & 0 & 0 & 0 & 1\\ -4 & 3 & 1 & 0 & 0 & 0\\ 3 & -3 & 0 & 0 & 0 & 0\\ 1 & 0 & -1 & 0 & 0 & 0 \end{array}\right)
+	}
+
+
+	\def\matB
+	{
+	\left(\begin{array}{r} 0\\ 0\\ 0\\ 1\\ 0\\ 0 \end{array}\right)
+	}
+
+
+	\def\matCo
+	{
+	\left(\begin{array}{rrrrrr} 0 & 1 & 0 & -4 & 0 & 26\\ 0 & 0 & 0 & 3 & 0 & -21\\ 0 & 0 & 0 & 1 & 0 & -5\\ 1 & 0 & -4 & 0 & 26 & 0\\ 0 & 0 & 3 & 0 & -21 & 0\\ 0 & 0 & 1 & 0 & -5 & 0 \end{array}\right)
+	}
+
+%check時はコメントを外す
+%	$\matA$
+%
+%	$\matB$
+%
+%	$\matCo$
+
+%================================
+
+
+\begin{align}
+ \frac{d}{dt} \statev
+ &= \matA \statev + \matB F
+\nonumber
+\\
+ \left(\begin{array}{c}
+	    y_0 \\
+		y_1 \\
+		y_2
+       \end{array}\right)
+ &=
+ \left(\begin{array}{rrrrrr}
+         1 & 0 & 0 & 0 & 0 & 0  \\
+         0 & 1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & 1 & 0 & 0 & 0 \\
+       \end{array}\right)
+ \statev
+\nonumber
+\end{align}
+
+可制御性のチェック
+
+\begin{align}
+ (B,AB, A^2B, A^3B, A^4B, A^5B)
+ &=
+ (B,AB, A(AB), A(A^2B), A(A^3B), A(A^4B))
+\nonumber \\
+ &=
+ \matCo
+\nonumber
+\end{align}
+可制御
+
+
+
+\end{document}
+

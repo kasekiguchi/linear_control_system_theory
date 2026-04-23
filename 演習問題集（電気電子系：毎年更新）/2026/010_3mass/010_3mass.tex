@@ -1,0 +1,128 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf ３質量系}　次の３質量系の状態方程式を求めよ．
+
+\begin{minipage}{90mm}
+　\epsfig{file=car3.eps,scale=0.55}
+\end{minipage}
+\begin{minipage}{100mm}
+\begin{align}
+	m_0 \ddot{y}_0 & = F + k_1 (y_1 - y_0) + k_2 (y_2-y_0)
+\nonumber \\
+	m_1 \ddot{y}_1 & = - k_1 (y_1 - y_0)
+\nonumber \\
+	m_2 \ddot{y}_2 & = - k_2 (y_2 - y_0)
+\nonumber
+\end{align}
+\end{minipage}
+
+\vfill
+
+\begin{tabular}{|l|}
+\hline
+解答：状態方程式\\[7cm]
+\hspace*{15cm}\\
+\hline
+\end{tabular}
+
+\newpage
+%--------------------------------------------------------------------------------
+\noindent
+{\bf ３質量系}
+
+次の３質量系の状態方程式を求めよ．
+\begin{figure}[htbp]
+ \begin{center}
+　\epsfig{file=car3.eps,scale=0.7}
+ \end{center}
+\end{figure}
+\begin{align}
+	m_0 \ddot{y}_0 & = F + k_1 (y_1 - y_0) + k_2 (y_2-y_0)
+\nonumber \\
+	m_1 \ddot{y}_1 & = - k_1 (y_1 - y_0)
+\nonumber \\
+	m_2 \ddot{y}_2 & = - k_2 (y_2 - y_0)
+\nonumber
+\end{align}
+よって状態方程式は
+\begin{align}
+ \frac{d}{dt} \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+		    \end{array}\right)
+ &=
+ \left(\begin{array}{cccccc}
+        0 & 0 & 0 & 1 & 0 & 0      \\
+        0 & 0 & 0 & 0 & 1 & 0      \\
+        0 & 0 & 0 & 0 & 0 & 1      \\
+	-\frac{k_1}{m_0} -\frac{k_2}{m_0}&  \frac{k_1}{m_0} &  \frac{k_2}{m_0} & 0 & 0 & 0 \\
+	 \frac{k_1}{m_1}                & -\frac{k_1}{m_1} &  0               & 0 & 0 & 0 \\
+	 \frac{k_2}{m_2}                &  0               & -\frac{k_2}{m_2} & 0 & 0 & 0 
+       \end{array}\right)
+ \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+       \end{array}\right)
+ +
+ \left(\begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+	    \frac{1}{m_0} \\
+	    0 \\
+	    0 
+       \end{array}\right)
+        F
+\nonumber
+\\
+ \left(\begin{array}{c}
+	    y_0 \\
+		y_1 \\
+		y_2
+       \end{array}\right)
+ &=
+ \left(\begin{array}{cccccc}
+         1 & 0 & 0 & 0 & 0 & 0  \\
+         0 & 1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & 1 & 0 & 0 & 0 \\
+       \end{array}\right)
+ \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+       \end{array}\right)
+\nonumber
+\end{align}
+
+
+\newpage
+%---------------------------------------------------------------------------
+
+
+
+
+
+\end{document}
+

@@ -1,0 +1,19 @@
+\def\chrA{\left(\begin{array}{cc} 2 & 2\\ 0 & 1 \end{array}\right)}
+\def\chrMo{\left(\begin{array}{cc} \lambda -3 & -4\\ 0 & \lambda -1 \end{array}\right)}
+\def\chrMoa{\lambda -3}
+\def\chrMob{-4}
+\def\chrMoc{0}
+\def\chrMod{\lambda -1}
+\def\chrlambdaa{1}
+\def\chrlambdab{3}
+\def\chreqno{\left(\lambda -1\right)\,\left(\lambda -3\right)}
+\def\chreqn{\lambda ^2-4\,\lambda +3}
+\def\chrMa{\left(\begin{array}{cc} -2 & -4\\ 0 & 0 \end{array}\right)}
+\def\chrVa{\left(\begin{array}{c} 2\\ -1 \end{array}\right)}
+\def\chrMb{\left(\begin{array}{cc} 0 & -4\\ 0 & 2 \end{array}\right)}
+\def\chrVb{\left(\begin{array}{c} 1\\ 0 \end{array}\right)}
+\def\chrT{\left(\begin{array}{cc} 2 & 1\\ -1 & 0 \end{array}\right)}
+\def\chrTI{\left(\begin{array}{cc} 0 & -1\\ 1 & 2 \end{array}\right)}
+\def\chrbarA{\left(\begin{array}{cc} 1 & 0\\ -\frac{1}{562949953421312} & 3 \end{array}\right)}
+\def\chrebarA{\left(\begin{array}{cc} e^t & 0\\ 0 & e^{3\,t} \end{array}\right)}
+\def\chreA{\left(\begin{array}{cc} e^{3\,t} & 2\,e^{3\,t}-2\,e^t\\ 0 & e^t \end{array}\right)}

@@ -1,0 +1,181 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%　オブザーバ
+%　MATLAB mファイルでA,B,C行列（２次元）と指定極を指定して
+% オブザーバゲインKを求める
+%
+%　mファイルの使い方
+%　　　まず A,B,C行列とpa,pbを定義する
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%================================
+%	matlab100.mを利用
+
+
+\input{105_def_file.txt}
+
+%================================
+
+\def\state{
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+}
+
+\def\cK{
+	\left ( \begin{array}{c}
+		k_1 \\ k_2 
+	\end{array} \right )
+}
+
+\def\cKT{
+	\left ( \begin{array}{cc}
+		k_1 & k_2 
+	\end{array} \right )
+}
+
+%================================
+\noindent
+{\bf オブザーバ（演習）}　次のシステムに対して，オブザーバを設計せよ．ただし，オブザーバの極は$\chrpa,\chrpb$とせよ．
+\begin{align*}
+	\frac{d}{dt}
+	\state
+	& = 
+	\chrA \state
+	+
+	\chrB u
+\\
+	y&=
+	\chrC \state
+\end{align*}
+
+\vfill
+
+\begin{tabular}{|l|}
+\hline
+解答：設計したオブザーバ\\[1.5cm]
+\hspace*{15cm}\\
+\hline
+\end{tabular}
+
+%---------------------------------------------------------------------------
+\newpage
+\noindent
+{\bf オブザーバ（演習）}　次のシステムに対して，オブザーバを設計せよ．ただし，オブザーバの極は$\chrpa,\chrpb$とせよ．
+\begin{align*}
+	\frac{d}{dt}
+	\state
+	& = 
+	\chrA \state
+	+
+	\chrB u
+\\
+	y&=
+	\chrC \state
+\end{align*}
+
+$A+KC$の極配置をするために次の仮想システムを考える．
+\begin{align*}
+ \frac{d \xi}{dt} & = A^T \xi + C^T \eta, 
+\hspace{1cm}
+	A^T = \chrAT
+	, \ 
+	C^T = \chrCT
+\end{align*}
+
+この仮想システムの閉ループ極を$\chrpa$, $\chrpb$とする仮想フィードバックを設計
+\begin{align*}
+ \eta =  K^T \xi
+	= \cKT \xi
+\end{align*}
+
+仮想システムの閉ループ系
+\begin{align*}
+ \frac{d \xi}{dt} & = A^T \xi + C^T K^T \xi
+\\
+	&= \chrAT \xi
+	+
+	\chrCT \cKT \xi
+\\
+	&= \chrAT \xi + \chrCKT \xi
+\\
+	&= \chrACKT \xi
+\end{align*}
+
+仮想システムの閉ループ系の特性多項式
+\begin{align*}
+	&\det
+	\left \{
+		sI- \chrACKT
+	\right \}
+	=
+	\det \chrsIACKT
+\\
+	& \hspace{1cm} =
+	(\chrsIACKTa) \cdot (\chrsIACKTd) -(\chrsIACKTb)(\chrsIACKTc)
+	=
+	\chrdetsIACKT
+\end{align*}
+
+極が$\chrpa$, $\chrpb$ となる特性多項式は
+\begin{align*}
+	(s+\chrmpa)(s+\chrmpb) = s^2 + \chrcoefbd s + \chrcoefcd
+\end{align*}
+
+係数を比較して
+\begin{align*}
+	\chrcoefb=\chrcoefbd, \ \chrcoefc=\chrcoefcd 
+	\ \ \Rightarrow \ \ 
+	k_1=\chrsKa, \ k_2=\chrsKb
+\end{align*}
+
+よって
+\begin{align*}
+	K&= \cK = \chrsK
+\end{align*}
+
+オブザーバは
+\begin{align*}
+ \frac{d \hat{x}}{dt} &= A \hat{x} + B u - K (y - C \hat{x})
+\\
+ \frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 \hat{x}_1 \\ \hat{x}_2 
+	\end{array}
+	\right )
+	&=
+	\chrA \state
+	+ 
+	\chrB u
+	-
+	\chrsK
+	\left \{
+		y -
+			\chrC
+			\left (
+			\begin{array}{c}
+			 \hat{x}_1 \\ \hat{x}_2 
+			\end{array}
+			\right )
+	\right \}
+\end{align*}
+
+
+
+
+\end{document}
+

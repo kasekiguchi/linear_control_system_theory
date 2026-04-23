@@ -1,0 +1,130 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf 不可制御なシステムの分解（演習）}
+
+%================================
+%	P050_decompxxxx.mを利用
+%	A,B,C行列をmファイルで定義
+%	carXXをそのまま\defで定義
+%	array環境で中ぞろえ(c)を右揃え(r)に変更
+
+\def\chrA
+{
+    \left(\begin{array}{rr} 0 & 3\\ 1 & -2 \end{array}\right)
+}
+
+\def\chrB
+{
+    \left(\begin{array}{r} 1\\ -1 \end{array}\right)
+}
+
+\def\chrC
+{
+    \left(\begin{array}{rr} 1 & 1 \end{array}\right)
+}
+
+\def\chrCo
+{
+    \left(\begin{array}{rr} 1 & -3\\ -1 & 3 \end{array}\right)
+}
+
+\def\chrT
+{
+    \left(\begin{array}{rr} 1 & 0\\ -1 & 1 \end{array}\right)
+}
+
+\def\chrTI
+{
+    \left(\begin{array}{rr} 1 & 0\\ 1 & 1 \end{array}\right)
+}
+
+\def\chrbA
+{
+    \left(\begin{array}{rr} -3 & 3\\ 0 & 1 \end{array}\right)
+}
+
+\def\chrbB
+{
+    \left(\begin{array}{r} 1\\ 0 \end{array}\right)
+}
+
+\def\chrbC
+{
+    \left(\begin{array}{rr} 0 & 1 \end{array}\right)
+}
+%================================
+
+
+\def\statev
+{
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+}
+
+次のシステムが不可制御であることを確認し，可制御な部分と不可制御な部分に分けよ．
+\begin{align*}
+	\frac{d}{dt} \statev 
+	&= \chrA \statev + \chrB u
+\\
+	y 
+	&= \chrC \statev
+\end{align*}
+
+%---------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf 不可制御なシステムの分解（演習）}
+
+次のシステムが不可制御であることを確認し，可制御な部分と不可制御な部分に分けよ．
+\begin{align*}
+	\frac{d}{dt} \statev 
+	&= \chrA \statev + \chrB u
+\\
+	y 
+	&= \chrC \statev
+\end{align*}
+
+
+%-----
+
+\begin{align*}
+	(B, AB) & = \chrCo
+\\
+	T &= \chrT
+\\
+	T^{-1} &= \chrTI
+\\
+	\bar{A} &= T^{-1} A T
+	= \chrTI \chrA \chrT
+	= \chrbA
+\\
+	\bar{B}
+	&= T^{-1} B
+	= \chrTI \chrB
+	= \chrbB
+\\
+	\bar{C}
+	&= 	C T
+	= \chrC \chrT
+	= \chrbC
+\end{align*}
+
+
+
+\end{document}
+

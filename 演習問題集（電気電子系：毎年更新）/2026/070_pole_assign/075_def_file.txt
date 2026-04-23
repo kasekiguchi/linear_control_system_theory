@@ -1,0 +1,22 @@
+\def\chrA{\left(\begin{array}{cc} 0 & 1\\ 2 & -1 \end{array}\right)}
+\def\chrB{\left(\begin{array}{c} 0\\ 1 \end{array}\right)}
+\def\chrpa{-1}
+\def\chrpb{-3}
+\def\chrF{\left(\begin{array}{cc} f_{1} & f_{2} \end{array}\right)}
+\def\chrBF{\left(\begin{array}{cc} 0 & 0\\ f_{1} & f_{2} \end{array}\right)}
+\def\chrABF{\left(\begin{array}{cc} 0 & 1\\ f_{1}+2 & f_{2}-1 \end{array}\right)}
+\def\chrsIA{\left(\begin{array}{cc} s & -1\\ -f_{1}-2 & s-f_{2}+1 \end{array}\right)}
+\def\chrsIAa{s}
+\def\chrsIAb{-1}
+\def\chrsIAc{-f_{1}-2}
+\def\chrsIAd{s-f_{2}+1}
+\def\chreqn{s-f_{1}-f_{2}\,s+s^2-2}
+\def\chrcfa{1}
+\def\chrcfb{1-f_{2}}
+\def\chrcfc{-f_{1}-2}
+\def\chreqnd{s^2+4\,s+3}
+\def\chrcfda{1}
+\def\chrcfdb{4}
+\def\chrcfdc{3}
+\def\chrfa{-5}
+\def\chrfb{-3}

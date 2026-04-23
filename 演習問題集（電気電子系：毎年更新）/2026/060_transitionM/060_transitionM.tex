@@ -1,0 +1,152 @@
+\input{../000_header_year.txt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%　遷移行列を求める問題
+%　MATLAB mファイルでA行列を指定して e^At を求める
+%
+%　mファイルの使い方
+%　　　まず A 行列を定義する
+%　　　固有ベクトル整数とするために p1, p2を試行錯誤で修正
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+%================================
+%	matlab060.mを利用
+%	パラメータの定義
+%		A行列
+%		p1,p2それぞれ第１，第２固有ベクトルをわかりやすい値にするために乗ずる係数
+%
+%	chrA:A行列
+%	chrM0: lambda I -A
+%	chrlambda1, charlambda2: 固有値
+%	chreqn: 特性多項式
+%	chrM1: 第１固有値を代入した lambda I - A
+%	chrV1: 第１固有ベクトル（第１要素を１とした後 p1を乗じたもの）
+%	chrM2: 第２固有値を代入した lambda I - A
+%	chrV2: 第２固有ベクトル（第１要素を１とした後 p2を乗じたもの）
+%	chrT: 対角化のための行列T
+%	chrTI: Tの逆行列
+%	chreberA: 対角化した後の遷移行列
+%	chreA: 遷移行列
+%
+
+
+\input{065_def_file.txt}
+
+%================================
+
+\noindent
+{\bf 遷移行列（演習）} \nopagebreak
+
+次の行列$A$の遷移行列$e^{At}$を求めよ．
+\[
+	A= \chrA
+\]
+hint: 行列$A$を$\Lambda = T^{-1}AT$と対角化し，$e^{\Lambda t}$が解析的に求まることを利用する．
+
+
+\vfill
+
+\begin{tabular}{ll}
+	\hspace*{8cm} &
+	\begin{tabular}{|l|}
+		\hline 
+		解答：遷移行列\\
+		\hspace*{8cm} \\[2cm]
+		\hline
+	\end{tabular}
+\end{tabular}
+
+
+\newpage
+
+%---------------------------------------------------------------------------
+
+
+\noindent
+{\bf 遷移行列（演習）} \nopagebreak
+
+次の行列$A$の遷移行列$e^{At}$を求めよ．
+\[
+	A= \chrA
+\]
+hint: 行列$A$を$\Lambda = T^{-1}AT$と対角化し，$e^{\Lambda t}$が解析的に求まることを利用する．\\
+
+$A$の固有値は，
+$\det(\lambda I - A) = 0$を満たす$\lambda$，すなわち
+\begin{align*}
+ \det(\lambda I - A)
+ & = 
+ \det \chrMo
+ =
+ (\chrMoa)(\chrMod)-(\chrMob)(\chrMoc)
+\\
+ &=
+ \chreqn
+ =
+ \chreqno
+\end{align*}
+より，$\lambda = \chrlambdaa または \chrlambdab$である．
+
+$\lambda = \chrlambdaa$のとき，
+\[
+ \begin{array}{ccc}
+ (\lambda I - A) v = 0 
+ &\Leftrightarrow&
+ \chrMa v = 0 
+ \end{array}
+\]
+であるから，$\lambda = \chrlambdaa$に対する固有ベクトルは
+$v_1 = \chrVa$．
+
+同様に
+$\lambda = \chrlambdab$のとき，
+\[
+ \begin{array}{ccc}
+ (\lambda I - A) v = 0
+ &\Leftrightarrow&
+ \chrMb v = 0 
+ \end{array}
+\]
+であるから，$\lambda = \chrlambdab$に対する固有ベクトル.\
+$v_2 = \chrVb$.
+
+$A$を対角化する行列は
+\[
+ T=(v_1, v_2)
+  =
+ \chrT
+ , \ \ 
+ T^{-1}= \chrTI
+\]
+となる．$A$を対角化すれば
+\[
+ \Lambda = T^{-1}AT 
+ = \chrTI \chrA \chrT
+ = \chrbarA
+\]
+となる．よって
+\begin{align*}
+ e^{At} &= T e^{T^{-1}AT t} T^{-1}
+ = T e^{\Lambda t} T^{-1}
+\\
+ &= \chrT \chrebarA \chrTI
+ = \chreA
+\end{align*}
+
+
+
+\end{document}
+

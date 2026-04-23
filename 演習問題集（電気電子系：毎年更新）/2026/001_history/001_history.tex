@@ -1,0 +1,513 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+\begin{center}
+	{\Large \bf 変更履歴}
+\end{center}
+	
+
+%---------------
+\noindent
+{\bf 三質量系の状態方程式}
+
+変更なし
+
+%---------------
+\ \\ \noindent
+{\bf LCR回路の状態方程式}
+
+変更なし
+
+%---------------
+\ \\ \noindent
+{\bf 三質量系の可制御性}
+
+(original) 可制御なパラメータ：$m_0=1$, $m_1=1$, $m_2=1$, $k_1=1$, $k_2=2$
+
+(2022) 可制御なパラメータ:$m_0=1$, $m_1=1$, $m_2=1$, {\color{red} $k_1=2$, $k_2=1$}
+
+(2023) 可制御なパラメータ:$m_0=1$, $m_1=1$, $m_2=1$, $k_1=1$, {\color{red} $k_2=3$}
+
+(2024) 可制御なパラメータ:$m_0=1$, $m_1=1$, $m_2=1$, {\color{red} $k_1=3$, $k_2=1$}
+
+(2025) 可制御なパラメータ:$m_0=1$, $m_1=1$, {\color{red} $m_2=2$}, $k_1=1$, {\color{red} $k_2=4$}
+
+(2026) 可制御なパラメータ:$m_0=1$, $m_1=1$, $m_2=1$, {\color{red} $k_1=2$, $k_2=1$}
+
+%---------------
+\ \\ \noindent
+{\bf 三質量系の可観測性}
+
+(original) 可観測なパラメータ：$m_0=1$, $m_1=1$, $m_2=1$, $k_1=1$, $k_2=2$
+
+(2022) 可観測なパラメータ:$m_0=1$, $m_1=1$, $m_2=1$, {\color{red} $k_1=2$, $k_2=1$}
+
+(2023) 可観測なパラメータ:$m_0=1$, $m_1=1$, $m_2=1$, $k_1=1$, {\color{red} $k_2=3$}
+
+(2024) 可観測なパラメータ:$m_0=1$, $m_1=1$, $m_2=1$, {\color{red} $k_1=3$, $k_2=1$}
+
+(2025) 可制御なパラメータ:$m_0=1$, $m_1=1$, {\color{red} $m_2=2$}, $k_1=1$, {\color{red} $k_2=4$}
+
+(2026) 可観測なパラメータ:$m_0=1$, $m_1=1$, $m_2=1$, {\color{red} $k_1=2$, $k_2=1$}
+%---------------
+\ \\ \noindent
+{\bf 不可制御なシステムの分解}
+
+(original)
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 -1 & 2
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+\\
+	y 
+	&=
+	\left (
+	\begin{array}{cc}
+	 1 & 1  
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\end{align*}
+
+(2022)
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 \color{red} 2 & \color{red} 1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ \color{red} 2
+	\end{array}
+	\right )
+	u
+\\
+	y 
+	&=
+	\left (
+	\begin{array}{cc}
+	 1 & 1  
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\end{align*}
+
+(2023)
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 \color{red} -2 & \color{red} 3
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ \color{red} 2
+	\end{array}
+	\right )
+	u
+\\
+	y 
+	&=
+	\left (
+	\begin{array}{cc}
+	 1 & 1  
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+\end{align*}
+
+(2024): 不使用
+
+\def\chrA{\left(\begin{array}{rr} 0 &  \color{red} 3\\  \color{red} 1 &  \color{red} -2 \end{array}\right)}
+\def\chrB{\left(\begin{array}{r} 1\\  \color{red} -1 \end{array}\right)}
+\def\chrC{\left(\begin{array}{rr} 1 & 1 \end{array}\right)}
+\def\statev{
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+}
+
+\begin{align*}
+	\frac{d}{dt} \statev 
+	&= \chrA \statev + \chrB u
+\\
+	y 
+	&= \chrC \statev
+\end{align*}
+
+(2025)：演習無
+
+%---------------
+\ \\ \noindent
+{\bf 遷移行列}
+
+(original)
+\[
+	A= \left(\begin{array}{cc}
+		2 & 3 \\
+		0 & -1
+	   \end{array} \right )
+\]
+
+(2020,2021) $A=[0,1];[-2,-3]$
+
+(2022)
+\[
+	A= \left(\begin{array}{cc}
+		2 & \color{red} 2 \\
+		0 & \color{red} 1
+	   \end{array} \right )
+\]
+
+
+
+(2023)
+\[
+	A= \left(\begin{array}{cc}
+		2 & \color{red} 3 \\
+		0 & \color{red} 1
+	   \end{array} \right )
+\]
+
+(2024)
+\[
+    A= \left(\begin{array}{cc} \color{red}3 & \color{red}2\\ 0 & 1 \end{array}\right)
+\]
+
+(2025)
+\[
+    A= \left(\begin{array}{cc} \color{red}3 & \color{red}4\\ 0 & 1 \end{array}\right)
+\]
+
+%---------------
+\ \\ \noindent
+{\bf 極配置}
+
+(original)
+閉ループ系の極が$-4,-5$
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 0 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	u
+\end{align*}
+
+(2020) $(A=[0, 1][2, 4], B=[0, 2]^T, 指定極：-2,-4)：解答なし(2020) $
+
+(2021) $(A=[0, 1][1, -1], B=[0, 1]^T, 指定極：-2,-3)：解答なし(2021)$
+
+(2022)
+閉ループ系の極が{\color{red}$-2,-3$}
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 \color{red} 2 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 1 
+	\end{array}
+	\right )
+	u
+\end{align*}
+
+(2023) (2022)のシステムで極を{\color{red}$-4,-5$}
+
+(2024) (2022)のシステムで極を{\color{red}$-1,-2$}
+
+(2025) (2022)のシステムで極を{\color{red}$-1,-3$}
+
+%---------------
+\ \\ \noindent
+{\bf 最適制御：不安定極}
+
+(original)
+$A=1$, $B=1$, $Q=1$, $R=r$
+
+(2022)
+{\color{red}$A=2$}, $B=1$, $Q=1$, $R=r$
+
+(2023)
+{\color{red}$A=3$}, $B=1$, $Q=1$, $R=r$
+
+(2024)
+{\color{red}$A=4$, $B=2$}, $Q=1$, $R=r$
+
+(2025)
+{\color{red}$A=9$, $B=3$}, $Q=1$, $R=r$
+
+%---------------
+\ \\ \noindent
+{\bf 最適制御：安定極}
+
+(original)
+$A=-1$, $B=1$, $Q=1$, $R=r$
+
+(2022)
+{\color{red}$A=-2$}, $B=1$, $Q=1$, $R=r$
+
+(2023)
+{\color{red}$A=-3$}, $B=1$, $Q=1$, $R=r$
+
+(2024)
+{\color{red}$A=-4$, $B=2$}, $Q=1$, $R=r$
+
+(2025)
+{\color{red}$A=-9$, $B=3$}, $Q=1$, $R=r$
+
+%---------------
+\ \\ \noindent
+{\bf サーボ系}
+
+(original)
+$A=1$, $B=1$, $C=1$,　すべての極は$-1$
+
+(2022)
+{\color{red}$A=2$}, $B=1$, $C=1$,　すべての極は{\color{red}$-2$}
+
+(2023)
+{\color{red}$A=2$}, $B=1$, $C=1$,　すべての極は{\color{red}$-1$}
+
+(2024)
+{\color{red}$A=3$}, $B=1$, $C=1$,　すべての極は{\color{red}$-2$}
+
+(2025)
+{\color{red}$A=3$}, $B=1$, $C=1$,　すべての極は{\color{red}$-3$}
+
+%---------------
+\ \\ \noindent
+{\bf オブザーバ}
+
+(original) 極は$-1, -2$
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 2 \\
+	 1 & -1
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+\\
+	y&=
+	\left ( \begin{array}{cc}
+		0 & 2 
+	\end{array} \right )
+	\left (	\begin{array}{c}
+		x_1 \\ x_2 
+	\end{array} \right )
+\end{align*}
+
+(2021) $A=[0,4;1,2] C=[0,2], 極=-2,-4$
+
+(2022) 極は{\color{red}$-2, -3$}
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & {\color{red}4} \\
+	 1 & {\color{red}3}
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+\\
+	y&=
+	\left ( \begin{array}{cc}
+		0 & 2 
+	\end{array} \right )
+	\left (	\begin{array}{c}
+		x_1 \\ x_2 
+	\end{array} \right )
+\end{align*}
+
+(2023) (2022)のシステムで極は{\color{red}$-3, -4$}
+
+(2024) 極は{\color{red}$-2, -3$}
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & {\color{red}3} \\
+	 1 & {\color{red}4}
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+\\
+	y&=
+	\left ( \begin{array}{cc}
+		0 & 2 
+	\end{array} \right )
+	\left (	\begin{array}{c}
+		x_1 \\ x_2 
+	\end{array} \right )
+\end{align*}
+
+(2025) (2024)のシステムで極は{\color{red}$-3, -4$}
+%---------------
+\ \\ \noindent
+{\bf 線形化}
+
+変更なし
+
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+%--------------------------------------------------------------------------------
+
+\end{document}
+

@@ -1,0 +1,279 @@
+\input{../000_header_year.txt}
+
+\begin{document}
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\exheader
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\noindent
+{\bf オブザーバ（演習）}　次のシステムに対して，オブザーバを設計せよ．ただし，オブザーバの極は$-3,-4$とせよ．
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 4 \\
+	 1 & 3
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+\\
+	y&=
+	\left ( \begin{array}{cc}
+		0 & 2 
+	\end{array} \right )
+	\left (	\begin{array}{c}
+		x_1 \\ x_2 
+	\end{array} \right )
+\end{align*}
+
+
+%---------------------------------------------------------------------------
+\newpage
+\noindent
+{\bf オブザーバ（演習）}　次のシステムに対して，オブザーバを設計せよ．ただし，オブザーバの極は$-3,-4$とせよ．
+\begin{align*}
+	\frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	& = 
+	\left (
+	\begin{array}{cc}
+	 0 & 4 \\
+	 1 & 3
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 x_1 \\ x_2 
+	\end{array}
+	\right )
+	+
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+\\
+	y&=
+	\left ( \begin{array}{cc}
+		0 & 2 
+	\end{array} \right )
+	\left (	\begin{array}{c}
+		x_1 \\ x_2 
+	\end{array} \right )
+\end{align*}
+
+$A+KC$の極配置をするために次の仮想システムを考える．
+\begin{align*}
+ \frac{d \xi}{dt} & = A^T \xi + C^T \eta, 
+\hspace{1cm}
+	A^T =
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 4 & 3
+	\end{array}
+	\right )
+	, \ 
+	C^T = 
+	\left (
+	\begin{array}{c}
+	 0 \\ 2 
+	\end{array}
+	\right )
+\end{align*}
+
+この仮想システムの閉ループ極を$-3$, $-4$とする仮想フィードバックを設計
+\begin{align*}
+ \eta =  K^T \xi
+	=
+	\left ( \begin{array}{cc}
+		k_1 & k_2 
+	\end{array} \right )
+	\xi
+\end{align*}
+
+仮想システムの閉ループ系
+\begin{align*}
+ \frac{d \xi}{dt} & = A^T \xi + C^T K^T \xi
+\\
+	&=
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 4 & 3
+	\end{array}
+	\right )
+	\xi
+	+
+	\left (
+	\begin{array}{c}
+	 0 \\ 2 
+	\end{array}
+	\right )
+	\left ( \begin{array}{cc}
+		k_1 & k_2 
+	\end{array} \right )
+	\xi
+\\
+	&=
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 4 & 3
+	\end{array}
+	\right )
+	\xi
+	+
+	\left (
+	\begin{array}{cc}
+	 0 & 0 \\ 2k_1 & 2k_2 
+	\end{array}
+	\right )
+	\xi
+\\
+	&=
+	\left (
+	\begin{array}{cc}
+	 0 & 1 \\
+	 4 + 2k_1 & 3 + 2k_2
+	\end{array}
+	\right )
+	\xi
+\end{align*}
+
+仮想システムの閉ループ系の特性多項式
+\begin{align*}
+	&\det
+	\left \{
+		sI- 
+		\left ( 
+		\begin{array}{cc}
+		 0 & 1 \\
+		 4 + 2k_1 & 3 + 2k_2
+		\end{array}
+		\right )
+	\right \}
+	=
+	\det
+	\left ( 
+	\begin{array}{cc}
+	 s & -1 \\
+	 -(4 + 2k_1) & s-(3 + 2k_2)
+	\end{array}
+	\right )
+\\
+	& \hspace{1cm} =
+	s \cdot \{ s-(3 + 2k_2) \} -(4 + 2k_1)
+	=
+	s^2 -(3 + 2k_2)s -(4 + 2k_1)
+\end{align*}
+
+極が$-3$, $-4$ となる特性多項式は
+\begin{align*}
+	(s+3)(s+4) = s^2+7s+12
+\end{align*}
+
+係数を比較して
+\begin{align*}
+	-(3 + 2k_2)=7, \ -(4 + 2k_1)=12 
+	\ \ \Rightarrow \ \ 
+	k_2=-5, \ k_1=-8
+\end{align*}
+
+よって
+\begin{align*}
+	K&=
+	\left (
+	\begin{array}{c}
+	 k_1 \\ k_2 
+	\end{array}
+	\right )
+	=
+	\left (
+	\begin{array}{c}
+	 -8 \\ -5 
+	\end{array}
+	\right )
+\end{align*}
+
+オブザーバは
+\begin{align*}
+ \frac{d \hat{x}}{dt} &= A \hat{x} + B u - K (y - C \hat{x})
+\\
+ \frac{d}{dt}
+	\left (
+	\begin{array}{c}
+	 \hat{x}_1 \\ \hat{x}_2 
+	\end{array}
+	\right )
+	&=
+ 	\left (
+	\begin{array}{cc}
+	 0 & 4 \\
+	 1 & 3
+	\end{array}
+	\right )
+	\left (
+	\begin{array}{c}
+	 \hat{x}_1 \\ \hat{x}_2 
+	\end{array}
+	\right )
+	+ 
+	\left (
+	\begin{array}{c}
+	 1 \\ 1 
+	\end{array}
+	\right )
+	u
+	-
+	\left (
+	\begin{array}{c}
+	 -8 \\ -5 
+	\end{array}
+	\right )
+	\left \{
+		y -
+		\left ( \begin{array}{cc}
+			0 & 2 
+		\end{array} \right )
+		\left (
+		\begin{array}{c}
+		 \hat{x}_1 \\ \hat{x}_2 
+		\end{array}
+		\right )
+	\right \}
+\end{align*}
+
+
+
+
+\end{document}
+
