@@ -45,7 +45,7 @@
 \def\adj{\mathop{\rm adj}\nolimits}
 \def\Span{\mathop{\rm span}\nolimits}
 \newenvironment{mytheorem}
-{\vspace{1zw}\noindent {\gtfamily ’è—} \itshape}
+{\vspace{1zw}\noindent {\gtfamily å®šç†} \itshape}
 {\vspace{1zw}}
 %
 %
@@ -61,28 +61,28 @@
 }
 \makeatother
 	%........................................................
-	% matrix‚Ì“ü—Í(\bmatrix,\ematrix)
-	%	—á \bmatrix{cc} 1&2\\3&4 \ematrix
+	% matrixã®å…¥åŠ›(\bmatrix,\ematrix)
+	%	ä¾‹ \bmatrix{cc} 1&2\\3&4 \ematrix
 	%........................................................
 		\renewcommand{\bmatrix}{\left(\begin{array}}
 		\newcommand{\ematrix}{\end{array}\right)}
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
 %--------------------------------------------------------------------------------
-%ö‹ÆÀ{”N
+%æˆæ¥­å®Ÿæ–½å¹´
 	\def\exyear{2024}
-%ƒwƒbƒ_[
+%ãƒ˜ãƒƒãƒ€ãƒ¼
 	\def\exheader
 		{
 		\begin{tabular}{cl}
-		{\large üŒ`§Œä˜_i“d‹C“dqŒnj@‰‰K–â‘è (\exyear)}
+		{\large ç·šå½¢åˆ¶å¾¡è«–ï¼ˆé›»æ°—é›»å­ç³»ï¼‰ã€€æ¼”ç¿’å•é¡Œ (\exyear)}
 		\hspace{1cm}
 		&
-		\underline{ŒnEŠw‰ÈF\hspace{3cm}}
+		\underline{ç³»ãƒ»å­¦ç§‘ï¼š\hspace{3cm}}
 		\\[2mm]
-		&\underline{ŠwĞ”Ô†F\hspace{3cm}}
+		&\underline{å­¦ç±ç•ªå·ï¼š\hspace{3cm}}
 		\\[2mm]
-		&\underline{–¼F\hspace{5cm}}
+		&\underline{æ°åï¼š\hspace{5cm}}
 		\end{tabular}
 		\ \\
 		}

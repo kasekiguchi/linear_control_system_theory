@@ -1,0 +1,23 @@
+\begin{picture}(0,0)%
+\epsfig{file=figure/spring-mass-damp.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3729sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(6999,2813)(889,-5507)
+\put(2251,-3391){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$m$}}}}
+\put(7561,-3391){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$y$}}}}
+\put(3961,-3841){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$0$}}}}
+\put(7561,-3841){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$0$}}}}
+\put(1486,-4291){\makebox(0,0)[rb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$k$}}}}
+\put(2386,-4291){\makebox(0,0)[rb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$c$}}}}
+\put(6166,-3616){\makebox(0,0)[rb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$c\frac{dy}{dt}$}}}}
+\put(6796,-4021){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$F$}}}}
+\put(5266,-3616){\makebox(0,0)[rb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$ky$}}}}
+\put(5851,-3121){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$m$}}}}
+\end{picture}%

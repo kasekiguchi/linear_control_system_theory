@@ -1,0 +1,348 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: figure/discretize.pstex
+%%Creator: fig2dev Version 3.2 Patchlevel 3c
+%%CreationDate: Thu Oct  5 16:22:07 2000
+%%For: nakaura@seiuchi (Shigeki Nakaura)
+%%BoundingBox: 0 0 274 328
+%%Magnification: 1.0000
+%%EndComments
+/$F2psDict 200 dict def
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/col-1 {0 setgray} bind def
+/col0 {0.000 0.000 0.000 srgb} bind def
+/col1 {0.000 0.000 1.000 srgb} bind def
+/col2 {0.000 1.000 0.000 srgb} bind def
+/col3 {0.000 1.000 1.000 srgb} bind def
+/col4 {1.000 0.000 0.000 srgb} bind def
+/col5 {1.000 0.000 1.000 srgb} bind def
+/col6 {1.000 1.000 0.000 srgb} bind def
+/col7 {1.000 1.000 1.000 srgb} bind def
+/col8 {0.000 0.000 0.560 srgb} bind def
+/col9 {0.000 0.000 0.690 srgb} bind def
+/col10 {0.000 0.000 0.820 srgb} bind def
+/col11 {0.530 0.810 1.000 srgb} bind def
+/col12 {0.000 0.560 0.000 srgb} bind def
+/col13 {0.000 0.690 0.000 srgb} bind def
+/col14 {0.000 0.820 0.000 srgb} bind def
+/col15 {0.000 0.560 0.560 srgb} bind def
+/col16 {0.000 0.690 0.690 srgb} bind def
+/col17 {0.000 0.820 0.820 srgb} bind def
+/col18 {0.560 0.000 0.000 srgb} bind def
+/col19 {0.690 0.000 0.000 srgb} bind def
+/col20 {0.820 0.000 0.000 srgb} bind def
+/col21 {0.560 0.000 0.560 srgb} bind def
+/col22 {0.690 0.000 0.690 srgb} bind def
+/col23 {0.820 0.000 0.820 srgb} bind def
+/col24 {0.500 0.190 0.000 srgb} bind def
+/col25 {0.630 0.250 0.000 srgb} bind def
+/col26 {0.750 0.380 0.000 srgb} bind def
+/col27 {1.000 0.500 0.500 srgb} bind def
+/col28 {1.000 0.630 0.630 srgb} bind def
+/col29 {1.000 0.750 0.750 srgb} bind def
+/col30 {1.000 0.880 0.880 srgb} bind def
+/col31 {1.000 0.840 0.000 srgb} bind def
+
+end
+save
+newpath 0 328 moveto 0 0 lineto 274 0 lineto 274 328 lineto closepath clip newpath
+-112.0 511.0 translate
+1 -1 scale
+
+/cp {closepath} bind def
+/ef {eofill} bind def
+/gr {grestore} bind def
+/gs {gsave} bind def
+/sa {save} bind def
+/rs {restore} bind def
+/l {lineto} bind def
+/m {moveto} bind def
+/rm {rmoveto} bind def
+/n {newpath} bind def
+/s {stroke} bind def
+/sh {show} bind def
+/slc {setlinecap} bind def
+/slj {setlinejoin} bind def
+/slw {setlinewidth} bind def
+/srgb {setrgbcolor} bind def
+/rot {rotate} bind def
+/sc {scale} bind def
+/sd {setdash} bind def
+/ff {findfont} bind def
+/sf {setfont} bind def
+/scf {scalefont} bind def
+/sw {stringwidth} bind def
+/tr {translate} bind def
+/tnt {dup dup currentrgbcolor
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add srgb}
+  bind def
+/shd {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+  4 -2 roll mul srgb} bind def
+/reencdict 12 dict def /ReEncode { reencdict begin
+/newcodesandnames exch def /newfontname exch def /basefontname exch def
+/basefontdict basefontname findfont def /newfont basefontdict maxlength dict def
+basefontdict { exch dup /FID ne { dup /Encoding eq
+{ exch dup length array copy newfont 3 1 roll put }
+{ exch newfont 3 1 roll put } ifelse } { pop pop } ifelse } forall
+newfont /FontName newfontname put newcodesandnames aload pop
+128 1 255 { newfont /Encoding get exch /.notdef put } for
+newcodesandnames length 2 idiv { newfont /Encoding get 3 1 roll put } repeat
+newfontname newfont definefont pop end } def
+/isovec [
+8#055 /minus 8#200 /grave 8#201 /acute 8#202 /circumflex 8#203 /tilde
+8#204 /macron 8#205 /breve 8#206 /dotaccent 8#207 /dieresis
+8#210 /ring 8#211 /cedilla 8#212 /hungarumlaut 8#213 /ogonek 8#214 /caron
+8#220 /dotlessi 8#230 /oe 8#231 /OE
+8#240 /space 8#241 /exclamdown 8#242 /cent 8#243 /sterling
+8#244 /currency 8#245 /yen 8#246 /brokenbar 8#247 /section 8#250 /dieresis
+8#251 /copyright 8#252 /ordfeminine 8#253 /guillemotleft 8#254 /logicalnot
+8#255 /hyphen 8#256 /registered 8#257 /macron 8#260 /degree 8#261 /plusminus
+8#262 /twosuperior 8#263 /threesuperior 8#264 /acute 8#265 /mu 8#266 /paragraph
+8#267 /periodcentered 8#270 /cedilla 8#271 /onesuperior 8#272 /ordmasculine
+8#273 /guillemotright 8#274 /onequarter 8#275 /onehalf
+8#276 /threequarters 8#277 /questiondown 8#300 /Agrave 8#301 /Aacute
+8#302 /Acircumflex 8#303 /Atilde 8#304 /Adieresis 8#305 /Aring
+8#306 /AE 8#307 /Ccedilla 8#310 /Egrave 8#311 /Eacute
+8#312 /Ecircumflex 8#313 /Edieresis 8#314 /Igrave 8#315 /Iacute
+8#316 /Icircumflex 8#317 /Idieresis 8#320 /Eth 8#321 /Ntilde 8#322 /Ograve
+8#323 /Oacute 8#324 /Ocircumflex 8#325 /Otilde 8#326 /Odieresis 8#327 /multiply
+8#330 /Oslash 8#331 /Ugrave 8#332 /Uacute 8#333 /Ucircumflex
+8#334 /Udieresis 8#335 /Yacute 8#336 /Thorn 8#337 /germandbls 8#340 /agrave
+8#341 /aacute 8#342 /acircumflex 8#343 /atilde 8#344 /adieresis 8#345 /aring
+8#346 /ae 8#347 /ccedilla 8#350 /egrave 8#351 /eacute
+8#352 /ecircumflex 8#353 /edieresis 8#354 /igrave 8#355 /iacute
+8#356 /icircumflex 8#357 /idieresis 8#360 /eth 8#361 /ntilde 8#362 /ograve
+8#363 /oacute 8#364 /ocircumflex 8#365 /otilde 8#366 /odieresis 8#367 /divide
+8#370 /oslash 8#371 /ugrave 8#372 /uacute 8#373 /ucircumflex
+8#374 /udieresis 8#375 /yacute 8#376 /thorn 8#377 /ydieresis] def
+/Times-Roman /Times-Roman-iso isovec ReEncode
+ /DrawEllipse {
+	/endangle exch def
+	/startangle exch def
+	/yrad exch def
+	/xrad exch def
+	/y exch def
+	/x exch def
+	/savematrix mtrx currentmatrix def
+	x y tr xrad yrad sc 0 0 1 startangle endangle arc
+	closepath
+	savematrix setmatrix
+	} def
+
+% japanese.ps for fig2dev 3.2
+%
+% This file will inserted into PostScript output by fig2dev
+% when Japanese text is included in the file.
+% This code try to use HeiseiMin-W3-EUC-H and HeiseiKakuGo-W5-EUC-H
+% if Ryumin-Light-EUC-H is not supported.  --- T.Sato, 1999/3/27
+
+/has_morisawa_font true def
+FontDirectory /Ryumin-Light-EUC-H known not {
+  systemdict /resourcestatus known {
+    /Ryumin-Light-EUC-H /Font resourcestatus {
+      pop pop
+    } {
+      /has_morisawa_font false def
+    } ifelse
+  } if
+} if
+
+16 dict begin
+  /FontName /CompositeRoman def  /FontType 0 def
+  /WMode 0 def    /FMapType 3 def  /FontMatrix matrix def
+  /Encoding [0 1] def
+  has_morisawa_font {
+    /FDepVector [ /Times-Roman findfont
+        /Ryumin-Light-EUC-H findfont ] def
+  } {
+    /FDepVector [ /Times-Roman findfont
+        /HeiseiMin-W3-EUC-H findfont ] def
+  } ifelse
+  FontName currentdict
+  end
+definefont pop
+
+16 dict begin
+  /FontName /CompositeBold def  /FontType 0 def
+  /WMode 0 def    /FMapType 3 def  /FontMatrix matrix def
+  /Encoding [0 1] def
+  has_morisawa_font {
+    /FDepVector [ /Times-Bold findfont
+        /GothicBBB-Medium-EUC-H findfont ] def
+  } {
+    /FDepVector [ /Times-Bold findfont
+        /HeiseiKakuGo-W5-EUC-H findfont ] def
+  } ifelse
+  FontName currentdict
+  end
+definefont pop
+
+% end of japanese.ps
+/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+/$F2psEnd {$F2psEnteredState restore end} def
+
+$F2psBegin
+%%Page: 1 1
+10 setmiterlimit
+ 0.06299 0.06299 sc
+%
+% Fig objects follow
+%
+/CompositeRoman ff 180.00 scf sf
+2160 5760 m
+gs 1 -1 sc (\377\001\275\320\316\317) dup sw pop neg 0 rm  col0 sh gr
+/CompositeRoman ff 180.00 scf sf
+2160 3060 m
+gs 1 -1 sc (\377\001\306\376\316\317) dup sw pop neg 0 rm  col0 sh gr
+7.500 slw
+% Ellipse
+n 4275 6570 45 45 0 360 DrawEllipse gs 1.00 setgray ef gr gs col-1 s gr
+
+% Ellipse
+n 2925 6975 45 45 0 360 DrawEllipse gs 1.00 setgray ef gr gs col-1 s gr
+
+% Polyline
+gs  clippath
+6090 7905 m 6090 7845 l 5938 7845 l 6058 7875 l 5938 7905 l cp
+eoclip
+n 1800 7875 m
+ 6075 7875 l gs col-1 s gr gr
+
+% arrowhead
+n 5938 7905 m 6058 7875 l 5938 7845 l  col-1 s
+% Polyline
+gs  clippath
+2280 5610 m 2220 5610 l 2220 5762 l 2250 5642 l 2280 5762 l cp
+eoclip
+n 2250 7875 m
+ 2250 5625 l gs col-1 s gr gr
+
+% arrowhead
+n 2280 5762 m 2250 5642 l 2220 5762 l  col-1 s
+% Polyline
+n 2925 6975 m
+ 2925 7875 l gs col-1 s gr 
+% Polyline
+n 3600 6075 m
+ 3600 7875 l gs col-1 s gr 
+% Polyline
+n 4950 6975 m
+ 4950 7875 l gs col-1 s gr 
+% Polyline
+gs  clippath
+6090 4980 m 6090 4920 l 5938 4920 l 6058 4950 l 5938 4980 l cp
+eoclip
+n 1800 4950 m
+ 6075 4950 l gs col-1 s gr gr
+
+% arrowhead
+n 5938 4980 m 6058 4950 l 5938 4920 l  col-1 s
+% Polyline
+15.000 slw
+n 2250 4275 m
+ 2925 4275 l gs col-1 s gr 
+% Polyline
+7.500 slw
+n 4275 6525 m
+ 4275 7875 l gs col-1 s gr 
+% Polyline
+15.000 slw
+n 3600 4500 m
+ 4275 4500 l gs col-1 s gr 
+% Polyline
+n 4275 3600 m
+ 4950 3600 l gs col-1 s gr 
+% Polyline
+7.500 slw
+gs  clippath
+2280 2910 m 2220 2910 l 2220 3062 l 2250 2942 l 2280 3062 l cp
+eoclip
+n 2250 4950 m
+ 2250 2925 l gs col-1 s gr gr
+
+% arrowhead
+n 2280 3062 m 2250 2942 l 2220 3062 l  col-1 s
+% Polyline
+ [15 45] 45 sd
+n 2925 3150 m
+ 2925 4950 l gs col-1 s gr  [] 0 sd
+% Polyline
+ [15 45] 45 sd
+n 3600 4950 m
+ 3600 3150 l gs col-1 s gr  [] 0 sd
+% Polyline
+ [15 45] 45 sd
+n 4275 3150 m
+ 4275 4950 l gs col-1 s gr  [] 0 sd
+% Polyline
+ [15 45] 45 sd
+n 4950 3150 m
+ 4950 4950 l gs col-1 s gr  [] 0 sd
+% Ellipse
+n 3600 6075 45 45 0 360 DrawEllipse gs 1.00 setgray ef gr gs col-1 s gr
+
+% Polyline
+15.000 slw
+n 2925 3375 m
+ 3600 3375 l gs col-1 s gr 
+% Polyline
+7.500 slw
+ [15 45] 45 sd
+n 4275 6030 m
+ 4275 4950 l gs col-1 s gr  [] 0 sd
+% Polyline
+ [15 45] 45 sd
+n 4950 6570 m
+ 4950 4950 l gs col-1 s gr  [] 0 sd
+% Polyline
+2 slj
+15.000 slw
+n 2250 7425 m 2251 7425 l 2253 7424 l 2257 7423 l 2263 7421 l 2271 7418 l
+ 2281 7414 l 2295 7409 l 2310 7402 l 2328 7395 l 2348 7387 l
+ 2370 7377 l 2394 7367 l 2419 7355 l 2445 7342 l 2472 7327 l
+ 2501 7312 l 2531 7294 l 2562 7275 l 2594 7254 l 2628 7230 l
+ 2664 7204 l 2702 7175 l 2743 7142 l 2785 7106 l 2830 7066 l
+ 2877 7022 l 2925 6975 l 2967 6932 l 3008 6889 l 3046 6846 l
+ 3081 6804 l 3113 6764 l 3141 6726 l 3166 6690 l 3187 6656 l
+ 3205 6625 l 3219 6596 l 3231 6568 l 3241 6542 l 3249 6518 l
+ 3255 6495 l 3261 6472 l 3266 6450 l 3271 6428 l 3277 6406 l
+ 3283 6384 l 3291 6362 l 3301 6339 l 3313 6315 l 3327 6291 l
+ 3344 6266 l 3365 6240 l 3389 6213 l 3417 6187 l 3448 6160 l
+ 3482 6135 l 3520 6112 l 3559 6091 l 3600 6075 l 3646 6062 l
+ 3690 6056 l 3731 6054 l 3767 6057 l 3799 6063 l 3826 6072 l
+ 3848 6083 l 3865 6095 l 3879 6109 l 3889 6124 l 3897 6139 l
+ 3903 6155 l 3907 6171 l 3911 6188 l 3915 6205 l 3920 6223 l
+ 3925 6241 l 3933 6260 l 3944 6281 l 3958 6302 l 3976 6325 l
+ 3999 6349 l 4026 6375 l 4058 6402 l 4095 6431 l 4137 6462 l
+ 4182 6493 l 4230 6525 l 4278 6557 l 4325 6588 l 4368 6616 l
+ 4408 6643 l 4443 6666 l 4473 6686 l 4498 6703 l 4520 6718 l
+ 4537 6730 l 4551 6741 l 4562 6749 l 4571 6756 l 4579 6763 l
+ 4586 6769 l 4593 6775 l 4601 6781 l 4611 6788 l 4622 6795 l
+ 4636 6805 l 4654 6816 l 4675 6829 l 4701 6844 l 4732 6861 l
+ 4768 6881 l 4808 6903 l 4853 6926 l 4900 6951 l 4950 6975 l
+ 5003 7000 l 5055 7023 l 5104 7045 l 5150 7064 l 5193 7081 l
+ 5233 7096 l 5271 7109 l 5307 7121 l 5341 7132 l 5373 7141 l
+ 5403 7150 l 5433 7158 l 5460 7165 l 5487 7171 l 5511 7177 l
+ 5534 7182 l 5555 7186 l 5573 7190 l 5588 7193 l 5600 7195 l
+ 5610 7197 l 5617 7199 l 5621 7199 l 5624 7200 l
+ 5625 7200 l gs col-1 s gr 
+% Polyline
+0 slj
+n 4950 4050 m
+ 5625 4050 l gs col-1 s gr 
+% Polyline
+7.500 slw
+ [15 45] 45 sd
+n 2925 6750 m
+ 2925 4950 l gs col-1 s gr  [] 0 sd
+% Ellipse
+n 4950 6975 45 45 0 360 DrawEllipse gs 1.00 setgray ef gr gs col-1 s gr
+
+% Polyline
+ [15 45] 45 sd
+n 3600 5715 m
+ 3600 4950 l gs col-1 s gr  [] 0 sd
+$F2psEnd
+rs

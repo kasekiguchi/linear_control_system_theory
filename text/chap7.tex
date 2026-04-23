@@ -1,0 +1,216 @@
+%---------------------------------------------------------------------------
+\chapter{むだ時間系の制御}
+%---------------------------------------------------------------------------
+本章では，むだ時間系を制御するための簡単で実用的な方法を述べるにとど
+め，詳しい解析などは行わない．また，本章で扱うシステムは原則としてス
+カラ系である．制御系を設計する時の基本であるが，性能の良い制御を行なう
+ためには，対象のプラントの構造及びパラメータをできるだけ正確に把握する
+ことが好ましい．特にむだ時間系を考える場合，むだ時間の長さを正確に知る
+必要がある．ここでは，モデルが比較的正確に分かっている場合の設計につい
+て述べる．
+%---------------------------------------------------------------------------
+\section{Smithの補償器とIMC構造}
+%.............................................................................
+いま，プラントの伝達関数がむだ時間要素$e^{-sL}$とむだ時間のない伝達関数
+$P^*(s)$の積として，
+\begin{equation}
+ P(s) = P^*(s)e^{-sL}
+\end{equation}
+で表されるとする．ただし，$L$はむだ時間であり，$P^*(s)$は安定であると
+する．このとき制御系の構成をFig.\ref{fig_smith}のように構成すること
+を考える．
+\begin{figure}[htbp]
+ \begin{center}
+  \input{figure/smith.pstex_t} % scale = 100%
+  \caption{Smithの補償器}
+  \label{fig_smith}
+ \end{center}
+\end{figure}
+
+この図で，2重のボックスで示された部分はSmithの予測器と呼ばれる．これは，
+\begin{equation}
+ z = Pu - (P - P^*)u = P^* u = y e^{sL}
+\end{equation}
+となり，$z$が出力$y$の$L$秒先の値を予測しているからである．この時，$r$
+から$y$までの伝達関数は，
+\begin{equation}
+ \frac{Y}{R} = \frac{CP}{1 + CP^*} = \frac{C P^*}{1 + CP^*}e^{-sL}
+\end{equation}
+となり，ちょうどむだ時間がない場合の閉ループ伝達関数にむだ時間要素の積
+という形になる．これより，コントローラ$C$の設計は，むだ時間とは独立に
+従来の方法を用いることができることが分かる．ただし，この構造で注意しな
+ければならないことは，$P$が安定でなければならないことである．実際，
+Fig.\ref{fig_smith}を等価変換するとFig.\ref{fig_smith_eqv}を得る．
+\begin{figure}[htbp]
+ \begin{center}
+  \input{figure/smithequiv.pstex_t} % scale = 100 %
+  \caption{Smithの補償器と等価なシステム}
+  \label{fig_smith_eqv}
+ \end{center}
+\end{figure}
+
+もし，システム$P$が不安定である場合，コントローラ側の$P$の出力と実際の
+出力がキャンセルされてしまい$e$には反映されず，全体を安定化するこ
+とはできない．Fig.\ref{fig_smith_eqv}において，$C$と$P^*$の部分を一つの
+コントローラ$K$として
+考えた時，このような制御系をIMC(Internal Model Control)構造という．
+(Fig.\ref{fig_imc})
+\begin{figure}[htbp]
+ \begin{center}
+  \input{figure/imc.pstex_t} % scale = 100%
+  \caption{IMC構造}
+  \label{fig_imc}
+ \end{center}
+\end{figure}
+
+この構成を用いる場合，ロバスト性をあまり考慮しなくて良い場合には，$K$
+として$P^{-1}$にできるだけ近いものを選んだ方が追従特性は良くなることは明
+らかであろう．さらにIMCの特徴として，コントローラ内部のプラントのモデ
+ルを$\bar{P}$としてFig.\ref{fig_imc_cha}のような構成にしたとき，
+閉ループ系が安定で，
+\begin{equation}
+ K(0)\bar{P}(0) = 1
+\end{equation}
+の条件を満たせばシステムは1型のサーボ系となっている．実際，
+\begin{equation}
+ y = \frac{KP}{1 + K(P - \bar{P})} r
+\end{equation}
+であるから，$r = c/s$とすると最終値定理より，
+\begin{eqnarray}
+ y(\infty) &=& \lim_{s \rightarrow 0}s 
+  \frac{KP}{1 + K(P - \bar{P})}\frac{c}{s} \nonumber \\
+ &=& \frac{K(0)P(0)}{1 - K(0)\bar{P}(0) + K(0)P(0)}c = c
+\end{eqnarray}
+となり出力は目標値に一致する．また，システムの入力部に飽和などの非線形
+要素がある場合でも，$\bar{P}$の前に同じ非線形要素を挿入してコントロー
+ラを設計することでシステムをロバスト化することができる．
+\begin{figure}[htbp]
+ \begin{center}
+  \input{figure/imc_cha.pstex_t} % scale = 100%
+  \caption{IMCの特徴}
+  \label{fig_imc_cha}
+ \end{center}
+\end{figure}
+%---------------------------------------------------------------------------
+\section{むだ時間を用いてシステムを離散化する方法}
+%---------------------------------------------------------------------------
+前節と同じ伝達関数で与えられるプラントを考え，このシステムにゼロ次ホー
+ルダを付けて制御することを考える．ただし，プラントは安定でなくとも良く，
+$T$をサンプリングインターバルとして$L = nT$が成り立つように$T$を選ぶもの
+とする．この時，ゼロ次ホールダを付けたシステムの伝達関数は
+Fig.\ref{fig_delay1}のように考えることができる．
+
+\begin{figure}[htbp]
+ \begin{center}
+  \input{figure/delay1.pstex_t} % scale = 100%
+  \caption{むだ時間要素の分解1}
+  \label{fig_delay1}
+ \end{center}
+\end{figure}
+
+ここで入力を$u$，各むだ時間要素の出力を$u_i$とし，$P^*(z)$の差分状態空
+間表現を
+\begin{eqnarray*}
+ x((k+1)T) &=& \Phi x(kT) + \Gamma u(kT) \\
+ y(kT)     &=& C x(kT) + D u(kT)
+\end{eqnarray*}
+とすれば，$u_i$を状態と考えてつぎの拡大系を得る．
+\begin{eqnarray}
+ \left(\begin{array}{c}
+        x \\
+	u_n \\
+	\vdots \\
+	u_1
+       \end{array}\right)
+ ((k+1)T) &=&
+ \left(\begin{array}{ccccc}
+        \Phi & \Gamma &   &        & \\
+	0    & 0      & 1 &        & \\
+	     &        &   & \ddots & \\
+	     &        &   &        & 1 \\
+	     &        &   &        & 0
+	\end{array}\right)
+ \left(\begin{array}{c}
+        x \\
+	u_n \\
+	\vdots \\
+	u_1
+	\end{array}\right)
+ u(kT) +
+ \left(\begin{array}{c}
+        0 \\
+	0 \\
+	\vdots \\
+	1
+	\end{array}\right)
+ u(kT) \\
+ \left(\begin{array}{c}
+        y \\
+	u_n \\
+	\vdots \\
+	u_1
+	\end{array}\right)
+ (kT) &=&
+ \left(\begin{array}{ccccc}
+        C & D & 0 & \cdots & 0 \\
+	0 &   &   &   I    & 
+	\end{array}\right)
+ \left(\begin{array}{c}
+        x \\
+	u_n \\
+	\vdots \\
+	u_1
+       \end{array}\right)
+ (kT)
+\end{eqnarray}
+
+また，出力側にむだ時間が存在する場合にはFig.\ref{fig_delay2}のように分解して
+次の拡大系を得る．
+\begin{figure}[htbp]
+ \begin{center}
+  \input{figure/delay2.pstex_t} % scale = 100%
+  \caption{むだ時間要素の分解2}
+  \label{fig_delay2}
+ \end{center}
+\end{figure}
+\begin{eqnarray}
+ \left(\begin{array}{c}
+        y_n \\
+	\vdots \\
+	y_1 \\
+	x
+       \end{array}\right)
+ ((k+1)T) &=&
+ \left(\begin{array}{ccccc}
+        0 & 1 &        &   & \\
+	  & 0 & \ddots &   & \\
+	  &   &        & 1 & \\
+	  &   &        & 0 & C \\
+	  &   & 0      &   & \Phi
+	\end{array}\right)
+ \left(\begin{array}{c}
+        y_n \\
+	\vdots \\
+	y_1 \\
+	x
+       \end{array}\right)
+ (kT) +
+ \left(\begin{array}{c}
+        0 \\
+	\vdots \\
+	0 \\
+	D \\
+	\Gamma
+	\end{array}\right) u(kT) \\
+ y_n(kT) &=&
+  \left(\begin{array}{ccc}
+         1 & 0 & \cdots
+	\end{array}\right)
+  \left(\begin{array}{c}
+         y_n \\
+	 \vdots \\
+	 y_1 \\
+	 x
+	\end{array}\right)(kT)
+\end{eqnarray}
+従って，制御系はこの状態空間表現に基づいて設計すれば良い．

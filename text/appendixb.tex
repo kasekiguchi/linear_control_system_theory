@@ -1,0 +1,440 @@
+\chapter{倒立振子の実験装置について}
+\section{実験装置の概要}
+本実験装置はFig.\ref{fig:env}のように，{\bf レール}上を自由に走行する{\bf
+台車}，台車
+に自由関節で固定された{\bf 振子}，{\bf プーリー}と{\bf タイミングベルト}を
+介して台車を駆動する{\bf モータ}から構成されている．台車の並進方向の変位
+と振子の回転角度をポテンショメータ(potentiometer)でそれぞれ検出できる．
+
+このシステムには2つの平衡点があるが，本実験では不安定平衡点（振子の倒立
+状態）から少し移動した際にすみやかに台車を移動させ元の状態に戻すことを制
+御目標とする．
+
+\begin{figure}[htbp]
+ \begin{minipage}{0.5\textwidth}
+  \begin{center}
+   \input{figure/env.pstex_t} % scale=0.7
+  \end{center}
+  \caption{実験装置の概要}
+  \label{fig:env}
+ \end{minipage}%
+ \begin{minipage}{0.5\textwidth}
+  \begin{center}
+   \input{figure/equivenv.pstex_t}
+  \end{center}
+  \caption{等価な倒立振子系}
+  \label{fig:equivenv}
+ \end{minipage}
+\end{figure}
+
+実験装置全体の構成はFig.\ref{fig:expenv}のようになっており，
+それぞれの役目は以下の通りである．
+\begin{description}
+ \item[実時間実験用PC] \mbox{} \\
+	    実時間プログラミングが容易に行なえる{\sf VxWorks}という
+	    {\sf UNIX}互換{\sf OS}が稼働している．
+	    {\sf UNIX}なので，端末用PCから{\sf telnet}や{\sf rlogin}で接
+	    続し，各種作業を行なうことができる．
+	    
+	    今回使用するプログラムでは，{\sf POSIX}タイマーを利用して実
+	    時間を実現している．
+%
+ \item[開発用端末PC] \mbox{} \\
+	    プログラミング作業や制御系CAD \MaTX を用いた解析，設計作業，
+	    {\sf gnuplot}を用いた実験データのプロットなどを行なうための
+	    端末．
+%
+ \item[開発用ホストWS] \mbox{} \\
+	    実時間プログラムのコンパイルや \MaTX による解析，設計を実際
+	    に行なうワークステーション．{\sf OS}は{\sf Solaris}．
+\end{description}
+
+\begin{figure}[!ht]
+ \begin{center}
+  \input{figure/expenv.pstex_t} % scale=0.76
+  \caption{実験環境}
+  \label{fig:expenv}
+ \end{center}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{運動方程式の導出}
+Fig.\ref{fig:equivenv}の運動方程式は，Table\ref{tbl:para}の変数，定数を
+用いて
+\begin{enumerate}
+ \item このシステムの一般化座標を$r$と$\theta$とする．
+ \item 台車及び振子の運動エネルギーをそれぞれ求め，その和$T$を求める．
+ \item 振子の位置エネルギー$U$を求める．
+ \item 粘性摩擦による散逸エネルギー$R$を求める．
+ \item ラグランジアン(Lagrangian)$L := T - U$を求め，ラグランジの方程式
+       より$r$と$\theta$に関する運動方程式をそれぞれ求める．
+\end{enumerate}
+の手順により，以下のように導出される．
+\begin{align*}
+ (M + m)\ddot{r} + m\ell\ddot{\theta}\cos\theta
+  - m\ell\dot{\theta}^2\sin\theta + F\dot{r} &= f \\
+ m\ell\ddot{r}\cos\theta + (J + m\ell^2)\ddot{\theta}
+  - m\ell g \sin\theta + c\dot{\theta} &= 0
+\end{align*}
+
+\begin{table}[htbp!]
+ \begin{center}
+  \caption{変数・定数の定義}
+  \label{tbl:para}
+  \begin{tabular}{lcl}\hline
+   \multicolumn{3}{c}{\bf 変数} \\ \hline
+   $r$ [m] & : & 台車の変位 \\
+   $\theta$ [rad] & : & 振子の鉛直上向きからの偏角 \\
+   $u$ [V] & : & モータアンプへの入力電圧 \\ \hline
+   \multicolumn{3}{c}{\bf 定数} \\ \hline
+   $M$ [kg] & : & 台車・ベルト・プーリ・モータ系の等価質量 \\
+   $F$ [Ns/m] & : & 台車・ベルト・プーリ・モータ系の等価粘性摩擦 \\
+   $m$ [kg] & : & 振子の質量 \\
+   $\ell$ [m] & : & 回転軸から振子の重心までの距離 \\
+   $J$ [kgm$^2$] & : & 振子の重心まわりの慣性モーメント \\
+   $c$ [kgm$^2$/s] & : & 回転軸の粘性摩擦係数 \\
+   $f$ [N] & : & 台車に働く並進力 \\
+   $k$ [N/V] & : & $u$から台車に働く並進力までのゲイン \\
+   $g$ [m/s$^2$] & : & 重力加速度 \\ \hline
+  \end{tabular}
+ \end{center}
+\end{table}
+
+上記の運動方程式では速度に依存する粘性摩擦のみを考えているが，実際にはレー
+ルと台車の間，タイミングベルトとプーリの間に静止摩擦やクーロン(Coulomb)
+摩擦が存在し，本実験装置では無視することができない．そこで，一般的に用い
+られる以下の摩擦モデルを導入する．
+\[
+ f_f = F_v \dot{r} + F_c \mbox{sgn}(\dot{r})
+\]
+ここで，$F_v$は粘性摩擦係数，$F_c$は静止・クーロン摩擦による摩擦力とする．
+以上より，倒立振子系の運動方程式として以下を得ることができる．
+\begin{equation}
+ (M + m)\ddot{r} + m\ell\ddot{\theta}\cos\theta
+  - m\ell\dot{\theta}^2\sin\theta +
+ F_v \dot{r} + F_c \mbox{sgn}(\dot{r}) = ku
+ \label{eq:heishin}
+\end{equation}
+\begin{equation}
+ m\ell\ddot{r}\cos\theta + (J + m\ell^2)\ddot{\theta}
+  - m\ell g \sin\theta + c\dot{\theta} = 0
+ \label{eq:kaiten}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{同定のためのモデルの導出}
+前節で得られた運動方程式(\ref{eq:heishin})(\ref{eq:kaiten})の左辺は，未
+知パラメータの組を適切に選ぶと，それらの線形結合で書き直すことができる．
+未知パラメータからなるベクトル$a$を
+\begin{equation}
+ a :=
+  \left[
+   \begin{array}{cccccc}
+    a_1 & a_2 & a_3 & a_4 & a_5 & a_6
+   \end{array}
+  \right]^T =
+      \left[
+       \begin{array}{cccccc}
+	\displaystyle\frac{M + m}{k} & \displaystyle\frac{m\ell}{k} & 
+	 \displaystyle\frac{J + m\ell^2}{k} & \displaystyle\frac{F_v}{k} & 
+	 \displaystyle\frac{F_c}{k} & \displaystyle\frac{c}{k}
+       \end{array}
+      \right]^T
+ \label{eq:kitei}
+\end{equation}
+と定義すると，(\ref{eq:heishin})(\ref{eq:kaiten})は{\bf リグレッサ
+(regressor)}
+\begin{equation}
+ \phi(\dot{r}, \ddot{r}, \theta, \dot{\theta}, \ddot{\theta}) := 
+ \left[
+ \begin{array}{cccccc}
+  \ddot{r} & \ddot{\theta}\cos\theta - \dot{\theta}^2\sin\theta& 0 &
+   \dot{r} & \mbox{sgn}(\dot{r}) & 0 \\
+  0 & \ddot{r}\cos\theta - g \sin\theta & \ddot{\theta} &
+   0 & 0 & \dot{\theta} \\
+ \end{array}
+\right]
+\end{equation}
+により，{\bf リグレッションモデル(regression model)}
+\begin{equation}
+ \phi(\dot{r}, \ddot{r}, \theta, \dot{\theta}, \ddot{\theta}) a = y(u)
+  \label{eq:regression}
+\end{equation}
+に表現できる．ただし，$y(u) := [\begin{array}{cc} u & 0\end{array}]^T$と
+する．(\ref{eq:kitei})の右辺の成分の組は{\bf 基底(base)パラメータ}と呼ば
+れる．(\ref{eq:regression})を同定のためのモデルとして利用することにする．
+(\ref{eq:regression})は(\ref{eq:heishin})(\ref{eq:kaiten})と等価
+である．
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{パラメータの同定}\label{subsec:ident}
+(\ref{eq:regression})は任意の時刻$t_i$での$(\dot{r}_i, \ddot{r}_i,
+\theta_i, \dot{\theta}_i, \ddot{\theta}_i)$と$u_i$について成り立つ．よっ
+て，本実験では基底ベクトル$a$を以下のように同定する．
+
+システムに信号列
+\[
+ \begin{array}{cccc}
+  u_1, & u_2, & \cdots, & u_n\\
+ \end{array}
+\]
+を入力し，その時の応答
+\[
+ \begin{array}{cccc}
+  \left[
+   \begin{array}{c}
+    \dot{r}_1 \\
+    \ddot{r}_1 \\
+    \theta_1 \\
+    \dot{\theta}_1 \\
+    \ddot{\theta}_1 \\
+   \end{array}
+  \right], &
+  \left[
+   \begin{array}{c}
+    \dot{r}_2 \\
+    \ddot{r}_2 \\
+    \theta_2 \\
+    \dot{\theta}_2 \\
+    \ddot{\theta}_2 \\
+   \end{array}
+  \right], &
+  \cdots, &
+  \left[
+   \begin{array}{c}
+    \dot{r}_n \\
+    \ddot{r}_n \\
+    \theta_n \\
+    \dot{\theta}_n \\
+    \ddot{\theta}_n \\
+   \end{array}
+  \right]
+ \end{array}
+\]
+を計測する．入力や計測に伴う誤差が(\ref{eq:regression})の{\bf 残差
+(residual)}として
+\begin{equation}
+ \phi(\dot{r}_i, \ddot{r}_i, \theta_i, \dot{\theta}_i, \ddot{\theta}_i) a
+  = y(u_i) + \varepsilon_i
+\end{equation}
+と表現できると仮定する．（この仮定の妥当性には疑問が残る．）
+
+この時，{\bf 残差平方和}
+\[
+ V := \sum^n_{i=1}\varepsilon_i^T\varepsilon_i = E^TE
+\]
+を最小にする基底ベクトルの推定値$\hat{a}$を{\bf 最小自乗推定値(least
+square estimate)}といい，
+\begin{equation}
+ \hat{a} = (\Phi^T\Phi)^{-1}\Phi^TY
+  \label{eq:ahat}
+\end{equation}
+で与えられることが分かっている．ここで，
+\[
+ \Phi := \left[
+           \begin{array}{c}
+	    \phi(\dot{r}_1, \ddot{r}_1, \theta_1, \dot{\theta}_1,
+	     \ddot{\theta}_1) \\
+	    \phi(\dot{r}_2, \ddot{r}_2, \theta_2, \dot{\theta}_2,
+	     \ddot{\theta}_2) \\
+	    \vdots \\
+	    \phi(\dot{r}_n, \ddot{r}_n, \theta_n, \dot{\theta}_n,
+	     \ddot{\theta}_n) \\
+	   \end{array}
+ \right], \quad
+ Y := \left[
+        \begin{array}{c}
+	 y(u_1) \\
+	 y(u_2) \\
+	 \vdots \\
+	 y(u_n) \\
+	\end{array}
+ \right], \quad
+ E := \left[
+        \begin{array}{c}
+	 \varepsilon_1 \\
+	 \varepsilon_2 \\
+	 \vdots \\
+	 \varepsilon_n \\
+	\end{array}
+ \right]
+\]
+である．この，$(\Phi^T\Phi)^{-1}\Phi^T$を{\bf (左)疑似逆行列((left)
+pseudo inverse)}という．
+
+なお今回は，同定用の入力信号列としてM系列を用いている．
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{状態方程式の導出}
+状態空間での制御器の設計を行うため，以下のようにシステムの実現
+(realization)を導出する．
+
+システムの状態量として台車の変位$r$，振子の角度$\theta$，台車の速度
+$\dot{r}$，振子の角速度$\dot{\theta}$をとり，状態ベクトルを以下のように
+定義する．
+\[
+ x := \left[
+       \begin{array}{c}
+	x_1 \\
+	x_2 \\
+	x_3 \\
+	x_4 \\
+       \end{array}
+      \right] :=
+      \left[
+       \begin{array}{c}
+	r \\
+	\theta \\
+	\dot{r} \\
+	\dot{\theta}\\
+       \end{array}
+      \right]
+\]
+また，モータアンプへの入力電圧$u$を入力にする．すると，運動方程式
+(\ref{eq:heishin})(\ref{eq:kaiten})より以下のような形で非線形状態方程式
+\begin{equation}
+ \frac{d}{dt}
+ \left[
+  \begin{array}{c}
+   x_1 \\
+   x_2 \\
+   x_3 \\
+   x_4 \\
+  \end{array}
+ \right] =
+ \left[
+  \begin{array}{c}
+   x_3 \\
+   x_4 \\
+   f_3(x_1, \cdots, x_4) \\
+   f_4(x_1, \cdots, x_4) \\
+  \end{array}
+ \right] + 
+ \left[
+  \begin{array}{c}
+   0 \\
+   0 \\
+   g_3(x_1, \cdots, x_4) \\
+   g_4(x_1, \cdots, x_4) \\
+  \end{array}
+ \right] u
+ \label{eq:nonlinsystem}
+\end{equation}
+を得ることができる．
+
+本実験装置では観測量として，変位$r$に比例した電圧$y_1$[V]と，角度
+$\theta$に比例した電圧$y_2$[V]がポテンショメータを介して利用することがで
+きる．よって出力方程式は，
+\begin{equation}
+ \left[
+  \begin{array}{c}
+   y_1 \\
+   y_2 \\
+  \end{array}
+ \right] =
+ \left[
+  \begin{array}{c}
+   k_1 r \\
+   k_2 \theta \\
+  \end{array}
+ \right]
+ \label{eq:output}
+\end{equation}
+と表すことができる．ただし，
+\begin{center}
+ \begin{tabular}{lcl}\hline
+  \multicolumn{3}{c}{\bf 定数} \\ \hline
+  $k_1$ [V/m] & : & 台車の変位から電圧への変換係数 \\
+  $k_2$ [V/rad] & : & 振子の角度から電圧への変換係数 \\ \hline
+ \end{tabular}
+\end{center}
+である．
+
+これら(\ref{eq:nonlinsystem})(\ref{eq:output})に対し，
+動作点を$x = [0, 0, 0, 0]^T$（振子が倒立静止した状態）として，
+この近傍で(\ref{eq:nonlinsystem})(\ref{eq:output})を1次近似することで線
+形状態方程式を求めると以下のようになる．
+\begin{align}
+ \frac{d}{dt}
+ \left[
+  \begin{array}{c}
+   x_1 \\
+   x_2 \\
+   x_3 \\
+   x_4 \\
+  \end{array}
+ \right] &=
+ \left[
+  \begin{array}{cccc}
+   0 & 0 & 1 & 0 \\
+   0 & 0 & 0 & 1 \\
+   0 & \frac{-m^2\ell^2g}{(M+m)J+Mm\ell^2} &
+    \frac{-F(J+m\ell^2)}{(M+m)J+Mm\ell^2} & \frac{m\ell c}{(M+m)J+Mm\ell^2} \\
+   0 & \frac{m\ell(M+m)g}{(M+m)J+Mm\ell^2} &
+    \frac{m\ell F}{(M+m)J+Mm\ell^2} & \frac{-c(M+m)}{(M+m)J+Mm\ell^2}
+  \end{array}
+ \right]
+ \left[
+  \begin{array}{c}
+   x_1 \\
+   x_2 \\
+   x_3 \\
+   x_4 \\
+  \end{array}
+ \right] +
+ \left[
+  \begin{array}{c}
+   0 \\
+   0 \\
+   \frac{J+m\ell^2}{(M+m)J+Mm\ell^2} \\
+   \frac{-m\ell}{(M+m)J+Mm\ell^2}
+  \end{array}
+ \right]u \\
+ &=
+ \left[
+  \begin{array}{cccc}
+   0 & 0 & 1 & 0 \\
+   0 & 0 & 0 & 1 \\
+   0 & \frac{-a_2^2g}{a_1a_3-a_2^2} &
+    \frac{-a_3a_4}{a_1a_3-a_2^2} & \frac{a_2a_6}{a_1a_3-a_2^2} \\
+   0 & \frac{a_1a_2g}{a_1a_3-a_2^2} &
+    \frac{a_2a_4}{a_1a_3-a_2^2} & \frac{-a_1a_6}{a_1a_3-a_2^2}
+  \end{array}
+ \right]
+ \left[
+  \begin{array}{c}
+   x_1 \\
+   x_2 \\
+   x_3 \\
+   x_4 \\
+  \end{array}
+ \right] +
+ \left[
+  \begin{array}{c}
+   0 \\
+   0 \\
+   \frac{a_3}{a_1a_3-a_2^2} \\
+   \frac{-a_2}{a_1a_3-a_2^2}
+  \end{array}
+ \right] u \\
+ y &=
+ \left[
+  \begin{array}{cccc}
+   k_1 & 0   & 0 & 0 \\
+   0   & k_2 & 0 & 0
+  \end{array}
+ \right]
+ \left[
+  \begin{array}{c}
+   x_1 \\
+   x_2 \\
+   x_3 \\
+   x_4 \\
+  \end{array}
+ \right]
+\end{align}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{LQ最適制御器の設計}
+前節で得られた線形状態方程式に基づき，最適状態フィードバックと状態観測器
+を設計する．
+
+制御器の設計には行列演算などの多くの計算を必要とし，設計を支援する様々な
+CADが存在する．本実験では各種プラットホーム上で動作しフリーソフトウェア
+として配布されている\MaTX \footnote{URL http://www.matx.org から各種情報
+の参照やプログラムのダウンロードを行うことができる．}を利用する．

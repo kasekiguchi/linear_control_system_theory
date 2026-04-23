@@ -1,0 +1,75 @@
+\documentclass[a4paper,11pt]{jreport}
+\input{head.tex}
+
+\def\headertitle{日大・生産工・制御工学特講}
+\def\headertitlelonga{日本大学大学院 生産工学研究科 \\ 電気電子工学専攻}
+\def\headertitlelongb{制御工学特講}
+\def\headerdepartment{東京科学大学/システム制御系}
+\def\headerinstitute{東京科学大学}
+\def\headerdepartmentlong{システム制御系}
+\def\headerauthor{三平満司}
+\def\headerauthordept{システム制御系}
+\def\headeryear{ver.3.0}          % <=============●versionを確認すること
+%	\def\headercomment{ocw@sc.ctrl.titech.ac.jp}
+\def\headercomment{}
+
+\pagestyle{myheadings}
+\markboth{\small \hspace*{6cm} \headertitle: \headerauthor(\headerdepartment) \headeryear　\headercomment}{\small \hspace*{6cm} \headertitle: \headerauthor(\headerdepartment) \headeryear　\headercomment}
+
+\title{講義資料 \\ \ \\ \LARGE  \bf \headertitlelonga \\ \ \\ \Huge \headertitlelongb}
+\author{担当：\headerauthor \\ (\headerdepartment)}
+\date{\headeryear}
+
+
+\begin{document}
+
+\maketitle
+
+%変更履歴 %%変更履歴%%　変更履歴を管理
+%
+%ver.2.4 (2023.04.04) By 三平満司（東工大システム制御系）修正／公開
+%
+%　　　　　不具合の微修正
+%
+%　　　　　　前半のリアプノフ関数を用いた最適制御の安定性のタイポ修正
+%
+%　　　　　2023　システム制御系「線形システム制御論」より適用
+%
+%ver.2.2 (2017.09.20) By 三平満司（東工大システム制御系）修正／公開
+%
+%　　　　　不具合の微修正
+%
+%　　　　　2017  電気電子系(3年3Q)「線形制御理論」用
+%
+%ver.2.0 (2017.06.29) By 三平満司（東工大システム制御系）修正／公開
+%
+%　　　　　ver.1.0の授業後，全体の見直しと改定
+%
+%ver.1.0 (2016.11.19) By 三平満司（東工大システム制御系）作成
+%
+%　　　　　2016 電気電子系(3年3Q)「線形制御理論」用に作成
+
+\renewcommand{\thepage}{\roman{page}}  %sampei
+
+\tableofcontents{-1cm}
+
+\newpage  %sampei
+
+\setcounter{page}{1}  %sampei
+\renewcommand{\thepage}{\arabic{page}}  %sampei
+
+
+
+
+
+\include{chap1} % 連続時間コントローラの概要
+\include{chap2} % 非線形システムの制御
+\include{chap3} % 連続時間状態方程式の離散化・連続時間コントローラの離散化
+\include{chap4} % 離散時間コントローラの設計
+%\include{chap6} % ディジタルコントローラ構成時の留意点
+%\include{chap7} % むだ時間系の制御 → 削除
+\include{chap8} % 参考文献
+\appendix
+\include{simulator/appendixa}
+%\include{appendixb}
+\end{document}

@@ -1,0 +1,368 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{2.1.1 1入力可制御正準形への変換(演習)}
+%-------------------------------------------------------------
+
+\noindent
+{\bf[演習]}\nopagebreak
+
+次のシステムを可制御正準形に変換せよ．
+\begin{align}
+ \frac{d}{dt}
+  \left(\begin{array}{c}
+     {x}_1 \\
+	 {x}_2 \\
+	 {x}_3 
+	\end{array}\right)
+  &=
+  \left(\begin{array}{ccc}
+     0      & 2      & 3     \\
+     1      & -1     & -1    \\
+	 0      & 1      & 1     
+	\end{array}\right)
+  \left(\begin{array}{c}
+     {x}_1 \\
+	 {x}_2 \\
+	 {x}_3 
+	\end{array}\right)
+  +
+  \left(\begin{array}{c}
+     1 \\
+	 0 \\
+	 0 
+	\end{array}\right)
+  u 
+\nonumber \\
+	y &= 
+  \left(\begin{array}{ccc}
+     0      & 1      & 1 
+	\end{array}\right)
+  \left(\begin{array}{c}
+     {x}_1 \\
+	 {x}_2 \\
+	 {x}_3 
+	\end{array}\right)
+\nonumber 
+\end{align}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{2.1.1 1入力可制御正準形への変換(演習)}
+%-------------------------------------------------------------
+
+可制御性行列
+\[
+ V = \left(\begin{array}{ccc}
+            B & A B & A^2 B
+	   \end{array}\right)
+   = \left(\begin{array}{ccc}
+            1 & 0 & 2 \\
+            0 & 1 & -1 \\
+            0 & 0 & 1 
+	   \end{array}\right)
+\]
+この逆行列の行ベクトルを以下で表す．
+\[
+ V^{-1} 
+    = \left(\begin{array}{ccc}
+            1 & 0 & -2 \\
+            0 & 1 & 1 \\
+            0 & 0 & 1 
+	\end{array}\right)
+    = \left(\begin{array}{c}
+	     l_1^T \\
+	     l_2^T \\
+	     l_3^T 
+	\end{array}\right)
+\]
+よって最下行は
+\[
+ l_3^T
+    = \left(\begin{array}{ccc}
+            0 & 0 & 1
+	\end{array}\right)
+\]
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{2.1.1 1入力可制御正準形への変換(演習)}
+%-------------------------------------------------------------
+
+座標変換
+\begin{align*} 
+	\bar{x}
+	& =
+	\left(\begin{array}{c}
+	     \bar{x}_1 \\
+	     \bar{x}_2 \\
+	     \bar{x}_3 
+	\end{array}\right)
+	=
+	\left(\begin{array}{c}
+	     l_3^T  \\
+	     l_3^T A  \\
+	     l_3^T A^2 
+	\end{array}\right)
+	x
+	=
+	\left(\begin{array}{ccc}
+	     0 & 0 & 1  \\
+	     0 & 1 & 1  \\
+	     1 & 0 & 0
+	\end{array}\right)
+	x
+\nonumber \\ &
+	= Wx
+	= T^{-1}x
+\end{align*}
+よって座標変換行列は
+\[
+	T= 
+	\left(\begin{array}{ccc}
+	     0  & 0 & 1  \\
+	     -1 & 1 & 0  \\
+	     1  & 0 & 0
+	\end{array}\right)
+\]
+\[
+x = T \bar{x}
+\]
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{2.1.1 1入力可制御正準形への変換(演習)}
+%-------------------------------------------------------------
+
+座標変換
+\begin{align*}
+	\bar{A}
+	& = T^{-1} A T
+	=
+	\left(\begin{array}{ccc}
+	     0 & 0 & 1  \\
+	     0 & 1 & 1  \\
+	     1 & 0 & 0
+	\end{array}\right)
+	\left(\begin{array}{ccc}
+	     0      & 2      & 3     \\
+	     1      & -1     & -1    \\
+	     0      & 1      & 1     
+	\end{array}\right)
+	\left(\begin{array}{ccc}
+	     0  & 0 & 1  \\
+	     -1 & 1 & 0  \\
+	     1  & 0 & 0
+	\end{array}\right)
+\\
+	&=
+	\left(\begin{array}{ccc}
+	     0 & 1 & 1  \\
+	     1 & 0 & 0  \\
+	     0 & 2 & 3
+	\end{array}\right)
+	\left(\begin{array}{ccc}
+	     0  & 0 & 1  \\
+	     -1 & 1 & 0  \\
+	     1  & 0 & 0
+	\end{array}\right)
+\\
+	&=
+	\left(\begin{array}{ccc}
+	     0  & 1 & 0  \\
+	     0  & 0 & 1  \\
+	     1  & 2 & 0
+	\end{array}\right)
+\\
+	\bar{B}
+	& = T^{-1} B
+	=
+	\left(\begin{array}{ccc}
+	     0 & 0 & 1  \\
+	     0 & 1 & 1  \\
+	     1 & 0 & 0
+	\end{array}\right)
+	\left(\begin{array}{c}
+	     1 \\
+	     0 \\
+	     0 
+	\end{array}\right)
+	=
+	\left(\begin{array}{c}
+	     0 \\
+	     0 \\
+	     1 
+	\end{array}\right)
+\\
+	\bar{C}
+	& = C T
+	=
+	\left(\begin{array}{ccc}
+	     0      & 1      & 1 
+	\end{array}\right)
+	\left(\begin{array}{ccc}
+	     0  & 0 & 1  \\
+	     -1 & 1 & 0  \\
+	     1  & 0 & 0
+	\end{array}\right)
+	=
+	\left(\begin{array}{ccc}
+	     0      & 1      & 0 
+	\end{array}\right)
+\end{align*}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{演習}
+%-------------------------------------------------------------
+
+\noindent
+{\bf[演習]}\nopagebreak
+
+次のシステムを考える
+\begin{align}
+ \frac{d}{dt}
+  \left(\begin{array}{c}
+     {x}_1 \\
+	 {x}_2
+	\end{array}\right)
+  &=
+  \left(\begin{array}{cc}
+     0      & a  \\
+     1      & 1
+	\end{array}\right)
+  \left(\begin{array}{c}
+     {x}_1 \\
+	 {x}_2
+	\end{array}\right)
+  +
+  \left(\begin{array}{c}
+     1 \\
+	 1 
+	\end{array}\right)
+  u 
+\nonumber \\
+	y &= 
+  \left(\begin{array}{cc}
+     0      & 1   
+	\end{array}\right)
+  \left(\begin{array}{c}
+     {x}_1 \\
+	 {x}_2 
+	\end{array}\right)
+\nonumber 
+\end{align}
+(1) 伝達関数を求めよ．
+\\[3mm]
+
+(2) システムが不可制御になる$a$を求めよ．
+\\[3mm]
+
+(3) (2)の場合に伝達関数に極零相殺が起こっていることを確認せよ．
+\\[3mm]
+
+(4) (2)の場合のシステムの可安定性について論ぜよ．
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{演習}
+%-------------------------------------------------------------
+(1) 伝達関数は
+\begin{align*}
+	G(s)&= C (sI-A)^{-1} B 
+	=
+	\left(\begin{array}{cc}
+ 		    0      & 1   
+		\end{array}\right)
+	\left(\begin{array}{cc}
+	     s      & -a  \\
+	     -1      & s-1
+		\end{array}\right)^{-1}
+	\left(\begin{array}{c}
+	     1 \\
+	     1 
+	\end{array}\right)
+\\
+	&=
+	\left(\begin{array}{cc}
+ 		    0      & 1   
+		\end{array}\right)
+	\frac{
+	\left(\begin{array}{cc}
+	     s-1      & a  \\
+	     1      & s
+		\end{array}\right)
+	}{s(s-1)-a}
+	\left(\begin{array}{c}
+	     1 \\
+	     1 
+	\end{array}\right)
+\\
+	&=
+	\frac{
+	\left(\begin{array}{cc}
+ 		    0      & 1   
+		\end{array}\right)
+	\left(\begin{array}{c}
+	     s-1 + a  \\
+	     1   +  s
+		\end{array}\right)
+	}{s^2-s-a}
+\\
+	&=\frac{s+1}{s^2-s-a}
+\end{align*}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{演習}
+%-------------------------------------------------------------
+(2) 可制御性行列は
+\begin{align*}
+	V&= (B,AB) 
+	=
+	\left[
+		\left(\begin{array}{c}
+		     1 \\
+		     1 
+		\end{array}\right)
+	,
+		\left(\begin{array}{c}
+		     a \\
+		     2 
+		\end{array}\right)
+	\right]
+\end{align*}
+　　よって$a=2$のとき不可制御
+\\[3mm]
+
+(3) $a=2$の時の伝達関数は
+\begin{align*}
+	G(s)&= \frac{s+1}{s^2-s-a}
+	= \frac{s+1}{s^2-s-2}
+	= \frac{s+1}{(s+1)(s-2)}
+\end{align*}
+\ \\
+
+(4) 極零相殺されている極は$-1$なので可安定
+
+\end{frame}
+\end{document}

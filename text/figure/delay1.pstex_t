@@ -1,0 +1,45 @@
+\begin{picture}(0,0)%
+\epsfig{file=figure/delay1.pstex}%
+\end{picture}%
+\setlength{\unitlength}{4144sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(6774,2055)(439,-2761)
+\put(2251,-1006){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Z.O.H}%
+}}}
+\put(4951,-2356){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Z.O.H}%
+}}}
+\put(6301,-1006){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$P^*(s)$}%
+}}}
+\put(6301,-2356){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$P^*(s)$}%
+}}}
+\put(4276,-1006){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e^{-Ls}$}%
+}}}
+\put(2026,-2356){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e^{-Ts}$}%
+}}}
+\put(2926,-2356){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$e^{-Ts}$}%
+}}}
+\put(2026,-2761){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$z^{-1}$}%
+}}}
+\put(2926,-2761){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$z^{-1}$}%
+}}}
+\put(5626,-2761){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$P^*(z)$}%
+}}}
+\put(2476,-2221){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$u_1$}%
+}}}
+\put(3376,-2221){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$u_2$}%
+}}}
+\put(631,-871){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$u$}%
+}}}
+\put(631,-2221){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$u$}%
+}}}
+\put(6976,-871){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$y$}%
+}}}
+\put(6976,-2221){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$y$}%
+}}}
+\end{picture}

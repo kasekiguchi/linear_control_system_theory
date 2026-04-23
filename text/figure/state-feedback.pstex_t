@@ -1,0 +1,22 @@
+\begin{picture}(0,0)%
+\epsfig{file=figure/state-feedback.pstex}%
+\end{picture}%
+\setlength{\unitlength}{4144sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(3624,1392)(889,-4573)
+\put(4276,-3346){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$y$}}}
+\put(1576,-3346){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$u$}}}
+\put(1081,-3346){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$v$}}}
+\put(3376,-3346){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$x$}}}
+\put(2476,-4426){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$F$}}}
+\put(3826,-3481){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$C$}}}
+%\put(2476,-3481){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$(sI-A)^{-1} B$}%
+\put(2476,-3481){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\frac{dx}{dt}=Ax+Bu$}%
+}}}
+\end{picture}

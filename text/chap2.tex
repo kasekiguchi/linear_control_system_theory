@@ -1,0 +1,510 @@
+%---------------------------------------------------------------------------
+\chapter{非線形システムの線形化}
+%---------------------------------------------------------------------------
+
+第\ref{sec_cont_sys}章ではシステムの状態方程式が(\ref{state_eq})(\ref{output_eq})と表されることを前提に制御理論を展開してきた．このシステムは{\bf {線形システム} (linear system)}であり，理論展開は容易である．しかし，実際のシステムには直接は線形状態方程式で表せない{\bf {非線形システム} (nonlinear system)}が多い．
+
+非線形システム(実システム)に対して線形システム理論を適用するためには，
+なんらかの方法で非線形システムを線形化し，線形システムとして扱う必要があ
+る．
+
+ここでは，非線形システムを線形システムに近似・変換する方法について説明する．
+
+%---------------------------------------------------------------------------
+\section{線形システムと非線形システム}
+%---------------------------------------------------------------------------
+ここで扱う非線形システムは，次の非線形状態方程式で表わされる$m$入力$p$出力$n$次のシステムである．
+\begin{align}
+ \frac{dx}{dt} &= f(x) + g(x) u \label{orsys_state} \\
+ y             &= h(x) \label{orsys_output}
+\end{align}
+ここで$x=(x_1, x_2, \cdots, x_n)^T$は状態で$n$次元の縦ベクトル，$u=(u_1, u_2, \cdots, u_m)^T$はシステムへの入力で$m$次元の縦ベクトル，$y=(y_1, y_2, \cdots, y_p)^T$はシステムの出力で$p$次元の縦ベクトルである．
+また$f(x)$, $g(x)$, $h(x)$はそれぞれ縦ベクトル値関数，$n \times m$の行列値関数，縦ベクトル値関数であり，その要素は$x$に関して何回でも偏微分可能（$C^\infty$）であり，$f(0) = 0$, $h(0)= 0$と仮定する．
+
+線形システムが状態方程式
+\begin{align}
+	\frac{dx}{dt} & =  A x  + B u
+\\
+	y & =  C x
+\end{align}
+で表されることを考えれば$f(x)$は$Ax$に，$g(x)$は$B$に，$h(x)$は$Cx$に当たることが容易にわかる．
+
+
+
+		\begin{figure}
+			\begin{center}
+			\includegraphics[scale=1.0]{figure/1link.eps}
+			\end{center}
+			\caption{1リンク系
+				 \label{fig_1_link}}
+		\end{figure}
+
+
+
+
+さて，非線形状態方程式(\ref{orsys_state})(\ref{orsys_output})ではバックラッシュや静摩擦，動摩擦，ヒステリシス等を表わすことはできないが，これらの非線形性を無視した機械系の運動方程式などを表わすことができる．
+
+
+例としてFig.~\ref{fig_1_link}に示す簡単なリンク系を考える．ここでリンクの姿勢角を$\theta$（システムの出力），リンクの角速度を$\dot{\theta} = \frac{d \theta}{dt}$，リンクの質量を$m$，回転軸からリンクの重心までの距離を$L$，リンクの回転軸回りの慣性モーメントを$J$，回転軸の粘性摩擦係数を$c$，リンクにかかるトルクを$\tau$（システムの入力），重力加速度を$g$とすればこのシステムの運動方程式は
+\begin{align}
+	J \ddot{\theta} &=  -c \dot{\theta} 
+				+ m L g \sin \theta 
+				+ \tau
+\label{link_dynamics}
+\end{align}
+で表わされる（ただし$\ddot{\theta} = \frac{d^2 \theta}{dt^2}$）．
+機械系の定石として状態を
+\begin{align}
+	x&
+	=	\left(\begin{array}{c} 
+			\mbox{位置・角度} \\ 
+			\mbox{速度・角速度}
+		\end{array}\right)
+	=	\left(\begin{array}{c} 
+			\theta \\ 
+			\dot{\theta} 
+		\end{array}\right)
+\end{align}
+とすれば，(\ref{link_dynamics})を用いて状態方程式
+\begin{align}
+	\frac{d}{dt} \left(\begin{array}{c} 
+			\theta \\ 
+			\dot{\theta} 
+		      \end{array}\right)
+			&=  \left(\begin{array}{c}
+				\dot{\theta} \\
+				- \frac{c}{J} \dot{\theta}
+				+ \frac{m L g}{J} \sin \theta 
+ 			      \end{array}\right)
+				+ \left(\begin{array}{c}
+					0 \\
+					\frac{1}{J}
+				  \end{array}\right)
+				  \tau
+\label{link_orsys}
+\end{align}
+を得る．ここで状態$x_L$，入力$u_L$，出力$y_L$を
+\begin{align}
+	x_L &= \left(\begin{array}{c} 
+			x_{L1} \\
+			x_{L2} 
+		   \end{array}\right) 
+			= \left(\begin{array}{c} 
+					\theta \\ 
+					\dot{\theta} 
+			 	\end{array}\right)
+,\hspace{5mm}
+	u_L = \tau
+,\hspace{5mm}
+	y_L= \theta
+\end{align}
+と定義し，さらに$f_L(x_L)$, $g_L(x_L)$, $h_L(x_L)$を
+\begin{align}
+	f_L(x_L) 
+		& =  \left(\begin{array}{c} 
+				f_{L1}(x_L) \\
+				f_{L2}(x_L) 
+			   \end{array}\right) 
+%\nonumber \\	&
+		  =  \left(\begin{array}{c}
+				x_{L2} \\
+				- \frac{c}{J} x_{L2}
+					+ \frac{m L g}{J} \sin x_{L1}
+		 	   \end{array}\right)
+\\
+	g_L(x_L) 
+		& =  \left(\begin{array}{c} 
+				g_{L1}(x_L) \\
+				g_{L2}(x_L) 
+			   \end{array}\right) 
+		\ = \ \left(\begin{array}{c}
+				0 \\
+				\frac{1}{J}
+			   \end{array}\right)
+\\
+	h_L(x_L)
+		& = x_{L1}
+\end{align}
+と定義すれば(\ref{link_orsys})は
+\begin{align}
+\frac{dx_L}{dt} &= f_L(x_L) + g_L(x_L) u_L 
+\\
+	y_L &= h_L(x_L)
+\label{link_state}
+\end{align}
+となり，(\ref{orsys_state})の形の非線形状態方程式で表わされていることがわかる．
+
+
+
+線形システムは$1+1=2$の世界であるから，イメージとしてはFig.
+\ref{fig:linimage}に示すような直線と考えることができる(このとき，
+図の縦軸と横軸は抽象的なイメージを表わすもので，特別な意味を持っていない)．
+これに対して非線形システムとは線形とは限らない(線形であってもいい)シス
+テムの総称であり，図的イメージとしてはFig.\ref{fig:nonlinimage}のような曲
+線で表わされるものと考えれば良い．イメージとしての非線形システムの線形化
+問題は，Fig.\ref{fig:nonlinimage}の曲線を如何にFig.\ref{fig:linimage}の直
+線に変形するか(または近似するか)という問題である．
+
+\begin{figure}[htbp]
+ \renewcommand{\subcapsize}{\normalsize}
+  \begin{center}
+   \begin{tabular}[t]{cc}
+    \subfigure[線形システムのイメージ]{%
+    \epsfig{file=figure/linimage.eps,scale=1.0}
+    \label{fig:linimage}
+    } &
+    \subfigure[非線形システムのイメージ]{%
+    \epsfig{file=figure/nonlinimage.eps,scale=1.0}
+    \label{fig:nonlinimage}
+    }
+   \end{tabular}
+   \caption{システムのイメージ}
+  \end{center}
+\end{figure}
+
+%---------------------------------------------------------------------------
+\section{テーラー展開の1次近似線形化}
+%---------------------------------------------------------------------------
+一般に用いられている線形化手法は以下のようなテーラー展開の１次近似に基づ
+いたものである．非線形状態方程式(\ref{orsys_state})において$x=0$, $u=0$
+が平衡点($\frac{dx}{dt} = 0$となり，状態$x$が変化しない点)であることに注
+意して，この平衡点のまわりで(\ref{orsys_state})の右辺をテーラー展開し，
+１次の近似を行えば次の式を得る．
+\begin{align}
+ \frac{dx}{dt} 
+ &= f(0) + \left. \frac{\partial f}{\partial x} \right \vert _{x=0} x
+ + g(0) u + O^2 (x, u) \nonumber \\
+ &= \left. \frac{\partial f}{\partial x} \right \vert _{x=0} x
+ + g(0) u + O^2 (x, u)
+ \label{app1_state_p}
+\\
+ y 
+ &= h(0) + \left. \frac{\partial h}{\partial x} \right \vert _{x=0} x
+ + O^2 (x, u)
+ \nonumber \\
+ &= \left. \frac{\partial h}{\partial x} \right \vert _{x=0} x
+ + O^2 (x, u)
+\end{align}
+ここで$O^2(x, u)$は$x$と$u$に関して2次以上の項を表わす．また
+$x = (x_1, x_2, \cdots, x_n)^T$, $q(x) = (q_1(x), q_2(x), \cdots,
+q_r(x))^T$とするとき
+\begin{equation}
+ \frac{\partial q}{\partial x} = 
+  \left(\begin{array}{cccc}
+   \frac{\partial q_1}{\partial x_1} &
+    \frac{\partial q_1}{\partial x_2} &
+    \cdots &
+    \frac{\partial q_1}{\partial x_n} \\
+	 \frac{\partial q_2}{\partial x_1} &
+	  \frac{\partial q_2}{\partial x_2} &
+	  \cdots &
+	  \frac{\partial q_2}{\partial x_n} \\
+	 \vdots & \vdots & & \vdots \\
+	 \frac{\partial q_r}{\partial x_1} &
+	  \frac{\partial q_r}{\partial x_2} &
+	  \cdots &
+	  \frac{\partial q_r}{\partial x_n}
+	\end{array}\right)
+\end{equation}
+である．%----------------------footnote
+\footnote{
+$
+  \left(\begin{array}{c}
+	f_1(x_1,x_2) \\
+	f_2(x_1,x_2) 
+  \end{array}\right)
+$
+の原点周りの1次のテーラー展開は
+\begin{align*}
+  \left(\begin{array}{c}
+	f_1(x_1,x_2) \\
+	f_2(x_1,x_2) 
+  \end{array}\right)
+  &=
+  \left(\begin{array}{c}
+	f_1(0,0) +
+	\left[ \frac{\partial f_1}{\partial x_1} \right]_{x=0} x_1 
+	   + \left[ \frac{\partial f_1}{\partial x_2} \right]_{x=0} x_2 \\
+	f_2(0,0) +
+	\left[ \frac{\partial f_2}{\partial x_1}\right]_{x=0} x_1 
+		+ \left[ \frac{\partial f_2}{\partial x_2}\right]_{x=0} x_2
+  \end{array}\right)
+  + O^2(x_1,x_2)
+  \nonumber \\
+  &=
+  \left(\begin{array}{c}
+	f_1(0,0) \\
+	f_2(0,0) 
+  \end{array}\right)
+  +
+  \left(\begin{array}{cc}
+	\frac{\partial f_1}{\partial x_1}
+		& \frac{\partial f_1}{\partial x_2} \\
+	\frac{\partial f_2}{\partial x_1}
+		& \frac{\partial f_2}{\partial x_2}
+  \end{array}\right)_{x=0}
+  \left(\begin{array}{c}
+	x_1 \\
+	x_2 
+  \end{array}\right)
+  + O^2(x_1,x_2)
+\end{align*}
+}
+%----------------------footnote
+
+$\left. \frac{\partial f}{\partial x} \right \vert _{x=0}$, $
+g(0)$, $\left. \frac{\partial h}{\partial x} \right \vert _{x=0}$は既に定数となっていることから
+\begin{equation}
+ A \defeq \left.\frac{\partial f}{\partial x} \right \vert _{x=0},
+  \quad	B \defeq g(0),
+  \quad	C \defeq \left. \frac{\partial h}{\partial x} \right \vert _{x=0}
+\end{equation}
+と定義し，また(\ref{app1_state_p})において$x$と$u$が十分小さいとして$
+O^2(x, u)$の項を無視すれば，テーラー展開の１次近似として以下の線形シ
+ステムを得る．
+\begin{align}
+ \frac{dx}{dt} &= A x + B u
+  \label{first_approx}
+\\
+ y&= C x
+\end{align}
+コントローラーの設計は，この近似線形化されたシステムに対して線形制御理論を
+用いて行えばよい．例えば状態フィードバックを用いるならば
+\begin{equation}
+ u = Fx
+\end{equation}
+となり，コントローラーは線形である．
+
+この線形化はイメージ的にはFig.\ref{image_taylor_linearization}に示すよう
+に，元の曲線(非線形システム)に対して原点の近くで接線を引き，この接線を近
+似線形化されたシステムと考えることに相当する．この線形化は原点から離れる
+と近似が悪くなるため原点の近くでしか有効でないことが多いが，手法が簡潔で
+あり，またほとんどすべてのシステムに対して近似線形システムを与えるので広
+く用いられている．(もちろん，この線形化で十分なシステムもある．)
+
+\begin{figure}[htbp]
+ \begin{center}
+  \epsfig{file=figure/taylorblock.eps,scale=1.0}
+  \caption{テーラー展開の一次近似線形化を用いた制御系}
+  \label{block_taylor_linearization}
+ \end{center}
+ \begin{center}
+  \epsfig{file=figure/taylorimage.eps,scale=1.0}
+  \caption{テーラー展開の１次近似線形化のイメージ}
+  \label{image_taylor_linearization}
+ \end{center}
+\end{figure}
+
+%---------------------------------------------------------------------------
+\section{非線形フィードバックによる厳密な線形化}
+%---------------------------------------------------------------------------
+前節の線形化は平衡点(ここでは原点)の近くでの近似線形化でしかなく，そのため，
+近似の精度も必ずしも十分ではないことがある．そのためロボットのように作業
+範囲が大きく，かつ非線形性の大きなシステムに対しては利用できないことがあ
+る．そのため，ロボット工学の分野ではこれと異なった線形化(近似ではなく厳
+密な線形化)が行なわれるようになった．これは状態$x$が利用可能な場合に利用可能となる．
+
+ロボットなどの機械系の場合は，運動方程式が特殊な形をしていることが多い．例
+えば多くのロボットの運動方程式は
+\begin{equation}
+ M(\theta) \ddot{\theta} + k(\theta, \dot{\theta}) = \tau
+  \label{2_link_robot}
+\end{equation}
+で表わされることが知られている．ここで$\theta$はロボットの姿勢角，
+$M(\theta)$は慣性モーメントを表わす項で$\theta$の関数，
+$k(\theta, \dot{\theta})$は遠心力やコリオリ力を表わす項，$\tau$は各リンク
+へのトルク入力である．また，一般に$M(\theta)$は常に正則である．
+
+さて$M(\theta)$が正則であることから,
+(\ref{2_link_robot})に対してフィードバック
+\begin{equation}
+ \tau = k(\theta,\dot{\theta}) + M(\theta) v 
+\end{equation}
+を用いる($v$は新しい入力)と
+\begin{equation}
+ \ddot{\theta} = v 
+\end{equation}
+となる．これを状態方程式で表わせば
+\begin{equation}
+ \frac{d}{dt}
+  \left(\begin{array}{c}
+   \theta \\
+	 \dot{\theta}
+	\end{array}\right)
+  =
+  \left(\begin{array}{cc}
+   0 & I \\
+	 0 & 0 
+	\end{array}\right)
+  \left(\begin{array}{c}
+   \theta \\
+	 \dot{\theta}
+	\end{array}\right)
+  +
+  \left(\begin{array}{c}
+   0 \\
+	 I
+	\end{array}\right)
+  v
+  \label{robot_linearized_sys}
+\end{equation}
+のように，状態を$(\theta^T, \dot{\theta}^T)^T$，入力を$v$とした線形状態方
+程式となる．この線形化された状態方程式に対して線形制御理論を用いてコント
+ローラーを設計すれば，$\theta$を容易に制御することができる．
+
+(\ref{robot_linearized_sys})を安定化するコントローラーとして状態フィード
+バック
+\begin{equation}
+ v = F
+  \left(\begin{array}{c}
+   \theta \\
+	 \dot{\theta}
+	\end{array}\right)
+\end{equation}
+を用いれば，元のシステム(\ref{2_link_robot})に対するコントローラーは
+\begin{equation}
+ \tau = k(\theta, \dot{\theta}) + M(\theta) F
+  \left(\begin{array}{c}
+   \theta \\
+	 \dot{\theta}
+	\end{array}\right)
+\end{equation}
+となる．このときのコントローラーは前節と異なり，非線形であることに注意する．
+この制御系の様子をFig.\ref{config_nonlinear_feedback}に示す．この線形化の
+イメージはFig.\ref{image_lin_w_fb}のように元の曲線(非線形システム)を入
+力を使って強制的に直線(線形システム)にするものである．つまり，状態フィー
+ドバックという槌を用いて非線形性を \textgt{''たたいて，のばす''} 線形化と考えることができる．
+
+\begin{figure}[htbp]
+ \begin{center}
+  \input{figure/nonlinfeedbackblock.pstex_t} % scale = 100%
+  \caption{非線形フィードバックによる線形化を用いた制御系}
+  \label{config_nonlinear_feedback}
+ \end{center}
+\end{figure}
+\begin{figure}[htbp]
+ \begin{center}
+  \epsfig{file=figure/exactimage.eps,scale=1.0}
+  \caption{非線形フィードバックを用いた線形化のイメージ}
+  \label{image_lin_w_fb}
+ \end{center}
+\end{figure}
+
+この線形化は近似を用いない厳密な線形化であるため，線形化されたシステムを
+用いて設計されたコントローラーは原点の近くのみでなく，状態全体で有効となる．
+しかしこの方法は直感的であるため，ダイナミクスが
+\begin{equation}
+ M(\theta,\dot{\theta}, \cdots \theta^{(r-1)}) \theta^{(r)} 
+  + k(\theta,\dot{\theta}, \cdots \theta^{(r-1)}) 
+  = N(\theta,\dot{\theta}, \cdots \theta^{(r-1)}) u
+  \label{linearizable_with_feedback}
+\end{equation}
+で表わされるシステムにしか応用できない．(ここで$\theta^{(i)} =
+\frac{d^{i} \theta}{dt^i}$とし，$M(\cdot)$と$N(\cdot)$は常に正則とする．)
+しかし，機械系などのように(\ref{linearizable_with_feedback})で表わされる
+システムが多いことも事実である．
+%---------------------------------------------------------------------------
+\section{座標変換と非線形フィードバックを用いた厳密な線形化}
+\label{exact_linear}
+%---------------------------------------------------------------------------
+テーラー展開の１次近似を用いた線形化はシステムの線形近似であり，狭い範囲
+でしか有効ではなかった．また非線形フィードバックを用いた線形化は厳密な線
+形化であるため状態の広い範囲で有効であるが，特殊な形をしたシステムにしか
+適用することができなかった．ここでは状態方程式(\ref{orsys_state})で表わ
+されたシステムに対して，非線形フィードバックのみでなく座標変換まで用いて厳
+密に線形化する方法について説明する．この線形化についてシステムが線形化さ
+れるための必要十分条件と，システムを線形化する座標変換と非線形フィードバッ
+クの求め方が非線形システム理論(幾何学的アプローチ)
+\cite{ishijima,isidori}により得られている
+\cite{ishijima,isidori,jakubczyk,su,hunt:su:meyer}．
+
+ここでは状態$x$が利用可能であると仮定する．
+システム(\ref{orsys_state})に対して次の座標変換とフィードバックを考える
+($v$は新しい入力)．
+\begin{align}
+ \xi &= T(x) \label{cord} \\
+ u   &= \alpha (x) + \beta (x) v
+  \label{feedback}
+\end{align}
+ここで$T(x)$は原点を原点に変換する($T(0)=0$)と仮定する．これにより状態
+方程式(\ref{orsys_state})は
+\begin{align}
+ \frac{d \xi}{dt} 
+  &= \frac{\partial \xi}{\partial x} \frac{dx}{dt} \nonumber \\
+ &= \frac{\partial T}{\partial x} 
+  \{ f(T^{-1}(\xi)) + g(T^{-1}(\xi)) \alpha(T^{-1}(\xi)) \}
+  + \frac{\partial T}{\partial x} g(T^{-1}(\xi)) \beta (T^{-1}(\xi)) v \\
+ &\defeq \bar{f}(\xi) + \bar{g}(\xi) v
+  \label{feed_state}
+\end{align}
+となる．このとき
+\begin{equation}
+ \bar{f}(\xi) = A \xi, \quad \bar{g}(\xi) = B 
+  \label{linear}
+\end{equation}
+かつ$(A, B)$可制御となるように座標変換(\ref{cord})とフィードバック
+(\ref{feedback})が求められるならば，システムを$\xi$座標系で厳密に線形シ
+ステムと一致させることができる．この線形化は近似ではなく厳密な線形化であ
+る．
+
+この線形化されたシステムに対しては，線形制御理論を用いてコントローラーを設
+計することができる．例えば，状態フィードバック
+\begin{equation}
+ v = F \xi
+  \label{linear_feedback}
+\end{equation}
+を設計すれば，元のシステムに対するコントローラーは
+\begin{align}
+ u &= \alpha(x) + \beta(x) F \xi \nonumber \\
+   &= \alpha(x) + \beta(x) F T(x)
+    \label{nonlinear_feedback}
+\end{align}
+となる．座標変換(\ref{cord})が原点を原点に写像することから，$\xi
+\rightarrow 0$ならば$x \rightarrow 0$である．つまり，線形化されたシステ
+ムを安定化するフィードバック(\ref{linear_feedback})に基づいて設計された
+フィードバック(\ref{nonlinear_feedback})は元のシステム
+(\ref{orsys_state})を安定化する．
+
+\begin{figure}[htbp]
+ \begin{center}
+  \input{figure/nonlinfeedbackconvblock.pstex_t} % scale=100%
+  \caption{非線形フィードバックと座標変換を用いた線形化による制御系}
+  \label{config_lin_w_fd_cor}
+ \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+ \begin{center}
+  \input{figure/nonlinfeedbackconvimage.pstex_t} % scale = 100%
+  \caption{非線形フィードバックと座標変換を用いた線形化のイメージ}
+  \label{image_lin_w_fb_cor}
+ \end{center}
+\end{figure}
+
+この制御系の概要をFig.\ref{config_lin_w_fd_cor}に示す．この線形化のイメー
+ジはFig.\ref{image_lin_w_fb_cor}のように元の曲線(非線形システム)を座標
+を変えて直線(線形システム)にすることである．もちろん，さらに
+Fig.\ref{image_lin_w_fb}に示した入力による非線形部分の補償が必要な場合に
+はこれを行う．
+
+この厳密な線形化はすべてのシステムに適用できるわけではないが，適用できるシステムの満たすべき必要十分条件が求まっている(参考文献参照)が，ここでは説明を省略する．
+\\
+
+
+\noindent
+{\bf ＜演習＞ 線形化}\nopagebreak
+
+次の１リンク系の運動方程式を考える．
+\[
+	J \ddot{\theta} = -c \dot{\theta} + mLg \sin \theta + \tau
+\]\nopagebreak
+ここで$\theta$はリンク角，$\tau$は入力トルクで，のこりは定数である．
+
+\begin{enumerate}
+\item 
+このシステムを状態方程式であらわせ．
+\item
+状態方程式をテーラー展開の１次近似線形化せよ．
+\item
+運動方程式をフィードバック線形化し，線形状態方程式を求めよ．
+\end{enumerate}

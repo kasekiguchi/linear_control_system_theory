@@ -1,0 +1,552 @@
+\chapter{三輪車とトレーラーのモデリングと線形化}
+
+%---------------------------------------------------------------------------
+\section{三輪車}
+%---------------------------------------------------------------------------
+Fig.\ref{fig:tricyclemodel}のような三輪車のモデルを考える．
+\begin{figure}[htbp]
+ \begin{center}
+  \input{simulator/figure/tricycle.pstex_t} % scale = 90%
+  \caption{三輪車モデル}
+  \label{fig:tricyclemodel}
+ \end{center}
+\end{figure}
+\begin{table}[H]
+ \begin{center}
+ \caption{記号の定義}
+ \begin{tabular}{ccl}\hline
+  $P$ & : & 2つの後輪の中点 \\
+  $O$ & : & 前輪の回転軸と後輪の回転軸の交点 (回転中心) \\
+  $Q$ & : & 操舵軸 $(OP \perp PQ)$ \\
+  $L$ & : & $PQ$間の距離 (0.4 [m]) \\
+  $\theta$ & : & 車両の姿勢角 [rad] \\
+  $\alpha$ & : & 操舵角 [rad] \\
+  $z$ & : & 三輪車の軌跡
+ \end{tabular}
+ \end{center}
+\end{table}
+Fig.\ref{fig:tricyclemodel}を基に，三輪車の運動方程式は次のように表すこ
+とができる．
+\begin{equation}
+\frac{d}{dt}
+ \left(
+  \begin{array}{c}
+   x \\
+   y \\
+   \theta 
+  \end{array}
+ \right) =
+ \left(
+  \begin{array}{c}
+   \cos \theta \\
+   \sin \theta \\
+   0
+  \end{array}
+ \right) \dot{z} +
+ \left(
+  \begin{array}{c}
+   0 \\
+   0 \\
+   \frac{1}{L}
+  \end{array}
+ \right) \dot{z} \tan \alpha
+\end{equation}
+この運動方程式の新しい時間軸を$x$とすると，次のように変形することができ
+る．
+\begin{equation}
+ \left\{
+  \begin{array}{rcl}
+   \displaystyle \frac{d}{dx}
+    \left(
+     \begin{array}{c}
+      y \\
+      \theta 
+     \end{array}
+    \right) &=&
+    \left(
+     \begin{array}{c}
+      \tan \theta \\
+      0 
+     \end{array}
+    \right) +
+    \left(
+     \begin{array}{c}
+      0 \\
+      \frac{1}{L \cos \theta}
+     \end{array}
+    \right) \tan \alpha \\
+ \displaystyle \frac{dx}{dt} &=& \cos \theta \dot{z}
+  \end{array}\right.
+ \label{eq:tricycletimestate}
+\end{equation}
+$x$が単調増加するとき，車両は前進し$X$軸に追従する．
+よって，この$x$を時間軸と考えて制御を行う．
+これは(\ref{eq:tricycletimestate})の第2式を用いて$\frac{dx}{dt}$と制御して
+いると考えてもよい．制御方策は，$(y, \theta)^T = (目標起動との偏差，姿勢)^T$
+と捉えて
+$y, \theta \rightarrow 0$に追従させるようなことを実現すればよい．
+
+このシステムのシミュレーション方法を以下に述べる．但し，シミュレーションで
+は$PQ$間の距離を$L = 0.4$[m]としている．
+\begin{enumerate}
+ \renewcommand{\labelenumi}{\sffamily\bfseries case \arabic{enumi}}
+ \item 
+       システム方程式を原点近傍で線形化を行い，LQ制御と極配置による線形
+       制御理論に基づく状態フィードバックを作る． \\
+       新しい時間軸$x$に関する方程式を原点近傍で線形化を行うと，
+\begin{equation*}
+\begin{array}{lclclcl}
+ f(x) &\defeq&
+ \left(
+ \begin{array}{c}
+  \tan \theta \\
+  0
+ \end{array}
+ \right) &\Rightarrow&
+ A &\defeq&
+ \left(
+ \begin{array}{cc}
+  \frac{\partial f_1}{\partial y} & \frac{\partial f_1}{\partial \theta} \\
+  \frac{\partial f_2}{\partial y} & \frac{\partial f_2}{\partial \theta} 
+ \end{array}
+ \right) \\
+ & & & & &=&
+ \left. \left(
+ \begin{array}{cc}
+  0 & \frac{1}{\cos ^2 \theta} \\
+  0 & 0
+ \end{array}
+ \right) \right|_{(y,\theta) = (0, 0)} =
+ \left(
+ \begin{array}{cc}
+  0 & 1.0 \\
+  0 & 0
+ \end{array}
+ \right) \\
+ g(x) &\defeq&
+ \left(
+ \begin{array}{c}
+  0 \\
+  \frac{1}{L \cos \theta}
+ \end{array}
+ \right) &\Rightarrow&
+ B &\defeq&
+ \left(
+ \begin{array}{c}
+  0 \\
+  \frac{1}{L}
+ \end{array}
+ \right)
+\end{array}
+\end{equation*}
+       より，線形方程式は次のようになる．ここでは$\tan \alpha$を入力と考
+       えている．
+\begin{equation}
+ \frac{d}{dx}\left(\begin{array}{c}
+     y \\
+     \theta 
+   \end{array} \right) = \left(\begin{array}{cc}
+     0 & 1.0 \\
+     0 & 0
+   \end{array} \right) \left(\begin{array}{c}
+     y \\
+     \theta 
+   \end{array} \right) + \left(\begin{array}{c}
+     0 \\
+     \frac{1}{0.4}
+   \end{array} \right) \tan \alpha
+\end{equation}
+LQ 制御と極配置によって，この線形システムの状態フィードバックを求めるこ
+	   とができる．
+%
+ \item 
+       システム方程式を厳密な線形化を用いて線形システム方程式を作り，
+       得られた線形方程式に対して極配置によって状態フィードバックを求める．\\
+       新しい状態$\phi$と新しい入力$v$として，
+\begin{equation*}
+ \left\{
+ \begin{array}{rcl}
+  \phi &=&
+   \left(
+    \begin{array}{c}
+     \phi_1 \\
+     \phi_2
+    \end{array}
+   \right) = 
+   \left(
+    \begin{array}{c}
+     y \\
+     \tan \theta
+    \end{array}
+   \right) \\
+  \tan \alpha &=& L \cos ^3 \theta v
+ \end{array}
+ \right.
+\end{equation*}
+を用いると次の線形方程式が得られる．
+\begin{equation}
+ \frac{d \phi}{dt} =
+  \left(
+   \begin{array}{cc}
+    0 & 1.0 \\
+    0 & 0
+   \end{array}
+  \right) \phi +
+  \left(
+   \begin{array}{c}
+    0 \\
+    1.0
+   \end{array}
+  \right) v
+\end{equation}
+極配置によって，この線形システムの状態フィードバックを求めることができる．
+\end{enumerate}
+%
+\newpage
+%
+\section{トレーラー}
+Fig.\ref{fig:trailermodel}のようなトレーラーのモデルを考える．
+\begin{figure}[H]
+ \begin{center}
+  \input{simulator/figure/trailer.pstex_t} % scale = 75%
+  \caption{トレーラーモデル}
+  \label{fig:trailermodel}
+ \end{center}
+\end{figure}
+%
+\newpage
+%
+\begin{table}[H]
+ \begin{center}
+ \caption{トラクターに関する記号の定義}
+ \begin{tabular}{ccl}\hline
+  $P_1$ & : & 2つの後輪の中点 \\
+  $O_1$ & : & 前輪の回転軸と後輪の回転軸の交点 (トラクターの回転中心) \\
+  $Q$ & : & 操舵軸 $(O_1 P_1 \perp P_1 Q)$ \\
+  $L_1$ & : & $P_1 Q$間の距離 (0.4 [m])\\
+  $\theta_1$ & : & トレーラに対するトラクターの姿勢角 \\
+  $\alpha$ & : & 操舵角 \\
+  $z$ & : & トラクターの軌跡
+ \end{tabular}
+ \end{center}
+ \begin{center}
+ \caption{トレーラーに関する記号の定義}
+ \begin{tabular}{ccl}\hline
+  $P_2$ & : & 2つの後輪の中点 \\
+  $O_2$ & : & $P_1$と後輪の回転軸の交点 (トレーラーの回転中心) \\
+  $Q$ & : & 操舵軸 $(O_1 P_1 \perp P_1 Q)$ \\
+  $L_2$ & : & $P_1 P_2$間の距離 (1.2 [m]) \\
+  $\theta_2$ & : & トレーラーの姿勢角 \\
+  $\eta$ & : & トレーラーの軌跡
+ \end{tabular}
+ \end{center}
+\end{table}
+
+Fig.\ref{fig:trailermodel}を基に，
+トレーラーの運動方程式は次のように表すことができる．
+\begin{align}
+\frac{d(\theta_1 + \theta_2)}{dt} &= \dot{z} \frac{\tan \alpha}{L_1} \\
+\frac{d\theta_2}{dt} &= \dot{\eta} \frac{\tan \theta_1}{L_2} \\
+\frac{d x_2}{dt} &= \dot{\eta} \cos \theta_2 \\
+\frac{d y_2}{dt} &= \dot{\eta} \sin \theta_2 \\
+\frac{d \eta}{dt} &= \dot{z} \cos \theta_1
+\end{align}
+この運動方程式の新しい時間軸(トレーラーの目標軌道上の位置)を$x_2$とする
+と，次のようになる．
+\begin{equation}
+ \left\{
+  \begin{array}{rcl}
+   \displaystyle \frac{d}{dx_2}
+    \left(
+     \begin{array}{c}
+      y_2 \\
+      \theta_1 \\
+      \theta_2
+     \end{array}
+    \right) &=&
+    \left(
+     \begin{array}{c}
+      \tan \theta_2 \\
+      -\frac{\tan \theta_1}{L_2 \cos \theta_2} \\
+      \frac{\tan \theta_1}{L_2 \cos \theta_2} 
+     \end{array}
+    \right) +
+    \left(
+     \begin{array}{c}
+      0 \\
+      \frac{1}{L_1 \cos \theta_1 \cos \theta_2} \\
+      0
+     \end{array}
+    \right) \tan \alpha \\
+   \displaystyle \frac{dx_2}{dt} &=& \dot{\eta} \cos \theta_2
+  \end{array}\right.
+\end{equation}
+制御方策は，このシステムにおいて$(y_2, \theta_1, \theta_2)^T = (目標軌
+道との偏差，トラクター姿勢角，トレーラー姿勢角)^T$と捉えて，$y_2, \theta_1,
+\theta_2 \rightarrow 0$に追従させることを実現すればよい．
+
+このシステムのシミュレーション方法を以下に述べる．但し，シミュレーションで
+はトラクターとトレーラー軸の長さはそれぞれ $L_1 = 0.4$[m] と$L_2 = 1.2$[m]
+としている．
+\begin{enumerate}
+ \renewcommand{\labelenumi}{\sffamily\bfseries case \arabic{enumi}}
+ \item
+      システム方程式を原点近傍で線形化を行い，LQ 制御と極配置による
+      線形制御理論に基づく状態フィードバックを作る．\\
+      新しい時間軸$x$に関する方程式を原点近傍で線形化を行うと，
+\begin{equation*}
+ \begin{array}{lclclcl}
+  f(x) &\defeq&
+   \left(
+    \begin{array}{c}
+     \tan \theta_2 \\
+     -\frac{\tan \theta_1}{L_2 \cos \theta_2} \\
+     \frac{\tan \theta_1}{L_2 \cos \theta_2} 
+    \end{array}
+   \right) &\Rightarrow&
+   A &\defeq&
+   \left(
+    \begin{array}{ccc}
+     \frac{\partial f_1}{\partial y_2} &
+      \frac{\partial f_1}{\partial \theta_1} &
+      \frac{\partial f_1}{\partial \theta_2} \\
+     \frac{\partial f_2}{\partial y_2} &
+      \frac{\partial f_2}{\partial \theta_1} &
+      \frac{\partial f_2}{\partial \theta_2} \\
+     \frac{\partial f_3}{\partial y_2} &
+      \frac{\partial f_3}{\partial \theta_1} &
+      \frac{\partial f_3}{\partial \theta_2} 
+    \end{array}
+  \right) \\
+  & & & & &=&
+  \left. \left(
+  \begin{array}{ccc}
+   0 & 0 & \frac{1}{\cos ^2 \theta_2} \\
+   0 & \frac{-1}{L_2\cos ^2 \theta_1 \cos \theta_2} &
+    \frac{\tan \theta_1}{L_2 \cos ^2 \theta_2} \\
+   0 & \frac{1}{L_2\cos ^2 \theta_1 \cos \theta_2} &
+    \frac{-\tan \theta_1}{L_2 \cos ^2 \theta_2} \\
+  \end{array}
+  \right) \right|_{(y_2,\theta_1, \theta_2) = (0, 0, 0)} \\
+  & & & & &=&
+  \left(
+   \begin{array}{ccc}
+    0 & 0  & 1.0 \\
+    0 & \frac{-1}{L_2} & 0 \\
+    0 & \frac{1}{L_2}  & 0
+   \end{array}
+  \right) \\
+  g(x) &\defeq&
+  \left(
+   \begin{array}{c}
+    0 \\
+    \frac{1}{L_1 \cos \theta_1 \cos \theta_2} \\
+    0
+   \end{array}
+  \right) &\Rightarrow&
+  B &\defeq&
+  \left(
+   \begin{array}{c}
+    0 \\
+    \frac{1}{L_1} \\
+    0
+   \end{array}
+ \right)
+ \end{array}
+\end{equation*}
+      より，線形方程式は次のようになる．ここでは$\tan \alpha$を入力と考
+      えている．
+\begin{equation}
+ \frac{d}{dx_2}\left(\begin{array}{c}
+     y_2 \\
+     \theta_1 \\
+     \theta_2
+   \end{array} \right) = \left(\begin{array}{ccc}
+     0 & 0  & 1.0 \\
+     0 & -\frac{1}{1.2} & 0 \\
+     0 & \frac{1}{1.2}  & 0 
+   \end{array} \right) \left(\begin{array}{c}
+     y_2 \\
+     \theta_1 \\
+     \theta_2
+   \end{array} \right) + \left(\begin{array}{c}
+     0 \\
+     \frac{1}{0.4} \\
+     0
+   \end{array} \right) \tan \alpha
+\end{equation}
+      このシミュレーションではトレーラが後退するとしているので，
+      $x_2' = -x_2$を用いて，線形方程式は次のようになる．
+\begin{equation}
+ \frac{d}{dx_2'}\left(\begin{array}{c}
+     y_2 \\
+     \theta_1 \\
+     \theta_2
+   \end{array} \right) = \left(\begin{array}{ccc}
+     0 & 0  & -1.0 \\
+     0 & \frac{1}{1.2} & 0 \\
+     0 & -\frac{1}{1.2} & 0 
+   \end{array} \right) \left(\begin{array}{c}
+     y_2 \\
+     \theta_1 \\
+     \theta_2
+   \end{array} \right) + \left(\begin{array}{c}
+     0 \\
+     -\frac{1}{0.4} \\
+     0
+   \end{array} \right) \tan \alpha
+\end{equation}
+      LQ 制御と極配置によって，この線形システムの状態フィードバックを求
+      めることができる．
+%
+ \item
+      システム方程式を厳密な線形化を用いて線形システム方程式を作り，得られた
+      線形方程式に対して極配置によって状態フィードバックを求める．\\
+      新しい状態$\phi$と新しい入力$v$として，
+\begin{eqnarray*}
+ \left\{
+  \begin{array}{rcl}
+   \phi &=& \left(
+	     \begin{array}{c}
+	      \phi_1 \\
+	      \phi_2 \\
+	      \phi_3
+	     \end{array}
+	    \right) = 
+   \left(
+    \begin{array}{c}
+     y_2 \\
+     \tan \theta_2 \\
+     \frac{\tan \theta_1}{L_2 \cos ^3 \theta_2} \\
+    \end{array}
+   \right) \\
+   \tan \alpha &=& \displaystyle
+    -\frac{L_1 \cos \theta_1(3\sin ^2 \theta_1 \tan \theta_2 - \tan \theta_1)}
+    {L_2} + L_1L_2 \cos ^3 \theta_1 \cos ^4 \theta_2 v
+  \end{array}\right.
+\end{eqnarray*}
+を用いると次の線形方程式が得られる．
+\begin{equation}
+ \frac{d \phi}{dt} = \left(\begin{array}{ccc}
+     0 & 1.0 & 0 \\
+     0 & 0 & 1.0 \\
+     0 & 0 & 0
+   \end{array} \right) \phi + \left(\begin{array}{c}
+     0 \\
+     0 \\
+     1.0
+   \end{array} \right) v
+\end{equation}
+      このシミュレーションではトレーラが後退するとしているので，
+      $x_2' = -x_2$ を用いて，線形方程式は次のようになる．
+\begin{equation}
+ \frac{d \phi}{dt} = \left(\begin{array}{ccc}
+     0 & -1.0 & 0 \\
+     0 & 0 & -1.0 \\
+     0 & 0 & 0
+   \end{array} \right) \phi + \left(\begin{array}{c}
+     0 \\
+     0 \\
+     -1.0
+   \end{array} \right) v
+\end{equation}
+      極配置によって，この線形システムの状態フィードバックを求めることが
+      できる．
+\end{enumerate}
+
+
+\newpage
+
+\section{シミュレーション}
+
+以下では線形近似システムに極配置・最適制御をおこなった場合の応答をシミュレーションで示している．なお，極配置，評価関数の$Q,R$についてはそれぞれの図の説明を参照されたい．
+
+\begin{figure}[h]
+{\bf ＜極配置＞}
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/P_P02N02.eps}
+  \caption{極：-0.2, 0.2}
+ \end{center}
+\end{figure}
+\begin{figure}[h]
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/P04_0.eps}
+  \caption{極：-0.4, -0.4}
+ \end{center}
+\end{figure}
+\begin{figure}[h]
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/P08_0.eps}
+  \caption{極：-0.8, -0.8}
+ \end{center}
+\end{figure}
+\begin{figure}[h]
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/P16_0.eps}
+  \caption{極：-1.6, -1.6}
+ \end{center}
+\end{figure}
+\begin{figure}[h]
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/P40_0.eps}
+  \caption{極：-4.0, -4.0}
+ \end{center}
+\end{figure}
+\begin{figure}[h]
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/P02_0.eps}
+  \caption{極：-0.2, -0.2}
+ \end{center}
+\end{figure}
+\begin{figure}[h]
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/P02_08.eps}
+  \caption{極：$-0.2 \pm j 0.8$}
+ \end{center}
+\end{figure}
+\begin{figure}[h]
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/P08_04.eps}
+  \caption{極：$-0.8 \pm j 0.4$}
+ \end{center}
+\end{figure}
+\begin{figure}[h]
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/P08_08.eps}
+  \caption{極：$-0.8 \pm j 0.8$}
+ \end{center}
+\end{figure}
+\begin{figure}[h]
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/P08_16.eps}
+  \caption{極：$-0.8 \pm j 1.6$}
+ \end{center}
+\end{figure}
+
+
+\begin{figure}[h]
+{\bf ＜最適制御＞}
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/O_10_10_10.eps}
+  \caption{$Q= \mathrm{diag}(10,10,10)$, $R=1$}
+ \end{center}
+\end{figure}
+\begin{figure}[h]
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/O_100_10_10.eps}
+  \caption{$Q= \mathrm{diag}(100,10,10)$, $R=1$}
+ \end{center}
+\end{figure}
+\begin{figure}[h]
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/O_100_100_10.eps}
+  \caption{$Q= \mathrm{diag}(100,100,10)$, $R=1$}
+ \end{center}
+\end{figure}
+\begin{figure}[h]
+ \begin{center}
+	\includegraphics[width=0.9\linewidth]{sfigure/simulation/O_100_10_1000.eps}
+  \caption{$Q= \mathrm{diag}(100,10,1000)$, $R=1$}
+ \end{center}
+\end{figure}
+

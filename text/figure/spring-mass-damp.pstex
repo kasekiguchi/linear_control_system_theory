@@ -1,0 +1,231 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: figure/spring-mass-damp.fig
+%%Creator: fig2dev Version 3.2 Patchlevel 4
+%%CreationDate: Thu Aug 21 17:51:15 2003
+%%For: nakaura@seiuchi (Shigeki Nakaura)
+%%BoundingBox: 0 0 397 160
+%%Magnification: 0.9000
+%%EndComments
+/$F2psDict 200 dict def
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/col-1 {0 setgray} bind def
+/col0 {0.000 0.000 0.000 srgb} bind def
+/col1 {0.000 0.000 1.000 srgb} bind def
+/col2 {0.000 1.000 0.000 srgb} bind def
+/col3 {0.000 1.000 1.000 srgb} bind def
+/col4 {1.000 0.000 0.000 srgb} bind def
+/col5 {1.000 0.000 1.000 srgb} bind def
+/col6 {1.000 1.000 0.000 srgb} bind def
+/col7 {1.000 1.000 1.000 srgb} bind def
+/col8 {0.000 0.000 0.560 srgb} bind def
+/col9 {0.000 0.000 0.690 srgb} bind def
+/col10 {0.000 0.000 0.820 srgb} bind def
+/col11 {0.530 0.810 1.000 srgb} bind def
+/col12 {0.000 0.560 0.000 srgb} bind def
+/col13 {0.000 0.690 0.000 srgb} bind def
+/col14 {0.000 0.820 0.000 srgb} bind def
+/col15 {0.000 0.560 0.560 srgb} bind def
+/col16 {0.000 0.690 0.690 srgb} bind def
+/col17 {0.000 0.820 0.820 srgb} bind def
+/col18 {0.560 0.000 0.000 srgb} bind def
+/col19 {0.690 0.000 0.000 srgb} bind def
+/col20 {0.820 0.000 0.000 srgb} bind def
+/col21 {0.560 0.000 0.560 srgb} bind def
+/col22 {0.690 0.000 0.690 srgb} bind def
+/col23 {0.820 0.000 0.820 srgb} bind def
+/col24 {0.500 0.190 0.000 srgb} bind def
+/col25 {0.630 0.250 0.000 srgb} bind def
+/col26 {0.750 0.380 0.000 srgb} bind def
+/col27 {1.000 0.500 0.500 srgb} bind def
+/col28 {1.000 0.630 0.630 srgb} bind def
+/col29 {1.000 0.750 0.750 srgb} bind def
+/col30 {1.000 0.880 0.880 srgb} bind def
+/col31 {1.000 0.840 0.000 srgb} bind def
+
+end
+save
+newpath 0 160 moveto 0 0 lineto 397 0 lineto 397 160 lineto closepath clip newpath
+-50.3 359.8 translate
+1 -1 scale
+
+/cp {closepath} bind def
+/ef {eofill} bind def
+/gr {grestore} bind def
+/gs {gsave} bind def
+/sa {save} bind def
+/rs {restore} bind def
+/l {lineto} bind def
+/m {moveto} bind def
+/rm {rmoveto} bind def
+/n {newpath} bind def
+/s {stroke} bind def
+/sh {show} bind def
+/slc {setlinecap} bind def
+/slj {setlinejoin} bind def
+/slw {setlinewidth} bind def
+/srgb {setrgbcolor} bind def
+/rot {rotate} bind def
+/sc {scale} bind def
+/sd {setdash} bind def
+/ff {findfont} bind def
+/sf {setfont} bind def
+/scf {scalefont} bind def
+/sw {stringwidth} bind def
+/tr {translate} bind def
+/tnt {dup dup currentrgbcolor
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add srgb}
+  bind def
+/shd {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+  4 -2 roll mul srgb} bind def
+/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+/$F2psEnd {$F2psEnteredState restore end} def
+
+$F2psBegin
+10 setmiterlimit
+0 slj 0 slc
+ 0.05669 0.05669 sc
+%
+% Fig objects follow
+%
+% 
+% here starts figure with depth 50
+% Polyline
+7.500 slw
+ [15 45] 45 sd
+n 3240 4500 m
+ 3600 4500 l gs col0 s gr  [] 0 sd
+% Polyline
+n 4500 5490 m 4230 5220 l 4230 5400 l 3600 5400 l 3600 5580 l 4230 5580 l
+ 4230 5760 l
+ 4500 5490 l  cp gs col7 0.80 shd ef gr gs col0 s gr 
+% Polyline
+ [15 45] 45 sd
+n 6840 4230 m
+ 7515 4230 l gs col0 s gr  [] 0 sd
+% here ends figure;
+% 
+% here starts figure with depth 2
+% Polyline
+n 7200 6345 m 4500 6345 l 4500 5850 l 7200 5850 l
+ cp gs 0.85 setgray ef gr 
+% Polyline
+n 3600 6345 m 900 6345 l 900 5850 l 3600 5850 l
+ cp gs 0.85 setgray ef gr 
+% here ends figure;
+% 
+% here starts figure with depth 0
+% Polyline
+7.500 slw
+n 3600 4500 m
+ 4230 4500 l gs col-1 s gr 
+% Polyline
+gs  clippath
+3945 3810 m 3885 3810 l 3885 3962 l 3915 3842 l 3945 3962 l cp
+eoclip
+n 3915 4860 m
+ 3915 3825 l gs col-1 s gr gr
+
+% arrowhead
+n 3945 3962 m 3915 3842 l 3885 3962 l  col-1 s
+% Polyline
+gs  clippath
+7545 3810 m 7485 3810 l 7485 3962 l 7515 3842 l 7545 3962 l cp
+eoclip
+n 7515 4860 m
+ 7515 3825 l gs col-1 s gr gr
+
+% arrowhead
+n 7545 3962 m 7515 3842 l 7485 3962 l  col-1 s
+% Polyline
+n 7200 4500 m
+ 7875 4500 l gs col-1 s gr 
+% Polyline
+gs  clippath
+6180 4920 m 6240 4920 l 6240 4768 l 6210 4888 l 6180 4768 l cp
+eoclip
+n 6210 4230 m
+ 6210 4905 l gs col-1 s gr gr
+
+% arrowhead
+n 6180 4768 m 6210 4888 l 6240 4768 l  col-1 s
+% Polyline
+gs  clippath
+5280 4920 m 5340 4920 l 5340 4768 l 5310 4888 l 5280 4768 l cp
+eoclip
+n 5310 4230 m
+ 5310 4905 l gs col-1 s gr gr
+
+% arrowhead
+n 5280 4768 m 5310 4888 l 5340 4768 l  col-1 s
+% Polyline
+15.000 slw
+n 4830 3555 m 4725 3555 4725 4125 105 arcto 4 {pop} repeat
+  4725 4230 6870 4230 105 arcto 4 {pop} repeat
+  6975 4230 6975 3660 105 arcto 4 {pop} repeat
+  6975 3555 4830 3555 105 arcto 4 {pop} repeat
+ cp gs col0 s gr 
+% Polyline
+n 6120 5040 m
+ 6480 5040 l gs col-1 s gr 
+% Polyline
+n 6300 5040 m
+ 6300 4230 l gs col-1 s gr 
+% Polyline
+n 5400 5842 m 5400 5574 l 5175 5468 l 5625 5254 l 5175 5040 l 5625 4826 l
+ 5175 4613 l 5400 4506 l
+ 5400 4238 l gs col-1 s gr 
+% Polyline
+n 6300 5400 m
+ 6300 5850 l gs col-1 s gr 
+% Polyline
+7.500 slw
+n 4500 5850 m
+ 7200 5850 l gs col-1 s gr 
+% Polyline
+15.000 slw
+n 6075 4950 m 6075 5400 l 6525 5400 l
+ 6525 4950 l gs col-1 s gr 
+% Polyline
+n 2700 5400 m
+ 2700 5850 l gs col-1 s gr 
+% Polyline
+7.500 slw
+n 900 5850 m
+ 3600 5850 l gs col-1 s gr 
+% Polyline
+15.000 slw
+n 1800 5850 m 1800 5625 l 1575 5535 l 2025 5355 l 1575 5175 l 2025 4995 l
+ 1575 4815 l 1800 4725 l
+ 1800 4500 l gs col-1 s gr 
+% Polyline
+n 2700 5310 m
+ 2700 4500 l gs col-1 s gr 
+% Polyline
+n 2520 5310 m
+ 2880 5310 l gs col-1 s gr 
+% Polyline
+n 1230 3825 m 1125 3825 1125 4395 105 arcto 4 {pop} repeat
+  1125 4500 3270 4500 105 arcto 4 {pop} repeat
+  3375 4500 3375 3930 105 arcto 4 {pop} repeat
+  3375 3825 1230 3825 105 arcto 4 {pop} repeat
+ cp gs col0 s gr 
+% Polyline
+n 2475 4950 m 2475 5400 l 2925 5400 l
+ 2925 4950 l gs col-1 s gr 
+% Polyline
+7.500 slw
+gs  clippath
+6780 4215 m 6720 4215 l 6720 4367 l 6750 4247 l 6780 4367 l cp
+eoclip
+n 6750 4905 m
+ 6750 4230 l gs col-1 s gr gr
+
+% arrowhead
+n 6780 4367 m 6750 4247 l 6720 4367 l  col-1 s
+% here ends figure;
+$F2psEnd
+rs
+showpage

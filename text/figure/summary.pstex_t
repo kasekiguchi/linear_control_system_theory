@@ -1,0 +1,55 @@
+\begin{picture}(0,0)%
+\epsfig{file=figure/summary.pstex}%
+\end{picture}%
+\setlength{\unitlength}{3315sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(6566,3850)(439,-3449)
+\put(4681,-2626){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}係数比較}%
+}}}}
+\put(5221,-3391){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}$=s^n+\mu_{n-1}s^{n-1}+\cdots+\mu_0$}%
+}}}}
+\put(5221,-3166){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}$(s-p_1)(s-p_2)\cdots(s-p_n)$}%
+}}}}
+\put(5221,-2896){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}望ましい特性多項式}%
+}}}}
+\put(3061,-3166){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}$\det(sI-(\bar{A}+\bar{B}\bar{F}))$}%
+}}}}
+\put(3061,-2896){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}特性多項式}%
+}}}}
+\put(451,-2896){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}状態フィードバックを}%
+}}}}
+\put(451,-3166){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}求めやすい形}%
+}}}}
+\put(3151,-2491){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}$\displaystyle\frac{d\bar{x}}{dt}=(\bar{A}+\bar{B}\bar{F})\bar{x}$}%
+}}}}
+\put(2431,-2086){\makebox(0,0)[b]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}フィードバック}%
+}}}}
+\put(2431,-2581){\makebox(0,0)[b]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}$u=\bar{F}\bar{x}$}%
+}}}}
+\put(541,-2491){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}$\displaystyle\frac{d\bar{x}}{dt}=\bar{A}\bar{x}+\bar{B}u$}%
+}}}}
+\put(541,-2086){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}可制御正準形}%
+}}}}
+\put(1486,-1141){\rotatebox{90.0}{\makebox(0,0)[b]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}座標変換}%
+}}}}}
+\put(2746,-1141){\rotatebox{90.0}{\makebox(0,0)[b]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}座標変換}%
+}}}}}
+\put(4096,-1141){\rotatebox{90.0}{\makebox(0,0)[b]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}座標変換}%
+}}}}}
+\put(3151,-331){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}$\displaystyle\frac{dx}{dt}=(A+BF)x$}%
+}}}}
+\put(2431,-421){\makebox(0,0)[b]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}$u=Fx$}%
+}}}}
+\put(2431, 74){\makebox(0,0)[b]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}フィードバック}%
+}}}}
+\put(541, 74){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}元のシステム}%
+}}}}
+\put(541,-331){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{10.8}{\rmdefault}{\bfdefault}{\updefault}{\color[rgb]{0,0,0}$\displaystyle\frac{dx}{dt}=Ax+Bu$}%
+}}}}
+\end{picture}%

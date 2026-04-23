@@ -1,0 +1,562 @@
+%!TEX root = ./slide.tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 第４章　線形システム論（離散系）
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.1 状態方程式}
+%-------------------------------------------------------------
+離散システムとは
+\begin{itemize}
+	\item 連続システムを離散化してから制御系を設計する場合
+	\item もともと離散システムで表されるシステム\\
+	（計算機内での計算アルゴリズム，経済システムなど）
+\end{itemize}
+を制御する場合に用いられる．
+
+離散システムの解析設計手法は，連続時間システムの場合と\Blue{ほとんど同様に議論できる}ので，
+ここでは連続時間システムに対する議論との対比を行い，
+連続時間システムの場合と異なる部分について述べる．
+
+\vspace{5mm}
+
+以下の状態方程式で表されている離散システムを扱うものとする．
+\begin{align}
+ x_{k+1} &= A x_k + B u_k \label{d_state_eq} \\
+ y_k     &= C x_k + D u_k \label{d_output_eq}
+\end{align}
+ここで$x_k \in \mathbb{R}^n$, $u_k \in \mathbb{R}^m $, $y_k \in
+\mathbb{R}^p $はそれぞれ$k$時点での状態，入力，出力である．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.2 座標変換}
+%-------------------------------------------------------------
+システムの座標変換も連続時間システムと同様に定義できる．
+状態$x_k$を次のような座標変換で$\bar{x}_k$に変換することを考える．
+\begin{equation}
+ x_k = T \bar{x}_k
+\end{equation}
+ここで$T$は正則な行列であるとする．1時刻後の状態$\bar{x}_{k+1}$は次のよ
+うになる．
+\begin{align}
+ \bar{x}_{k+1} &= T^{-1} x_{k+1} \nonumber \\
+               &= T^{-1} ( A x_k + B u_k) \nonumber \\
+               &= T^{-1} A T \bar{x}_k + T^{-1} B u_k \nonumber \\
+               &\defeq \bar{A} \bar{x}_k + \bar{B} u_k
+\end{align}
+これが状態を$\bar{x}_{k+1}$としたときの状態方程式となる．また出力方程式は
+\begin{align}
+ y_k &= C T \bar{x}_k + D u_k \nonumber \\
+     &\defeq \bar{C} \bar{x}_k + \bar{D} u_k
+\end{align}
+となり，\\
+座標変換による$A$, $B$, $C$, $D$行列の変化は
+\Blue{連続時間システムの場合と一致する}．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.3 伝達関数と状態方程式 \\
+4.4 可制御性，可観測性}
+%-------------------------------------------------------------
+\Blue{伝達関数と状態方程式}\\
+連続時間システムを伝達関数表現するためにはシステムの\Blue{ラプラス変換}を用いた．\\
+離散時間システムに対しても同様に\Blue{$z$変換}というものがあり，伝達関数表現することがある．\\
+しかし，ここでは直接コントローラの設計に用いないので説明は省略する．
+
+\vspace{5mm}
+
+\Blue{可制御性，可観測性}\\
+連続時間システムと離散時間システムの状態の座標変換に対する
+状態方程式の各行列の変換は厳密に一致している．\\
+よって厳密さを求めなければ連続時間システムで行った議論がそのまま離散時間システムにも成り立つ．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.5 システムの応答}
+%-------------------------------------------------------------
+状態方程式
+\begin{align}
+ x_{k+1} &= A x_k + B u_k \tag{\ref{d_state_eq}}
+\end{align}
+より明らかに
+\begin{align*}
+ x_1 &= A x_0 + B u_0 \\
+ x_2 &= A x_1 + B u_1 \\
+     &= A (A x_0 + B u_0) + B u_1 \\
+     &= A^2 x_0 + A B u_0 + B u_1 \\
+ x_3 &= A x_2 + B u_2 \\
+     &= A (A^2 x_0 + A B u_0 + B u_1) + B u_2 \\
+     &= A^3 x_0 + A^2 B u_0 + A B u_1 + B u_2
+\end{align*}
+となる．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.5 システムの応答}
+%-------------------------------------------------------------
+\begin{align*}
+ x_1 &= A x_0 + B u_0 \\
+ x_2 &= A^2 x_0 + A B u_0 + B u_1 \\
+ x_3 &= A^3 x_0 + A^2 B u_0 + A B u_1 + B u_2
+\end{align*}
+一般に
+\begin{equation}
+ x_k = A^k x_0 + \sum_{i=0}^{k-1} A^{k-i-1} B u_i
+\end{equation}
+である．入出力応答は
+\begin{equation}
+ y_k = C A^k x_0 + \sum_{i=0}^{k-1} C A^{k-i-1} B  u_i + D u_k
+\end{equation}
+となる．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.6 システムの安定性}
+%-------------------------------------------------------------
+いまシステムの入力が$u_i = 0$の場合を考える．このときのシステムの応答は
+\begin{equation}
+ x_k = A^k x_0
+\end{equation}
+となる．このとき，
+\begin{equation}
+ \lim_{k \rightarrow \infty} A^k = 0
+\end{equation}
+であればシステムの状態も
+\begin{equation}
+ \lim_{k \rightarrow \infty} x_k = 0
+\end{equation}
+となり，システムが安定であるといえる．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.6 システムの安定性}
+%-------------------------------------------------------------
+さて正則な複素行列$T$を
+\begin{align}
+ T^{-1} A T
+  &=
+  \left(\begin{array}{cccc}
+         \lambda_1 & 0         & \cdots & 0 \\
+	 0         & \lambda_2 &        & 0 \\
+	 \vdots    &           & \ddots & \\
+	 0         & 0         &        & \lambda_n 
+	\end{array}\right) \nonumber \\
+ &\defeq \Lambda
+\end{align}
+を満たすように選べると仮定する
+% (ジョルダン形式になる場合も後の議論はほとんど同じになる)
+．ここで$\lambda_i$は行列$A$の固有値である．この
+$\Lambda$を用いれば
+\begin{align}
+ A^k &= (T \Lambda T^{-1})^k = T \Lambda ^k T^{-1} \nonumber \\
+ &= T
+  \left(\begin{array}{cccc}
+         \lambda_1^k & 0           & \cdots & 0 \\
+	 0           & \lambda_2^k &        & 0 \\
+	 \vdots      &             & \ddots & \\
+	 0           & 0           &        & \lambda_n^k
+	\end{array}\right)
+  T^{-1}
+\end{align}
+となる．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.6 システムの安定性}
+%-------------------------------------------------------------
+よって
+\begin{equation}
+ \lim_{k \rightarrow \infty} A^k = 0
+\end{equation}
+\[\Updownarrow\]
+\begin{equation}
+ \lim_{k \rightarrow \infty} \lambda_i^k = 0, \quad
+  i = 1, 2, \cdots, n
+\end{equation}
+\[\Updownarrow\]
+\begin{equation}
+ \vert \lambda_i \vert < 1, \quad i = 1, 2, \cdots, n
+\end{equation}
+であることが分かる．\\
+つまり，\Blue{行列$A$の固有値の絶対値が1未満であればシステムは安定である}ことが分かる．
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.7 状態フィードバック}
+%-------------------------------------------------------------
+\Blue{連続時間システムとまったく同様}に考えることができる．\\
+いま状態$x_k$が利用できるとする．このとき入力を
+\begin{equation}
+ u_k = F x_k + v_k
+\end{equation}
+とすれば状態方程式は
+\begin{equation}
+ x_{k+1} = (A + B F)x_k + B v_k
+\end{equation}
+となる．ここで$v_k \in \mathbb{R}^m $は新しい入力である．
+このように状態
+フィードバックされた\Blue{閉ループ系の安定性は$(A + BF)$の固有値によって決まる}．\\
+これは連続時間システムの場合とまったく同じである．
+状態フィードバックによりシステムを安定化したり，システムの極を変えたりすることができる．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.7 状態フィードバック(極配置問題)}
+%-------------------------------------------------------------
+\Blue{離散時間システムの極配置問題}:
+$(A+BF)$の固有値を任意の与えられた値にする問題(連続時間システムの場合と同じ)．\\
+
+\vspace{5mm}
+
+連続時間システムと離散時間システムの座標変換がまったく同じ形で表されることに注意すれば，
+離散時間システムに対する極配置問題は連続時間システムと同一の手法で解けることがわかる．
+ただし，ここではシステムの安定性を保証するために指定する極は安定極
+\Blue{(絶対値が1未満)}である必要がある．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.7 状態フィードバック(最適制御)}
+%-------------------------------------------------------------
+安定化フィードバックとして，次の2次形式評価関数を最小にするように選ぶ方法(最
+適フィードバック)がある．
+\begin{equation}
+ J = \sum_{i=0}^{\infty} x_i^T Q x_i + u_i^T R u_i 
+\end{equation}
+ここで$Q$は半正定($Q = H^T H$で表わされる)，$R$は正定($R = L^T L$,
+($L$は正則行列)で表わされる)とする．この$J$を最小にするフィードバッ
+クは$P$をRiccati方程式
+\begin{align}
+ P   &= A^T P A + Q - A^T P B (R + B^T P B)^{-1} B^T P A
+\end{align}
+の正定解として
+\begin{align}
+ u_k &= - (R + B^T P B)^{-1} B^T P A x_k \defeq Fx_k
+\end{align}
+で表わされることが知られている．さらに$(H, A)$が可観測であれば閉ループ系
+が安定になる．
+一般に$Q$と$R$の選び方は試行錯誤となるが，選び方の指針は\Blue{連続時間システム
+と同じ}である．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.7 状態フィードバック(最適制御)}
+%-------------------------------------------------------------
+Riccati方程式の解法としては数値的に安定な以下の方法がよく用いられる．い
+ま$A$が正則であるとする(一般に連続時間システムを離散化したとき，離散時間
+システムの$A$は正則になる)．行列$\Phi$を次のように定義する．
+\begin{equation}
+ \Phi =
+  \left(\begin{array}{cc}
+         A + B R^{-1} B^T A^{-T} Q & - B R^{-1} B^T A^{-T}\\
+	 - A^{-T} Q                &  A^{-T}
+	\end{array}\right)
+\end{equation}
+この$\Phi$の固有値のうち絶対値が1未満なものが$n$個あることが分かっている．
+この$n$個の固有値に対応する固有ベクトルを$w_1, w_2, \cdots, w_n$として，
+次のように分解されているとする．
+\begin{equation}
+ w_i = \left(\begin{array}{c}
+	      \xi_i \\
+	      \eta_i
+	     \end{array}\right)
+\end{equation}
+このとき
+\begin{equation}
+ P = (\eta_1, \eta_2,\cdots,\eta_n)(\xi_1,\xi_2,\cdots,\xi_n)^{-1}
+\end{equation}
+と選べば$P$は正定かつRiccati方程式を満たすことが知られている．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.7 状態フィードバック(サーボ系)}
+%-------------------------------------------------------------
+ここでは特にステップ目標値($r$が一定値)の場合について扱う．連続時間シ
+ステムの場合と同様に積分器を初めに導入する方法を示す．
+まず，システム(\ref{d_state_eq})(\ref{d_output_eq})において$D=0$とし
+た以下の系を考える．
+\begin{align}
+   x_{k+1} &= A x_k + B u_k \label{d_st_proper_state_eq} \\
+       y_k &= C x_k
+\label{d_st_proper_output_eq}
+\end{align}
+ここで$y_k \in \mathbb{R}^m$であり，入力と出力の次数が等しいとする．
+
+積分器に対応するものは
+\begin{equation}
+ \eta_{k} = \sum_{i=1}^{k} (r_{i-1}-y_{i-1}) 
+\end{equation}
+である．1サンプル時間後の$\eta_{k+1}$は
+\begin{equation}
+ \eta_{k+1} = \sum_{i=1}^{k+1} (r_{i-1}-y_{i-1}) 
+   = \sum_{i=1}^{k} (r_{i-1}-y_{i-1}) + (r_k-y_k) = \eta_k + (r_k - y_k) 
+\end{equation}
+と差分方程式で表される．
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.7 状態フィードバック(サーボ系)}
+%-------------------------------------------------------------
+\addtocounter{equation}{-1}
+この積分器
+\begin{align}
+ \eta_{k+1} = \eta_k + (r_k - y_k) = \eta_k + (r_k - C x_k) 
+\end{align}
+とシステム
+\begin{align}
+   x_{k+1} &= A x_k + B u_k \tag{\ref{d_st_proper_state_eq}} \\
+       y_k &= C x_k \tag{\ref{d_st_proper_output_eq}}
+\end{align}
+を合わしたシステム(拡大系)は
+\begin{align}
+ \left(\begin{array}{c}
+	x_{k+1} \\
+	\eta_{k+1}
+       \end{array}\right)
+ &=
+ \left(\begin{array}{cc}
+        A  & 0 \\
+	-C & I
+       \end{array}\right)
+ \left(\begin{array}{c}
+        x_k \\
+	\eta_k
+       \end{array}\right)
+ +
+ \left(\begin{array}{c}
+	B \\
+	0
+       \end{array}\right)
+ u_k +
+ \left(\begin{array}{c}
+        0 \\
+	I
+       \end{array}\right) 
+ r_k \\
+ y_k &=
+  \left(\begin{array}{cc}
+         C & 0 
+	\end{array}\right)
+  \left(\begin{array}{c}
+         x_k \\
+	 \eta_k
+	\end{array}\right)
+\end{align}
+となる．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.7 状態フィードバック(サーボ系)}
+%-------------------------------------------------------------
+\addtocounter{equation}{-2}
+このシステム
+\begin{align}
+ \left(\begin{array}{c}
+	x_{k+1} \\
+	\eta_{k+1}
+       \end{array}\right)
+ &=
+ \left(\begin{array}{cc}
+        A  & 0 \\
+	-C & I
+       \end{array}\right)
+ \left(\begin{array}{c}
+        x_k \\
+	\eta_k
+       \end{array}\right)
+ +
+ \left(\begin{array}{c}
+	B \\
+	0
+       \end{array}\right)
+ u_k +
+ \left(\begin{array}{c}
+        0 \\
+	I
+       \end{array}\right) 
+ r_k \\
+ y_k &=
+  \left(\begin{array}{cc}
+         C & 0 
+	\end{array}\right)
+  \left(\begin{array}{c}
+         x_k \\
+	 \eta_k
+	\end{array}\right)
+\end{align}
+は$(A, B)$可制御かつ
+\begin{equation}
+ \rank \left(\begin{array}{cc}
+	      A - I  & B \\
+	      C      & 0
+	     \end{array}\right)
+ = n + m
+\end{equation}
+のとき安定化できることが知られている．このとき，この拡大システムを安定化さ
+せる状態フィードバックは極配置法や最適制御法で求めることができる．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.7 状態フィードバック(サーボ系)}
+%-------------------------------------------------------------
+安定化
+フィードバックが
+\begin{equation}
+ u_k = \left(\begin{array}{cc}
+	      F & K 
+	     \end{array}\right)
+ \left(\begin{array}{c}
+        x_k \\
+	\eta_k
+       \end{array}\right)
+\end{equation}
+で与えられているとする．このとき閉ループ系は
+\begin{align}
+ \left(\begin{array}{c}
+	x_{k+1} \\
+	\eta_{k+1}
+       \end{array}\right)
+ &=
+ \left(\begin{array}{cc}
+        A + B F & B K  \\
+	-C      & I
+       \end{array}\right)
+ \left(\begin{array}{c}
+        x_k \\
+	\eta_k
+       \end{array}\right)
+ +
+ \left(\begin{array}{c}
+        0 \\
+	I
+       \end{array}\right) 
+ r_k \\
+ y_k &=
+  \left(\begin{array}{cc}
+         C & 0 
+	\end{array}\right)
+  \left(\begin{array}{c}
+         x_k \\
+	 \eta_k
+	\end{array}\right)
+\end{align}
+となる．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.7 状態フィードバック(サーボ系)}
+%-------------------------------------------------------------
+$r_k$が一定値$r$であるとすると，システムは安定であるから
+$i\rightarrow \infty $で\\
+拡大システムの状態はそれぞれ$x_i \to x_\infty , \eta_i \to \eta_\infty$\\
+\begin{itemize}
+	\item $x_i \to x_\infty$ から出力$y$も$y_{\infty} = C x_{\infty}$に収束．
+	\item $\eta_i \to \eta_\infty$から
+		\begin{equation}
+		 \lim_{i \rightarrow \infty} \{\eta_{i+1}-\eta_{i}\} = 0
+		\end{equation}
+		でなければならない．
+\end{itemize}
+これは
+		\begin{align}
+		 \lim_{i \rightarrow \infty} \{ \eta_{i+1} - \eta_i \}
+		  &= \lim_{i \rightarrow \infty}
+		  \{ \eta_i + r - y_i - \eta_i \}\nonumber \\
+		 &= r - y_{\infty}\nonumber \\
+		 &= 0
+\end{align}
+であることを示している．
+よって定常偏差は零，つまり
+\begin{equation}
+ \lim_{i \rightarrow \infty} y_i = r
+\end{equation}
+となる．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.8 出力フィードバック\\
+(同次元観測器（同一次元オブザーバ）)}
+%-------------------------------------------------------------
+次のシステムを考える．
+\begin{equation}
+ \hat{x}_{k+1} = A \hat{x}_k + B u_k - K (y_k - C \hat{x}_k)
+  \label{d_obs_org}
+\end{equation}
+いまシステム
+\begin{align}
+   x_{k+1} &= A x_k + B u_k \tag{\ref{d_st_proper_state_eq}}
+\end{align}
+の状態$x_k$とシステム
+(\ref{d_obs_org})の状態$\hat{x}_k$の差を
+\begin{equation}
+ e_k \defeq x_k - \hat{x}_k
+\end{equation}
+とすれば
+\begin{align}
+ e_{k+1} &= x_{k+1} - \hat{x}_{k+1} \nonumber \\
+         &= A x_k + B u_k 
+	  - A \hat{x}_k - B u_k + K ( C x_k - C \hat{x}_k) \nonumber \\
+         &= (A + KC) e_k
+\end{align}
+となり，$(A + KC)$が安定になるように$K$を選べば入力や初期値$\hat{x}_0$によ
+らず$\hat{x}_i \rightarrow x_i$となることが分かる．つまり，連続系と同じ議論が可能となる．
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{frame}[t]
+%\frametitle{4.8 出力フィードバック\\
+%(同次元観測器（同一次元オブザーバ）)}
+%%-------------------------------------------------------------
+%つまりシステム
+%\begin{equation}
+% \hat{x}_{k+1} = A \hat{x}_k + B u_k - K (y_k - C \hat{x}_k)
+%  \tag{\ref{d_obs_org}}
+%\end{equation}
+%を用いればシステム
+%\begin{align}
+%   x_{k+1} &= A x_k + B u_k \tag{\ref{d_st_proper_state_eq}}
+%\end{align}
+%の状態$x_k$
+%を知ることができる．このようなシステムを\Blue{状態観測器(オブザーバ)}と呼ぶ．
+%$(A + KC)$を安定にする$K$は$(C, A)$が可観測であるときに存在する．実際の求め
+%方としては
+%\begin{equation}
+% \xi_{k+1} = A^T \xi_k + C^T u_k
+%\end{equation}
+%なるシステムを安定化させるフィードバック
+%\begin{equation}
+% u_k =  K^T \xi_k
+%\end{equation}
+%を求めれば$A^T + C^T K^T$が安定になるので$A + K C$も安定となる．
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[t]
+\frametitle{4.8 出力フィードバック\\
+(状態観測器によるフィードバック系の安定性)}
+%-------------------------------------------------------------
+離散時間システムにおいて状態観測器を用いた場合のフィードバック系の安定性は，
+連続時間システムの場合と同様の議論により，
+全体の系の極が状態フィードバックを施したときのシステムの極($(A+BF)$の固有値)と状態観測器の極($(A + KC)$の固有値)で表わされることが分かる．
+\end{frame}

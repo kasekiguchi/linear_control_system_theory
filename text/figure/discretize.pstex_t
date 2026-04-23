@@ -1,0 +1,32 @@
+\begin{picture}(0,0)%
+\epsfig{file=figure/discretize.pstex}%
+\end{picture}%
+\setlength{\unitlength}{4144sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(4332,5190)(1789,-7261)
+\put(6121,-7036){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$t$}%
+}}}
+\put(6121,-4111){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$t$}%
+}}}
+\put(5671,-3211){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$u(t)$}}}
+\put(2161,-2401){\makebox(0,0)[rb]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$u(t)$}}}
+\put(3241,-2446){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$u_k$}}}
+\put(3916,-3571){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$u_{k+1}$}}}
+\put(4591,-2671){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$u_{k+2}$}}}
+\put(5671,-6361){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$y(t)$}}}
+\put(4276,-5596){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$y_{k+2}$}}}
+\put(3601,-5101){\makebox(0,0)[b]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$y_{k+1}$}}}
+\put(2836,-6091){\makebox(0,0)[rb]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$y_k$}}}
+\put(2161,-5101){\makebox(0,0)[rb]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$y(t)$}}}
+\put(2926,-7261){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}$kT$}}}
+\put(3601,-7261){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}$(k+1)T$}}}
+\put(4276,-7261){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}$(k+2)T$}}}
+\put(4951,-7261){\makebox(0,0)[b]{\smash{\SetFigFont{10}{12.0}{\familydefault}{\mddefault}{\updefault}$(k+3)T$}}}
+\put(4951,-6001){\makebox(0,0)[lb]{\smash{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}$y_{k+3}$}}}
+\end{picture}
