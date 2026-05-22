@@ -1,0 +1,114 @@
+\documentclass[fleqn]{article} 
+% hmargin is set narrow (0.7cm) so that each of the 2 columns has
+% the same width (~272pt) as the original A3-landscape 4-column
+% layout. This keeps the wide 6x6-matrix equation from overflowing
+% and reproduces the original line-wrapping / page count (2 pages).
+% includeheadfoot reserves room for the running header/footer.
+\usepackage[a4paper,vmargin=0.8cm,hmargin=0.7cm,includeheadfoot,headsep=4pt,footskip=14pt]{geometry}
+
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{latexsym}
+
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\usepackage{epsfig}
+\usepackage[dvips,xdvi]{color}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%--------------------------------------------------------------
+% textwidth/textheight/margins are controlled by the geometry
+% package above (a4paper). The hardcoded A3-landscape values
+% below were removed so the layout fits A4 portrait.
+%	\setlength{\textwidth}{1120pt}
+%	\setlength{\textheight}{790pt}
+%--------------------------------------------------------------
+%	\setlength{\oddsidemargin}{-50pt}
+%	\setlength{\evensidemargin}{-50pt}
+%--------------------------------------------------------------
+%	\setlength{\topmargin}{-70pt}
+	\setlength{\headheight}{15pt}
+	\setlength{\topskip}{0pt}
+%--------------------------------------------------------------
+	\setlength{\columnseprule}{0.5pt}
+	\setlength{\columnsep}{10pt}
+%--------------------------------------------------------------
+	\renewcommand{\baselinestretch}{1}
+%--------------------------------------------------------------
+	\setlength{\mathindent}{0.5cm}
+	\setlength{\parindent}{7pt}
+%--------------------------------------------------------------
+	\renewcommand{\bottomfraction}{0.99}
+	\renewcommand{\topfraction}{0.99}
+	\renewcommand{\textfraction}{0.01}
+%--------------------------------------------------------------
+%	\pagestyle{empty}
+%--------------------------------------------------------------
+
+
+%----------------------------------------------------------------
+%	definition
+%----------------------------------------------------------------
+%----------------------------------------------------------------
+%   equation 環境
+%----------------------------------------------------------------
+%		\def\topmat{\ \\ \vspace{-4mm}}
+%		\def\botmat{\ \\ \vspace{-2mm}}
+%		\def\bes{\vspace*{2mm}}
+%		\def\ees{\ \\[-2mm]}
+	%........................................................
+	% equationの環境設定(\be,\ee)
+	%      例 \bea 式 & 式 & 式 \nonumber\\ 式 & 式 & 式 \eea
+	%........................................................
+%		\def\be{\\ \ \\[-12mm] \begin{equation}}
+%		\def\ee{\end{equation} \ \\[-11mm]}
+		\newcommand{\be}{\begin{equation}}
+		\newcommand{\ee}{\end{equation}}
+	%........................................................
+	% eqnarrayの環境設定(\bea,\eea)
+	%      例 \bea 式 & 式 & 式 \nonumber\\ 式 & 式 & 式 \eea
+	%........................................................
+%		\def\bea{\\ \ \\[-16mm] \begin{eqnarray}}
+%		\def\eea{\end{eqnarray} \ \\[-13mm]}
+		\newcommand{\bea}{\begin{eqnarray}}
+		\newcommand{\eea}{\end{eqnarray}}
+	%........................................................
+	% 番号なしeqnの環境設定(\nbe,\nee)
+	%      例 \nbe 式 \\ 式  \nee
+	%........................................................
+%		\def\nbe{\\ \ \\[-12mm] \[}
+%		\def\nee{\] \ \\[-11mm]}
+		\newcommand{\nbe}{\[}
+		\newcommand{\nee}{\]}
+	%........................................................
+	% matrixの入力(\bmatrix,\ematrix)
+	%	例 \bmatrix{cc} 1&2\\3&4 \ematrix
+	%........................................................
+		\renewcommand{\bmatrix}{\left[\begin{array}}
+		\newcommand{\ematrix}{\end{array}\right]}
+	%........................................................
+	% Greek character
+	%........................................................
+		\def\gggm{\mu}
+		\def\ggge{\varepsilon}
+		\def\gggw{\omega}
+		\def\gggh{\theta}
+		\def\ggga{\alpha}
+		\def\gggb{\beta}
+		\def\gggc{\gamma}
+		\def\gggd{\delta}
+		\def\gggp{\phi}
+	%........................................................
+	% others
+	%........................................................
+%		\def\half{\frac{1}{2}}
+		\def\defeq{\stackrel{\rm def}{=}}
+
+
+\renewcommand{\baselinestretch}{0.8}
+
+

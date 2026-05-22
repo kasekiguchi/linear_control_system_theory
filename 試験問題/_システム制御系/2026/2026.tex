@@ -1,0 +1,256 @@
+\input{examheader.tex}
+
+%================================================================
+% 全ページ共通のヘッダー（タイトル・学籍番号・氏名）とフッター（ページ番号 1/2 形式）
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{線形システム制御論（2026.05.26）}
+\fancyhead[R]{\underline{学籍番号：　　　　　　　　　　　}\hspace{0.5cm}\underline{氏名：　　　　　　　　　　　　　}}
+\fancyfoot[C]{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+%================================================================
+\begin{document}
+%================================================================
+\begin{multicols}{2}
+%================================================================
+\begin{enumerate}
+%================================================================
+
+%================================================================
+\item
+次の１次元システム
+%\vspace{-1mm}
+\begin{align}
+	\frac{dx}{dt} &= 2 \cdot x + 1 \cdot u
+	\ \ \ \  (A=2, B=1) 
+\nonumber
+%\vspace{-4mm}
+\end{align}
+に対して評価関数
+%\vspace{-1mm}
+\begin{align}
+	J &= \int_0^\infty x^2 + r \cdot u^2 dt
+	\ \ \ \  (Q=1, R=r)
+\nonumber
+%\vspace{-4mm}
+\end{align}
+を最小化する最適フィードバック
+%\vspace{-1mm}
+\begin{align}
+	u=Fx
+\nonumber
+%\vspace{-4mm}
+\end{align}
+を求め，その性質について調べたい．
+%\vspace{-2mm}
+
+\begin{enumerate}
+%\item 
+%最適制御を求めるためのRiccati方程式を示せ．
+%\vspace{3cm}
+%
+%\item
+%Riccati方程式の正定解$P>0$を求めよ．
+%\vspace{8cm}
+%
+\item
+最適フィードバック$u=Fx$を求めよ．
+\vspace{11cm}
+
+\item
+最適フィードバック$u=Fx$を施した後の閉ループ系の状態方程式を求めよ．
+\vspace{4cm}
+
+%\item
+%閉ループ系の極を求めよ．
+%\vspace{2cm}
+%
+\item
+$r\rightarrow 0$としたときの入力と閉ループ系の極を求めよ．
+\vspace{2.5cm}
+
+\item
+$r \rightarrow \infty$としたときの入力と閉ループ系の極を求めよ．
+\vspace{2cm}
+
+%================================================================
+%\vfill\null
+%\columnbreak
+%================================================================
+
+\item
+$r\rightarrow 0$, $r \rightarrow \infty$なる評価関数を用いるということはどのような制御系を設計することに対応するのか，それぞれについて簡潔に述べよ．
+\vspace{5cm}
+\end{enumerate}
+%================================================================
+
+
+%%================================================================
+%\vfill\null
+%\columnbreak
+%%================================================================
+
+%================================================================
+\item
+
+図の３質量系を考える．\\[-1.0cm]
+\begin{center}
+　\epsfig{file=car3.eps,scale=0.4}
+\end{center}
+\vspace{-0.0cm}
+
+この３質量系の状態方程式は$y_0$を出力とすると \\[-0.3cm]
+{\footnotesize
+\begin{align*} 
+\hspace*{-10mm}
+ \frac{d}{dt} \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+		    \end{array}\right)
+ =&
+ \left(\begin{array}{cccccc}
+        0 & 0 & 0 & 1 & 0 & 0      \\
+        0 & 0 & 0 & 0 & 1 & 0      \\
+        0 & 0 & 0 & 0 & 0 & 1      \\
+	-\frac{k_1}{m_0} -\frac{k_2}{m_0}&  \frac{k_1}{m_0} &  \frac{k_2}{m_0} & 0 & 0 & 0 \\
+	 \frac{k_1}{m_1}                & -\frac{k_1}{m_1} &  0               & 0 & 0 & 0 \\
+	 \frac{k_2}{m_2}                &  0               & -\frac{k_2}{m_2} & 0 & 0 & 0 
+       \end{array}\right)
+ \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+       \end{array}\right)
+\\[-2mm]
+ &\hspace*{10mm} +
+ \left(\begin{array}{c}
+        0 \\
+        0 \\
+        0 \\
+	    \frac{1}{m_0} \\
+	    0 \\
+	    0 
+       \end{array}\right)
+        F
+\\[-0.8cm]
+ y &=  \left(\begin{array}{cccccc}
+		1 & 0 & 0 & 0 & 0 & 0 
+       \end{array}\right)
+ \left(\begin{array}{c}
+	         y_0 \\
+		     y_1 \\
+		     y_2 \\
+		     \frac{dy_0}{dt} \\
+		     \frac{dy_1}{dt} \\
+		     \frac{dy_2}{dt}
+       \end{array}\right)
+\end{align*}
+}\\[-0.5cm]
+となる．以下の問いに答えよ．
+\begin{enumerate}
+\item 
+$(m_0, m_1, m_2, k_1, k_2)=(1,1,2,2,1)$の場合，可観測であるか否かを判断せよ．
+\vspace{9cm}
+
+\item
+$(m_0, m_1, m_2, k_1, k_2)=(1,1,2,1,2)$の場合，可観測であるか否かを判断せよ．
+\vspace*{9cm}
+
+\end{enumerate}
+
+%================================================================
+
+%================================================================
+%\vfill\null
+%\columnbreak
+%================================================================
+
+
+
+%================================================================
+\item
+状態方程式
+\[
+	\frac{dx}{dt}= Ax
+\]
+の$A$が以下のリアプノフ方程式を満すと仮定する．以下の問に答えよ．
+\[
+	PA + A^T P = -Q
+\]
+\begin{enumerate}
+\item 
+$P$, $Q$が正定（$P>0$, $Q>0$）である場合に$t \rightarrow \infty$で$x \rightarrow 0$となることを，リアプノフ関数$V=x^T P x$を時間微分することにより説明せよ．
+\vspace{7cm}
+
+\item
+$P$は正定（$P>0$）であるが，$Q$は半正定であり，$Q=H^T H \geq 0$, $H \in R^{p \times n}$, $p < n$と表される場合，$t \rightarrow \infty$で$x \rightarrow 0$となるとは限らない．その理由を説明せよ．
+\vspace{4cm}
+
+%================================================================
+%\vfill\null
+%\columnbreak
+%================================================================
+
+\item
+$(H,A)$可観測の場合には$Hx(t)\equiv0$となる解$x(t)$は$x(t)\equiv0$しか存在しない．この事実を用いて$(H,A)$可観測の場合には$t \rightarrow \infty$で$x \rightarrow 0$となることを説明せよ．
+\vspace{5cm}
+\end{enumerate}
+%================================================================
+
+
+%================================================================
+\item
+次のシステムに対してオブザーバを設計したい．
+\begin{align}
+	\frac{dx}{dt}
+	&=	\bmatrix{cc}
+			0 & 1 \\
+			1 & 2
+		\ematrix
+		x
+		+
+		\bmatrix{c}
+			1 \\
+			1 
+		\ematrix
+		u
+\nonumber \\
+	y 
+	&=	\bmatrix{cc}
+			0 & 1 
+		\ematrix
+		x
+\nonumber 
+\end{align}
+
+\begin{enumerate}
+
+\item 
+オブザーバゲイン$K$の次元に注意してオブザーバの状態方程式を示せ．
+\vspace{5cm}
+
+\item
+オブザーバの極（推定誤差の収束速さ）が$-1$, $-2$となるようにオブザーバゲイン$K$を求めよ．
+\vspace{6.5cm}
+
+\end{enumerate}
+
+
+
+%================================================================
+\end{enumerate}
+%================================================================
+\end{multicols}
+%================================================================
+\end{document}
+%================================================================
+
+
