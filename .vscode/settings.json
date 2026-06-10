@@ -1,0 +1,25 @@
+{
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.message.error.show": false,
+  "latex-workshop.message.warning.show": false,
+  "latex-workshop.latex.tools": [
+    {
+      "name": "typeset-sh-wsl",
+      "command": "wsl",
+      "args": [
+        "sh",
+        "-lc",
+        "cd \"$(wslpath -a -u \"${fileDirname}\")\" ; ./typeset.sh"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "typeset.sh (WSL)",
+      "tools": [
+        "typeset-sh-wsl"
+      ]
+    }
+  ]
+}

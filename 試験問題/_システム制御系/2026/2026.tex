@@ -1,3 +1,4 @@
+% !TeX root = 2026.tex
 \input{examheader.tex}
 
 %================================================================
@@ -22,8 +23,8 @@
 次の１次元システム
 %\vspace{-1mm}
 \begin{align}
-	\frac{dx}{dt} &= 2 \cdot x + 1 \cdot u
-	\ \ \ \  (A=2, B=1) 
+	\frac{dx}{dt} &= 3 \cdot x + 1 \cdot u
+	\ \ \ \  (A=3, B=1) 
 \nonumber
 %\vspace{-4mm}
 \end{align}
@@ -59,13 +60,9 @@
 \vspace{11cm}
 
 \item
-最適フィードバック$u=Fx$を施した後の閉ループ系の状態方程式を求めよ．
-\vspace{4cm}
+最適フィードバック$u=Fx$を施した後の閉ループ系の極と時間応答を求めよ．ただし、初期状態は$x(0)=1$とする．
+\vspace{3cm}
 
-%\item
-%閉ループ系の極を求めよ．
-%\vspace{2cm}
-%
 \item
 $r\rightarrow 0$としたときの入力と閉ループ系の極を求めよ．
 \vspace{2.5cm}
@@ -93,116 +90,43 @@ $r\rightarrow 0$, $r \rightarrow \infty$なる評価関数を用いるという�
 
 %================================================================
 \item
-
-図の３質量系を考える．\\[-1.0cm]
+下図の３質量系を考える．\\[-.8cm]
 \begin{center}
-　\epsfig{file=car3.eps,scale=0.4}
+	% \begin{figures}
+	\includegraphics[width=\linewidth]{mass2.png}	
+	% \end{figure}
+% 　\epsfig{file=car3.eps,scale=0.4}
 \end{center}
-\vspace{-0.0cm}
+\vspace{-0.3cm}
 
-この３質量系の状態方程式は$y_0$を出力とすると \\[-0.3cm]
+この2質量系の運動方程式が以下で与えられている. \\[-0.3cm]
 {\footnotesize
 \begin{align*} 
 \hspace*{-10mm}
- \frac{d}{dt} \left(\begin{array}{c}
-	         y_0 \\
-		     y_1 \\
-		     y_2 \\
-		     \frac{dy_0}{dt} \\
-		     \frac{dy_1}{dt} \\
-		     \frac{dy_2}{dt}
-		    \end{array}\right)
- =&
- \left(\begin{array}{cccccc}
-        0 & 0 & 0 & 1 & 0 & 0      \\
-        0 & 0 & 0 & 0 & 1 & 0      \\
-        0 & 0 & 0 & 0 & 0 & 1      \\
-	-\frac{k_1}{m_0} -\frac{k_2}{m_0}&  \frac{k_1}{m_0} &  \frac{k_2}{m_0} & 0 & 0 & 0 \\
-	 \frac{k_1}{m_1}                & -\frac{k_1}{m_1} &  0               & 0 & 0 & 0 \\
-	 \frac{k_2}{m_2}                &  0               & -\frac{k_2}{m_2} & 0 & 0 & 0 
-       \end{array}\right)
- \left(\begin{array}{c}
-	         y_0 \\
-		     y_1 \\
-		     y_2 \\
-		     \frac{dy_0}{dt} \\
-		     \frac{dy_1}{dt} \\
-		     \frac{dy_2}{dt}
-       \end{array}\right)
-\\[-2mm]
- &\hspace*{10mm} +
- \left(\begin{array}{c}
-        0 \\
-        0 \\
-        0 \\
-	    \frac{1}{m_0} \\
-	    0 \\
-	    0 
-       \end{array}\right)
-        F
-\\[-0.8cm]
- y &=  \left(\begin{array}{cccccc}
-		1 & 0 & 0 & 0 & 0 & 0 
-       \end{array}\right)
- \left(\begin{array}{c}
-	         y_0 \\
-		     y_1 \\
-		     y_2 \\
-		     \frac{dy_0}{dt} \\
-		     \frac{dy_1}{dt} \\
-		     \frac{dy_2}{dt}
-       \end{array}\right)
-\end{align*}
+M_1 \ddot{x}_1&+(f_{v1}+f_{v3} ) \dot{x}_1+(K_1+K_2 ) x_1-f_{v3} \dot{x}_2-K_2 x_2=f\\
+-f_{v3} \dot{x}_1&-K_2 x_1+M_2 \ddot{x}_2+(f_{v2}+f_{v3} ) \dot{x}_2+(K_2+K_3 ) x_2=0\\
+ y &= x_2 - x_1
+ \end{align*} 
 }\\[-0.5cm]
-となる．以下の問いに答えよ．
+このとき，以下の問いに答えよ．\\[-0.5cm]
 \begin{enumerate}
 \item 
-$(m_0, m_1, m_2, k_1, k_2)=(1,1,2,2,1)$の場合，可観測であるか否かを判断せよ．
-\vspace{9cm}
-
-\item
-$(m_0, m_1, m_2, k_1, k_2)=(1,1,2,1,2)$の場合，可観測であるか否かを判断せよ．
-\vspace*{9cm}
-
-\end{enumerate}
-
-%================================================================
-
-%================================================================
-%\vfill\null
-%\columnbreak
-%================================================================
-
-
-
-%================================================================
-\item
-状態方程式
-\[
-	\frac{dx}{dt}= Ax
-\]
-の$A$が以下のリアプノフ方程式を満すと仮定する．以下の問に答えよ．
-\[
-	PA + A^T P = -Q
-\]
-\begin{enumerate}
-\item 
-$P$, $Q$が正定（$P>0$, $Q>0$）である場合に$t \rightarrow \infty$で$x \rightarrow 0$となることを，リアプノフ関数$V=x^T P x$を時間微分することにより説明せよ．
+状態方程式，出力方程式を求めよ.ただし、状態は$x = [x_1, \dot{x}_1, x_2, \dot{x}_2]^T$とする．
 \vspace{7cm}
-
 \item
-$P$は正定（$P>0$）であるが，$Q$は半正定であり，$Q=H^T H \geq 0$, $H \in R^{p \times n}$, $p < n$と表される場合，$t \rightarrow \infty$で$x \rightarrow 0$となるとは限らない．その理由を説明せよ．
-\vspace{4cm}
+$(M_1, M_2, K_1, K_2, K_3, f_{v1}, f_{v2}, f_{v3})$がすべて１の場合，可制御であるか否かを判断せよ．
+\vspace*{5cm}
+\item 
+$(M_1, M_2, K_1, K_2, K_3, f_{v1}, f_{v2}, f_{v3})$がすべて１の場合，可観測であるか否かを判断せよ．
+\vspace{5cm}
+
+\end{enumerate}
+
+%================================================================
 
 %================================================================
 %\vfill\null
 %\columnbreak
-%================================================================
-
-\item
-$(H,A)$可観測の場合には$Hx(t)\equiv0$となる解$x(t)$は$x(t)\equiv0$しか存在しない．この事実を用いて$(H,A)$可観測の場合には$t \rightarrow \infty$で$x \rightarrow 0$となることを説明せよ．
-\vspace{5cm}
-\end{enumerate}
 %================================================================
 
 
@@ -225,7 +149,7 @@ $(H,A)$可観測の場合には$Hx(t)\equiv0$となる解$x(t)$は$x(t)\equiv0$�
 \nonumber \\
 	y 
 	&=	\bmatrix{cc}
-			0 & 1 
+			1 & 1 
 		\ematrix
 		x
 \nonumber 
@@ -235,15 +159,46 @@ $(H,A)$可観測の場合には$Hx(t)\equiv0$となる解$x(t)$は$x(t)\equiv0$�
 
 \item 
 オブザーバゲイン$K$の次元に注意してオブザーバの状態方程式を示せ．
-\vspace{5cm}
+\vspace{4cm}
 
 \item
 オブザーバの極（推定誤差の収束速さ）が$-1$, $-2$となるようにオブザーバゲイン$K$を求めよ．
-\vspace{6.5cm}
+\vspace{5.5cm}
 
 \end{enumerate}
 
 
+%================================================================
+\item
+次のシステムに対し，以下の問いに答えよ．
+\begin{align*}
+	\frac{d}{dt}\bmatrix{c} x_1 \\ x_2 \ematrix &= \bmatrix{cc} 1 & 0 \\ 1 & \alpha\ematrix \bmatrix{c} x_1 \\ x_2 \ematrix+  \bmatrix{c} 2 \\ 1 \ematrix u\\
+	y &= \bmatrix{cc} 1 & 1 \ematrix \bmatrix{c} x_1 \\ x_2 \ematrix
+\end{align*}
+\begin{enumerate}
+\item 伝達関数を求めよ．
+\vspace{4cm}
+\item 状態方程式が不可制御となるための$\alpha$の条件を求めよ．
+\vspace{7cm}
+
+\item
+不可制御の時，座標変換により次のような典型的に不可制御なシステムに変換し，可安定か否かを判断せよ．
+\begin{align*}
+	\frac{d}{dt}\bmatrix{c} z_1 \\ z_2 \ematrix &= \bmatrix{cc} a_1 & a_3 \\ 0 & a_2 \ematrix \bmatrix{c} z_1 \\ z_2 \ematrix+  \bmatrix{c}  b_1 \\ 0 \ematrix u\\
+	y &= \bmatrix{cc} c_1 & c_2\ematrix \bmatrix{c} z_1 \\ z_2 \ematrix
+\end{align*}
+\vspace{7cm}
+
+%================================================================
+%\vfill\null
+%\columnbreak
+%================================================================
+
+\item
+不可制御となるときのシステムの伝達関数を求め，その特徴を示せ.
+\vspace{5cm}
+\end{enumerate}
+%================================================================
 
 %================================================================
 \end{enumerate}

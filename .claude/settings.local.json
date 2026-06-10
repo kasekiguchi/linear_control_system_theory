@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(wsl -e bash -lc \"for c in magick convert sam2p bmeps pdftops gs inkscape python3 uplatex dvipdfmx; do printf '%s => ' \\\\$c; command -v \\\\$c || echo MISSING; done\")",
+      "Bash(wsl -e bash -lc 'for c in magick convert sam2p bmeps pdftops gs inkscape python3 uplatex dvipdfmx; do printf \"%s => \" \"$c\"; command -v \"$c\" || echo MISSING; done')"
+    ]
+  }
+}
